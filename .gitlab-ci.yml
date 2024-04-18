@@ -1,5 +1,4 @@
-# The Docker image that will be used to build your app
-image: "image: python:3.9-slim"
+image: python:3.9-slim
 
 before_script:
   - time apt update
