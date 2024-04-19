@@ -1,4 +1,13 @@
 nav:
     - 🏚️ Home: index.md
 
+    - Learning journals:
+        - Learning journal - Silvester: learning-journals/silvester
+        - Learning journal - Gjalt: learning-journals/gjalt
+        - Learning journal - Ilias: learning-journals/ilias
+        - Learning journal - Floris: learning-journals/floris
+        - Learning journal - Jayden: learning-journals/jayden
+        - Learning journal - Timo: learning-journals/timo
+        - Learning journal - Luc: learning-journals/luc
+
 
