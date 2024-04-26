@@ -53,4 +53,4 @@ deploy:
     name: production
     url: http://145.92.8.145
   only:
-    - master
+    - main
