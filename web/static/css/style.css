@@ -35,6 +35,62 @@ body {
     margin: 0vh;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Volledige hoogte van het scherm */
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-right-container {
+    display: flex;
+    margin-top: 10px; /* Afstand tussen de rijen */
+}
+
+.spacer {
+    width: 10px; /* Breedte van de ruimte tussen de knoppen */
+}
+
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-bottom: 4px solid #bbb; /* Bovenste rand van de 3D-effect */
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Overgang voor een vloeiend effect */
+}
+
+.arrow-btn:before {
+    display: inline-block;
+    content: attr(data-content); /* Gebruik data-attribuut voor pijlsymbolen */
+}
+
+.arrow-up::before {
+    content: '\25B2'; /* Unicode voor omhoog wijzende pijl */
+}
+
+.arrow-down::before {
+    content: '\25BC'; /* Unicode voor omlaag wijzende pijl */
+}
+
+.arrow-left::before {
+    content: '\25C0'; /* Unicode voor naar links wijzende pijl */
+}
+
+.arrow-right::before {
+    content: '\25B6'; /* Unicode voor naar rechts wijzende pijl */
+}
+
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
