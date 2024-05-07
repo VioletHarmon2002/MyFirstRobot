@@ -39,7 +39,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Volledige hoogte van het scherm */
+    height: 100vh;
 }
 
 .arrow-container {
@@ -50,11 +50,11 @@ body {
 
 .left-right-container {
     display: flex;
-    margin-top: 10px; /* Afstand tussen de rijen */
+    margin-top: 10px;
 }
 
 .spacer {
-    width: 10px; /* Breedte van de ruimte tussen de knoppen */
+    width: 10px;
 }
 
 .arrow-btn {
@@ -62,33 +62,33 @@ body {
     height: 50px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    border-bottom: 4px solid #bbb; /* Bovenste rand van de 3D-effect */
+    border-bottom: 4px solid #bbb;
     text-align: center;
     line-height: 50px;
     font-size: 24px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Overgang voor een vloeiend effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .arrow-btn:before {
     display: inline-block;
-    content: attr(data-content); /* Gebruik data-attribuut voor pijlsymbolen */
+    content: attr(data-content);
 }
 
 .arrow-up::before {
-    content: '\25B2'; /* Unicode voor omhoog wijzende pijl */
+    content: '\25B2';
 }
 
 .arrow-down::before {
-    content: '\25BC'; /* Unicode voor omlaag wijzende pijl */
+    content: '\25BC';
 }
 
 .arrow-left::before {
-    content: '\25C0'; /* Unicode voor naar links wijzende pijl */
+    content: '\25C0';
 }
 
 .arrow-right::before {
-    content: '\25B6'; /* Unicode voor naar rechts wijzende pijl */
+    content: '\25B6';
 }
 
 @media only screen and (max-width: 768px) {
