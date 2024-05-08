@@ -8,7 +8,18 @@ nav:
         - Jayden: learning-journals/jayden
         - Timo: learning-journals/timo
         - Luc: learning-journals/luc
-    - 👩‍🎨 User Experience Design:
-        - Figma Design: uxd/figma_design
-
-
+    - 🤖 Endian A:
+        - ⚙️ Embedded code: embedded/robotA
+        - 🖌️ Design: uxd/designRobotA
+        - 🛠️ Production: production/productionA
+    - 🤖 Endian B:
+        - ⚙️ Embedded code: embedded/robotA
+        - 🖌️ Design: uxd/designRobotB
+        - 🛠️ Production: production/productionB
+    - 🤖 Endian C:
+        - ⚙️ Embedded code: embedded/robotA
+        - 🖌️ Design: uxd/designRobotC
+        - 🛠️ Production: production/productionC
+    - ☁️ Web:
+        - 🖌️ Design: uxd/figma_design
+        - ⚙️ Application code: applicationCode
