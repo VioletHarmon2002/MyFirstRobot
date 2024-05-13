@@ -1,13 +1,9 @@
 # BOM Endian A
 
-Here Will be all the necessarry materials documented in a nicely formatted BOM.
+Partlist for little endian A, A.K.A. Three wheeler
 
 ## BOM
 
 |Part #|Manufacturer|Description|Quantity|Price|Subtotal|url|
 |---|---|---|---|---|---|---|
-|MDF|Makerslab|60x60 mm|1|5,50|5,50|Makerslab|
-|Acrylaat|Makerslab|60x60mm|1|16,00|16,00|Makerslab|
-|TS90D Servo|TianKongRC|1.6kg - Continuous|1|4,50|4,50|[servo continious](https://www.tinytronics.nl/nl/mechanica-en-actuatoren/motoren/servomotoren/ts90d-mini-servo-1.6kg-continuous)|
-|PLA|ecoPLA||||||
-|D1 Mini V4.0|wemos|d1 mini|1||||
+| 4563 | Tinytronics | ESP32-D0WDQ6 | 1 | 5,50 | 5,50 | [ESP32-D0WDQ6](https://www.tinytronics.nl/nl/development-boards/microcontroller-boards/met-wi-fi/esp32-d0wdq6-development-board-met-li-ion-li-po-laadcircuit?sort=p.price&order=ASC) |
