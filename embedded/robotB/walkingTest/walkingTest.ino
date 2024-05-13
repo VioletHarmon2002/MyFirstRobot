@@ -1,14 +1,14 @@
 #include <ESP32Servo.h>
 
 // Define the pins for the servos
-#define SERVO_FL_PIN 1
-#define SERVO_RL_PIN 2
+#define SERVO_FL_PIN 6
+#define SERVO_RL_PIN 7
 #define SERVO_FR_PIN 4
 #define SERVO_RR_PIN 5
 
 #define DEFAULT_POS 90
-#define WALK_OFFSET 20
-#define WALK_DELAY 150
+#define WALK_OFFSET 30
+#define WALK_DELAY 350
 
 // Create servo objects
 Servo FL; // Front left leg
@@ -37,20 +37,36 @@ void setup() {
 }
 
 void loop() {
-    FL.write(DEFAULT_POS - WALK_OFFSET);
-    delay(30);
+
+    // Left out
+    Serial.println("Left out");
     RL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(WALK_DELAY);
+    delay(100);
+    FL.write(DEFAULT_POS - WALK_OFFSET);
+
+    // Right in
+    Serial.println("Right in");
     FR.write(DEFAULT_POS - WALK_OFFSET);
-    delay(30);
+    delay(100);
     RR.write(DEFAULT_POS + WALK_OFFSET);
+
+    // Delay
     delay(WALK_DELAY);
+
+    // Left in
+    Serial.println("Left in");
     FL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(30);
+    delay(100);
     RL.write(DEFAULT_POS - WALK_OFFSET);
-    delay(WALK_DELAY);
-    FR.write(DEFAULT_POS + WALK_OFFSET);
-    delay(30);
+
+    // Right out
+    Serial.println("Right out");
     RR.write(DEFAULT_POS - WALK_OFFSET);
+    delay(100);
+    FR.write(DEFAULT_POS + WALK_OFFSET);
+    
+    
+
+    // Delay
     delay(WALK_DELAY);
 }
