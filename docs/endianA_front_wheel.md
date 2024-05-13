@@ -2,7 +2,7 @@
 
 What is the best way to turn the front wheel of endian A.
 
-## Motor
+## The Motor
 
 For the motor we have 2 main options, We have the **servo** and we have a **steppermotor**.
 
@@ -25,7 +25,13 @@ For the motor we have 2 main options, We have the **servo** and we have a **step
 - Con: Can be more expensive than a servo motor.
 - Con: Can be more complex to control and program.
 - Con: Can produce more noise and vibration compared to a servo motor.
-- Con: Stepper motors are very slow.
+- Con: Cheap stepper motors are very slow.
 
 
-## Conclusion
+### Conclusion
+
+Based on these pro's and con's we decided to use a servo motor, because the servo is cheap, fast and easy to prgram. 
+
+## Design
+
+with the design of [remrc](https://www.thingiverse.com/thing:5887157/files). I have chosen to copy his design for the wheels. The files talked about are [here](../3D-Design/STLS/EndianA/wheels/). We are going to 3d print these disigns and test if they are usable for our project.
