@@ -41,17 +41,25 @@
   background-color: #21f32f;
 }
 
-
+.list-item{
+  position: absolute;
+  left: 2px;
+  color: rgb(21, 21, 21);
+}
   
 
   #draggable-container {
     width: 500px;
-    height: 300px;
-    background-color: gray;
+    height: 800px;
+    background-color: rgb(217, 217, 217);
     position: absolute;
     z-index: -1;
-    left: 100px;
+
   }
 .create-draggable-button{
     width: 200px;
+    color: white;
+    cursor: pointer;
+    padding: 30px;
+    font-size: 20px;
 }

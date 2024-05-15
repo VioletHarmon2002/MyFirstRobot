@@ -7,21 +7,20 @@
 </head>
 <body>
     <div id="create-container">
-        <div class="draggable-button create-draggable-button forward" onclick="createDraggableDiv('hoi', 0, 'forward')">Click to create a move node</div>
-        <div class="draggable-button create-draggable-button wait" onclick="createDraggableDiv('hoi', 0, 'wait')">Click to create a wait node</div>
-        <div class="draggable-button create-draggable-button turn" onclick="createDraggableDiv('hoi', 0, 'turn')">Click to create a turn node</div>
-        <div class="draggable-button create-draggable-button jump-to" onclick="createDraggableDiv('hoi', 0, 'move')">Click to create a move node</div>
-        
+        <div class=" create-draggable-button forward" onclick="createDraggableDiv('hoi', 0, 'forward')">Click to create a move node</div>
+        <div class=" create-draggable-button wait" onclick="createDraggableDiv('hoi', 0, 'wait')">Click to create a wait node</div>
+        <div class=" create-draggable-button turn" onclick="createDraggableDiv('hoi', 0, 'turn')">Click to create a turn node</div>
+        <div class=" create-draggable-button move" onclick="createDraggableDiv('hoi', 0, 'move')">Click to create a move node</div>
     </div>
-    <div style="display: flex; flex-direction: row;">
+    <div >
+        <div class="container" id="draggable-container">
+            <div id="list"></div>
+            <!-- <div class="draggable-parent">
+                <div class="draggable-button wait" id="hey">forward (s)</div>
+                <input class="input forward-input" type="number"/>
+            </div> -->
+        </div> 
     </div>
-    <div id="list"></div>
-    <div class="container" id="draggable-container">
-        <!-- <div class="draggable-parent">
-            <div class="draggable-button wait" id="hey">forward (s)</div>
-            <input class="input forward-input" type="number"/>
-        </div> -->
-    </div> 
     
     <script src="script.js"></script>
 </body>

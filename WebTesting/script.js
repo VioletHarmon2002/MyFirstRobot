@@ -2,9 +2,23 @@
 // const ctx = canvas.getContext('2d');
 // let isDragging = false;
 // let dragOffsetX, dragOffsetY;
+const canvas = document.getElementById('draggable-container')
+const CANVAS_WIDTH = 500;
+const CANVAS_HEIGHT = 800;
+const NODE_HEIGHT = 50;
+
+canvas.style.width = CANVAS_WIDTH + 'px';
+canvas.style.height = CANVAS_HEIGHT + 'px';
+
+const DRAGGABLE_BORDER_X_MIN = 0;
+const DRAGGABLE_BORDER_X_MAX = CANVAS_HEIGHT;
+const DRAGGABLE_BORDER_Y_MIN = 0;
+const DRAGGABLE_BORDER_Y_MAX = CANVAS_WIDTH;
+const scale = 50;
+
 var create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
 var draggable_objects = Array.from(document.querySelectorAll('.draggable'));
-const scale = 50;
+addListNumbers(10);
 
 function addListNumbers(n){
   const list_element = document.querySelector('#list');
@@ -12,27 +26,25 @@ function addListNumbers(n){
     var item = document.createElement("p");
     item.className = "list-item";
     item.textContent = i + 1;
+    item.style.top = i*NODE_HEIGHT + "px";
     list_element.appendChild(item);
   }
 }
-addListNumbers(10);
 
 function clampToNearestScale(number) {
   return Math.round(number / scale) * scale;
 }
 
 function loadDraggables(){
-    draggable_objects = Array.from(document.querySelectorAll('.draggable-parent'));
-    
-    
-    for (let i = 0; i < draggable_objects.length; i++) {
-        let element = draggable_objects[i];
-        dragElement(element);
-        console.log(element);
-    }
+  draggable_objects = Array.from(document.querySelectorAll('.draggable-parent'));
+  for (let i = 0; i < draggable_objects.length; i++) {
+      let element = draggable_objects[i];
+      dragElement(element);
+      console.log(element);
   }
+}
   
-  function createDraggableDiv(id, topPosition, type) {
+function createDraggableDiv(id, topPosition, type) {
   // Create the outer div
   var div = document.createElement("div");
   div.id = id;
@@ -98,19 +110,10 @@ function loadCreateDraggables(){
 loadDraggables();
 loadCreateDraggables();
 
-const canvas = document.getElementById('draggable-container')
-const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 300;
 
-const NODE_HEIGHT = 50;
 
-const DRAGGABLE_BORDER_X_MIN = 0;
-const DRAGGABLE_BORDER_X_MAX = 500;
-const DRAGGABLE_BORDER_Y_MIN = 0;
-const DRAGGABLE_BORDER_Y_MAX = 300;
 
-canvas.style.width = CANVAS_WIDTH + 'px';
-canvas.style.height = CANVAS_HEIGHT + 'px';
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   const moveDiv = elmnt.getElementsByClassName('draggable-button');
@@ -121,7 +124,7 @@ function dragElement(elmnt) {
       console.error("Invalid closestDiv.");
       return;
     }
-    targetDiv.style.left = "0px";
+    targetDiv.style.left = "20px";
   }
     
   let newY = 0;
