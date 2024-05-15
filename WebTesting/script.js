@@ -20,17 +20,18 @@ function loadDraggables(){
     }
 }
 
-function createDraggableDiv(id, topPosition) {
+function createDraggableDiv(id, topPosition, type) {
   // Create the outer div
   var div = document.createElement("div");
   div.id = id;
-  div.className = "draggable";
+  div.className = "draggable " + type;
   div.style.top = topPosition + "px";
+  div.style.left = "300px";
 
   // Create the inner div
   var innerDiv = document.createElement("div");
   innerDiv.className = "draggable-button";
-  innerDiv.textContent = "Click here to move";
+  innerDiv.textContent = "Forward movement";
 
   // Append the inner div to the outer div
   div.appendChild(innerDiv);
@@ -46,7 +47,7 @@ function loadCreateDraggables(){
     let element = create_draggable_buttons[i];
     element.addEventListener('mousedown', function (e) {
         console.log("HOI");
-        createDraggableDiv("hallo", 70);
+        createDraggableDiv("hallo", 0);
         loadDraggables();
     })
 }

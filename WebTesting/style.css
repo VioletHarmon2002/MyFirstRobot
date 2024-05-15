@@ -5,6 +5,10 @@
   border: 1px solid #d3d3d3;
   text-align: center;
 }
+#create-container{
+  display: flex;
+  flex-direction: row;
+}
 
 .draggable-button {
     padding: 10px;
@@ -12,6 +16,21 @@
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
+}
+.forward {
+  background-color: #2196F3;
+}
+
+.wait {
+  background-color: #d51010;
+}
+
+.jump-to {
+  background-color: #f321b8;
+}
+
+.turn{
+  background-color: #21f32f;
 }
 
 
