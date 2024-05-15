@@ -4,8 +4,8 @@
 | REQ number | Description | MoSCoW | Date added | Team member |
 |---|---|---|---|---|
 | REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald |
-| | tekst hier timo :) | | | |
-| ~~REQ002~~ | ~~The robot must have moving parts~~ | wont | 24-04 | Gerald |
+| | The robot need to have moving parts and could be able to do precise movements. | | | |
+| ~~REQ002~~ | ~~The robot must have moving parts~~ | Wont | 24-04 | Gerald |
 | REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald |
 | REQ004 | The price per robot must be as low as possible (maximum €20) | Must | 24-04 | Gerald |
 | REQ005 | Webapp is a docker IMG that runs on a Raspberry Pi | Must | 24-04 | Gerald |
