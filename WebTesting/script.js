@@ -4,7 +4,18 @@
 // let dragOffsetX, dragOffsetY;
 var create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
 var draggable_objects = Array.from(document.querySelectorAll('.draggable'));
-const scale = 20;
+const scale = 50;
+
+function addListNumbers(n){
+  const list_element = document.querySelector('#list');
+  for(var i = 0; i < n; i++){
+    var item = document.createElement("p");
+    item.className = "list-item";
+    item.textContent = i + 1;
+    list_element.appendChild(item);
+  }
+}
+addListNumbers(10);
 
 function clampToNearestScale(number) {
   return Math.round(number / scale) * scale;
@@ -55,7 +66,16 @@ function loadDraggables(){
   }
   else if(type == 'turn'){
     innerDiv.className = "draggable-button turn";
-    innerDiv.textContent = "turn (direction):";
+    innerDiv.textContent = "turn (degrees):";
+  
+    var inputElement = document.createElement("input");
+    inputElement.classList.add('input', 'forward-input');
+    inputElement.setAttribute('type', 'number');
+    div.appendChild(inputElement);
+  }
+  else if(type == 'move'){
+    innerDiv.className = "draggable-button move";
+    innerDiv.textContent = "move to step (index):";
   
     var inputElement = document.createElement("input");
     inputElement.classList.add('input', 'forward-input');

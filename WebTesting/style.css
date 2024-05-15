@@ -33,7 +33,7 @@
   background-color: #d51010;
 }
 
-.jump-to {
+.move {
   background-color: #f321b8;
 }
 
@@ -50,6 +50,7 @@
     background-color: gray;
     position: absolute;
     z-index: -1;
+    left: 100px;
   }
 .create-draggable-button{
     width: 200px;
