@@ -6,16 +6,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div>
+        <div class="draggable-button create-draggable-button">Click to create a move node</div>
+
+    </div>
     <div class="container" id="draggable-container">
-        <div id="mydiv" class="draggable">
-            <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-            <div id="mydivheader">Click here to move</div>
+        <div  class="draggable">
+            <div class="draggable-button">Click here to move</div>
         </div>
-        <div id="mydiv" class="draggable">
-            <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-            <div id="mydivheader">Click here to move</div>
+        <div class="draggable" style="top: 70px">
+            <div class="draggable-button">Click here to move</div>
         </div>
     </div> 
+    
     <script src="script.js"></script>
 </body>
 </html>

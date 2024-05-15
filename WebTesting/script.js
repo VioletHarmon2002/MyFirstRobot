@@ -2,64 +2,104 @@
 // const ctx = canvas.getContext('2d');
 // let isDragging = false;
 // let dragOffsetX, dragOffsetY;
+var create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
+var draggable_objects = Array.from(document.querySelectorAll('.draggable'));
 
-const draggable_objects = Array.from(document.querySelectorAll('.draggable'));
-// let active_drag_element;
-// function mouseHoverOver(index) {
-//     console.log('Mouse is hovering over element: ' + index);
-//     active_drag_element = draggable_objects[index];
-// }
-// function mouseHoverOut(index) {
-//     console.log('Mouse is hovering out element: ' + index);
-//     active_drag_element = null;
-// }
-
-// for (let i = 0; i < draggable_objects.length; i++) {
-//     const element = draggable_objects[i];
-//     element.addEventListener('mouseover', () => {
-//         mouseHoverOver(i);
-//     });
-//     element.addEventListener('mouseout', () => {
-//         mouseHoverOut(i);
-//     });
-// }
-// canvas.addEventListener('mousemove', (e) => {
-//     console.log(isDragging);
-//     if (isDragging) {
-//         const mouseX = e.clientX - canvas.getBoundingClientRect().left;
-//         const mouseY = e.clientY - canvas.getBoundingClientRect().top;
-//         const canvasRect = canvas.getBoundingClientRect();
-//         let newX = mouseX - dragOffsetX;
-//         let newY = mouseY - dragOffsetY;
-//         newX = Math.min(canvasRect.width - active_drag_element.offsetWidth, Math.max(0, newX));
-//         newY = Math.min(canvasRect.height - active_drag_element.offsetHeight, Math.max(0, newY));
-        
-//         active_drag_element.style.left = newX + 'px';
-//         active_drag_element.style.top = newY + 'px';
-//     }
-// });
-
-// canvas.addEventListener('mousedown', () => {
-//     isDragging = true;
-// });
-// canvas.addEventListener('mouseup', () => {
-//     isDragging = false;
-// });
-
-for (let i = 0; i < draggable_objects.length; i++) {
-    let element = draggable_objects[i];
-    dragElement(element);
+function loadDraggables(){
+    draggable_objects = Array.from(document.querySelectorAll('.draggable'));
+    
+    
+    for (let i = 0; i < draggable_objects.length; i++) {
+        let element = draggable_objects[i];
+        dragElement(element);
+    }
 }
+
+function createDraggableDiv(id, topPosition) {
+  // Create the outer div
+  var div = document.createElement("div");
+  div.id = id;
+  div.className = "draggable";
+  div.style.top = topPosition + "px";
+
+  // Create the inner div
+  var innerDiv = document.createElement("div");
+  innerDiv.className = "draggable-button";
+  innerDiv.textContent = "Click here to move";
+
+  // Append the inner div to the outer div
+  div.appendChild(innerDiv);
+
+  // Append the outer div to the document body
+  document.body.appendChild(div);
+}
+
+function loadCreateDraggables(){
+  const create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
+  for (let i = 0; i < create_draggable_buttons.length; i++) {
+    let element = create_draggable_buttons[i];
+    element.addEventListener('mousedown', function (e) {
+        console.log("HOI");
+        createDraggableDiv("hallo", 70);
+        loadDraggables();
+    })
+}
+
+}
+
+loadDraggables();
+loadCreateDraggables();
 
 const canvas = document.getElementById('draggable-container')
 const CANVAS_WIDTH = 500;
 const CANVAS_HEIGHT = 300;
+
+const DRAGGABLE_BORDER_X_MIN = 0;
+const DRAGGABLE_BORDER_X_MAX = 500;
+const DRAGGABLE_BORDER_Y_MIN = 0;
+const DRAGGABLE_BORDER_Y_MAX = 300;
 
 canvas.style.width = CANVAS_WIDTH + 'px';
 canvas.style.height = CANVAS_HEIGHT + 'px';
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
       elmnt.onmousedown = dragMouseDown;
+
+      function getShortestDistance(targetDiv, divArray) {
+        let shortestDistance = Infinity;
+        let closestDiv = null;
+            for (let i = 0; i < divArray.length; i++) {
+            const currentDiv = divArray[i];
+            const rect1 = targetDiv.getBoundingClientRect();
+            const rect2 = currentDiv.getBoundingClientRect();
+            const distance = Math.sqrt(
+                Math.pow(rect1.left - rect2.left, 2) + Math.pow(rect1.top - rect2.top, 2)
+            );
+                if (distance < shortestDistance && currentDiv != targetDiv) {
+                shortestDistance = distance;
+                closestDiv = currentDiv;
+            }
+        }
+        return closestDiv;
+    }
+
+    function snapToClosestDiv(targetDiv, closestDiv) {
+      if (!closestDiv || !closestDiv.getBoundingClientRect) {
+        console.error("Invalid closestDiv.");
+        return;
+    }
+      const rect1 = targetDiv;
+      const rect2 = closestDiv.getBoundingClientRect();
+  
+      const offsetX = rect2.left - rect1.left;
+      const offsetY = rect2.top -  rect1.top;
+      
+      const newX = rect2.top;
+      const newY = rect2.left;
+
+      targetDiv.style.top = newX + "px";
+      targetDiv.style.left = newY + "px";
+  }
     
   
     function dragMouseDown(e) {
@@ -89,7 +129,7 @@ function dragElement(elmnt) {
       let newX = (elmnt.offsetTop - pos2);
       let newY = (elmnt.offsetLeft - pos1);
       console.log(newX + " " + newY)
-      if(newX < 0 || newX >= CANVAS_HEIGHT - element_height || newY < 0 || newY >= CANVAS_WIDTH - element_width) {
+      if(newX < DRAGGABLE_BORDER_Y_MIN || newX >= DRAGGABLE_BORDER_Y_MAX || newY < DRAGGABLE_BORDER_X_MIN || newY >= DRAGGABLE_BORDER_X_MAX) {
         //console.log("NEE")
         //closeDragElement();
 
@@ -106,5 +146,9 @@ function dragElement(elmnt) {
       // stop moving when mouse button is released:
       document.onmouseup = null;
       document.onmousemove = null;
+      var closestDiv = getShortestDistance(elmnt, draggable_objects);
+      console.log(closestDiv);
+      snapToClosestDiv(elmnt, closestDiv);
+
     }
   }

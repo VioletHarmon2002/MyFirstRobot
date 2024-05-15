@@ -1,24 +1,29 @@
 .draggable {
-    
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
 }
-#mydiv {
-    position: absolute;
-    z-index: 9;
-    background-color: #f1f1f1;
-    border: 1px solid #d3d3d3;
-    text-align: center;
-  }
-  
-  #mydivheader {
+
+.draggable-button {
     padding: 10px;
     cursor: move;
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
-  }
+}
+
+
+  
+
   #draggable-container {
     width: 500px;
     height: 300px;
     background-color: gray;
     position: absolute;
+    z-index: -1;
   }
+.create-draggable-button{
+    width: 200px;
+}
