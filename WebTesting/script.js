@@ -11,47 +11,68 @@ function clampToNearestScale(number) {
 }
 
 function loadDraggables(){
-    draggable_objects = Array.from(document.querySelectorAll('.draggable'));
+    draggable_objects = Array.from(document.querySelectorAll('.draggable-parent'));
     
     
     for (let i = 0; i < draggable_objects.length; i++) {
         let element = draggable_objects[i];
         dragElement(element);
+        console.log(element);
     }
-}
-
-function createDraggableDiv(id, topPosition, type) {
+  }
+  
+  function createDraggableDiv(id, topPosition, type) {
   // Create the outer div
   var div = document.createElement("div");
   div.id = id;
-  div.className = "draggable " + type;
-  div.style.top = topPosition + "px";
+  div.className = "draggable-parent";
   div.style.left = "300px";
-
+  
   // Create the inner div
   var innerDiv = document.createElement("div");
-  innerDiv.className = "draggable-button";
-  innerDiv.textContent = "Forward movement";
-
-  // Append the inner div to the outer div
+  
   div.appendChild(innerDiv);
-
   parentDiv = document.querySelector("#draggable-container");
   parentDiv.appendChild(div);
+
+  if(type == 'forward'){
+    innerDiv.className = "draggable-button forward";
+    innerDiv.textContent = "forward (s):";
+    
+    var inputElement = document.createElement("input");
+    inputElement.classList.add('input', 'forward-input');
+    inputElement.setAttribute('type', 'number');
+    div.appendChild(inputElement);
+  } 
+  else if(type == 'wait'){
+    innerDiv.className = "draggable-button wait";
+    innerDiv.textContent = "wait (s):";
   
+    var inputElement = document.createElement("input");
+    inputElement.classList.add('input', 'forward-input');
+    inputElement.setAttribute('type', 'number');
+    div.appendChild(inputElement);
+  }
+  else if(type == 'turn'){
+    innerDiv.className = "draggable-button turn";
+    innerDiv.textContent = "turn (direction):";
+  
+    var inputElement = document.createElement("input");
+    inputElement.classList.add('input', 'forward-input');
+    inputElement.setAttribute('type', 'number');
+    div.appendChild(inputElement);
+  }
+  
+
+  // Append the inner div to the outer div
+  loadDraggables();
 }
 
 function loadCreateDraggables(){
   const create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
   for (let i = 0; i < create_draggable_buttons.length; i++) {
     let element = create_draggable_buttons[i];
-    element.addEventListener('mousedown', function (e) {
-        console.log("HOI");
-        createDraggableDiv("hallo", 0);
-        loadDraggables();
-    })
-}
-
+  }
 }
 
 loadDraggables();
@@ -71,47 +92,11 @@ const DRAGGABLE_BORDER_Y_MAX = 300;
 canvas.style.width = CANVAS_WIDTH + 'px';
 canvas.style.height = CANVAS_HEIGHT + 'px';
 function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-      elmnt.onmousedown = dragMouseDown;
-
-      function getShortestDistance(targetDiv, divArray) {
-        let shortestDistance = Infinity;
-        let closestDiv = null;
-            for (let i = 0; i < divArray.length; i++) {
-            const currentDiv = divArray[i];
-            const rect1 = targetDiv.getBoundingClientRect();
-            const rect2 = currentDiv.getBoundingClientRect();
-            const distance = Math.sqrt(
-                Math.pow(rect1.left - rect2.left, 2) + Math.pow(rect1.top - rect2.top, 2)
-            );
-                if (distance < shortestDistance && currentDiv != targetDiv) {
-                shortestDistance = distance;
-                closestDiv = currentDiv;
-            }
-        }
-        return closestDiv;
-    }
-
-    function snapToClosestDiv(targetDiv, closestDiv) {
-      if (!closestDiv || !closestDiv.getBoundingClientRect) {
-        console.error("Invalid closestDiv.");
-        return;
-    }
-      const rect1 = targetDiv.getBoundingClientRect();
-      const rect2 = closestDiv;
-  
-      const offsetX = rect2.left - rect1.left;
-      const offsetY = rect2.top - rect1.top;
-      
-      const newX = rect2.left;
-      let newY = rect2.top;
-      
-      targetDiv.style.top = newX + "px";
-      targetDiv.style.left = newY + "px";
-  }
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  const moveDiv = elmnt.getElementsByClassName('draggable-button');
+  moveDiv[0].onmousedown = dragMouseDown;
 
   function snapToLeftSide(targetDiv){
-    
     if (!targetDiv || !targetDiv.getBoundingClientRect) {
       console.error("Invalid closestDiv.");
       return;
@@ -130,14 +115,13 @@ function dragElement(elmnt) {
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
 
+
     function closeDragElement() {
       // stop moving when mouse button is released:
       document.onmouseup = null;
       document.onmousemove = null;
-      var closestDiv = getShortestDistance(elmnt, draggable_objects);
       newY = clampToNearestScale(newY);
-      elmnt.style.top = newY + "px";  
-      console.log(closestDiv);
+         elmnt.style.top = newY + "px";  
       // snapToClosestDiv(elmnt, closestDiv);
       snapToLeftSide(elmnt);
     }
@@ -155,6 +139,7 @@ function dragElement(elmnt) {
 
     element_width = 180;
     element_height = 100;
+    
 
     
     newY = (elmnt.offsetTop - pos2);
@@ -167,6 +152,7 @@ function dragElement(elmnt) {
       //closeDragElement();
 
     } else {
+      // elmnt.style.top = newY + "px";
       elmnt.style.top = newY + "px";
       elmnt.style.left = newX + "px";
     }
