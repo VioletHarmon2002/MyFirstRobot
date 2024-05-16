@@ -1,0 +1,65 @@
+.draggable {
+  /* position: absolute; */
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+.draggable-parent {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+#create-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.draggable-button {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
+}
+.forward {
+  background-color: #2196F3;
+}
+.forward-input{
+  width: 50px;
+}
+
+.wait {
+  background-color: #d51010;
+}
+
+.move {
+  background-color: #f321b8;
+}
+
+.turn{
+  background-color: #21f32f;
+}
+
+.list-item{
+  position: absolute;
+  left: 2px;
+  color: rgb(21, 21, 21);
+}
+  
+
+  #draggable-container {
+    width: 500px;
+    height: 800px;
+    background-color: rgb(217, 217, 217);
+    position: absolute;
+    z-index: -1;
+
+  }
+.create-draggable-button{
+    width: 200px;
+    color: white;
+    cursor: pointer;
+    padding: 30px;
+    font-size: 20px;
+}
