@@ -1,0 +1,11 @@
+| Requirement                     |Tribot|Robot dog|Classic|
+|---------------------------------|------|---------|-------|
+|Wow-factor (moving parts)        |It has a front wheel on a servo, we don't yet know if it has precise enough movement.||          |
+|Easy to (dis)assemble            |Depending on how complicated our design will be and how we will mount the motor, wheels and servo, it will be easy to assemble and dissasemble.||          |
+|Can handle repeated (dis)assembly|This will also depend on our design, especially on the motor assembly. The rest is just a plate (as of now) so it will be strong enough.|           |          |
+|Total price of robot is below €20|Yes, the robot is pretty simple so it's cheap.|           |          |
+|Max movement speed of 2km/h      |It's driven by a DC-motor, so we can adjust the speed to 2km/h.|           |          |
+|Usable on open day               |Yes, it's a simple robot that students can assemble and drive themselves.|           |          |
+|Usable in studios                |Depends on what we add, if it has no sensors it will be too simple|           |          |
+|Attracts our target audience     |Don't know yet|           |          |
+|Bill of materials                |As of now it has 1 DC motor, 1 servo, 1 microcontroller and a battery. The rest is lasercut wood so the BOM is very small.|           |          |
