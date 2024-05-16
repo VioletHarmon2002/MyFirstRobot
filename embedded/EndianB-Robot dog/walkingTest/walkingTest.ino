@@ -1,6 +1,3 @@
-This is a simple Arduino program for controlling a four-legged robot using servos. The ESP32Servo library is used to control the servos:
-
-```cpp
 #include <ESP32Servo.h>
 
 // Define the pins for the servos
@@ -18,11 +15,7 @@ Servo FL; // Front left leg
 Servo FR; // Front right leg
 Servo RL; // Rear left leg
 Servo RR; // Rear right leg
-```
 
-In the setup function, serial communication is initialized, the servos are attached to their respective pins, and the servos are moved to their default positions. A delay of 3 seconds is added at the end:
-
-```cpp
 void setup() {
   // Initialize serial communication
   Serial.begin(115200);
@@ -40,13 +33,11 @@ void setup() {
   RR.write(DEFAULT_POS);
 
   delay(3000);
+
 }
-```
 
-In the loop function, the robot performs a walking cycle. The cycle consists of moving the left legs out and the right legs in, then moving the left legs in and the right legs out. Each step is accompanied by a delay to ensure smooth movement. The cycle repeats indefinitely.
-
-```cpp
 void loop() {
+
     // Left out
     Serial.println("Left out");
     RL.write(DEFAULT_POS + WALK_OFFSET);
@@ -73,8 +64,9 @@ void loop() {
     RR.write(DEFAULT_POS - WALK_OFFSET);
     delay(100);
     FR.write(DEFAULT_POS + WALK_OFFSET);
+    
+    
 
     // Delay
     delay(WALK_DELAY);
 }
-```
