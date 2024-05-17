@@ -33,7 +33,7 @@
 | NFR004 | The database is made with MariaDB | 24-04 | Ilias |
 | NFR005 | The backend of the webapp is programmed in PHP | 24-04 | Gerald |
 | NFR006 | The certification is done with LetsEncrypt | 24-04 | Gerald |
-| NFR007 | All code should follow the IoT code conventions, as defined in the individual project | 17-5 | Silvester |
+| NFR007 | All code should follow the IoT code conventions, as defined in the individual project | 17-05 | Silvester |
 
 # Definition of Done
 
