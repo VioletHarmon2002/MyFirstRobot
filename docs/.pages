@@ -9,15 +9,15 @@ nav:
         - Timo: learning-journals/timo
         - Luc: learning-journals/luc
     - 🤖 Endian A:
-        - ⚙️ Embedded code: embedded/robotA
+        - ⚙️ Embedded code: embedded/robotA-Tribot.md
         - 🖌️ Design: uxd/designRobotA
         - 🛠️ Production: production/productionA
     - 🤖 Endian B:
-        - ⚙️ Embedded code: embedded/robotA
+        - ⚙️ Embedded code: embedded/robotB-RobotDog.md
         - 🖌️ Design: uxd/designRobotB
         - 🛠️ Production: production/productionB
     - 🤖 Endian C:
-        - ⚙️ Embedded code: embedded/robotA
+        - ⚙️ Embedded code: embedded/robotC-Classic(O.G.).md
         - 🖌️ Design: uxd/designRobotC
         - 🛠️ Production: production/productionC
     - ☁️ Web:
