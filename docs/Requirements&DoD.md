@@ -12,7 +12,7 @@
 | REQ006 | The robot must fit in the Smart city sub theme | Must | 24-04 | Gerald |
 | | (Smart mobility, Smart buildings, Public safety & security, Efficient government services, Waste management, Low-power sensors & Networks, Smart home networks, Smart supply chain and logistics management, Digital citizen, E-governance, Intelligent farming.)| | | 
 | ~~REQ007~~ | ~~There must be a souvenir for family members to take home~~ | Wont | 24-04 |  |
-| REQ008 | The robot is not faster than 2km an hour | Must | 24-04 | Floris |
+| ~~REQ008~~ | ~~The robot is not faster than 2km an hour~~ | Won't | 24-04 | Floris |
 | REQ009 | The webapp must be linked to a domain name that can be changed later (no hardcoding in PHP backend) | Must | 24-04 | Gerald |
 | REQ010 | There must be enough pins on the mcu to expand the amount of sensors at a later time. | Must | 24-04 | Gerald |
 | REQ011 | The robot is able to be used as learning and teaching platform for other courses | Must | 24-04 | Gerald |
