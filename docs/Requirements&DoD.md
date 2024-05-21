@@ -34,6 +34,7 @@
 | NFR005 | The backend of the webapp is programmed in PHP | 24-04 | Gerald |
 | NFR006 | The certification is done with LetsEncrypt | 24-04 | Gerald |
 | NFR007 | All code should follow the IoT code conventions, as defined in the individual project | 17-05 | Silvester |
+| NFR008 | The web app should follow the HvA style/identity |
 
 # Definition of Done
 
