@@ -5,19 +5,20 @@
 const canvas = document.getElementById('draggable-container')
 const CANVAS_WIDTH = 500;
 const CANVAS_HEIGHT = 800;
-const NODE_HEIGHT = 50;
+const NODE_HEIGHT = 70;
 
 canvas.style.width = CANVAS_WIDTH + 'px';
 canvas.style.height = CANVAS_HEIGHT + 'px';
 
 const DRAGGABLE_BORDER_X_MIN = 0;
-const DRAGGABLE_BORDER_X_MAX = CANVAS_HEIGHT;
+const DRAGGABLE_BORDER_X_MAX = CANVAS_WIDTH;
 const DRAGGABLE_BORDER_Y_MIN = 0;
-const DRAGGABLE_BORDER_Y_MAX = CANVAS_WIDTH;
-const scale = 50;
+const DRAGGABLE_BORDER_Y_MAX = CANVAS_HEIGHT;
+const scale = NODE_HEIGHT ;
 
 var create_draggable_buttons = Array.from(document.querySelectorAll('.create-draggable-button'));
 var draggable_objects = Array.from(document.querySelectorAll('.draggable'));
+var commands_array = {};
 addListNumbers(10);
 
 function addListNumbers(n){
@@ -43,7 +44,7 @@ function loadDraggables(){
       console.log(element);
   }
 }
-  
+
 function createDraggableDiv(id, topPosition, type) {
   // Create the outer div
   var div = document.createElement("div");
@@ -107,16 +108,31 @@ function loadCreateDraggables(){
   }
 }
 
+function uploadProgram(){
+  console.log(commands_array);
+}
+function reloadNodeValues(){
+  const container = document.querySelector('#draggable-container');
+  const array = container.getElementsByClassName("input");
+  
+  for(var i = 0; i < array.length; i++) {
+    console.log(array[i].value);
+  }
+}
+
 loadDraggables();
 loadCreateDraggables();
 
-
+function setNodeInArray(index, type, value) {
+  commands_array[index] = [type, value];
+}
 
 
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   const moveDiv = elmnt.getElementsByClassName('draggable-button');
+  const inputElement = elmnt.getElementsByClassName('input')[0];
   moveDiv[0].onmousedown = dragMouseDown;
 
   function snapToLeftSide(targetDiv){
@@ -146,6 +162,12 @@ function dragElement(elmnt) {
       newY = clampToNearestScale(newY);
          elmnt.style.top = newY + "px";  
       // snapToClosestDiv(elmnt, closestDiv);
+      console.log(elmnt.id);
+      const index = newY / NODE_HEIGHT;
+      const input = inputElement.value;
+      console.log(index);
+      setNodeInArray(index, elmnt.id, input);
+      // reloadNodeValues();
       snapToLeftSide(elmnt);
     }
 
@@ -167,7 +189,6 @@ function dragElement(elmnt) {
     
     newY = (elmnt.offsetTop - pos2);
     let newX = (elmnt.offsetLeft - pos1);
-    console.log(newY);
 
     // console.log(newX + " " + newY);
     if(newY < DRAGGABLE_BORDER_Y_MIN || newY >= DRAGGABLE_BORDER_Y_MAX || newX < DRAGGABLE_BORDER_X_MIN || newX >= DRAGGABLE_BORDER_X_MAX) {
@@ -178,6 +199,7 @@ function dragElement(elmnt) {
       // elmnt.style.top = newY + "px";
       elmnt.style.top = newY + "px";
       elmnt.style.left = newX + "px";
+      
     }
 
     //console.log((elmnt.offsetTop - pos2) + "px" + " " + (elmnt.offsetLeft - pos1) + "px");
