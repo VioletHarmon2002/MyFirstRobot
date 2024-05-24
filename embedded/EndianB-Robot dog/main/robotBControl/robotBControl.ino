@@ -43,11 +43,7 @@ void setup() {
   servo3.attach(SERVO3_PIN);
   servo4.attach(SERVO4_PIN);
 
-  // Move servos to initial position (optional)
-  servo1.write(0);
-  servo2.write(0);
-  servo3.write(0);
-  servo4.write(0);
+  initServoPos();
 }
 
 void loop() {
@@ -103,3 +99,16 @@ void loop() {
     }
   }
 }
+
+void initServoPos() {
+  // Move servos to initial position (optional)
+  servo1.write(0);
+  servo2.write(0);
+  servo3.write(0);
+  servo4.write(0);
+}
+
+void wave() {
+  servo1.write
+}
+
