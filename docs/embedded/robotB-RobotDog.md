@@ -20,7 +20,7 @@ Servo RL; // Rear left leg
 Servo RR; // Rear right leg
 ```
 
-In the setup function, serial communication is initialized, the servos are attached to their respective pins, and the servos are moved to their default positions. A delay of 3 seconds is added at the end:
+In the setup function, serial communication is initialized, the servos are attached to their respective pins. A delay of 3 seconds is added at the end:
 
 ```cpp
 void setup() {
