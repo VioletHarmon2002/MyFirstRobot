@@ -97,33 +97,34 @@ function createDraggableDiv(id, topPosition, type) {
   }
 
   else if (type == 'animation') {
-    //Add to this list the different animations.
-    const animationOptions = [
-      { value: 'wave', text: 'wave' }
-    ]
-
     innerDiv.className = "draggable-button animation";
     innerDiv.textContent = "do animation:";
-    var selectElement = document.createElement("select");
-    selectElement.setAttribute('id', 'animationDropdown');
-    selectElement.setAttribute('name', 'animationDropdown');
-    selectElement.classList.add('input', 'forward-input');
 
-    // Loop through the options array and create option elements
+    // List of possible animations. Add to this array the additional animations.
+    const animationOptions = [
+      { value: 'wave', text: 'wave' },
+      { value: 'sit', text: 'sit'}
+    ]
+    var inputElement = document.createElement("select");
+    inputElement.setAttribute('id', 'animationDropdown');
+    inputElement.setAttribute('name', 'animationDropdown');
+    inputElement.classList.add('input', 'forward-input');
+    // Required to prevent the block from dragging when you want to use the menu.
+    inputElement.addEventListener('mousedown',function(event){
+      event.stopPropagation();
+    })
+    // Loop through the options array and create option elements for the list
     animationOptions.forEach(option => {
       const optionElement = document.createElement('option');
       optionElement.setAttribute('value', option.value);
       optionElement.textContent = option.text;
-      selectElement.appendChild(optionElement);
+      inputElement.appendChild(optionElement);
     });
 
-    // Append the select element to the DOM
-    const container = document.getElementById('dropdown-container');
-    innerDiv.appendChild(selectElement);
+    innerDiv.appendChild(inputElement);
   }
 
 
-  // Append the inner div to the outer div
   loadDraggables();
 }
 
