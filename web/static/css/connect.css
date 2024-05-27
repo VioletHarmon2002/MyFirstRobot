@@ -25,6 +25,11 @@
     font-size: 3vh;
     padding:20px;
     height: 10vh;
+    cursor: pointer;
+}
+
+.btn:active{
+    background-color: gray;
 }
 .robot-list-item{
     text-align: center;
@@ -47,5 +52,5 @@
     font-size: 20px;
     color:rgb(0, 0, 0);
     background-color: rgb(124, 133, 189);
-    margin: 0px 0px 10px 0px;
+    border-radius: 20px 20px 0px 05px;
 }
