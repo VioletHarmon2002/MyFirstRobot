@@ -12,7 +12,6 @@
 void wave() {
     Serial.print("Hallo!");
     for (int i = 0; i < 3; i++) {
-        Serial.print("Zwaai");
         FL.write(WAVE_DOWN);
         delay(500); // Add delay for a visible wave
         FL.write(WAVE_UP);

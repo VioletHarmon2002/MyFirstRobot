@@ -32,6 +32,10 @@ bool isConnected = false;
 #define PRESET_RL_LIE 180
 #define PRESET_RR_LIE 0 
 
+// wave preset
+#define WAVE_DOWN 30
+#define WAVE_UP 0
+
 // Create servo objects
 Servo FL; // Front left leg
 Servo FR; // Front right leg
@@ -64,6 +68,7 @@ void setup() {
 
   // Move servos to initial position
   moveToStartPosition();
+
   delay(3000);
 }
 
@@ -99,11 +104,13 @@ void walkForward() {
 }
 
 void moveToStartPosition() {
-  FL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
-  delay(50);
+  for (int angle = 0; angle <= 180; angle += 5) {
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(50);
+  }
 }
 
 void lieDown() {
@@ -123,14 +130,15 @@ void sit() {
 }
 
 void wave() {
-  moveToStartPosition();
   Serial.print("Hallo!");
   for (int i = 0; i < 3; i++) {
     Serial.print("Zwaai");
-    FL.write(0);
-    FL.write(30);
+    FL.write(WAVE_DOWN);
+    delay(500); // Add delay for a visible wave
+    FL.write(WAVE_UP);
+    delay(500); // Add delay for a visible wave
   }
-  moveToStartPosition();
+  FL.write(90);
 }
 
 void checkForCommand() {
@@ -187,17 +195,17 @@ void loop() {
       walkForward();
     } else if (currentCommand == "start") {
       moveToStartPosition();
-      // currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "lie_down") {
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "lie") {
       lieDown();
-      // currentCommand = ""; // Clear the command after execution
+      currentCommand = ""; // Clear the command after execution
     } else if (currentCommand == "sit") {
       sit();
-      // currentCommand = ""; // Clear the command after execution
+      currentCommand = ""; // Clear the command after execution
     } else if (currentCommand == "wave") {
       wave();
+      currentCommand = ""; // Clear the command after execution
     }
-    currentCommand = ""; // Clear the command after execution
   } else {
     isConnected = false;
     Serial.println("Disconnected from server, attempting to reconnect...");
