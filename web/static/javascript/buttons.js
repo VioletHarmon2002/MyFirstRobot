@@ -74,5 +74,3 @@ rightButton.addEventListener('mouseup', () => {
     rightButton.style.transform = '';
     rightButton.style.boxShadow = '';
 });
-
-
