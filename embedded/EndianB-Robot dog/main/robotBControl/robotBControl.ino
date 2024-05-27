@@ -10,13 +10,13 @@ WiFiClient client;
 bool isConnected = false;
 
 // Define the pins for the servos
-#define SERVO1_PIN 1
-#define SERVO2_PIN 2
-#define SERVO3_PIN 4
-#define SERVO4_PIN 5
+#define SERVO_FL_PIN 1
+#define SERVO_FL_PIN 2
+#define SERVO_RL_PIN 4
+#define SERVO_RR_PIN 5
 
 // Create servo objects
-Servo servo1;
+Servo FL;
 Servo servo2;
 Servo servo3;
 Servo servo4;
@@ -38,7 +38,7 @@ void setup() {
   Serial.println("Connected to WiFi");
 
   // Attach servos to pins
-  servo1.attach(SERVO1_PIN);
+  servo1.attach(SERVO_FL_PIN);
   servo2.attach(SERVO2_PIN);
   servo3.attach(SERVO3_PIN);
   servo4.attach(SERVO4_PIN);
@@ -109,6 +109,7 @@ void init_servo_pos() {
 }
 
 void Wave() {
+  init_servo_pos();
   servo1.write
 }
 
