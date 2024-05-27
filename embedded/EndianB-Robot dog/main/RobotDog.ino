@@ -126,9 +126,9 @@ void sit() {
 void lieDown() {
   Serial.println("Lying down");
   FL.write(0); // Move front left leg to lying position
-  FR.write(0); // Move front right leg to lying position
+  FR.write(180); // Move front right leg to lying position
   RL.write(180); // Move rear left leg to lying position
-  RR.write(180); // Move rear right leg to lying position
+  RR.write(0); // Move rear right leg to lying position
 }
 
 // Function to check for new commands from the server
