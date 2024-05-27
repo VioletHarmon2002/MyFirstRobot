@@ -3,6 +3,8 @@
 The following list contains all functionalities that the robot dog should be able to preform at the end of this project. The list is based on the requirements and discussions that have been had with our client Gerald Stap.
 
 ## Robot dog functionalities
+
+### Need to have
 - Walk forward
 - Run forward
 - Walk backward
@@ -18,8 +20,10 @@ The following list contains all functionalities that the robot dog should be abl
 - Stand up from falling to the left
 - Fall to the right
 - stand up from falling to the right
-- Nice to have: Follow another bot
-- Nice to have: Follow a line
-- Nice to have: Wagging tail
-- Nice to have: Object detection and avoidance
-- Nice to have: React to voice commands
+
+### Nice to have
+- Follow another bot
+- Follow a line
+- Wagging tail
+- Object detection and avoidance
+- React to voice commands
