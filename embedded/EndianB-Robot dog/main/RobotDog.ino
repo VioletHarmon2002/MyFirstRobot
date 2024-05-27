@@ -194,6 +194,9 @@ void loop() {
     } else if (currentCommand == "sit") {
       sit();
       currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "lie") {
+      lieDown();
+      currentCommand = ""; // Clear the command after execution
     }
   } else {
     isConnected = false; // Update connection status
