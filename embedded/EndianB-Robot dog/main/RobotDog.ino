@@ -4,44 +4,43 @@
 #include <ArduinoJson.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.5";
-const uint16_t server_port = 1234;
+const char* server_ip = "172.20.10.5"; // IP address of the server
+const uint16_t server_port = 1234; // Port number of the server
 
-WiFiClient client;
-bool isConnected = false;
+WiFiClient client; // WiFi client for connecting to the server
+bool isConnected = false; // Connection status flag
 
 // Define the pins for the servos
-#define SERVO_FL_PIN 4
-#define SERVO_RL_PIN 16
-#define SERVO_FR_PIN 17
-#define SERVO_RR_PIN 5
+#define SERVO_FL_PIN 4 // Front left servo pin
+#define SERVO_RL_PIN 16 // Rear left servo pin
+#define SERVO_FR_PIN 17 // Front right servo pin
+#define SERVO_RR_PIN 5 // Rear right servo pin
 
-#define DEFAULT_POS 90
-#define WALK_OFFSET 30
-#define WALK_DELAY 350
-
+#define DEFAULT_POS 90 // Default servo position (middle)
+#define WALK_OFFSET 30 // Offset for walking motion
+#define WALK_DELAY 350 // Delay between steps
 
 // Create servo objects
-Servo FL; // Front left leg
-Servo FR; // Front right leg
-Servo RL; // Rear left leg
-Servo RR; // Rear right leg
+Servo FL; // Front left leg servo
+Servo FR; // Front right leg servo
+Servo RL; // Rear left leg servo
+Servo RR; // Rear right leg servo
 
-String currentCommand = "";
+String currentCommand = ""; // Current command from the server
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); // Start serial communication at 115200 baud rate
 
   // Initialize WiFiManager
   WiFiManager wifiManager;
 
-  // Uncomment the line below if you want to reset settings
+  // Uncomment the line below if you want to reset WiFi settings
   // wifiManager.resetSettings();
 
-  // Start WiFiManager
+  // Start WiFiManager and connect to WiFi
   if (!wifiManager.autoConnect("Robot Dog")) {
     Serial.println("Failed to connect to WiFi");
-    ESP.restart(); // Reset if WiFiManager fails to connect
+    ESP.restart(); // Restart the board if WiFi connection fails
   }
   Serial.println("Connected to WiFi");
 
@@ -51,84 +50,87 @@ void setup() {
   RL.attach(SERVO_RL_PIN);
   RR.attach(SERVO_RR_PIN);
 
-  // Move servos to initial position
+  // Move servos to the default position
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);
   RL.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
 
-  delay(3000);
+  delay(3000); // Wait for 3 seconds
 }
 
+// Function to make the robot walk forward
 void walkForward() {
-  unsigned long startTime = millis();
-  
-  while (currentCommand == "forward" && millis() - startTime < 5000) { // 5 seconds
-    RL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(100);
-    FL.write(DEFAULT_POS - WALK_OFFSET);
+  unsigned long startTime = millis(); // Record the start time
 
-    FR.write(DEFAULT_POS - WALK_OFFSET);
-    delay(100);
-    RR.write(DEFAULT_POS + WALK_OFFSET);
+  while (currentCommand == "forward" && millis() - startTime < 5000) { // Continue for 5 seconds
+    RL.write(DEFAULT_POS + WALK_OFFSET); // Move rear left leg
+    delay(100); // Short delay
+    FL.write(DEFAULT_POS - WALK_OFFSET); // Move front left leg
 
-    // Delay
-    delay(WALK_DELAY);
+    FR.write(DEFAULT_POS - WALK_OFFSET); // Move front right leg
+    delay(100); // Short delay
+    RR.write(DEFAULT_POS + WALK_OFFSET); // Move rear right leg
 
-    FL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(100);
-    RL.write(DEFAULT_POS - WALK_OFFSET);
-    
-    RR.write(DEFAULT_POS - WALK_OFFSET);
-    delay(100);
-    FR.write(DEFAULT_POS + WALK_OFFSET);
+    delay(WALK_DELAY); // Delay for the step
 
-    // Delay
-    delay(WALK_DELAY);
+    FL.write(DEFAULT_POS + WALK_OFFSET); // Move front left leg back
+    delay(100); // Short delay
+    RL.write(DEFAULT_POS - WALK_OFFSET); // Move rear left leg back
+
+    RR.write(DEFAULT_POS - WALK_OFFSET); // Move rear right leg back
+    delay(100); // Short delay
+    FR.write(DEFAULT_POS + WALK_OFFSET); // Move front right leg back
+
+    delay(WALK_DELAY); // Delay for the step
   }
 
-  // Stop the movement
+  // Stop the movement by resetting servo positions
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);
   RL.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
 }
 
+// Function to move servos to the start position
 void moveToStartPosition() {
   for (int angle = 0; angle <= 180; angle += 5) {
     FL.write(DEFAULT_POS);
     FR.write(DEFAULT_POS);
     RL.write(DEFAULT_POS);
     RR.write(DEFAULT_POS);
-    delay(50);
+    delay(50); // Short delay for smooth movement
   }
 }
 
+// Function to move servos to the docking position
 void moveToDockingPosition() {
   for (int angle = 180; angle >= 0; angle -= 5) {
     FL.write(angle);
     FR.write(angle);
     RL.write(angle);
     RR.write(angle);
-    delay(50);
+    delay(50); // Short delay for smooth movement
   }
 }
 
+// Function to make the robot sit
 void sit() {
   Serial.println("Sitting down");
-  FL.write(110); // Front legs stand
-  FR.write(70); 
-  RL.write(170);   // Rear legs sit
-  RR.write(10);
+  FL.write(110); // Move front left leg to standing position
+  FR.write(70);  // Move front right leg to standing position
+  RL.write(170); // Move rear left leg to sitting position
+  RR.write(10);  // Move rear right leg to sitting position
 }
 
+// Function to check for new commands from the server
 void checkForCommand() {
-  static String messageBuffer;
+  static String messageBuffer; // Buffer to store the incoming message
 
   if (client.connected()) {
     while (client.available()) {
-      char c = client.read();
-      messageBuffer += c;
+      char c = client.read(); // Read each character from the server
+      messageBuffer += c; // Add character to the message buffer
     }
 
     if (!messageBuffer.isEmpty()) {
@@ -137,7 +139,7 @@ void checkForCommand() {
       Serial.println(messageBuffer);
 
       // Decode the JSON message
-      StaticJsonDocument<200> jsonDoc; // Adjust the size according to your message
+      StaticJsonDocument<200> jsonDoc; // JSON document to hold the decoded message
       DeserializationError error = deserializeJson(jsonDoc, messageBuffer);
 
       if (error) {
@@ -147,20 +149,21 @@ void checkForCommand() {
         // Extract the command from the JSON object
         const char* command = jsonDoc["command"];
 
-        currentCommand = String(command);
+        currentCommand = String(command); // Update the current command
       }
 
-      messageBuffer = "";
+      messageBuffer = ""; // Clear the message buffer
     }
   }
 }
 
+// Main loop function
 void loop() {
   if (!isConnected) {
     Serial.println("Attempting to connect to server...");
     if (client.connect(server_ip, server_port)) {
       Serial.println("Connected to server");
-      isConnected = true;
+      isConnected = true; // Update connection status
     } else {
       Serial.println("Connection to server failed, retrying in 1 second...");
       delay(1000); // Wait before retrying
@@ -168,7 +171,7 @@ void loop() {
   }
 
   if (client.connected()) {
-    // Check for new commands
+    // Check for new commands from the server
     checkForCommand();
 
     // Execute commands based on the current command
@@ -185,7 +188,7 @@ void loop() {
       currentCommand = ""; // Clear the command after execution
     }
   } else {
-    isConnected = false;
+    isConnected = false; // Update connection status
     Serial.println("Disconnected from server, attempting to reconnect...");
   }
 }
