@@ -1,5 +1,5 @@
 <?php
-require 'send_command.php';
+require 'send_message.php';
 
 // Allow CORS
 header('Content-Type: application/json');
