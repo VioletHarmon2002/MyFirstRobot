@@ -54,6 +54,10 @@ body {
   background-color: #179e20;
 }
 
+.animation{
+  background-color: #add8e6;
+}
+
 .list-item{
   position: absolute;
   left: 2px;
