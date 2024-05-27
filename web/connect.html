@@ -9,10 +9,25 @@
     <script src="static/javascript/connect.js" defer></script>
 </head>
 <body>
-    <!-- Container for the list items, these robot names are added by the javascript -->
-    <div class="robot-list-container">
-        <!-- <li class="robot-list-item" onclick="setRobotNameActive(this)">Henk</li>
-        <li class="robot-list-item">Henk</li> -->
+    <div class="top-bar">
+        <img src="static/images/logo.png" alt="HvA" class="logo">
     </div>
+
+    <div class="menu">
+        <h1>HBO-ICT: Connect to device</h1>
+    </div>
+    
+    <div class="flex-row">
+    <!-- Container for the list items, these robot names are added by the javascript -->
+    <div class="robot-list-container-header">
+        <li class="robot-list-header">List of active robots</li>
+        <div class="robot-list-container">
+            <!-- <li class="robot-list-item" onclick="setRobotNameActive(this)">Henk</li>
+                <li class="robot-list-item">Henk</li> -->
+            </div>
+    </div>
+    <input type="text" class="robot-name-input" placeholder="Robot name">
+    <button class="btn connect" onclick="connect()">Connect to robot</button>
+</div>
 </body>
 </html>

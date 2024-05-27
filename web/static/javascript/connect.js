@@ -1,8 +1,10 @@
-let names_array = ["gert", "geralda", "gerard", "gabbert"];
+let names_array = ["gert", "geralda", "gerard", "gabbert", "gabbert", "gabbert", "gabbert", "gabbert"];
 let current_name = "hoi";
 let names_element_array = document.getElementsByClassName('robot-list-item');
 const LIST_ITEM_BACKGROUND_COLOR = "rgb(205, 205, 205)";
 const list_container = document.querySelector(".robot-list-container");
+const INPUT_NAME_ELEMENT = document.querySelector(".robot-name-input");
+
 function addRobotNames(){
     for(var i = 0; i < names_array.length; i++) {
         let list_item = document.createElement('li');
@@ -26,8 +28,9 @@ function resetList(){
 }
 
 function setRobotNameActive(element){
-    console.log(element);
-    element.style.backgroundColor = "rgba(255,255,255)"
+    element.style.backgroundColor = "rgba(255,255,255)";
+    INPUT_NAME_ELEMENT.value = element.innerHTML;
+    console.log(INPUT_NAME_ELEMENT.innerHTML);
 }
 
-addRobotNames()
+addRobotNames();
