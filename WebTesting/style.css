@@ -1,24 +1,31 @@
 body {
   font-family: "Helvetica Neue";
 }
+
+/* Main styling for the inner draggable element */
 .draggable {
-  /* position: absolute; */
   z-index: 9;
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   text-align: center;
 }
+
+/* Styling and positioning for the draggable element parent, this is the part that actually moves */
 .draggable-parent {
   position: absolute;
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
+
+Cointainer for the created draggable button
 #create-container{
   display: flex;
   flex-direction: column;
   width: 200px;
 }
+
+upload button styling
 #upload-button{
   background-color: #d3d3d3;
   margin-top: 30px;
@@ -27,6 +34,7 @@ body {
   font-size: 20px;
 }
 
+/* draggable button styling and positioning, this is the part you click on to drag the .draggable-parent */
 .draggable-button {
     padding: 15px;
     font-size: 20px;
@@ -35,6 +43,8 @@ body {
     color: #fff;
     border-radius: 10px 0px 0px 10px;
 }
+
+/* Different styling for the different block types */
 .forward {
   background-color: #2196F3;
 }
@@ -54,12 +64,14 @@ body {
   background-color: #179e20;
 }
 
+/* styling for the list items on the left side of the draggable container */
 .list-item{
   position: absolute;
   left: 2px;
   color: rgb(21, 21, 21);
 }
-  
+
+/* draggabke block container styling and positioning */
 #draggable-container {
   width: 500px;
   height: 800px;
@@ -68,6 +80,8 @@ body {
   z-index: -1;
 
 }
+
+styling for the creating of draggable buttons
 .create-draggable-button{
     width: 200px;
     color: white;
@@ -77,6 +91,9 @@ body {
     margin: 10;
     border-radius: 10px;
 }
+/* 
+container of the entire functioning area, only for the draggable blocks functionality. 
+this should be everything needed and can be positioned where pleased. */
 .total-container{
   position: absolute;
   display: flex;

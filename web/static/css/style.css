@@ -3,7 +3,13 @@ body {
     margin: 0;
     padding: 0;
 }
-
+h1{
+    color: white;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
 .top-bar {
     background-color: #381CB4;
     padding: 10px;

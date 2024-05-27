@@ -1,0 +1,56 @@
+/* styling for the cointer that contains the list of Active robots */
+.robot-list-container{
+    width: 400px;
+    height: 400px;
+    background-color: gray;
+    overflow-y: scroll;
+}
+.robot-list-container-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.robot-name-input{
+    background-color: rgb(220, 220, 220);
+    border: 0px solid;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    height: 10vh;
+    font-size: 3vh;
+}
+
+.btn{
+    background-color: rgb(156, 156, 156);
+    border: 0px solid;
+    font-size: 3vh;
+    padding:20px;
+    height: 10vh;
+    cursor: pointer;
+}
+
+.btn:active{
+    background-color: gray;
+}
+.robot-list-item{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    height: 10vh;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    background-color: rgb(205, 205, 205);
+}
+.robot-list-item:hover{
+    background-color: rgb(160, 160, 160);
+    cursor: pointer;
+}
+.robot-list-header{
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    height: 10vh;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    background-color: rgb(124, 133, 189);
+    border-radius: 20px 20px 0px 05px;
+}
