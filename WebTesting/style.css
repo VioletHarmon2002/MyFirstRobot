@@ -18,14 +18,14 @@ body {
   padding: 5px;
 }
 
-Cointainer for the created draggable button
+/* Cointainer for the created draggable button */
 #create-container{
   display: flex;
   flex-direction: column;
   width: 200px;
 }
 
-upload button styling
+/* upload button styling */
 #upload-button{
   background-color: #d3d3d3;
   margin-top: 30px;
@@ -81,7 +81,7 @@ upload button styling
 
 }
 
-styling for the creating of draggable buttons
+/* styling for the creating of draggable buttons */
 .create-draggable-button{
     width: 200px;
     color: white;
@@ -101,4 +101,12 @@ this should be everything needed and can be positioned where pleased. */
   width: 100%;
   height: 100%;
   z-index: -20;
+}
+
+.redirect-container{
+  display: flex;
+  flex-direction: row;
+}
+.redirect-container a{
+  color: white;
 }
