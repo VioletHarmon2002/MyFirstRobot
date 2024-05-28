@@ -4,7 +4,7 @@
 #include <ArduinoJson.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.5";
+const char* server_ip = "192.168.4.1";
 const uint16_t server_port = 1234;
 
 WiFiClient client;
@@ -46,6 +46,13 @@ String currentCommand = "";
 
 void setup() {
   Serial.begin(115200);
+  // Attach servos to pins
+  FL.attach(SERVO_FL_PIN);
+  FR.attach(SERVO_FR_PIN);
+  RL.attach(SERVO_RL_PIN);
+  RR.attach(SERVO_RR_PIN);
+  // Move servos to initial position
+  moveToStartPosition();
 
   // Initialize WiFiManager
   WiFiManager wifiManager;
@@ -59,15 +66,6 @@ void setup() {
     ESP.restart(); // Reset if WiFiManager fails to connect
   }
   Serial.println("Connected to WiFi");
-
-  // Attach servos to pins
-  FL.attach(SERVO_FL_PIN);
-  FR.attach(SERVO_FR_PIN);
-  RL.attach(SERVO_RL_PIN);
-  RR.attach(SERVO_RR_PIN);
-
-  // Move servos to initial position
-  moveToStartPosition();
 
   delay(3000);
 }
@@ -104,13 +102,11 @@ void walkForward() {
 }
 
 void moveToStartPosition() {
-  for (int angle = 0; angle <= 180; angle += 5) {
     FL.write(DEFAULT_POS);
     FR.write(DEFAULT_POS);
     RL.write(DEFAULT_POS);
     RR.write(DEFAULT_POS);
     delay(50);
-  }
 }
 
 void lieDown() {
