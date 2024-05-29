@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blockly Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./static/css/blockly.css">
 </head>
 <body>
     <h1>My Blockly Project</h1>
-    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <div id="blocklyDiv" style="height: 50vh; width: 100vh;"></div>
     <xml id="toolbox" style="display: none">
+        <block type="move"></block>
         <block type="controls_if"></block>
         <block type="logic_compare"></block>
         <block type="math_number"></block>
         <block type="math_arithmetic"></block>
         <block type="text"></block>
-        <block type="play_sound"></block>
     </xml>
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script src="app.js"></script>
+    <script src="./static/javascript/blockly.js"></script>
 </body>
 </html>
