@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to device</title>
+    <link rel="stylesheet" href="static/css/connect.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/javascript/connect.js" defer></script>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="static/images/logo.png" alt="HvA" class="logo">
+    </div>
+
+    <div class="menu">
+        <h1>HBO-ICT: Connect to device</h1>
+    </div>
+    
+    <div class="wrapper">
+
+        <div class="robot-list-container-wrapper">
+            <!-- Container for the list items, these robot names are added by the javascript -->
+            <div class="robot-list-container-header">
+                <li class="robot-list-header">List of active robots</li>
+                <div class="robot-list-container"></div>
+                <!-- <li class="robot-list-item" onclick="setRobotNameActive(this)">Henk</li>
+                    <li class="robot-list-item">Henk</li> -->
+            </div>
+        </div>
+        <input type="text" class="robot-name-input" placeholder="Robot name">
+        <button class="btn connect" onclick="connect()">Connect to robot</button>
+    </div>
+</div>
+</body>
+</html>

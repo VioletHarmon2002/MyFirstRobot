@@ -22,3 +22,5 @@ Plexiglas is more durable and more environmentally friendly.
 - Increase wheel size and lessen friction with other parts.
 
 The current wheels have some trouble turning, this is partly to blame to the friction the front and back chestnut have with the table. This could maybe be fixed by increasing the 
+
+### Learning story
