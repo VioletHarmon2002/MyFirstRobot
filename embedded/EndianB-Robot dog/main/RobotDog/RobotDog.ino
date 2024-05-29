@@ -4,7 +4,7 @@
 #include <ArduinoJson.h>
 
 // WiFi and server details
-const char* server_ip = "192.168.4.1";
+const char* server_ip = "172.20.10.5";
 const uint16_t server_port = 1234;
 
 WiFiClient client;
@@ -26,15 +26,26 @@ bool isConnected = false;
 #define DEFAULT_RL_SIT 35
 #define DEFAULT_RR_SIT 145
 
-// preset for lying down
+// Preset for lying down
 #define PRESET_FL_LIE 0
 #define PRESET_FR_LIE 180
 #define PRESET_RL_LIE 180
-#define PRESET_RR_LIE 0 
+#define PRESET_RR_LIE 0
 
-// wave preset
+// Wave preset
 #define WAVE_DOWN 30
 #define WAVE_UP 0
+
+// Turning presets
+#define TURN_RIGHT_FL 60
+#define TURN_RIGHT_FR 120
+#define TURN_RIGHT_RL 120
+#define TURN_RIGHT_RR 60
+
+#define TURN_LEFT_FL 120
+#define TURN_LEFT_FR 60
+#define TURN_LEFT_RL 60
+#define TURN_LEFT_RR 120
 
 // Create servo objects
 Servo FL; // Front left leg
@@ -134,8 +145,47 @@ void wave() {
     FL.write(WAVE_UP);
     delay(500); // Add delay for a visible wave
   }
-  FL.write(90);
+  FL.write(DEFAULT_POS);
 }
+
+void turnRight() {
+  Serial.println("Turning right");
+  unsigned long startTime = millis();
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning right
+    FL.write(TURN_RIGHT_FL);  // Front left leg right turn
+    FR.write(TURN_RIGHT_FR);  // Front right leg left turn
+    RL.write(TURN_RIGHT_RL);  // Rear left leg left turn
+    RR.write(TURN_RIGHT_RR);  // Rear right leg right turn
+  }
+
+  // Return to default position
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
+
+void turnLeft() {
+  Serial.println("Turning left");
+  unsigned long startTime = millis();
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning left
+    FL.write(TURN_LEFT_FL);   // Front left leg left turn
+    FR.write(TURN_LEFT_FR);   // Front right leg right turn
+    RL.write(TURN_LEFT_RL);   // Rear left leg right turn
+    RR.write(TURN_LEFT_RR);   // Rear right leg left turn
+  }
+
+  // Return to default position
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
+
 
 void checkForCommand() {
   static String messageBuffer;
@@ -200,6 +250,12 @@ void loop() {
       currentCommand = ""; // Clear the command after execution
     } else if (currentCommand == "wave") {
       wave();
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "right") {
+      turnRight();
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "left") {
+      turnLeft();
       currentCommand = ""; // Clear the command after execution
     }
   } else {
