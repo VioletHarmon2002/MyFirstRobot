@@ -27,11 +27,11 @@ addListNumbers(10);
 // Function for adding list numbers to the draggable container
 function addListNumbers(n){
   const list_element = document.querySelector('#list');
-  for(var i = 0; i < n; i++){
+  for (var i = 0; i < n; i++) {
     var item = document.createElement("p");
     item.className = "list-item";
     item.textContent = i + 1;
-    item.style.top = i*NODE_HEIGHT + "px";
+    item.style.top = i * NODE_HEIGHT + "px";
     list_element.appendChild(item);
   }
 }
@@ -89,8 +89,8 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
-  } 
-  else if(type == 'wait'){
+  }
+  else if (type == 'wait') {
     innerDiv.className = "draggable-button wait";
     innerDiv.textContent = "wait (s):";
   
@@ -98,7 +98,7 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
-  else if(type == 'turn'){
+  else if (type == 'turn') {
     innerDiv.className = "draggable-button turn";
     innerDiv.textContent = "turn (degrees):";
   
@@ -106,7 +106,7 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
-  else if(type == 'move'){
+  else if (type == 'move') {
     innerDiv.className = "draggable-button move";
     innerDiv.textContent = "move to step:";
   
@@ -114,7 +114,6 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
-  
 
   // Reload the draggable divs/add functionality
   loadDraggables();
@@ -150,14 +149,14 @@ function dragElement(elmnt) {
   const inputElement = elmnt.getElementsByClassName('input')[0]; // Find the element that holds the input value
   moveDiv[0].onmousedown = dragMouseDown;
 
-  function snapToLeftSide(targetDiv){
+  function snapToLeftSide(targetDiv) {
     if (!targetDiv || !targetDiv.getBoundingClientRect) {
       console.error("Invalid closestDiv.");
       return;
     }
     targetDiv.style.left = "20px";
   }
-    
+
   let newY = 0;
   function dragMouseDown(e) {
     e = e || window.event;
@@ -180,7 +179,7 @@ function dragElement(elmnt) {
       snapToLeftSide(elmnt); // Snaps the element to the left side
     }
   }
-  
+
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
