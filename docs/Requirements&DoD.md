@@ -1,12 +1,12 @@
 # Requirements
 
 ## Functional requirements
-| REQ number | Description | MoSCoW | Date added | Team member |
-|---|---|---|---|---|
-| REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald |
+| REQ number | Description | MoSCoW | Date added | Team member | Epic | worked on sprint |
+|---|---|---|---|---|---|---|
+| REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald | | Sprint 1 | 
 | | The robot needs to have moving parts and should be able to do precise movements. | | | |
 | ~~REQ002~~ | ~~The robot must have moving parts~~ | Wont | 24-04 | Gerald |
-| REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald |
+| REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) | Sprint 1/2 |
 | REQ004 | The price per robot must be as low as possible (maximum €20) | Must | 24-04 | Gerald |
 | REQ005 | Webapp is a docker IMG that runs on a Raspberry Pi | Must | 24-04 | Gerald |
 | REQ006 | The robot must fit in the Smart city sub theme | Must | 24-04 | Gerald |
@@ -17,22 +17,22 @@
 | REQ010 | There must be enough pins on the mcu to expand the amount of sensors at a later time. | Must | 24-04 | Gerald |
 | REQ011 | The robot is able to be used as learning and teaching platform for other courses | Must | 24-04 | Gerald |
 | REQ012 | Security by design - The PHP web backend needs to be secure | Must | 24-04 | Gerald |
-| REQ013 | The robot must be easy to dissamble for reuse on other open door days. | Must | 24-04 | Gerald |
+| REQ013 | The robot must be easy to dissamble for reuse on other open door days. | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) | sprint 1/2 |
 | REQ014 | The robots are selected on the webapp by scanning the QR codes printed on them | Must | 24-04 | Silvester |
-| REQ015 | The webapp sends universal commands to the robots | Must | 24-04 | Ilias |
-| REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt |
+| REQ015 | The webapp sends universal commands to the robots | Must | 24-04 | Ilias | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
+| REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
 | REQ017 | The robot can be controlled with a virtual joystick on the webapp | Must | 24-04 | Floris |
-| REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald |
+| REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
 
 ## Robot functionalities
-| REQ number | Description | MoSCoW | Date added | Team member |
-|---|---|---|---|---|
-| REQ019 | The robot can walk forward | Must | 24-05 | Gerald |
-| REQ020 | The robot can run forward | Must | 24-05 | Gerald |
-| REQ021 | The robot can walk backward | Must | 24-05 | Gerald |
-| REQ022 | The robot can turn left | Must | 24-05 | Gerald |
-| REQ023 | The robot can turn right | Must | 24-05 | Gerald |
-| REQ024 | The robot can lie down | Must | 24-05 | Gerald |
+| REQ number | Description | MoSCoW | Date added | Team member | Epic | wroked on sprint |
+|---|---|---|---|---|---|---|
+| REQ019 | The robot can walk forward | Must | 24-05 | Gerald | [#194](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/194) | 2 |
+| REQ020 | The robot can run forward | Must | 24-05 | Gerald | n.a | |
+| REQ021 | The robot can walk backward | Must | 24-05 | Gerald | n.a |  |
+| REQ022 | The robot can turn left | Must | 24-05 | Gerald | [#194](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/194) [#199](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/119)| 2 |
+| REQ023 | The robot can turn right | Must | 24-05 | Gerald | [#204](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/204) [#120](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/120)| 2 | 
+| REQ024 | The robot can lie down | Must | 24-05 | Gerald | | |
 | REQ025 | The robot can stand up from lying down | Must | 24-05 | Gerald |
 | REQ026 | The robot can sit down | Must | 24-05 | Gerald |
 | REQ027 | The robot can stand up from sitting down | Must | 24-05 | Gerald |
@@ -40,11 +40,11 @@
 | REQ029 | The robot can stand up from falling to the left | Must | 24-05 | Gerald |
 | REQ030 | The robot can fall to the right | Must | 24-05 | Gerald |
 | REQ031 | The robot can stand up from falling to the right | Must | 24-05 | Gerald |
-| REQ032 | Follow another bot | Could | 24-05 | Gerald |
-| REQ033 | Follow a line | Could | 24-05 | Gerald |
-| REQ034 | Wagging tail | Could | 24-05 | Gerald |
-| REQ035 | Object detection and avoidance | Could | 24-05 | Gerald |
-| REQ036 | React to voice commands | Could | 24-05 | Gerald |
+| REQ032 | the robot can follow another bot | Could | 24-05 | Gerald |
+| REQ033 | the robot can Follow a line | Could | 24-05 | Gerald |
+| REQ034 | the robot can Wag his tail | Could | 24-05 | Gerald |
+| REQ035 | the robot can detect objects and avoidance objects | Could | 24-05 | Gerald |
+| REQ036 | the robot can react to voice commands | Could | 24-05 | Gerald |
 
 
 ## Non functional requirements
