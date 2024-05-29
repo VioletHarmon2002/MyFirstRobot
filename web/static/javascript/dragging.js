@@ -27,11 +27,11 @@ addListNumbers(10);
 // Function for adding list numbers to the draggable container
 function addListNumbers(n){
   const list_element = document.querySelector('#list');
-  for (var i = 0; i < n; i++) {
+  for(var i = 0; i < n; i++){
     var item = document.createElement("p");
     item.className = "list-item";
     item.textContent = i + 1;
-    item.style.top = i * NODE_HEIGHT + "px";
+    item.style.top = i*NODE_HEIGHT + "px";
     list_element.appendChild(item);
   }
 }
@@ -64,7 +64,7 @@ function createDraggableDiv(id, topPosition, type) {
   var div = document.createElement("div");
   div.id = id;
   div.className = "draggable-parent";
-  div.style.left = "250px";
+  div.style.left = "20px";
   
   // Create the inner div
   var innerDiv = document.createElement("div");
@@ -84,29 +84,29 @@ function createDraggableDiv(id, topPosition, type) {
   // Check what type is set, and add the correct values accordingly
   if(type == 'forward'){
     innerDiv.className = "draggable-button forward";
-    innerDiv.textContent = "forward (s):";
+    innerDiv.textContent = "forward:";
     
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
-  }
-  else if (type == 'wait') {
+  } 
+  else if(type == 'wait'){
     innerDiv.className = "draggable-button wait";
-    innerDiv.textContent = "wait (s):";
+    innerDiv.textContent = "wait:";
   
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
-  else if (type == 'turn') {
+  else if(type == 'turn'){
     innerDiv.className = "draggable-button turn";
-    innerDiv.textContent = "turn (degrees):";
+    innerDiv.textContent = "turn:";
   
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
-  else if (type == 'move') {
+  else if(type == 'move'){
     innerDiv.className = "draggable-button move";
     innerDiv.textContent = "move to step:";
   
@@ -114,40 +114,9 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
+  
 
-<<<<<<< HEAD
-  else if (type == 'animation') {
-    innerDiv.className = "draggable-button animation";
-    innerDiv.textContent = "do animation:";
-
-    // List of possible animations. Add to the additional annimations to this array.
-    const animationOptions = [
-      { value: 'wave', text: 'wave' },
-      { value: 'sit', text: 'sit'}
-    ]
-    var inputElement = document.createElement("select");
-    inputElement.setAttribute('id', 'animationDropdown');
-    inputElement.setAttribute('name', 'animationDropdown');
-    inputElement.classList.add('input', 'forward-input');
-    // Required to prevent the block from dragging when you want to use the menu.
-    inputElement.addEventListener('mousedown',function(event){
-      event.stopPropagation();
-    })
-    // Loop through the options array and create option elements for the list
-    animationOptions.forEach(option => {
-      const optionElement = document.createElement('option');
-      optionElement.setAttribute('value', option.value);
-      optionElement.textContent = option.text;
-      inputElement.appendChild(optionElement);
-    });
-
-    innerDiv.appendChild(inputElement);
-  }
-
-
-=======
   // Reload the draggable divs/add functionality
->>>>>>> 1f53ccd559ac56f81b781ad3dc6d070006626742
   loadDraggables();
 }
 
@@ -181,14 +150,14 @@ function dragElement(elmnt) {
   const inputElement = elmnt.getElementsByClassName('input')[0]; // Find the element that holds the input value
   moveDiv[0].onmousedown = dragMouseDown;
 
-  function snapToLeftSide(targetDiv) {
+  function snapToLeftSide(targetDiv){
     if (!targetDiv || !targetDiv.getBoundingClientRect) {
       console.error("Invalid closestDiv.");
       return;
     }
     targetDiv.style.left = "20px";
   }
-
+    
   let newY = 0;
   function dragMouseDown(e) {
     e = e || window.event;
@@ -211,7 +180,7 @@ function dragElement(elmnt) {
       snapToLeftSide(elmnt); // Snaps the element to the left side
     }
   }
-
+  
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();

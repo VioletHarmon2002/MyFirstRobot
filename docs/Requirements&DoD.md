@@ -12,7 +12,7 @@
 | REQ006 | The robot must fit in the Smart city sub theme | Must | 24-04 | Gerald |
 | | (Smart mobility, Smart buildings, Public safety & security, Efficient government services, Waste management, Low-power sensors & Networks, Smart home networks, Smart supply chain and logistics management, Digital citizen, E-governance, Intelligent farming.)| | | 
 | ~~REQ007~~ | ~~There must be a souvenir for family members to take home~~ | Wont | 24-04 |  |
-| ~~REQ008~~ | ~~The robot is not faster than 2km an hour~~ | Won't | 24-04 | Floris |
+| ~~REQ008~~ | ~~The robot is not faster than 2km an hour~~ | Wont | 24-04 | Floris |
 | REQ009 | The webapp must be linked to a domain name that can be changed later (no hardcoding in PHP backend) | Must | 24-04 | Gerald |
 | REQ010 | There must be enough pins on the mcu to expand the amount of sensors at a later time. | Must | 24-04 | Gerald |
 | REQ011 | The robot is able to be used as learning and teaching platform for other courses | Must | 24-04 | Gerald |
@@ -23,6 +23,29 @@
 | REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt |
 | REQ017 | The robot can be controlled with a virtual joystick on the webapp | Must | 24-04 | Floris |
 | REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald |
+
+## Robot functionalities
+| REQ number | Description | MoSCoW | Date added | Team member |
+|---|---|---|---|---|
+| REQ019 | The robot can walk forward | Must | 24-05 | Gerald |
+| REQ020 | The robot can run forward | Must | 24-05 | Gerald |
+| REQ021 | The robot can walk backward | Must | 24-05 | Gerald |
+| REQ022 | The robot can turn left | Must | 24-05 | Gerald |
+| REQ023 | The robot can turn right | Must | 24-05 | Gerald |
+| REQ024 | The robot can lie down | Must | 24-05 | Gerald |
+| REQ025 | The robot can stand up from lying down | Must | 24-05 | Gerald |
+| REQ026 | The robot can sit down | Must | 24-05 | Gerald |
+| REQ027 | The robot can stand up from sitting down | Must | 24-05 | Gerald |
+| REQ028 | The robot can fall to the left | Must | 24-05 | Gerald |
+| REQ029 | The robot can stand up from falling to the left | Must | 24-05 | Gerald |
+| REQ030 | The robot can fall to the right | Must | 24-05 | Gerald |
+| REQ031 | The robot can stand up from falling to the right | Must | 24-05 | Gerald |
+| REQ032 | Follow another bot | Could | 24-05 | Gerald |
+| REQ033 | Follow a line | Could | 24-05 | Gerald |
+| REQ034 | Wagging tail | Could | 24-05 | Gerald |
+| REQ035 | Object detection and avoidance | Could | 24-05 | Gerald |
+| REQ036 | React to voice commands | Could | 24-05 | Gerald |
+
 
 ## Non functional requirements
 | REQ number | Description | Date added | Team member |
