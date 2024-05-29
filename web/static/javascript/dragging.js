@@ -114,6 +114,33 @@ function createDraggableDiv(id, topPosition, type) {
     inputElement.setAttribute('type', 'number');
     div.appendChild(inputElement);
   }
+  else if (type == 'animation') {
+    innerDiv.className = "draggable-button animation";
+    innerDiv.textContent = "do animation:";
+
+    // List of possible animations. Add to this array the additional animations.
+    const animationOptions = [
+      { value: 'wave', text: 'wave' },
+      { value: 'sit', text: 'sit'}
+    ]
+    var inputElement = document.createElement("select");
+    inputElement.setAttribute('id', 'animationDropdown');
+    inputElement.setAttribute('name', 'animationDropdown');
+    inputElement.classList.add('input', 'forward-input');
+    // Required to prevent the block from dragging when you want to use the menu.
+    inputElement.addEventListener('mousedown',function(event){
+      event.stopPropagation();
+    })
+    // Loop through the options array and create option elements for the list
+    animationOptions.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.setAttribute('value', option.value);
+      optionElement.textContent = option.text;
+      inputElement.appendChild(optionElement);
+    });
+
+    innerDiv.appendChild(inputElement);
+    }
   
 
   // Reload the draggable divs/add functionality

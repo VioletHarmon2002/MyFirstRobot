@@ -70,6 +70,9 @@ body {
     left: 2px;
     color: rgb(21, 21, 21);
   }
+  .animation{
+    background-color: rgb(85, 154, 177);
+  }
   
   /* draggabke block container styling and positioning */
   #draggable-container {
@@ -88,7 +91,6 @@ body {
       cursor: pointer;
       padding: 10px;
       font-size: 15px;
-      margin: 10;
       border-radius: 10px;
   }
   /* 
