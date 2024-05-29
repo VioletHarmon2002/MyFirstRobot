@@ -3,10 +3,10 @@
 ## Functional requirements
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | worked on sprint |
 |---|---|---|---|---|---|---|
-| REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald | | Sprint 1 | 
+| REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald | |  1 | 
 | | The robot needs to have moving parts and should be able to do precise movements. | | | |
 | ~~REQ002~~ | ~~The robot must have moving parts~~ | Wont | 24-04 | Gerald |
-| REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) | Sprint 1/2 |
+| REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) |  1/2 |
 | REQ004 | The price per robot must be as low as possible (maximum €20) | Must | 24-04 | Gerald |
 | REQ005 | Webapp is a docker IMG that runs on a Raspberry Pi | Must | 24-04 | Gerald |
 | REQ006 | The robot must fit in the Smart city sub theme | Must | 24-04 | Gerald |
@@ -17,12 +17,12 @@
 | REQ010 | There must be enough pins on the mcu to expand the amount of sensors at a later time. | Must | 24-04 | Gerald |
 | REQ011 | The robot is able to be used as learning and teaching platform for other courses | Must | 24-04 | Gerald |
 | REQ012 | Security by design - The PHP web backend needs to be secure | Must | 24-04 | Gerald |
-| REQ013 | The robot must be easy to dissamble for reuse on other open door days. | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) | sprint 1/2 |
+| REQ013 | The robot must be easy to dissamble for reuse on other open door days. | Must | 24-04 | Gerald | [#76](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/76) |  1/2 |
 | REQ014 | The robots are selected on the webapp by scanning the QR codes printed on them | Must | 24-04 | Silvester |
-| REQ015 | The webapp sends universal commands to the robots | Must | 24-04 | Ilias | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
-| REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
+| REQ015 | The webapp sends universal commands to the robots | Must | 24-04 | Ilias | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
+| REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 | REQ017 | The robot can be controlled with a virtual joystick on the webapp | Must | 24-04 | Floris |
-| REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) | sprint 2 |
+| REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 
 ## Robot functionalities
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | wroked on sprint |
