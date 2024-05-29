@@ -123,13 +123,18 @@ function createDraggableDiv(id, topPosition, type) {
       { value: 'wave', text: 'wave' },
       { value: 'sit', text: 'sit'}
     ]
-    var inputElement = document.createElement("select");
+    inputElement.remove();
+    inputElement = document.createElement("select");
     inputElement.setAttribute('id', 'animationDropdown');
     inputElement.setAttribute('name', 'animationDropdown');
     inputElement.classList.add('input', 'forward-input');
     // Required to prevent the block from dragging when you want to use the menu.
     inputElement.addEventListener('mousedown',function(event){
       event.stopPropagation();
+    })
+    inputElement.addEventListener("change", function (e){
+        let index = findIndexInList(div);
+        setNodeInArray(index, div.id, inputElement.value);
     })
     // Loop through the options array and create option elements for the list
     animationOptions.forEach(option => {
