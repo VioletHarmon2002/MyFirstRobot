@@ -64,7 +64,7 @@ function createDraggableDiv(id, topPosition, type) {
   var div = document.createElement("div");
   div.id = id;
   div.className = "draggable-parent";
-  div.style.left = "250px";
+  div.style.left = "20px";
   
   // Create the inner div
   var innerDiv = document.createElement("div");
@@ -84,7 +84,7 @@ function createDraggableDiv(id, topPosition, type) {
   // Check what type is set, and add the correct values accordingly
   if(type == 'forward'){
     innerDiv.className = "draggable-button forward";
-    innerDiv.textContent = "forward (s):";
+    innerDiv.textContent = "forward:";
     
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
@@ -92,7 +92,7 @@ function createDraggableDiv(id, topPosition, type) {
   } 
   else if(type == 'wait'){
     innerDiv.className = "draggable-button wait";
-    innerDiv.textContent = "wait (s):";
+    innerDiv.textContent = "wait:";
   
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
@@ -100,7 +100,7 @@ function createDraggableDiv(id, topPosition, type) {
   }
   else if(type == 'turn'){
     innerDiv.className = "draggable-button turn";
-    innerDiv.textContent = "turn (degrees):";
+    innerDiv.textContent = "turn:";
   
     inputElement.classList.add('input', 'forward-input');
     inputElement.setAttribute('type', 'number');
