@@ -1,7 +1,7 @@
 # Requirements
 
 ## Functional requirements
-| REQ number | Description | MoSCoW | Date added | Team member | Epic | worked on sprint |
+| REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
 |---|---|---|---|---|---|---|
 | REQ001 | The robot must have a **wow** factor | Must | 24-04 | Gerald | |  1 | 
 | | The robot needs to have moving parts and should be able to do precise movements. | | | |
@@ -25,7 +25,7 @@
 | REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 
 ## Robot functionalities
-| REQ number | Description | MoSCoW | Date added | Team member | Epic | wroked on sprint |
+| REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
 |---|---|---|---|---|---|---|
 | REQ019 | The robot can walk forward | Must | 24-05 | Gerald | [#194](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/194) | 2 |
 | REQ020 | The robot can run forward | Must | 24-05 | Gerald | n.a | |
@@ -40,11 +40,11 @@
 | REQ029 | The robot can stand up from falling to the left | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
 | REQ030 | The robot can fall to the right | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
 | REQ031 | The robot can stand up from falling to the right | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
-| REQ032 | the robot can follow another bot | Could | 24-05 | Gerald | | |
-| REQ033 | the robot can Follow a line | Could | 24-05 | Gerald | | |
-| REQ034 | the robot can Wag his tail | Could | 24-05 | Gerald | | |
-| REQ035 | the robot can detect objects and avoidance objects | Could | 24-05 | Gerald | | |
-| REQ036 | the robot can react to voice commands | Could | 24-05 | Gerald | | |
+| REQ032 | The robot can follow another bot | Could | 24-05 | Gerald | | |
+| REQ033 | The robot can follow a line | Could | 24-05 | Gerald | | |
+| REQ034 | The robot can wag its tail | Could | 24-05 | Gerald | | |
+| REQ035 | The robot can detect objects and avoidance objects | Could | 24-05 | Gerald | | |
+| REQ036 | The robot can react to voice commands | Could | 24-05 | Gerald | | |
 
 
 ## Non functional requirements
