@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blockly Project</title>
     <link rel="stylesheet" href="./static/css/blockly.css">
+    <title>HBO-ICT: Robot</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/blockly.css">
 </head>
 <body>
-    <h1>My Blockly Project</h1>
-    <div id="blocklyDiv" style="height: 50vh; width: 100vh;"></div>
+    <div class="top-bar">
+        <img src="static/images/logo.png" alt="HvA" class="logo">
+    </div>
+    <div id="blocklyDiv" class="blocklyContainer" style="height: 80vh; width: 100%;"></div>
     <xml id="toolbox" style="display: none">
         <block type="move"></block>
         <block type="controls_if"></block>

@@ -4,5 +4,9 @@ body {
 }
 
 #blocklyDiv {
-    border: 1px solid #ccc;
+    border: 0px solid;
+}
+
+.blocklyMainBackground{
+    stroke-width: 0px;
 }

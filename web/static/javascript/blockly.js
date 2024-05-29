@@ -1,7 +1,27 @@
+const forward_color = "#16c548";
+
 // BASIC BLOCKLY CODE
+Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
+  'base': Blockly.Themes.Classic,
+  'componentStyles': {
+    'workspaceBackgroundColour': '#28147C',
+    'toolboxBackgroundColour': '#381CB4',
+    'toolboxForegroundColour': '#381CB4',
+    'flyoutBackgroundColour': '#381CB4',
+    'flyoutForegroundColour': '#ccc',
+    'flyoutOpacity': 0.5,
+    'scrollbarColour': '#ff0000',
+    'insertionMarkerColour': '#fff',
+    'insertionMarkerOpacity': 0.3,
+    'scrollbarOpacity': 0.4,
+    'cursorColour': '#d0d0  d0',
+    'blackBackground': '#333'
+  }
+});
 document.addEventListener("DOMContentLoaded", function() {
     var workspace = Blockly.inject('blocklyDiv', {
-        toolbox: document.getElementById('toolbox')
+        toolbox: document.getElementById('toolbox'),
+        theme: Blockly.Themes.Halloween,
     });
 
     function showCode() {
@@ -15,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var button = document.createElement('button');
     button.innerText = 'Show Code';
     button.onclick = showCode;
+    
     document.body.appendChild(button);
 });
+
 
 // ADD BLOCKS HERE
 Blockly.common.defineBlocksWithJsonArray([
@@ -42,7 +64,7 @@ Blockly.common.defineBlocksWithJsonArray([
     ],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 355
+    "colour": forward_color
   }
 ]);
 
