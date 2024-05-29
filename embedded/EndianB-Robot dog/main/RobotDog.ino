@@ -11,7 +11,7 @@ WiFiClient client; // WiFi client for connecting to the server
 bool isConnected = false; // Connection status flag
 
 // Define the pins for the servos
-#define SERVO_FL_PIN 4 // Front left servo pin
+#define SERVO_FL_PIN 4 // Front left servo                                                                                                                    pin
 #define SERVO_RL_PIN 16 // Rear left servo pin
 #define SERVO_FR_PIN 17 // Front right servo pin
 #define SERVO_RR_PIN 5 // Rear right servo pin
