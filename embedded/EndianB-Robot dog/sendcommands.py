@@ -33,17 +33,20 @@ def main():
 
             # Read input from console and send to client
             while True:
-                data = input("Enter a command ('forward', 'start', 'docking', 'sit', 'left', 'right', 'wave', 'lie' or an angle number to send, or 'exit' to stop): ")
+                data = input("Enter a command ('exit' to stop, or 'q' for commands): ")
                 if data == 'exit':
                     break
+                if data == 'q':
+                    for command in valid_commands:
+                        print(command)
 
                 # Check if input is a valid command or a number
-                if data not in ["forward", "start", "docking", "sit", "left", "right", "wave", "lie"] and not is_number(data):
+                if data not in valid_commands and not is_number(data):
                     print("Invalid input. Please enter 'forward', 'start', 'docking', 'sit', 'left', 'right', 'wave', 'lie', or a number.")
                     continue
 
                 # Create a JSON object based on the input
-                if data in ["forward", "start", "docking", "sit", "left", "right", "wave", "lie"]:
+                if data in valid_commands:
                     message = {"command": data}
                 else:
                     message = {"angle": int(data)}  # Convert input to integer
