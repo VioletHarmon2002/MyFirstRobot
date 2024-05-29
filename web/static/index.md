@@ -1,1 +1,3 @@
 The robot list is defined by html, styled by css with the `robot-list-container` class and the `robot-list-item` class. The items are added by javascript in the `addRobotNames()` function, these names are stored in the `names_array`. 
+
+The input element is a normal html element, when clicking on a robot name the element innerHTML is altered with the name of the robot that is selected. When pressing the connect butten the name is for now retrieved out of the input element and sent to further processing.

@@ -37,7 +37,7 @@ body {
   /* draggable button styling and positioning, this is the part you click on to drag the .draggable-parent */
   .draggable-button {
       padding: 15px;
-      font-size: 20px;
+      font-size: 15px;
       cursor: move;
       z-index: 10;
       color: #fff;
@@ -83,7 +83,7 @@ body {
   
   /* styling for the creating of draggable buttons */
   .create-draggable-button{
-      width: 200px;
+      min-width: 10vh;
       color: white;
       cursor: pointer;
       padding: 10px;
