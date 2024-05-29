@@ -32,19 +32,19 @@
 | REQ021 | The robot can walk backward | Must | 24-05 | Gerald | n.a |  |
 | REQ022 | The robot can turn left | Must | 24-05 | Gerald | [#194](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/194) [#199](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/119)| 2 |
 | REQ023 | The robot can turn right | Must | 24-05 | Gerald | [#204](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/204) [#120](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/120)| 2 | 
-| REQ024 | The robot can lie down | Must | 24-05 | Gerald | | |
-| REQ025 | The robot can stand up from lying down | Must | 24-05 | Gerald |
-| REQ026 | The robot can sit down | Must | 24-05 | Gerald |
-| REQ027 | The robot can stand up from sitting down | Must | 24-05 | Gerald |
-| REQ028 | The robot can fall to the left | Must | 24-05 | Gerald |
-| REQ029 | The robot can stand up from falling to the left | Must | 24-05 | Gerald |
-| REQ030 | The robot can fall to the right | Must | 24-05 | Gerald |
-| REQ031 | The robot can stand up from falling to the right | Must | 24-05 | Gerald |
-| REQ032 | the robot can follow another bot | Could | 24-05 | Gerald |
-| REQ033 | the robot can Follow a line | Could | 24-05 | Gerald |
-| REQ034 | the robot can Wag his tail | Could | 24-05 | Gerald |
-| REQ035 | the robot can detect objects and avoidance objects | Could | 24-05 | Gerald |
-| REQ036 | the robot can react to voice commands | Could | 24-05 | Gerald |
+| REQ024 | The robot can lie down | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) | 2 |
+| REQ025 | The robot can stand up from lying down | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) | 2 |
+| REQ026 | The robot can sit down | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) | 2 |
+| REQ027 | The robot can stand up from sitting down | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) | 2 |
+| REQ028 | The robot can fall to the left | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
+| REQ029 | The robot can stand up from falling to the left | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
+| REQ030 | The robot can fall to the right | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
+| REQ031 | The robot can stand up from falling to the right | Must | 24-05 | Gerald | [#211](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/211) |  |
+| REQ032 | the robot can follow another bot | Could | 24-05 | Gerald | | |
+| REQ033 | the robot can Follow a line | Could | 24-05 | Gerald | | |
+| REQ034 | the robot can Wag his tail | Could | 24-05 | Gerald | | |
+| REQ035 | the robot can detect objects and avoidance objects | Could | 24-05 | Gerald | | |
+| REQ036 | the robot can react to voice commands | Could | 24-05 | Gerald | | |
 
 
 ## Non functional requirements
