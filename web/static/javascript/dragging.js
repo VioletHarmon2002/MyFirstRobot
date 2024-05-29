@@ -155,6 +155,7 @@ function createDraggableDiv(id, topPosition, type) {
 // Upload program to robot
 function uploadProgram(){
   console.log(commands_array);
+  alert(JSON.stringify(commands_array));
   
 }
 

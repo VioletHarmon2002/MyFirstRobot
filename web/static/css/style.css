@@ -1,5 +1,11 @@
+:root {
+    --hva-color-dark: #28147C;
+    --hva-color-light: #381CB4;
+  }
+  
+
 body {
-    background-color: #28147C;
+    background-color:  var(--hva-color-dark);
     margin: 0;
     padding: 0;
 }
@@ -11,7 +17,7 @@ h1{
     flex-direction: row;
 }
 .top-bar {
-    background-color: #381CB4;
+    background-color: var(--hva-color-light);
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -62,7 +68,10 @@ h1{
 .spacer {
     width: 10px;
 }
-
+.btn {
+    background-color:  var(--hva-color-light);
+    border:  0px;
+}
 .arrow-btn {
     width: 50px;
     height: 50px;

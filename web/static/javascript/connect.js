@@ -1,4 +1,4 @@
-let names_array = ["gert", "geralda", "gerard", "gabbert", "gabbert", "gabbert", "gabbert", "gabbert"];
+let names_array = ["Gert", "Geralda", "Gerard", "Gabbert", "Geronk", "Giovanni", "Gnar", "Gnappie"];
 let current_name = "hoi";
 let names_element_array = document.getElementsByClassName('robot-list-item');
 const LIST_ITEM_BACKGROUND_COLOR = "rgb(205, 205, 205)";
@@ -36,6 +36,7 @@ function setRobotNameActive(element){
 function connect(){
     let input = document.getElementsByClassName('robot-name-input')[0];
     console.log("Connecting to " + input.value);
+    alert("connecting to " + input.value);
 }
 
 addRobotNames();
