@@ -87,30 +87,56 @@ void setup() {
 }
 
 void walkForward() {
+  const int liftAngle = 20; // Angle to lift the leg
+  const int forwardAngle = 30; // Angle to move the leg forward
+  const int backwardAngle = 30; // Angle to move the leg backward
+  const int stepDelay = 1000; // Delay between steps in milliseconds
+  const int liftDelay = 500; // Delay for lifting legs
+
   unsigned long startTime = millis();
   
-  while (currentCommand == "forward" && millis() - startTime < 5000) { // 5 seconds
-    RL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(100);
-    FL.write(DEFAULT_POS - WALK_OFFSET);
+  while (currentCommand == "forward" && millis() - startTime < 10000) { // Walk for 10 seconds
 
-    FR.write(DEFAULT_POS - WALK_OFFSET);
-    delay(100);
-    RR.write(DEFAULT_POS + WALK_OFFSET);
+    // Step 1: Move left legs forward and right legs backward
+    FL.write(DEFAULT_POS - forwardAngle); // Move front left leg forward
+    RL.write(DEFAULT_POS - forwardAngle); // Move rear left leg forward
+    FR.write(DEFAULT_POS + backwardAngle); // Move front right leg backward
+    RR.write(DEFAULT_POS + backwardAngle); // Move rear right leg backward
+    delay(stepDelay);
 
-    // Delay
-    delay(WALK_DELAY);
+    // Step 2: Lift left legs
+    FL.write(DEFAULT_POS - forwardAngle + liftAngle);
+    RL.write(DEFAULT_POS - forwardAngle + liftAngle);
+    delay(liftDelay);
 
-    FL.write(DEFAULT_POS + WALK_OFFSET);
-    delay(100);
-    RL.write(DEFAULT_POS - WALK_OFFSET);
-    
-    RR.write(DEFAULT_POS - WALK_OFFSET);
-    delay(100);
-    FR.write(DEFAULT_POS + WALK_OFFSET);
+    // Return left legs to the ground
+    FL.write(DEFAULT_POS - forwardAngle);
+    RL.write(DEFAULT_POS - forwardAngle);
+    delay(liftDelay);
 
-    // Delay
-    delay(WALK_DELAY);
+    // Step 3: Move right legs forward and left legs backward
+    FR.write(DEFAULT_POS - forwardAngle); // Move front right leg forward
+    RR.write(DEFAULT_POS - forwardAngle); // Move rear right leg forward
+    FL.write(DEFAULT_POS + backwardAngle); // Move front left leg backward
+    RL.write(DEFAULT_POS + backwardAngle); // Move rear left leg backward
+    delay(stepDelay);
+
+    // Step 4: Lift right legs
+    FR.write(DEFAULT_POS - forwardAngle + liftAngle);
+    RR.write(DEFAULT_POS - forwardAngle + liftAngle);
+    delay(liftDelay);
+
+    // Return right legs to the ground
+    FR.write(DEFAULT_POS - forwardAngle);
+    RR.write(DEFAULT_POS - forwardAngle);
+    delay(liftDelay);
+
+    // Return all legs to the default position
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(stepDelay);
   }
 
   // Stop the movement
@@ -119,6 +145,8 @@ void walkForward() {
   RL.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
 }
+
+
 
 void moveToStartPosition() {
   for (int angle = 0; angle <= 180; angle += 5) {
@@ -147,9 +175,8 @@ void sit() {
 }
 
 void wave() {
-  Serial.print("Hallo!");
   for (int i = 0; i < 3; i++) {
-    Serial.print("Zwaai");
+    Serial.print("wave");
     FL.write(WAVE_DOWN);
     delay(500); // Add delay for a visible wave
     FL.write(WAVE_UP);
@@ -168,7 +195,6 @@ void turnRight() {
     RL.write(TURN_RIGHT_RL);  // Rear left leg left turn
     RR.write(TURN_RIGHT_RR);  // Rear right leg right turn
   }
-
   // Return to default position
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);

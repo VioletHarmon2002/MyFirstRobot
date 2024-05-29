@@ -1,6 +1,8 @@
 import socket
 import json
 
+valid_commands = ["forward", "start", "docking", "sit", "left", "right", "wave", "lie"]
+
 def is_number(s):
     try:
         float(s)
