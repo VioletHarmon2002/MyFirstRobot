@@ -115,7 +115,6 @@ function createDraggableDiv(id, topPosition, type) {
     div.appendChild(inputElement);
   }
 
-<<<<<<< HEAD
   else if (type == 'animation') {
     innerDiv.className = "draggable-button animation";
     innerDiv.textContent = "do animation:";
@@ -145,9 +144,6 @@ function createDraggableDiv(id, topPosition, type) {
   }
 
 
-=======
-  // Reload the draggable divs/add functionality
->>>>>>> 1f53ccd559ac56f81b781ad3dc6d070006626742
   loadDraggables();
 }
 
