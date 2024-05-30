@@ -22,7 +22,8 @@
 | REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 | REQ017 | The robot can be controlled with a virtual joystick on the webapp | Must | 24-04 | Floris |
 | REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
-
+| REQ037 | The robot's legs do not collide whilst in operation | Must | 29-05 | Silvester | # | - |
+| REQ038 | The robot's body is sturdy and does not break easily | Must | 29-05 | Silvester | # | - |
 ## Robot functionalities
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
 |---|---|---|---|---|---|---|
@@ -64,6 +65,10 @@
 |---|---|
 | DOD001 | User documentation has been updated with the work that is been done. |
 | DOD002 | Code documentation has been updated with the work that is been done. |
-| DOD003 | Webapp documentation has been updated with the work that has been done. |
-| DOD004 | Parts that have been used for the robot need to be added to the BOM. |
-| DOD005 | Work has been reviewed by a teammate. |
+| DOD003 | Client documentation (presentation) has been updated with the work that has been done. |
+| DOD004 | Webapp documentation has been updated with the work that has been done. |
+| DOD005 | Technical documentation has been updated with the work that has been done |
+| DOD006 | Design documentation has been updated with the work that has been done. |
+| DOD007 | Parts and materials have been added to the BOM. |
+| DOD008 | Code conventions have been checked by a teammate who did not code the work. |
+| DOD009 | Documentation has been checked by a teammate for mistakes. |
