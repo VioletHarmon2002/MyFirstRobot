@@ -8,6 +8,10 @@ body {
     position: relative;
     padding:20px;
 }
+
+#code_display_element{
+    color: white;
+}
 .program_controlls{
     width: 100%;
 }

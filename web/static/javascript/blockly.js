@@ -85,13 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function showCode() {
         showCodeOutside();
     }
-
-    // Optionally, you can add a button to show generated code
-    var button = document.createElement('button');
-    button.innerText = 'Show Code';
-    button.onclick = showCode;
-    
-    document.body.appendChild(button);
 });
 
 
