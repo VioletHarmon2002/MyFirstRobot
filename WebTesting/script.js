@@ -119,7 +119,7 @@ function createDraggableDiv(id, topPosition, type) {
     innerDiv.className = "draggable-button animation";
     innerDiv.textContent = "do animation:";
 
-    // List of possible animations. Add to the additional annimations to this array.
+    // List of possible animations. If there are new animations possible, you should add them to this array.
     const animationOptions = [
       { value: 'wave', text: 'wave' },
       { value: 'sit', text: 'sit'}
