@@ -135,6 +135,8 @@ Blockly.common.defineBlocksWithJsonArray([
         "check": "String"
       }
     ],
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": 230,
     "tooltip": "",
     "helpUrl": ""
@@ -169,4 +171,30 @@ Blockly.common.defineBlocksWithJsonArray([
 javascript.javascriptGenerator.forBlock['turn'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   return 'robot.turn(' + value +');\n';
+};
+
+// Animate block
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "play_animation",
+    "message0":"Do animation: %1",
+    "args0": [
+      {
+        "type":"field_dropdown",
+        "name": "animationInQuestion",
+        "options": [
+          ["wave","wave"],
+          ["sit","sit"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 200
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['play_animation'] = function(block) {
+  let value = '\'' + block.getFieldValue('animationInQuestion') + '\'';
+  return 'robot.animate(' + value +');\n';
 };
