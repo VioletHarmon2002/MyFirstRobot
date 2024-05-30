@@ -1,5 +1,4 @@
 # Requirements
-
 ## Functional requirements
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
 |---|---|---|---|---|---|---|
