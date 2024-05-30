@@ -1,6 +1,21 @@
 const forward_color = "#1b97b3";
 const turn_color = "#16c548";
 
+const play_button = document.getElementById("play-btn");
+const pause_button = document.getElementById("pause-btn");
+
+function play(){
+  console.log("play");
+  play_button.style.display = "none";
+  pause_button.style.display = "block";
+}
+
+function pause(){
+  console.log("pause");
+  pause_button.style.display = "none";
+  play_button.style.display = "block";
+}
+pause();
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
   'base': Blockly.Themes.Classic,
@@ -19,6 +34,7 @@ Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
     'blackBackground': '#333'
   }
 });
+const code_display_element = document.getElementById('code_display_element');
 document.addEventListener("DOMContentLoaded", function() {
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -29,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Generate JavaScript code and display it.
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         var code = Blockly.JavaScript.workspaceToCode(workspace);
-        alert(code);
+        
+        code_display_element.innerHTML = code;
     }
 
     // Optionally, you can add a button to show generated code

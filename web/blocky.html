@@ -7,22 +7,36 @@
     <title>HBO-ICT: Robot</title>
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/blockly.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="top-bar">
         <img src="static/images/logo.png" alt="HvA" class="logo">
     </div>
-    <div id="blocklyDiv" class="blocklyContainer" style="height: 80vh; width: 100%;"></div>
-    <xml id="toolbox" style="display: none">
-        <block type="move"></block>
-        <block type="turn"></block>
-        <block type="controls_if"></block>
-        <block type="logic_compare"></block>
-        <block type="math_number"></block>
-        <block type="math_arithmetic"></block>
-        <block type="text"></block>
-    </xml>
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <div class="flex-row">
+
+        <div id="blocklyDiv" class="blocklyContainer" style="height: 80vh; width: 70%;"></div>
+        <xml id="toolbox" style="display: none">
+            <block type="move"></block>
+            <block type="turn"></block>
+            <block type="controls_if"></block>
+            <block type="logic_compare"></block>
+            <block type="math_number"></block>
+            <block type="math_arithmetic"></block>
+            <block type="text"></block>
+        </xml>
+        <div id="code_display_parent">
+            <h1>Code:</h1>
+            <div class="program_controlls flex-row" style="position: relative; bottom: 0px">
+                <button class="control-btn program-direction-button" id="back-btn"><i class="fa fa-step-backward"></i></ibutton>
+                <button class="control-btn" id="play-btn" onclick="play()"><i class="fa fa-play"></i></button>
+                <button class="control-btn" id="pause-btn" onclick="pause()"><i class="fa fa-pause"></i></button>
+                <button class="control-btn program-direction-button" id="forward-btn"><i class="fa fa-step-forward"></i></button>
+            </div>
+            <div id="code_display_element"></div>
+        </div>
+    </div>
+        <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="./static/javascript/blockly.js"></script>
 </body>
 </html>
