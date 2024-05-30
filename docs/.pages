@@ -1,8 +1,9 @@
 nav:
-    - 🏚️ Home: 
-        - Introduction: home/introduction.md
-        - Requirements: home/requirements.md
-        - Functionalities: home/functionalities.md
+    - 🏚️ Home:
+        - Introduction: home/introduction
+        - Requirements: home/requirements
+        - Functionalities: home/functionalities
+        - Comparison: home/comparison
     - 🧰 Embedded:
         - Requirements: embedded/requirements
         - Technical Documentation: embedded/technical_documentation
