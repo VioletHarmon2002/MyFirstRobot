@@ -1,17 +1,24 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-    <link rel="stylesheet" href="style.css">
+    <title>HBO-ICT: Robot</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/dragging.css">
+    <script src="static/javascript/dragging.js" defer></script>
 </head>
 <body>
+    <div class="top-bar">
+        <img src="static/images/logo.png" alt="HvA" class="logo">
+    </div>
+
     <div class="total-container">
         <div id="list"></div>
         <div class="container" id="draggable-container">
             <!-- <div class="draggable-parent">
                 <div class="draggable-button wait" id="hey">forward (s)</div>
-                <input class="input forward-input" type="number"/>
+                <input class="input forward-input" type="number" name="1"/>
             </div> -->
         </div> 
         <div id="create-container">
@@ -19,10 +26,10 @@
             <div class=" create-draggable-button wait" onclick="createDraggableDiv('wait', 0, 'wait')">Click to create a wait node</div>
             <div class=" create-draggable-button turn" onclick="createDraggableDiv('turn', 0, 'turn')">Click to create a turn node</div>
             <div class=" create-draggable-button move" onclick="createDraggableDiv('move', 0, 'move')">Click to create a move node</div>
+            <div class=" create-draggable-button animation" onclick="createDraggableDiv('animation',0,'animation')">Click to create a animation node</div>
             <div class=" create-draggable-button" id="upload-button" onclick="uploadProgram()">upload code</div>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
 </body>
 </html>

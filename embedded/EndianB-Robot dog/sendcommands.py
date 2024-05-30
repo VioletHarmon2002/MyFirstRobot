@@ -10,7 +10,7 @@ def is_number(s):
 
 def main():
     # Define the host and port to listen on
-    host = '0.0.0.0'  # Listen on all available interfaces
+    host = '172.20.10.5'  # Listen on all available interfaces
     port = 1234
 
     # Create a socket object
@@ -31,17 +31,20 @@ def main():
 
             # Read input from console and send to client
             while True:
-                data = input("Enter a number to send (or 'exit' to stop): ")
+                data = input("Enter a command ('forward', 'start', 'docking', 'sit', 'left', 'right' or an angle number to send, or 'exit' to stop): ")
                 if data == 'exit':
                     break
 
-                # Check if input is a number
-                if not is_number(data):
-                    print("Invalid input. Please enter a number.")
+                # Check if input is a valid command or a number
+                if data not in ["forward", "start", "docking", "sit", "left", "right"] and not is_number(data):
+                    print("Invalid input. Please enter 'forward', 'start', 'docking', 'sit', 'left', 'right', or a number.")
                     continue
 
-                # Create a JSON object
-                message = {"angle": int(data)}  # Convert input to integer
+                # Create a JSON object based on the input
+                if data in ["forward", "start", "docking", "sit", "left", "right"]:
+                    message = {"command": data}
+                else:
+                    message = {"angle": int(data)}  # Convert input to integer
 
                 # Serialize the JSON object to a string
                 json_message = json.dumps(message)
