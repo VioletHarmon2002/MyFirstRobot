@@ -1,4 +1,5 @@
-const forward_color = "#16c548";
+const forward_color = "#1b97b3";
+const turn_color = "#16c548";
 
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
@@ -72,4 +73,28 @@ javascript.javascriptGenerator.forBlock['move'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   let direction = '\'' + block.getFieldValue('DIRECTION') + '\'';
   return 'robot.move(' + direction + ', ' + value +');\n';
+};
+
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "turn",
+    "message0": "turn %1 degrees",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "NUMBER",
+        "value": 0,
+        "min": -180,
+        "max": 180,
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": turn_color
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['turn'] = function(block) {
+  let value = '\'' + block.getFieldValue('NUMBER') + '\'';
+  return 'robot.turn(' + value +');\n';
 };
