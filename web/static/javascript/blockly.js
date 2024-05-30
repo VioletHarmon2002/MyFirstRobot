@@ -12,11 +12,22 @@ const pause_button = document.getElementById("pause-btn");
 pause();
 let code;
 let formattedCode;
+
+function readCode(){
+  try{ 
+    eval(code);
+  } catch(e){
+    console.error(e);
+  }
+}
+
 function play(){
   console.log("play");
   play_button.style.display = "none";
   pause_button.style.display = "block";
+  showCodeOutside();
   running = true;
+  
 }
 
 function pause(){
@@ -52,21 +63,27 @@ Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
     'blackBackground': '#333'
   }
 });
+
+var workspace;
+
+function showCodeOutside() {
+  // Generate JavaScript code and display it.
+  Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+  code = Blockly.JavaScript.workspaceToCode(workspace);
+  formatCode(code);
+  code_display_element.innerHTML = formattedCode;
+  readCode();
+}
+
 const code_display_element = document.getElementById('code_display_element');
 document.addEventListener("DOMContentLoaded", function() {
-    var workspace = Blockly.inject('blocklyDiv', {
+    workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
         theme: Blockly.Themes.Halloween,
     });
 
     function showCode() {
-        // Generate JavaScript code and display it.
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        code = Blockly.JavaScript.workspaceToCode(workspace);
-        formatCode(code);
-        code_display_element.innerHTML = formattedCode;
-        play();
-        readCode();
+        showCodeOutside();
     }
 
     // Optionally, you can add a button to show generated code
