@@ -1,21 +1,39 @@
+const HVA_DARK_COLOR = '#28147C'
+const HVA_LIGHT_COLOR = '#381CB4'
 const forward_color = "#1b97b3";
 const turn_color = "#16c548";
+
+
+let running;
 
 const play_button = document.getElementById("play-btn");
 const pause_button = document.getElementById("pause-btn");
 
+pause();
+let code;
+let formattedCode;
 function play(){
   console.log("play");
   play_button.style.display = "none";
   pause_button.style.display = "block";
+  running = true;
 }
 
 function pause(){
   console.log("pause");
   pause_button.style.display = "none";
   play_button.style.display = "block";
+  running = false;
 }
-pause();
+
+function formatCode(){
+  formattedCode = code;
+  formattedCode = formattedCode.replace(/({|})/g, '$1<br>');
+  formattedCode = formattedCode.replace(/;/g, ';<br>');
+  return formatCode;
+}
+
+// x
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
   'base': Blockly.Themes.Classic,
@@ -44,9 +62,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function showCode() {
         // Generate JavaScript code and display it.
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        
-        code_display_element.innerHTML = code;
+        code = Blockly.JavaScript.workspaceToCode(workspace);
+        formatCode(code);
+        code_display_element.innerHTML = formattedCode;
+        play();
+        readCode();
     }
 
     // Optionally, you can add a button to show generated code
@@ -59,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ADD BLOCKS HERE
+// Move block
 Blockly.common.defineBlocksWithJsonArray([
   {
     "type": "move",
@@ -92,6 +113,30 @@ javascript.javascriptGenerator.forBlock['move'] = function(block) {
   return 'robot.move(' + direction + ', ' + value +');\n';
 };
 
+// print block
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "print",
+    "message0": "print %1",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "text",
+        "check": "String"
+      }
+    ],
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['print'] = function(block) {
+  let value = '\'' + block.getFieldValue('text') + '\'';
+  return 'console.log(' + value +');\n';
+};
+
+// Turn block
 Blockly.common.defineBlocksWithJsonArray([
   {
     "type": "turn",

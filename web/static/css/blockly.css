@@ -3,9 +3,10 @@ body {
     margin: 20px;
 }
 #code_display_parent{
-    background-color: gray;
+    background-color: var(--hva-color-light);
     width: 30%;
     position: relative;
+    padding:20px;
 }
 .program_controlls{
     width: 100%;
