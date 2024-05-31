@@ -7,7 +7,11 @@
 ##### Robot-dog 2.0
 Our original vision for the robot dog came from a [video](https://www.youtube.com/watch?v=KIlq8erelFM&t=735s) shown to us by our client. The robot dog in the video was made out of plexiglas and had 4 legs with 2 joints each. The robot dog was controlled by 9 SG90 servos and had a custom PCB with a small chip, a switch, an IR sensor, a micro-USB connector, and some resistors. The head of the robot dog had a small custom PCB with 2 LEDs and a plastic cover. The robot dog was powered by a Li-ion battery and had a small IR remote. The robot dog had a WOW-factor, moving parts, was easy to assemble, but was not under €20, not well documented, and did not fit the smart city theme. We decided to make our own version of the robot dog that would be more affordable, better documented, and fit the smart city theme. We decided to make a robot dog with 4 legs and 4 servos that would walk like the robot dog in the video. We would use a PCB or breadboard with plugs instead of soldering, a similar plexiglas construction with parts that fit together like Lego, sensors to fit the smart city theme.
 
-This is the design we came up with for the robot dog:
+This was our very first concept design for the robot dog:	
+![Robot-dog1.0](images/robot-dog0.5.png)
+We included a hole in the bottom plate where we would slot the holder for the AA batteries in. After some considereration we decided to remove the hole for the batteries because we are planning to use a smaller 9V battery instead of the AA batteries. 
+
+This is the first design that we ended up producing for the robot dog:
 ![Robot-dog2.0](images/robot-dog2.0.png)
 
 It has a top and bottom plate (shown in green), The side pieces (shown in red) which can slot its notch into the side bits of the top and bottom plate. The holes in the legs are for the servo's to fit in. you'll see that the front and back hole is slightly different. This allows the servo's to be placed in two different ways, This makes it so the legs dont 
