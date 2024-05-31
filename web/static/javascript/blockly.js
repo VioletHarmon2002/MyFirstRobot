@@ -190,7 +190,8 @@ Blockly.common.defineBlocksWithJsonArray([
         "name": "animationInQuestion",
         "options": [
           ["wave","wave"],
-          ["sit","sit"]
+          ["sit","sit"],
+          ["lay down","lay down"]
         ]
       }
     ],
