@@ -13,6 +13,10 @@ This is the design we came up with for the robot dog:
 It has a top and bottom plate (shown in green), The side pieces (shown in red) which can slot its notch into the side bits of the top and bottom plate. The holes in the legs are for the servo's to fit in. you'll see that the front and back hole is slightly different. This allows the servo's to be placed in two different ways, This makes it so the legs dont 
 And finally the legs (shown in purple) which also had an inlay (shown in yellow) for the horns of the servo's to fit in and a small hole for a screw to connect it to the servo directly.
 
+![Robot-dog2.0](images/robot-dog1.0.jpg)
+
+![robot-dog2.0](images/robot-dog1.5.jpg)
+
 ### Issues with the first prototype
 
 The first design we made for the robot dog was a simple design with 4 legs and 4 servos. The legs were attached to the servos with a horn and a screw. The legs were made out of plexiglas and had rubber feet for grip. The servos were attached to a frame with screws and the wiring was routed through the frame. The design was simple and easy to assemble but had some issues. The legs were not very secure and the robot dog would slip a lot. The servos could be pushed back into the frame too easily and the wiring would get cluttered quickly. We decided to make some improvements to the design for the next iteration of the robot dog.
