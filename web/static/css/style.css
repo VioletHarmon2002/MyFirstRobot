@@ -85,8 +85,13 @@ center{
     width: 10px;
 }
 .btn {
-    background-color:  var(--hva-color-light);
+    color: white;
+    padding:10px;
+    background-color:  var(--hva-color-buttons);
     border:  0px;
+}
+.btn:hover{
+    background-color: var(--hva-color-buttons-hover);
 }
 .arrow-btn {
     width: 50px;
@@ -155,7 +160,7 @@ background-color:var(--hva-color-darker);
     transition: bottom 0.3s ease-in-out;
 }
 #toggleDrawer:hover{
-    background-color: var(--hva-color-buttons);
+    background-color: var(--hva-color-buttons-hover);
 }
 #toggleDrawer.open{
     bottom: 30vh;
