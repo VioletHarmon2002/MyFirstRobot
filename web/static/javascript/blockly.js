@@ -15,7 +15,9 @@ let formattedCode;
 
 function readCode(){
   try{ 
-    eval(code);
+    eval(`(async () => { 
+      ${code} 
+    })();`);
   } catch(e){
     console.error(e);
   }
@@ -37,6 +39,11 @@ function pause(){
   running = false;
 }
 
+// This sleep function makes a new promise so that the program wait x amount of seconds before continuing
+function sleep(seconds) {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+}
+
 function formatCode(){
   formattedCode = code;
   formattedCode = formattedCode.replace(/({|})/g, '$1<br>');
@@ -44,7 +51,6 @@ function formatCode(){
   return formatCode;
 }
 
-// x
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
   'base': Blockly.Themes.Classic,
@@ -197,4 +203,30 @@ Blockly.common.defineBlocksWithJsonArray([
 javascript.javascriptGenerator.forBlock['play_animation'] = function(block) {
   let value = '\'' + block.getFieldValue('animationInQuestion') + '\'';
   return 'robot.animate(' + value +');\n';
+};
+
+// Wait block
+// Turn block
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "wait",
+    "message0": "wait %1 seconds",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "NUMBER",
+        "value": 0,
+        "min": 0,
+        "max": 20,
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": turn_color
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['wait'] = function(block) {
+  let value = '\'' + block.getFieldValue('NUMBER') + '\'';
+  return 'await sleep(' + value +');\n';
 };

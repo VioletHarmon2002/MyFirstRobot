@@ -26,11 +26,12 @@
             <block type="text"></block>
             <block type="print"></block>
             <block type="play_animation"></block>
+            <block type="wait"></block>
         </xml>
         <div id="code_display_parent">
             <h1>Code:</h1>
             <div class="program_controlls flex-row" style="position: relative; bottom: 0px">
-                <button class="control-btn program-direction-button" id="back-btn"><i class="fa fa-step-backward"></i></ibutton>
+                <button class="control-btn program-direction-button" id="back-btn" onclick="testAsync()"><i class="fa fa-step-backward"></i></ibutton>
                 <button class="control-btn" id="play-btn" onclick="play()"><i class="fa fa-play"></i></button>
                 <button class="control-btn" id="pause-btn" onclick="pause()"><i class="fa fa-pause"></i></button>
                 <button class="control-btn program-direction-button" id="forward-btn"><i class="fa fa-step-forward"></i></button>
