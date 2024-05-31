@@ -80,3 +80,18 @@ Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
 
 ### Adding custom code blocks
 Adding code blocks is explained in the [addingcodeblocks.md](addingblock.md)
+
+### Wait function
+The wait code block creates a new promise function like this:
+```javascript
+function sleep(seconds) {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+}
+```
+
+In order to execute the promise function, the program must be executed async, like so:
+```javascript
+eval(`(async () => { 
+      ${code} 
+    })();`);
+```
