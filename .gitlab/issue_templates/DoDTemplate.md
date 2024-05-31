@@ -9,4 +9,4 @@ Definition of Done
 
 - [ ] Parts and materials that have been used for the robot need to be added to the BOM.
 - [ ] Code conventions have been checked by a teammate who did not code the work.
-- [ ] documentation has been checkec by a teammate for mistakes.
+- [ ] documentation has been checked by a teammate for mistakes.

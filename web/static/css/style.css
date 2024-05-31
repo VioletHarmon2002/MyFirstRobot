@@ -1,11 +1,23 @@
+:root {
+    --hva-color-dark: #28147C;
+    --hva-color-light: #381CB4;
+  }
+  
+
 body {
-    background-color: #28147C;
+    background-color:  var(--hva-color-dark);
     margin: 0;
     padding: 0;
 }
-
+h1{
+    color: white;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
 .top-bar {
-    background-color: #381CB4;
+    background-color: var(--hva-color-light);
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -56,7 +68,10 @@ body {
 .spacer {
     width: 10px;
 }
-
+.btn {
+    background-color:  var(--hva-color-light);
+    border:  0px;
+}
 .arrow-btn {
     width: 50px;
     height: 50px;
@@ -90,7 +105,25 @@ body {
 .arrow-right::before {
     content: '\25B6';
 }
-
+.redirect-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: gray;
+    justify-content: center;
+    overflow-x: wrap;
+  }
+  .redirect-container a{
+    color: white;
+    width: 20%;
+    margin: 1vh;
+    text-align: center;
+    background-color: rgb(91, 91, 91);
+    text-decoration: none
+  }
+  .redirect-container a:hover{
+    background-color:rgb(51, 51, 51);
+  }
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
