@@ -10,7 +10,19 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 function forward() {
     $data = array(
-        'message' => 'activate'
+        'task' => 'forward'
+    );
+
+    $json_data = json_encode($data);
+
+    sendMessage($json_data);
+    echo json_encode(['status' => 'Message sent']);
+    
+}
+
+function leftward() {
+    $data = array(
+        'task' => 'leftward'
     );
 
     $json_data = json_encode($data);
@@ -25,6 +37,9 @@ function task(){
 
     if (isset($data['task'])) {
         switch ($data['task']) {
+            case 'forward':
+                forward();
+                break;
             case 'forward':
                 forward();
                 break;
