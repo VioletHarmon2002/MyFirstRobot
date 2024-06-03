@@ -20,5 +20,9 @@ This worked way better then the previous designs, appart from a couple of small 
 
 In this iteration we made the design with the KERF of the lasercutter in mind. So all the parts and hole are precisely made so that you can just put the design in the machine and cut straight away.
 
-This is our new design.
+This is our new design. Here we implemented all the discussed issues we had. So if everything went well, now we don't have to do anything anymore for the file and we can put it straight into the machine.
+
+### Important note
+Do remember that we made this file to the measurements of the lasercutters in the HVA building. That lazer has a thickness of 0.4 mm with the KERF of 0.2mm.   
+
 ![dog file with kerf](images/snoop_no_kerf.png)
