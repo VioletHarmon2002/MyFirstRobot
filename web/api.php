@@ -32,6 +32,18 @@ function leftward() {
     
 }
 
+function rightward() {
+    $data = array(
+        'task' => 'rightward'
+    );
+
+    $json_data = json_encode($data);
+
+    sendMessage($json_data);
+    echo json_encode(['status' => 'Message sent']);
+    
+}
+
 function task(){
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -42,6 +54,9 @@ function task(){
                 break;
             case 'leftward':
                 leftward();
+                break;
+            case 'rightward':
+                rightward();
                 break;
             default:
                 echo json_encode(["error" => "Unknown task"]);
