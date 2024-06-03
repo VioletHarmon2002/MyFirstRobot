@@ -10,7 +10,7 @@ forwardButton.addEventListener('mousedown', () => {
     };
 
     // Verstuur het JSON-bericht naar de API
-    fetch('http://172.16.34.136/api.php?action=task', {
+    fetch('http://Hier_eigen_IP/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ leftward.addEventListener('mousedown', () => {
     };
 
     // Verstuur het JSON-bericht naar de API
-    fetch('http://172.16.34.136/api.php?action=task', {
+    fetch('http://Hier_eigen_IP/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
