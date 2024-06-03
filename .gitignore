@@ -1,0 +1,6 @@
+#Ignore all build files
+.build/
+
+#Ignore vscode settings
+.vscode/
+WebTesting/blockly/blockly-samples

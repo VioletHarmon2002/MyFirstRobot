@@ -1,14 +1,31 @@
 nav:
-    - 🏚️ Home: index.md
-    - 💡Learning journals:
-        - Silvester: learning-journals/silvester
-        - Gjalt: learning-journals/gjalt
-        - Ilias: learning-journals/ilias
-        - Floris: learning-journals/floris
-        - Jayden: learning-journals/jayden
-        - Timo: learning-journals/timo
-        - Luc: learning-journals/luc
+    - 🏚️ Home:
+        - Introduction: home/introduction
+        - Requirements: home/requirements
+        - Functionalities: home/functionalities
+        - Comparison: home/comparison
+    - 🧰 Embedded:
+        - Requirements: embedded/requirements
+        - Technical Documentation: embedded/technical_documentation
+        - Code: embedded/code
+    - 🌐 Web:
+        - Technical Documentation: web/technical_documentation
+        - API reference: web/api_reference
+        - Code: web/code
+        - Database: web/database
     - 👩‍🎨 User Experience Design:
-        - Figma Design: uxd/figma_design
+        - Concept & Design: uxd/concept_design
+        - Create & Test: uxd/create_test
+        - Conclude & Reflect: uxd/conclude_reflect
+    - 📚 Research:
+        - Research stories: research-stories/research_stories
+    - ♟️ Learning journal:
+        - Floris Boers: learning-journals/floris
+        - Luc Enderman: learning-journals/luc
+        - Gjalt van der Meer: learning-journals/gjalt
+        - Timo Lambregts: learning-journals/timo
+        - Jayden van Oorschot: learning-journals/jayden
+        - Silvester Rademakers: learning-journals/silverster
+        - Ilias Takassa: learning-journals/ilias
 
 
