@@ -288,22 +288,22 @@ void walkForward() {
 }
 
 void walkBackwards() {
-  const int hopAngle = 35; // Angle to lift the front legs
-  const int tiltAngle = 15; // Angle to tilt the back legs
+  const int hopAngle = 35; // Angle to lift the back legs
+  const int tiltAngle = 15; // Angle to tilt the front legs
   const int stepDelay = 500; // Adjust as needed for desired speed
   unsigned long startTime = millis();
   while (millis() - startTime < 10000) { // Hop for 10 seconds
-    // Lift and extend front legs, and tilt back legs
+    // Lift and extend back legs, and tilt front legs
+    RL.write(DEFAULT_POS + tiltAngle);
+    RR.write(DEFAULT_POS - tiltAngle);
     FR.write(DEFAULT_POS - tiltAngle);
     FL.write(DEFAULT_POS + tiltAngle);
-    RR.write(DEFAULT_POS + tiltAngle);
-    RL.write(DEFAULT_POS - tiltAngle);
-    FR.write(DEFAULT_POS + hopAngle);
-    FL.write(DEFAULT_POS - hopAngle);
+    FR.write(DEFAULT_POS - hopAngle);
+    FL.write(DEFAULT_POS + hopAngle);
     
     delay(stepDelay);
 
-    // Lower front legs and return back legs to default position
+    // Lower back legs and return front legs to default position
     FR.write(DEFAULT_POS);
     FL.write(DEFAULT_POS);
     delay(stepDelay);
