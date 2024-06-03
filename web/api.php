@@ -1,5 +1,5 @@
 <?php
-require 'send_message.php';
+require 'send_command.php';
 
 // Allow CORS
 header('Content-Type: application/json');
@@ -10,7 +10,19 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 function forward() {
     $data = array(
-        'message' => 'activate'
+        'task' => 'forward'
+    );
+
+    $json_data = json_encode($data);
+
+    sendMessage($json_data);
+    echo json_encode(['status' => 'Message sent']);
+    
+}
+
+function leftward() {
+    $data = array(
+        'task' => 'leftward'
     );
 
     $json_data = json_encode($data);
@@ -28,6 +40,9 @@ function task(){
             case 'forward':
                 forward();
                 break;
+            case 'leftward':
+                leftward();
+                break;
             default:
                 echo json_encode(["error" => "Unknown task"]);
                 break;
@@ -36,7 +51,6 @@ function task(){
         echo json_encode(["error" => "No task provided"]);
     }
 }
-
 function handleRequest() {
     // Retrieve global variables $method and $action
     global $method, $action;

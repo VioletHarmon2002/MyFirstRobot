@@ -1,14 +1,74 @@
-const arrowButtons = document.querySelectorAll('.arrow-btn');
+const forwardButton = document.querySelector('.arrow-btn.arrow-up');
+const leftward = document.querySelector('.arrow-btn.arrow-left'); 
 
-arrowButtons.forEach(button => {
-    button.addEventListener('mousedown', () => {
-        button.style.transform = 'translateY(2px)';
-        button.style.boxShadow = '0px 2px 0px #888';
-    });
+forwardButton.addEventListener('mousedown', () => {
+    forwardButton.style.transform = 'translateY(2px)';
+    forwardButton.style.boxShadow = '0px 2px 0px #888';
 
-    button.addEventListener('mouseup', () => {
-        button.style.transform = '';
-        button.style.boxShadow = '';
+    const data = {
+        task: 'forward' 
+    };
+
+    // Verstuur het JSON-bericht naar de API
+    fetch('http://172.16.34.136/api.php?action=task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('API response:', data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
     });
 });
 
+forwardButton.addEventListener('mouseup', () => {
+    forwardButton.style.transform = '';
+    forwardButton.style.boxShadow = '';
+});
+
+// -------------------------------------
+
+leftward.addEventListener('mousedown', () => {
+    forwardButton.style.transform = 'translateY(2px)';
+    forwardButton.style.boxShadow = '0px 2px 0px #888';
+
+    const data = {
+        task: 'leftward' 
+    };
+
+    // Verstuur het JSON-bericht naar de API
+    fetch('http://172.16.34.136/api.php?action=task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('API response:', data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+});
+
+leftward.addEventListener('mouseup', () => {
+    forwardButton.style.transform = '';
+    forwardButton.style.boxShadow = '';
+});
