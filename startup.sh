@@ -4,7 +4,7 @@
 apache2ctl -D FOREGROUND &
 
 # Start the PHP script
-php /var/www/html/server.php
+php /var/www/html/websocket.php
 
 # Wait for any process to exit
 wait -n
