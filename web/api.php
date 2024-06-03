@@ -40,8 +40,8 @@ function task(){
             case 'forward':
                 forward();
                 break;
-            case 'forward':
-                forward();
+            case 'leftward':
+                leftward();
                 break;
             default:
                 echo json_encode(["error" => "Unknown task"]);
