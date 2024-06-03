@@ -11,7 +11,7 @@ WiFiClient client;
 bool isConnected = false;
 
 // Define the pins for the servos
-#define SERVO_FL_PIN 4
+#define SERVO_FL_PIN 18
 #define SERVO_RL_PIN 16
 #define SERVO_FR_PIN 17
 #define SERVO_RR_PIN 5
@@ -86,55 +86,93 @@ void setup() {
   delay(3000);
 }
 
-void walkForward() {
-  const int liftAngle = 20; // Angle to lift the leg
-  const int forwardAngle = 30; // Angle to move the leg forward
-  const int backwardAngle = 30; // Angle to move the leg backward
-  const int stepDelay = 1000; // Delay between steps in milliseconds
-  const int liftDelay = 500; // Delay for lifting legs
+void dance() {
+  const int forwardAngle = 40; // Angle to move the leg forward
+  const int backwardAngle = 40; // Angle to move the leg backward
+  const int sideShiftAngle = 10; // Angle to shift the robot's weight to one side
+  const int stepDelay = 300; // Delay between steps in milliseconds
 
   unsigned long startTime = millis();
-  
-  while (currentCommand == "forward" && millis() - startTime < 10000) { // Walk for 10 seconds
 
-    // Step 1: Move left legs forward and right legs backward
+  while (currentCommand == "dance" && millis() - startTime < 10000) { // Dance for 10 seconds
+
+    // Step 1: Shift weight to the right
+    FL.write(DEFAULT_POS + sideShiftAngle);
+    RL.write(DEFAULT_POS + sideShiftAngle);
+    delay(stepDelay);
+
+    // Lift front left leg and rear right leg, and move them forward/backward respectively
     FL.write(DEFAULT_POS - forwardAngle); // Move front left leg forward
-    RL.write(DEFAULT_POS - forwardAngle); // Move rear left leg forward
-    FR.write(DEFAULT_POS + backwardAngle); // Move front right leg backward
     RR.write(DEFAULT_POS + backwardAngle); // Move rear right leg backward
     delay(stepDelay);
 
-    // Step 2: Lift left legs
-    FL.write(DEFAULT_POS - forwardAngle + liftAngle);
-    RL.write(DEFAULT_POS - forwardAngle + liftAngle);
-    delay(liftDelay);
+    // Lower the legs
+    FL.write(DEFAULT_POS + sideShiftAngle); // Lower front left leg
+    RR.write(DEFAULT_POS); // Lower rear right leg
+    delay(stepDelay);
 
-    // Return left legs to the ground
-    FL.write(DEFAULT_POS - forwardAngle);
-    RL.write(DEFAULT_POS - forwardAngle);
-    delay(liftDelay);
+    // Return weight to center
+    FL.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    delay(stepDelay);
 
-    // Step 3: Move right legs forward and left legs backward
+    // Step 2: Shift weight to the left
+    FR.write(DEFAULT_POS + sideShiftAngle);
+    RR.write(DEFAULT_POS + sideShiftAngle);
+    delay(stepDelay);
+
+    // Lift front right leg and rear left leg, and move them forward/backward respectively
     FR.write(DEFAULT_POS - forwardAngle); // Move front right leg forward
-    RR.write(DEFAULT_POS - forwardAngle); // Move rear right leg forward
-    FL.write(DEFAULT_POS + backwardAngle); // Move front left leg backward
     RL.write(DEFAULT_POS + backwardAngle); // Move rear left leg backward
     delay(stepDelay);
 
-    // Step 4: Lift right legs
-    FR.write(DEFAULT_POS - forwardAngle + liftAngle);
-    RR.write(DEFAULT_POS - forwardAngle + liftAngle);
-    delay(liftDelay);
+    // Lower the legs
+    FR.write(DEFAULT_POS + sideShiftAngle); // Lower front right leg
+    RL.write(DEFAULT_POS); // Lower rear left leg
+    delay(stepDelay);
 
-    // Return right legs to the ground
-    FR.write(DEFAULT_POS - forwardAngle);
-    RR.write(DEFAULT_POS - forwardAngle);
-    delay(liftDelay);
-
-    // Return all legs to the default position
-    FL.write(DEFAULT_POS);
+    // Return weight to center
     FR.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(stepDelay);
+
+    // Step 3: Shift weight to the right
+    FL.write(DEFAULT_POS + sideShiftAngle);
+    RL.write(DEFAULT_POS + sideShiftAngle);
+    delay(stepDelay);
+
+    // Lift front left leg and rear right leg, and move them backward/forward respectively
+    FL.write(DEFAULT_POS + backwardAngle); // Move front left leg backward
+    RR.write(DEFAULT_POS - forwardAngle); // Move rear right leg forward
+    delay(stepDelay);
+
+    // Lower the legs
+    FL.write(DEFAULT_POS + sideShiftAngle); // Lower front left leg
+    RR.write(DEFAULT_POS); // Lower rear right leg
+    delay(stepDelay);
+
+    // Return weight to center
+    FL.write(DEFAULT_POS);
     RL.write(DEFAULT_POS);
+    delay(stepDelay);
+
+    // Step 4: Shift weight to the left
+    FR.write(DEFAULT_POS + sideShiftAngle);
+    RR.write(DEFAULT_POS + sideShiftAngle);
+    delay(stepDelay);
+
+    // Lift front right leg and rear left leg, and move them backward/forward respectively
+    FR.write(DEFAULT_POS + backwardAngle); // Move front right leg backward
+    RL.write(DEFAULT_POS - forwardAngle); // Move rear left leg forward
+    delay(stepDelay);
+
+    // Lower the legs
+    FR.write(DEFAULT_POS + sideShiftAngle); // Lower front right leg
+    RL.write(DEFAULT_POS); // Lower rear left leg
+    delay(stepDelay);
+
+    // Return weight to center
+    FR.write(DEFAULT_POS);
     RR.write(DEFAULT_POS);
     delay(stepDelay);
   }
@@ -145,8 +183,6 @@ void walkForward() {
   RL.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
 }
-
-
 
 void moveToStartPosition() {
   for (int angle = 0; angle <= 180; angle += 5) {
@@ -222,6 +258,63 @@ void turnLeft() {
   delay(WALK_DELAY);
 }
 
+void walkForward() {
+  const int hopAngle = 35; // Angle to lift the back legs
+  const int tiltAngle = 15; // Angle to tilt the front legs
+  const int stepDelay = 500; // Adjust as needed for desired speed
+  unsigned long startTime = millis();
+  while (millis() - startTime < 10000) { // Hop for 10 seconds
+    // Lift and extend back legs, and tilt front legs
+    FR.write(DEFAULT_POS + tiltAngle);
+    FL.write(DEFAULT_POS - tiltAngle);
+    RR.write(DEFAULT_POS - tiltAngle);
+    RL.write(DEFAULT_POS + tiltAngle);
+    RR.write(DEFAULT_POS + hopAngle);
+    RL.write(DEFAULT_POS - hopAngle);
+    
+    delay(stepDelay);
+
+    // Lower back legs and return front legs to default position
+    RR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    delay(stepDelay);
+  }
+
+  // Stop the movement
+  FR.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  FL.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+}
+
+void walkBackwards() {
+  const int hopAngle = 35; // Angle to lift the front legs
+  const int tiltAngle = 15; // Angle to tilt the back legs
+  const int stepDelay = 500; // Adjust as needed for desired speed
+  unsigned long startTime = millis();
+  while (millis() - startTime < 10000) { // Hop for 10 seconds
+    // Lift and extend front legs, and tilt back legs
+    FR.write(DEFAULT_POS - tiltAngle);
+    FL.write(DEFAULT_POS + tiltAngle);
+    RR.write(DEFAULT_POS + tiltAngle);
+    RL.write(DEFAULT_POS - tiltAngle);
+    FR.write(DEFAULT_POS + hopAngle);
+    FL.write(DEFAULT_POS - hopAngle);
+    
+    delay(stepDelay);
+
+    // Lower front legs and return back legs to default position
+    FR.write(DEFAULT_POS);
+    FL.write(DEFAULT_POS);
+    delay(stepDelay);
+  }
+
+  // Stop the movement
+  FR.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  FL.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+}
 
 void checkForCommand() {
   static String messageBuffer;
@@ -275,6 +368,8 @@ void loop() {
     // Execute commands based on the current command
     if (currentCommand == "forward") {
       walkForward();
+    } else if (currentCommand == "backward") {
+      walkBackwards();
     } else if (currentCommand == "start") {
       moveToStartPosition();
       currentCommand = ""; // Clear the command after execution
@@ -292,6 +387,9 @@ void loop() {
       currentCommand = ""; // Clear the command after execution
     } else if (currentCommand == "left") {
       turnLeft();
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "dance") {
+      dance();
       currentCommand = ""; // Clear the command after execution
     }
   } else {

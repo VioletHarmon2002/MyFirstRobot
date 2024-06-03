@@ -1,7 +1,8 @@
 import socket
 import json
 
-valid_commands = ["forward", "start", "docking", "sit", "left", "right", "wave", "lie"]
+valid_commands = ["forward", "backward", "start", "sit", "left", "right", "wave", "lie", "dance"]
+
 
 def is_number(s):
     try:
@@ -42,7 +43,7 @@ def main():
 
                 # Check if input is a valid command or a number
                 if data not in valid_commands and not is_number(data):
-                    print("Invalid input. Please enter 'forward', 'start', 'docking', 'sit', 'left', 'right', 'wave', 'lie', or a number.")
+                    print("Invalid input. Please enter 'forward', 'start', 'docking', 'sit', 'left', 'right', 'wave', 'lie'")
                     continue
 
                 # Create a JSON object based on the input
