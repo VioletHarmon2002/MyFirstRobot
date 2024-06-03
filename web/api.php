@@ -1,5 +1,5 @@
 <?php
-require 'send_message.php';
+require 'send_command.php';
 
 // Allow CORS
 header('Content-Type: application/json');
@@ -36,7 +36,6 @@ function task(){
         echo json_encode(["error" => "No task provided"]);
     }
 }
-
 function handleRequest() {
     // Retrieve global variables $method and $action
     global $method, $action;
