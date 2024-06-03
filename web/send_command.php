@@ -1,7 +1,7 @@
 <?php
-function sendMessage($user_message) {
+function sendMessage($message) {
     // Define the server host and port to connect to
-    $host = '172.16.34.136'; // Use the appropriate host (e.g., '127.0.0.1' for localhost)
+    $host = 'Hier_eigen_IP'; // Use the appropriate host (e.g., '127.0.0.1' for localhost)
     $port = 8080;
 
     // Create a socket
@@ -19,14 +19,11 @@ function sendMessage($user_message) {
     }
 
     echo json_encode(["message" => "Connected to server at $host:$port"]) . "\n";
-    
-    $message = ["task" => $user_message];
-    $json_message = json_encode($message);
 
 
 
     // Send the JSON-encoded test message to the server
-    if (socket_write($clientsocket, $json_message, strlen($json_message)) === false) {
+    if (socket_write($clientsocket, $message, strlen($message)) === false) {
         echo json_encode(["error" => "Failed to send message: " . socket_strerror(socket_last_error($clientsocket))]) . "\n";
     } else {
         echo json_encode(["message" => "Test message sent to server: $json_message"]) . "\n";
