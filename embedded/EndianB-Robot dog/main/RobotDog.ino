@@ -39,10 +39,10 @@ bool isConnected = false;
 // Turning presets
 #define TURN_DELAY 600
 
-#define TURN_RIGHT_FL 50
-#define TURN_RIGHT_FR 130
-#define TURN_RIGHT_RL 130
-#define TURN_RIGHT_RR 50
+#define TURN_RIGHT_FL 60
+#define TURN_RIGHT_FR 120
+#define TURN_RIGHT_RL 120
+#define TURN_RIGHT_RR 60
 
 #define TURN_LEFT_FL 120
 #define TURN_LEFT_FR 60
@@ -226,22 +226,24 @@ void wave() {
 void turnRight() {
   Serial.println("Turning right");
   unsigned long startTime = millis();
+  
   while (millis() - startTime < 5000) {
     // Adjust the servo positions for turning right
     FL.write(TURN_RIGHT_FL);  // Front left leg right turn
     FR.write(TURN_RIGHT_FR);  // Front right leg left turn
-    delay(100);
     RL.write(TURN_RIGHT_RL);  // Rear left leg left turn
     RR.write(TURN_RIGHT_RR);  // Rear right leg right turn
     delay(TURN_DELAY);
+    
+    // Move back to the default position smoothly
     FL.write(DEFAULT_POS);
     FR.write(DEFAULT_POS);
-    delay(100);
     RL.write(DEFAULT_POS);
     RR.write(DEFAULT_POS);
     delay(TURN_DELAY);
   }
-  // Return to default position
+  
+  // Ensure all servos return to default position at the end of the turn
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);
   RL.write(DEFAULT_POS);
@@ -252,28 +254,31 @@ void turnRight() {
 void turnLeft() {
   Serial.println("Turning left");
   unsigned long startTime = millis();
+  
   while (millis() - startTime < 5000) {
     // Adjust the servo positions for turning left
     FL.write(TURN_LEFT_FL);   // Front left leg left turn
     FR.write(TURN_LEFT_FR);   // Front right leg right turn
-    delay(100);
     RL.write(TURN_LEFT_RL);   // Rear left leg right turn
     RR.write(TURN_LEFT_RR);   // Rear right leg left turn
     delay(TURN_DELAY);
+    
+    // Move back to the default position smoothly
     FL.write(DEFAULT_POS);
     FR.write(DEFAULT_POS);
-    delay(100);
     RL.write(DEFAULT_POS);
     RR.write(DEFAULT_POS);
     delay(TURN_DELAY);
   }
-  // Return to default position
+  
+  // Ensure all servos return to default position at the end of the turn
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);
   RL.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
   delay(WALK_DELAY);
 }
+
 
 void walkForward() {
   const int hopAngle = 35; // Angle to lift the back legs
