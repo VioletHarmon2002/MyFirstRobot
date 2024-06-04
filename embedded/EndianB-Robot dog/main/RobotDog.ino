@@ -37,10 +37,12 @@ bool isConnected = false;
 #define WAVE_UP 0
 
 // Turning presets
-#define TURN_RIGHT_FL 60
-#define TURN_RIGHT_FR 120
-#define TURN_RIGHT_RL 120
-#define TURN_RIGHT_RR 60
+#define TURN_DELAY 600
+
+#define TURN_RIGHT_FL 50
+#define TURN_RIGHT_FR 130
+#define TURN_RIGHT_RL 130
+#define TURN_RIGHT_RR 50
 
 #define TURN_LEFT_FL 120
 #define TURN_LEFT_FR 60
@@ -228,8 +230,16 @@ void turnRight() {
     // Adjust the servo positions for turning right
     FL.write(TURN_RIGHT_FL);  // Front left leg right turn
     FR.write(TURN_RIGHT_FR);  // Front right leg left turn
+    delay(100);
     RL.write(TURN_RIGHT_RL);  // Rear left leg left turn
     RR.write(TURN_RIGHT_RR);  // Rear right leg right turn
+    delay(TURN_DELAY);
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    delay(100);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
   }
   // Return to default position
   FL.write(DEFAULT_POS);
@@ -246,10 +256,17 @@ void turnLeft() {
     // Adjust the servo positions for turning left
     FL.write(TURN_LEFT_FL);   // Front left leg left turn
     FR.write(TURN_LEFT_FR);   // Front right leg right turn
+    delay(100);
     RL.write(TURN_LEFT_RL);   // Rear left leg right turn
     RR.write(TURN_LEFT_RR);   // Rear right leg left turn
+    delay(TURN_DELAY);
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    delay(100);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
   }
-
   // Return to default position
   FL.write(DEFAULT_POS);
   FR.write(DEFAULT_POS);
@@ -263,7 +280,7 @@ void walkForward() {
   const int tiltAngle = 15; // Angle to tilt the front legs
   const int stepDelay = 500; // Adjust as needed for desired speed
   unsigned long startTime = millis();
-  while (millis() - startTime < 10000) { // Hop for 10 seconds
+  while (millis() - startTime < 5000) { // Hop for 10 seconds
     // Lift and extend back legs, and tilt front legs
     FR.write(DEFAULT_POS + tiltAngle);
     FL.write(DEFAULT_POS - tiltAngle);
@@ -271,7 +288,6 @@ void walkForward() {
     RL.write(DEFAULT_POS + tiltAngle);
     RR.write(DEFAULT_POS + hopAngle);
     RL.write(DEFAULT_POS - hopAngle);
-    
     delay(stepDelay);
 
     // Lower back legs and return front legs to default position
@@ -292,7 +308,7 @@ void walkBackwards() {
   const int tiltAngle = 15; // Angle to tilt the front legs
   const int stepDelay = 500; // Adjust as needed for desired speed
   unsigned long startTime = millis();
-  while (millis() - startTime < 10000) { // Hop for 10 seconds
+  while (millis() - startTime < 5000) { // Hop for 10 seconds
     // Lift and extend back legs, and tilt front legs
     RL.write(DEFAULT_POS + tiltAngle);
     RR.write(DEFAULT_POS - tiltAngle);
