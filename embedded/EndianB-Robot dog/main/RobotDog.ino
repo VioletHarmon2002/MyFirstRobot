@@ -227,6 +227,17 @@ void wave() {
   }
   FL.write(DEFAULT_POS);  // Return to default position
 }
+void lieDown() {
+  Serial.println("Lying down");
+  FL.write(0); // Move front left leg to lying position
+  FR.write(180); // Move front right leg to lying position
+  RL.write(180); // Move rear left leg to lying position
+  RR.write(0); // Move rear right leg to lying position
+}
+
+// Function to check for new commands from the server
+void checkForCommand() {
+  static String messageBuffer; // Buffer to store the incoming message
 
 void turnRight() {
   Serial.println("Turning right");
@@ -428,6 +439,9 @@ void loop() {
     } else if (currentCommand == "dance") {
       dance();
       currentCommand = "";  // Clear the command after execution
+    } else if (currentCommand == "lie") {
+      lieDown();
+      currentCommand = ""; // Clear the command after execution
     }
   } else {
     isConnected = false;  // Update connection status

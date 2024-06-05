@@ -418,6 +418,17 @@ void checkForCommand() {
 ## Main Loop
 
 The main loop continuously checks for commands and executes corresponding actions:
+- **messageBuffer**: Stores incoming messages from the server.
+- **client.connected()**: Checks if the client is connected to the server.
+- **client.read()**: Reads each character from the server.
+- **messageBuffer += c**: Adds the character to the message buffer.
+- **Serial.println**: Prints messages to the serial monitor.
+- **deserializeJson(jsonDoc, messageBuffer)**: Parses the JSON message.
+- **jsonDoc["command"]**: Extracts the command from the JSON document.
+- **currentCommand = String(command)**: Updates the current command.
+- **messageBuffer = ""**: Clears the message buffer.
+
+## loop Function
 
 ```cpp
 void loop() {
@@ -463,6 +474,26 @@ void loop() {
     }
   } else {
     isConnected = false;
+    // Check for new commands from the server
+    checkForCommand();
+
+    // Execute commands based on the current command
+    if (currentCommand == "forward") {
+      walkForward();
+    } else if (currentCommand == "start") {
+      move
+
+ToStartPosition();
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "docking") {
+      moveToDockingPosition();
+      currentCommand = ""; // Clear the command after execution
+    } else if (currentCommand == "sit") {
+      sit();
+      currentCommand = ""; // Clear the command after execution
+    }
+  } else {
+    isConnected = false; // Update connection status
     Serial.println("Disconnected from server, attempting to reconnect...");
   }
 }
@@ -473,3 +504,17 @@ void loop() {
 ---
 
 This markdown document explains each part of the provided code, including its purpose and functionality.
+- **if (!isConnected)**: Checks if the client is not connected to the server.
+- **client.connect(server_ip, server_port)**: Attempts to connect to the server.
+- **isConnected = true**: Updates the connection status if successful.
+- **delay(1000)**: Waits for 1 second before retrying.
+- **client.connected()**: Checks if the client is connected to the server.
+- **checkForCommand()**: Checks for new commands from the server.
+- **if (currentCommand == "forward")**: Executes the `walkForward` function if the command is "forward".
+- **moveToStartPosition()**: Moves servos to the start position if the command is "start".
+- **moveToDockingPosition()**: Moves servos to the docking position if the command is "docking".
+- **sit()**: Executes the `sit` function if the command is "sit".
+- **isConnected = false**: Updates the connection status if disconnected.
+- **Serial.println**: Prints messages to the serial monitor.
+
+This documentation provides a detailed explanation of each part of the code in simple language, making it easier to understand the functionality of the robot dog.
