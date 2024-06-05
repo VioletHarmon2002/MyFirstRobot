@@ -8,8 +8,6 @@ The following list contains all functionalities that the robot dog should be abl
 - Walk forward
 - Run forward
 - Walk backward
-- Go left whilst walking
-- Go right whilst walking
 - Turn left
 - Turn right
 - Lie down
