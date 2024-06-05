@@ -24,6 +24,9 @@
 | REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 | REQ037 | The robot's legs do not collide whilst in operation | Must | 29-05 | Silvester | # | - |
 | REQ038 | The robot's body is sturdy and does not break easily | Must | 29-05 | Silvester | # | - |
+| REQ039 | The robot is powered by a 9V battery | Must | 05-06 | Gerald | # | - |
+| REQ040 | The robot has a 'face' | Must | 05-06 | Gerald | # | - |
+
 ## Robot functionalities
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
 |---|---|---|---|---|---|---|
