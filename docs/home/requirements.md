@@ -25,7 +25,9 @@
 | REQ037 | The robot's legs do not collide whilst in operation | Must | 29-05 | Silvester | # | - |
 | REQ038 | The robot's body is sturdy and does not break easily | Must | 29-05 | Silvester | # | - |
 | REQ039 | Microcontroller has a V-in pin for external power supply | Must | 29-05 | Silvester | # | - |
-| REQ038 | Microcontroller and components are connected through a proto-board | Must | 29-05 | Silvester | # | - |
+| REQ040 | Microcontroller and components are connected through a proto-board | Must | 29-05 | Silvester | # | - |
+| REQ041 | The robot is powered by a 9V battery | Must | 05-06 | Gerald | # | - |
+| REQ042 | The robot has a 'face' | Must | 05-06 | Gerald | # | - |
 
 ## Robot functionalities
 | REQ number | Description | MoSCoW | Date added | Team member | Epic | Worked on sprint |
