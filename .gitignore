@@ -4,3 +4,4 @@
 #Ignore vscode settings
 .vscode/
 WebTesting/blockly/blockly-samples
+.vscode/arduino.json
