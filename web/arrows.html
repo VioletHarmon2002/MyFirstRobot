@@ -6,10 +6,14 @@
     <title>HBO-ICT: Robot</title>
     <link rel="stylesheet" href="static/css/style.css">
     <script src="static/javascript/buttons.js" defer></script>
+    <script src="static/javascript/script.js" defer></script>
+
 </head>
 <body>
     <div class="top-bar">
         <img src="static/images/logo.png" alt="HvA" class="logo">
+        <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
+
     </div>
 
     <div class="menu">
@@ -25,6 +29,23 @@
                 <button class="arrow-btn arrow-down"></button>
                 <div class="spacer"></div>
                 <button class="arrow-btn arrow-right"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STANDRARD ON EVERY PAGE -->
+    <button class="btn" id="toggleDrawer">See connection</button>
+    <div id="drawer" class="connection-display-container">
+        <h1>Robot Connection status</h1>
+        <span id="not-connected">Not Connected :(</span>
+        <div id="is-connected">
+            <div id="connected-to?" class="information-container">
+                <span class="information-span">Connected to</span>
+                <span id="connected-to?-name" >Kees</span>
+            </div>
+            <div id="connected-speed?" class="information-container">
+                <span class="information-span">Connection speed:</span>
+                <span id="connected-speed?-value">10</span>
             </div>
         </div>
     </div>

@@ -1,9 +1,9 @@
 #include <ESP32Servo.h>
 
 // Define the pins for the servos
-#define SERVO_FL_PIN 6
-#define SERVO_RL_PIN 7
-#define SERVO_FR_PIN 4
+#define SERVO_FL_PIN 18
+#define SERVO_RL_PIN 16
+#define SERVO_FR_PIN 17
 #define SERVO_RR_PIN 5
 
 #define DEFAULT_POS 90
