@@ -28,7 +28,7 @@ void leftStep() {
   FR.write(90);
   delay(100);
   FL.write(60);
-  delay(400);
+  delay(300);
   RL.write(110);
   delay(100);
   RR.write(120);
@@ -38,7 +38,7 @@ void rightStep() {
   FL.write(90);
   delay(100);
   FR.write(120);
-  delay(400);
+  delay(300);
   RR.write(70);
   delay(100);
   RL.write(60);
@@ -67,8 +67,8 @@ void setup() {
 
 void loop() {
   leftStep();
-  delay(500);
+  delay(300);
   rightStep();
-  delay(500);
+  delay(300);
 
 }
