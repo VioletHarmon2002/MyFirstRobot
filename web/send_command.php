@@ -1,7 +1,7 @@
 <?php
 function sendMessage($message) {
     // Define the server host and port to connect to
-    $host = 'Hier_eigen_IP';
+    $host = '145.3.245.224';
     $port = 8080;
 
     // Create a socket
