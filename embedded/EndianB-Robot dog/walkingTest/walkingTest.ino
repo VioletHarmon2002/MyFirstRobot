@@ -17,13 +17,6 @@ Servo FR; // Front right leg
 Servo RL; // Rear left leg
 Servo RR; // Rear right leg
 
-void moveToStartPos() {
-  FR.write(120);
-  RR.write(70);
-  FL.write(90);
-  RL.write(70);
-}
-
 void leftStep() {
   FR.write(90);
   delay(100);
@@ -61,8 +54,6 @@ void setup() {
   RR.write(70);
 
   delay(4000);
-
-  moveToStartPos();
 }
 
 void loop() {
