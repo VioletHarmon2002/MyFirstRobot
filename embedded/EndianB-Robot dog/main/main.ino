@@ -4,8 +4,8 @@
 #include <ArduinoJson.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.5";  // IP address of the server to connect to
-const uint16_t server_port = 1234;      // Port number of the server to connect to
+const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
+const uint16_t server_port = 8080;      // Port number of the server to connect to
 
 WiFiClient client;  // WiFi client object to handle the connection
 bool isConnected = false;  // Boolean flag to track connection status
@@ -227,17 +227,6 @@ void wave() {
   }
   FL.write(DEFAULT_POS);  // Return to default position
 }
-void lieDown() {
-  Serial.println("Lying down");
-  FL.write(0); // Move front left leg to lying position
-  FR.write(180); // Move front right leg to lying position
-  RL.write(180); // Move rear left leg to lying position
-  RR.write(0); // Move rear right leg to lying position
-}
-
-// Function to check for new commands from the server
-void checkForCommand() {
-  static String messageBuffer; // Buffer to store the incoming message
 
 void turnRight() {
   Serial.println("Turning right");
