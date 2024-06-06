@@ -1,7 +1,3 @@
-Sure! Here's a detailed markdown explanation of the code, including snippets and explanations for each part:
-
----
-
 # ESP32 Robot Dog Control Code Explanation
 
 This code allows an ESP32-based robot dog to connect to a Wi-Fi network, receive commands from a server, and execute various movements using servo motors.
@@ -540,5 +536,3 @@ This markdown document explains each part of the provided code, including its pu
 - **sit()**: Executes the `sit` function if the command is "sit".
 - **isConnected = false**: Updates the connection status if disconnected.
 - **Serial.println**: Prints messages to the serial monitor.
-
-This documentation provides a detailed explanation of each part of the code in simple language, making it easier to understand the functionality of the robot dog.
