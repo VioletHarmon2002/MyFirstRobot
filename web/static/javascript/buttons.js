@@ -7,11 +7,12 @@ forwardButton.addEventListener('mousedown', () => {
     forwardButton.style.boxShadow = '0px 2px 0px #888';
 
     const data = {
-        task: 'forward' 
+        task: 'forward',
+        value: 1
     };
 
     // Verstuur het JSON-bericht naar de API
-    fetch('http://Hier_eigen_IP/api.php?action=task', {
+    fetch('http://145.3.245.224/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
