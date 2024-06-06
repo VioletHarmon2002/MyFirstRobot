@@ -2,6 +2,7 @@
 
 function forward(n){
     sendCommand('forward');
+    console.log("moving forward for: " + n + "seconds");
 }
 
 function sendCommand(command){
