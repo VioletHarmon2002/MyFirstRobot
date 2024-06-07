@@ -1,7 +1,3 @@
-Sure! Here's a detailed markdown explanation of the code, including snippets and explanations for each part:
-
----
-
 # ESP32 Robot Dog Control Code Explanation
 
 This code allows an ESP32-based robot dog to connect to a Wi-Fi network, receive commands from a server, and execute various movements using servo motors.
@@ -320,27 +316,51 @@ void turnLeft() {
 
 ## Walking Functions
 
-Walk forward and backward:
+There are functions for walking forward and backwards. The forward function is split in two steps, leftStep() and rightStep().
+
+This is the leftStep() function:
+
+```cpp
+void leftStep() {
+  FR.write(90);
+  delay(100);
+  FL.write(60);
+  delay(300);
+  RL.write(110);
+  delay(100);
+  RR.write(120);
+}
+```
+
+And this is the rightStep() function:
+
+```cpp
+void rightStep() {
+  FL.write(90);
+  delay(100);
+  FR.write(120);
+  delay(300);
+  RR.write(70);
+  delay(100);
+  RL.write(60);
+}
+```
+
+They are exact mirrors of each other, but with the servos on the opposite side. For the walking, they are called one by one in the walkForward() function:
 
 ```cpp
 void walkForward() {
-  const int hopAngle = 35;
-  const int tiltAngle = 15;
-  const int stepDelay = 500;
-  unsigned long startTime = millis();
+  unsigned long startTime = millis();  // Record start time
 
+  // Walk forward for 5 seconds
   while (millis() - startTime < 5000) {
-    FR.write(DEFAULT_POS + tiltAngle);
-    FL.write(DEFAULT_POS - tiltAngle);
-    RR.write(DEFAULT_POS - tiltAngle);
-    RL.write(DEFAULT_POS + tiltAngle);
-    RR.write(DEFAULT_POS + hopAngle);
-    RL.write(DEFAULT_POS - hopAngle);
-    delay(stepDelay);
-    RR.write(DEFAULT_POS);
-    RL.write(DEFAULT_POS);
-    delay(stepDelay);
+    leftStep();
+    delay(300);
+    rightStep();
+    delay(300);
   }
+
+  // Stop the movement
   FR.write(DEFAULT_POS);
   RR.write(DEFAULT_POS);
   FL.write(DEFAULT_POS);
@@ -516,5 +536,3 @@ This markdown document explains each part of the provided code, including its pu
 - **sit()**: Executes the `sit` function if the command is "sit".
 - **isConnected = false**: Updates the connection status if disconnected.
 - **Serial.println**: Prints messages to the serial monitor.
-
-This documentation provides a detailed explanation of each part of the code in simple language, making it easier to understand the functionality of the robot dog.

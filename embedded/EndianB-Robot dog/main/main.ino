@@ -1,11 +1,11 @@
-\#include <ESP32Servo.h>
+#include <ESP32Servo.h>
 #include <WiFiManager.h>
 #include <WiFiClient.h>
 #include <ArduinoJson.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.5";  // IP address of the server to connect to
-const uint16_t server_port = 1234;      // Port number of the server to connect to
+const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
+const uint16_t server_port = 8080;      // Port number of the server to connect to
 
 WiFiClient client;  // WiFi client object to handle the connection
 bool isConnected = false;  // Boolean flag to track connection status
@@ -227,17 +227,6 @@ void wave() {
   }
   FL.write(DEFAULT_POS);  // Return to default position
 }
-void lieDown() {
-  Serial.println("Lying down");
-  FL.write(0); // Move front left leg to lying position
-  FR.write(180); // Move front right leg to lying position
-  RL.write(180); // Move rear left leg to lying position
-  RR.write(0); // Move rear right leg to lying position
-}
-
-// Function to check for new commands from the server
-void checkForCommand() {
-  static String messageBuffer; // Buffer to store the incoming message
 
 void turnRight() {
   Serial.println("Turning right");
@@ -297,29 +286,40 @@ void turnLeft() {
   delay(WALK_DELAY);
 }
 
+void leftStep() {
+  FR.write(90);
+  delay(100);
+  FL.write(60);
+  delay(300);
+  RL.write(110);
+  delay(100);
+  RR.write(120);
+}
+
+void rightStep() {
+  FL.write(90);
+  delay(100);
+  FR.write(120);
+  delay(300);
+  RR.write(70);
+  delay(100);
+  RL.write(60);
+}
+
 void walkForward() {
   // Parameters for walking forward
-  const int hopAngle = 35;  // Angle to lift the back legs
-  const int tiltAngle = 15;  // Angle to tilt the front legs
-  const int stepDelay = 500;  // Delay between steps
+  // const int hopAngle = 35;  // Angle to lift the back legs
+  // const int tiltAngle = 15;  // Angle to tilt the front legs
+  // const int stepDelay = 500;  // Delay between steps
 
   unsigned long startTime = millis();  // Record start time
 
   // Walk forward for 5 seconds
   while (millis() - startTime < 5000) {
-    // Lift and extend back legs, and tilt front legs
-    FR.write(DEFAULT_POS + tiltAngle);
-    FL.write(DEFAULT_POS - tiltAngle);
-    RR.write(DEFAULT_POS - tiltAngle);
-    RL.write(DEFAULT_POS + tiltAngle);
-    RR.write(DEFAULT_POS + hopAngle);
-    RL.write(DEFAULT_POS - hopAngle);
-    delay(stepDelay);
-
-    // Lower back legs and return front legs to default position
-    RR.write(DEFAULT_POS);
-    RL.write(DEFAULT_POS);
-    delay(stepDelay);
+    leftStep();
+    delay(300);
+    rightStep();
+    delay(300);
   }
 
   // Stop the movement

@@ -1,5 +1,7 @@
 # Learning journal Gjalt
 
+## communication between robot and webserver
+
 **Research Documentation: communication between robot and webserver**
 
 **Research Question:**  
@@ -32,4 +34,30 @@ We developed a straightforward program in Python to illustrate how this communic
 
 **Conclusion:**  
 Our program demonstrated how communication between a web server and a robot could be established using sockets and JSON. While it served as a basic example, it illustrated the effectiveness of tunnel-based communication. Additionally, it showcased the potential for integration with Arduino code, paving the way for practical implementations in robotics projects.
+
+## protoboard making
+
+The connections on a protoboard with loose is not optimal and causes strange behavior from the robot because some connection can come loose while moving.
+
+so i went to the circulation desk to get a protoboard and started thinking bout how to construct this specifically for our robot. and asked some colleges what i needed here is a quick partslist:
+
+Parts list:
+- Protoboard (Can be any size because you can make is smaller with a saw) 
+- header risers (for plugging the esp in to the protoboard)
+- normal header pins (For plugging the connectors in for the servo's)
+
+When i collected the parts i immediately started wiring the power and ground. after that i decided which pins we where going to use to transfer the data for the servos these are 5, 16, 17, 18.
+
+My college made some pictures of me making the first board. here are the pcitures he made:
+
+
+![image](./images/image2.png)
+
+![image](./images/image3.png)
+
+when all the soldering was done this was the end result:
+
+![image](./images/image4.png)
+
+![image](./images/image1.png)
 
