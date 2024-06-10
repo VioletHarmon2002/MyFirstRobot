@@ -12,3 +12,11 @@ We decided to add screws to the robot dog at the ends between the servo's. These
 ![screws](img/botplate.png)
 
 The screw placement here is shown in green between the vertical holes for the servo blockers. The placement of the screws is identical on the top and bottom plate.
+
+## First prototype
+
+![screw1](img/screw1.jpg)
+
+![screw2](img/screw2.jpg)
+
+![screw3](img/screw3.jpg)

@@ -1,6 +1,8 @@
 #Ignore all build files
 .build/
+build/
 
 #Ignore vscode settings
 .vscode/
 WebTesting/blockly/blockly-samples
+.vscode/arduino.json

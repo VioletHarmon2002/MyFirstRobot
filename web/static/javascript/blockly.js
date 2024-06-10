@@ -10,6 +10,7 @@ const play_button = document.getElementById("play-btn");
 const pause_button = document.getElementById("pause-btn");
 
 pause();
+
 let code;
 let formattedCode;
 
@@ -50,6 +51,41 @@ function formatCode(){
   formattedCode = formattedCode.replace(/;/g, ';<br>');
   return formatCode;
 }
+
+function forward(n){
+  sendCommand('forward', n);
+  console.log("moving forward for: " + n + " seconds");
+}
+
+function sendCommand(command, value){
+  const data = {
+    "task": command,
+    "value": value
+  };
+  console.log("sendCommand: " + JSON.stringify(data));
+
+  // Send the JSON message to the API
+  fetch('http://145.3.245.224/api.php?action=task', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log('API response:', data);
+  })
+  .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+  });
+}
+
 
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
@@ -126,7 +162,7 @@ Blockly.common.defineBlocksWithJsonArray([
 javascript.javascriptGenerator.forBlock['move'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   let direction = '\'' + block.getFieldValue('DIRECTION') + '\'';
-  return 'robot.move(' + direction + ', ' + value +');\n';
+  return 'forward(' + value +');\n';
 };
 
 // print block

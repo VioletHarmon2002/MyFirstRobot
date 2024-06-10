@@ -2,14 +2,19 @@
 
 ## Robot dog design
 
-We designed our previous robot to the measurements of the metal servo's. We changed to plasic servo's, because those are cheaper. But when we tried to put the plastic servo's in our robot we noticed that the servo stoppers didn't fit anymore in our baseplate. This was because the plasic servo's where a little bit bigger then the metal servo's so we needed to put the servo stoppers a little bit more further back.
-
-We also changed the sides of the robot to have squire corners instead of rounded corners, this was more because we didn't like the corners of the bottom and top to be pointing out of the sides. So it was more of beauty choise instead of a functional one.
-
-After some negonegotiation, we decided to have 2 AA batteries in a battery pak on our robot, so we wanted to have a hole in the bottom, and a velcro strip on the batterypak and the bottom of the top layer. So we can put the batterypak through the bottom and attach it to the velcro strip.
+We designed our previous robot to the measurements of the metal servo's. We changed to plasic servo's, because those are cheaper. But when we tried to put the plastic servo's in our robot we noticed that the servo stoppers didn't fit anymore in our baseplate. This was because the plasic servo's where a little bit bigger then the metal servo's so we needed to put the servo stoppers a little bit further back.
 
 
-With the previous designs we cut out, we noticed that when manually having to add the KERF of the machine. The designs never perfectly fit onto eachother, they where eighter too lose or too tight. So we decided to have the KERF already implemented in the desin so that you can put the design in the laser cutter and immediatly start cutting. 
+
+We also changed the sides of the robot to have square corners instead of rounded corners, this was more because we didn't like the corners of the bottom and top to be pointing out of the sides. So it was more of beauty choice instead of a functional one.
+
+
+
+After some disucssion amongst the team, we decided to have 2 AA batteries in a battery pack on our robot, so we wanted to have a hole in the bottom, and a velcro strip on the batterypack and the bottom of the top layer. So we can put the batterypakc through the bottom and attach it to the velcro strip on the top plate. So the batteries are housed mostly inside the body of the robot dog.
+
+
+
+With the previous designs we cut out, we noticed that when manually having to add the KERF of the machine. The designs never perfectly fit onto each other, they where either too lose or too tight. So we decided to have the KERF already implemented in the desin so that you can put the design in the laser cutter and immediatly start cutting. 
 
 
 This worked way better then the previous designs, appart from a couple of small errors in our measurements of the servo's. It went perfect.
@@ -19,6 +24,6 @@ In this iteration we made the design with the KERF of the lasercutter in mind. S
 This is our new design. Here we implemented all the discussed issues we had. So if everything went well, now we don't have to do anything anymore for the file and we can put it straight into the machine.
 
 ### Important note
-Do remember that we made this file to the measurements of the lasercutters in the HVA building. That lazer has a thickness of 0.4 mm with the KERF of 0.2mm.   
+Do remember that we made this file to the measurements of the lasercutters in the HVA building. That laser has a thickness of 0.4 mm with the KERF of 0.2mm.   
 
 ![dog file with kerf](images/snoop_no_kerf.png)
