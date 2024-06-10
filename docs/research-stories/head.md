@@ -2,6 +2,8 @@
 
 ## What to use for the head
 
+For the head we want to have something that can show facial expressions, but is also expendable, easy to use and is easy to (dis)assamble.
+
 We have a couple of idea's to use for the head. We could use a Matrix display, or an 0.96" oled screen. 
 
 ## Matrix display
