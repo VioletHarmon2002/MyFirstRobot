@@ -72,11 +72,11 @@ void setup() {
   // wifiManager.resetSettings();
 
   // Start WiFiManager
-  if (!wifiManager.autoConnect("Robot Dog")) {
-    Serial.println("Failed to connect to WiFi");
-    ESP.restart(); // Reset if WiFiManager fails to connect
-  }
-  Serial.println("Connected to WiFi");
+  // if (!wifiManager.autoConnect("Robot Dog")) {
+  //   Serial.println("Failed to connect to WiFi");
+  //   ESP.restart(); // Reset if WiFiManager fails to connect
+  // }
+  // Serial.println("Connected to WiFi");
 
   delay(3000);
 }
@@ -221,45 +221,46 @@ void checkForCommand() {
 }
 
 void loop() {
-  if (!isConnected) {
-    Serial.println("Attempting to connect to server...");
-    if (client.connect(server_ip, server_port)) {
-      Serial.println("Connected to server");
-      isConnected = true;
-    } else {
-      Serial.println("Connection to server failed, retrying in 1 second...");
-      delay(1000); // Wait before retrying
-    }
-  }
+  walkForward();
+  // if (!isConnected) {
+  //   Serial.println("Attempting to connect to server...");
+  //   if (client.connect(server_ip, server_port)) {
+  //     Serial.println("Connected to server");
+  //     isConnected = true;
+  //   } else {
+  //     Serial.println("Connection to server failed, retrying in 1 second...");
+  //     delay(1000); // Wait before retrying
+  //   }
+  // }
 
-  if (client.connected()) {
-    // Check for new commands
-    checkForCommand();
+  // if (client.connected()) {
+  //   // Check for new commands
+  //   checkForCommand();
 
-    // Execute commands based on the current command
-    if (currentCommand == "forward") {
-      walkForward();
-    } else if (currentCommand == "start") {
-      moveToStartPosition();
-      currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "lie") {
-      lieDown();
-      currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "sit") {
-      sit();
-      currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "wave") {
-      wave();
-      currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "right") {
-      turnRight();
-      currentCommand = ""; // Clear the command after execution
-    } else if (currentCommand == "left") {
-      turnLeft();
-      currentCommand = ""; // Clear the command after execution
-    }
-  } else {
-    isConnected = false;
-    Serial.println("Disconnected from server, attempting to reconnect...");
-  }
+  //   // Execute commands based on the current command
+  //   if (currentCommand == "forward") {
+  //     walkForward();
+  //   } else if (currentCommand == "start") {
+  //     moveToStartPosition();
+  //     currentCommand = ""; // Clear the command after execution
+  //   } else if (currentCommand == "lie") {
+  //     lieDown();
+  //     currentCommand = ""; // Clear the command after execution
+  //   } else if (currentCommand == "sit") {
+  //     sit();
+  //     currentCommand = ""; // Clear the command after execution
+  //   } else if (currentCommand == "wave") {
+  //     wave();
+  //     currentCommand = ""; // Clear the command after execution
+  //   } else if (currentCommand == "right") {
+  //     turnRight();
+  //     currentCommand = ""; // Clear the command after execution
+  //   } else if (currentCommand == "left") {
+  //     turnLeft();
+  //     currentCommand = ""; // Clear the command after execution
+  //   }
+  // } else {
+  //   isConnected = false;
+  //   Serial.println("Disconnected from server, attempting to reconnect...");
+  // }
 }
