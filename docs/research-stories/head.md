@@ -27,4 +27,11 @@ So from the matrix displays the MAX7219 module would be best.
 
 ## OLED
 
-For the OLED we have pretty much one option
+For the OLED we have pretty much one option. An [0.96 inch OLED](https://www.tinytronics.nl/nl/displays/oled/0.96-inch-oled-display-128*64-pixels-blauw-i2c) screen. 
+
+This screen is very small and light. So it would fit our design for the robot. It also has the ease of use and the holes for assembly as the matrix, but it is more expensive. This OLED is **7.00 euro's**.  
+
+
+## Conclusion
+
+So we have 2 options, we have the matrix dis
