@@ -267,3 +267,28 @@ javascript.javascriptGenerator.forBlock['wait'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   return 'await sleep(' + value +');\n';
 };
+
+// emote block
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "emote",
+    "message0":"Do emote: %1",
+    "args0": [
+      {
+        "type":"field_dropdown",
+        "name": "emoteInQuestion",
+        "options": [
+          ["smile","smile"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 100
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['emote'] = function(block) {
+  let value = '\'' + block.getFieldValue('emoteInQuestion') + '\'';
+  return 'sendCommand("emote",' + value +');\n';
+};
