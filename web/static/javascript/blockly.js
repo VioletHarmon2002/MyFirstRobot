@@ -278,7 +278,10 @@ Blockly.common.defineBlocksWithJsonArray([
         "type":"field_dropdown",
         "name": "emoteInQuestion",
         "options": [
-          ["smile","smile"]
+          ["smile","smile"],
+          ["frown","frown"],
+          ["sleep","sleep"],
+          ["cry","cry"]
         ]
       }
     ],
