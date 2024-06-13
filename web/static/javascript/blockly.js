@@ -65,7 +65,7 @@ function sendCommand(command, value){
   console.log("sendCommand: " + JSON.stringify(data));
 
   // Send the JSON message to the API
-  fetch('http://145.3.245.224/api.php?action=task', {
+  fetch('http://145.28.162.219/api.php?action=task', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
