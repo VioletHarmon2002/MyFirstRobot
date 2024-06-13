@@ -16,6 +16,7 @@ After some disucssion amongst the team, we decided to have 2 AA batteries in a b
 
 With the previous designs we cut out, we noticed that when manually having to add the KERF of the machine. The designs never perfectly fit onto each other, they where either too lose or too tight. So we decided to have the KERF already implemented in the desin so that you can put the design in the laser cutter and immediatly start cutting. 
 
+
 This worked way better then the previous designs, appart from a couple of small errors in our measurements of the servo's. It went perfect.
 
 In this iteration we made the design with the KERF of the lasercutter in mind. So all the parts and hole are precisely made so that you can just put the design in the machine and cut straight away.
