@@ -521,6 +521,57 @@ ToStartPosition();
 
 - **Main Loop**: Manages the connection to the server and executes commands based on the received instructions.
 
+## I2C Communication
+
+The ESP32 can communicate with other devices using the I2C protocol. In this project I2C is used for the MPU9250 sensor and the SSD1306 OLED display.
+
+### MPU9250 Sensor
+
+The ESP32 can communicate with this sensor using the Wire library. To initialize Wire communication, the following code is needed:
+
+```cpp
+#include <Wire.h>
+#define I2C_SDA 0
+#define I2C_SCL 4
+#define SENSOR_ID (0x68)  // I2C address of the MPU9250 sensor
+
+void setup() {
+  Wire.begin(I2C_SDA, I2C_SCL);
+}
+```
+
+First, a byte has to be sent to a specific register to enable data reading. To do this, the writeToRegister() function is used:
+
+```cpp
+void writeToRegister(uint8_t registerAddress, uint8_t value) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress);
+  Wire.write(value);
+  Wire.endTransmission();
+}
+```
+
+It starts a transmission to the sensor, writes the register address and the value to it, and ends the transmission which sends the data to the sensor.
+
+To read data from specific registers the function readFromRegister() is used:
+
+```cpp
+int readFromRegister(uint8_t registerAddress) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress); // Write address of target register
+  Wire.endTransmission(false); // End transmission without closing connection
+  Wire.requestFrom(SENSOR_ID, 1); // Request 1 byte
+
+  if (Wire.available()) {
+    return Wire.read(); // Read and return the byte
+  } else {
+    return 0; // Return 0 if no data is available
+  }
+}
+```
+
+It begins a transmission, writes the address of the register to read from, ends the transmission without closing the connection, requests 1 byte of data, and reads and returns the byte (if any data was available).
+
 ---
 
 This markdown document explains each part of the provided code, including its purpose and functionality.
