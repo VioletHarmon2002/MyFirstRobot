@@ -16,6 +16,17 @@ bool isConnected = false;  // Boolean flag to track connection status
 #define SERVO_FR_PIN 17  // Front right leg servo pin
 #define SERVO_RR_PIN 5   // Rear right leg servo pin
 
+// I2C pins
+#define I2C_SDA 0
+#define I2C_SCL 4
+
+#define SENSOR_ID (0x68)  // I2C address of the MPU9250 sensor
+
+// Register addresses
+#define FIFO_ENABLE (0x23)
+#define TEMP_OUT_H (0x41)
+#define TEMP_OUT_L (0x42)
+
 #define DEFAULT_POS 90  // Default position for all servos
 #define WALK_OFFSET 30  // Offset for walking movement
 #define WALK_DELAY 350  // Delay between walking steps
@@ -73,6 +84,10 @@ void setup() {
   }
   Serial.println("Connected to WiFi");
 
+  // Initialize I2C communication
+  Wire.begin(I2C_SDA, I2C_SCL);
+  writeToRegister(FIFO_ENABLE, 0b11111000);
+
   // Attach servos to their respective pins
   FL.attach(SERVO_FL_PIN);
   FR.attach(SERVO_FR_PIN);
@@ -86,6 +101,38 @@ void setup() {
   RR.write(DEFAULT_POS);
 
   delay(3000);  // Wait for 3 seconds
+}
+
+/**
+ * @brief Write a value to a specific register on the MPU-9250 sensor
+ * 
+ * @param registerAddress 
+ * @param value 
+ */
+void writeToRegister(uint8_t registerAddress, uint8_t value) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress);
+  Wire.write(value);
+  Wire.endTransmission();
+}
+
+/**
+ * @brief Read data from a specific I2C register on the MPU-9250 sensor
+ * 
+ * @param registerAddress address of the target register
+ * @return one byte of available data, otherwise 0
+ */
+int readFromRegister(uint8_t registerAddress) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress); // Write address of target register
+  Wire.endTransmission(false); // End transmission without closing connection
+  Wire.requestFrom(SENSOR_ID, 1); // Request 1 byte
+
+  if (Wire.available()) {
+    return Wire.read(); // Read and return the byte
+  } else {
+    return 0; // Return 0 if no data is available
+  }
 }
 
 void dance() {
