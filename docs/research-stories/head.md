@@ -47,7 +47,7 @@ The matrix is cheaper but a lot bigger and to make facial expressions on it woul
 
 by following [this](https://www.instructables.com/How-to-Display-Images-on-OLED-Using-Arduino/) tutorial, we can easilly show images on the oled, which would make the robot more alive and it will be very easy if the user want to have other images shown on the screen.
 
-So my prefrence would go out to the OLED screen, even if it is more expensive, because it has all the pro's of the matrix display's and it is more easy to work with and to expand.
+So my prefrence would go out to the OLED screen, even if it is more expencive, because it has all the pro's of the matrix display's and it is more easy to work with and to expand.
 
 
 ### Link to img on OLED
