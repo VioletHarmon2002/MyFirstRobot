@@ -14,7 +14,7 @@ def is_number(s):
 def main():
     # Define the host and port to listen on
     host = '172.20.10.5'  # Listen on all available interfaces
-    port = 1234
+    port = 8080
 
     # Create a socket object
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
