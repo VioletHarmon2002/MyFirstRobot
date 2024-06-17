@@ -1,18 +1,14 @@
 const forwardButton = document.querySelector('.arrow-btn.arrow-up');
-const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
-const rightwardButton = document.querySelector('.arrow-btn.arrow-right'); 
+const rightwardButton = document.querySelector('.arrow-btn.arrow-right');
+const leftwardButton = document.querySelector('.arrow-btn.arrow-left');
 
-forwardButton.addEventListener('mousedown', () => {
-    forwardButton.style.transform = 'translateY(2px)';
-    forwardButton.style.boxShadow = '0px 2px 0px #888';
+const sendCommand = (button, task) => {
+    button.style.transform = 'translateY(2px)';
+    button.style.boxShadow = '0px 2px 0px #888';
 
-    const data = {
-        task: 'forward',
-        value: 1
-    };
+    const data = { task };
 
-    // Verstuur het JSON-bericht naar de API
-    fetch('http://145.28.188.103/api.php?action=task', {
+    fetch('http://145.3.249.252/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -31,83 +27,12 @@ forwardButton.addEventListener('mousedown', () => {
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
-});
+};
 
-forwardButton.addEventListener('mouseup', () => {
-    forwardButton.style.transform = '';
-    forwardButton.style.boxShadow = '';
-});
+forwardButton.addEventListener('mousedown', () => sendCommand(rightwardButton, 'forward'));
+rightwardButton.addEventListener('mousedown', () => sendCommand(rightwardButton, 'rightward'));
+leftwardButton.addEventListener('mousedown', () => sendCommand(leftwardButton, 'leftward'));
 
-// -------------------------------------
-
-leftwardButton.addEventListener('mousedown', () => {
-    leftwardButton.style.transform = 'translateY(2px)';
-    leftwardButton.style.boxShadow = '0px 2px 0px #888';
-
-    const data = {
-        task: 'leftward' 
-    };
-
-    // Verstuur het JSON-bericht naar de API
-    fetch('http://145.28.188.103/api.php?action=task', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('API response:', data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-});
-
-leftward.addEventListener('mouseup', () => {
-    leftwardButton.style.transform = '';
-    leftwardButton.style.boxShadow = '';
-});
-
-// ---------------------------------
-
-rightwardButton.addEventListener('mousedown', () => {
-    rightwardButton.style.transform = 'translateY(2px)';
-    rightwardButton.style.boxShadow = '0px 2px 0px #888';
-
-    const data = {
-        task: 'rightward' 
-    };
-
-    // Verstuur het JSON-bericht naar de API
-    fetch('http://145.28.188.103/api.php?action=task', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('API response:', data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-});
-
-leftward.addEventListener('mouseup', () => {
-    rightwardButton.style.transform = '';
-    rightwardButton.style.boxShadow = '';
-});
+forwardButton.addEventListener('mouseup', () => sendCommand());
+rightwardButton.addEventListener('mouseup', () => sendCommand());
+leftwardButton.addEventListener('mouseup', () => sendCommand());
