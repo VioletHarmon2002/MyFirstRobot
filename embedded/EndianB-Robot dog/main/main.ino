@@ -16,6 +16,34 @@ bool isConnected = false;  // Boolean flag to track connection status
 #define SERVO_FR_PIN 17  // Front right leg servo pin
 #define SERVO_RR_PIN 5   // Rear right leg servo pin
 
+// I2C pins
+#define I2C_SDA 0
+#define I2C_SCL 4
+
+// I2C-address of the MPU-9250 sensor
+#define SENSOR_ID (0x68)
+
+// Address of the configuraton register of the sensor
+#define FIFO_ENABLE (0x23)
+
+// Addresses of the data registers to read
+#define TEMP_OUT_H (0x41)
+#define TEMP_OUT_L (0x42)
+
+#define ACCEL_XOUT_H (0x3B)
+#define ACCEL_XOUT_L (0x3C)
+#define ACCEL_YOUT_H (0x3D)
+#define ACCEL_YOUT_L (0x3E)
+#define ACCEL_ZOUT_H (0x3F)
+#define ACCEL_ZOUT_L (0x40)
+
+#define GYRO_XOUT_H (0x43)
+#define GYRO_XOUT_L (0x44)
+#define GYRO_YOUT_H (0x45)
+#define GYRO_YOUT_L (0x46)
+#define GYRO_ZOUT_H (0x47)
+#define GYRO_ZOUT_L (0x48)
+
 #define DEFAULT_POS 90  // Default position for all servos
 #define WALK_OFFSET 30  // Offset for walking movement
 #define WALK_DELAY 350  // Delay between walking steps
@@ -73,6 +101,10 @@ void setup() {
   }
   Serial.println("Connected to WiFi");
 
+  // Initialize I2C communication
+  Wire.begin(I2C_SDA, I2C_SCL);
+  writeToRegister(FIFO_ENABLE, 0b11111000);
+
   // Attach servos to their respective pins
   FL.attach(SERVO_FL_PIN);
   FR.attach(SERVO_FR_PIN);
@@ -86,6 +118,65 @@ void setup() {
   RR.write(DEFAULT_POS);
 
   delay(3000);  // Wait for 3 seconds
+}
+
+/**
+ * @brief Write a value to a specific register on the MPU-9250 sensor
+ * 
+ * @param registerAddress 
+ * @param value 
+ */
+void writeToRegister(uint8_t registerAddress, uint8_t value) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress);
+  Wire.write(value);
+  Wire.endTransmission();
+}
+
+/**
+ * @brief Read data from a specific I2C register on the MPU-9250 sensor
+ * 
+ * @param registerAddress address of the target register
+ * @return one byte of available data, otherwise 0
+ */
+int readFromRegister(uint8_t registerAddress) {
+  Wire.beginTransmission(SENSOR_ID);
+  Wire.write(registerAddress); // Write address of target register
+  Wire.endTransmission(false); // End transmission without closing connection
+  Wire.requestFrom(SENSOR_ID, 1); // Request 1 byte
+
+  if (Wire.available()) {
+    return Wire.read(); // Read and return the byte
+  } else {
+    return 0; // Return 0 if no data is available
+  }
+}
+
+
+/**
+ * @brief Read sensor data from the MPU-9250 sensor
+ * 
+ */
+void readSensorData() {
+  int accel_x_low = readFromRegister(ACCEL_XOUT_L);
+  int accel_x_high = readFromRegister(ACCEL_XOUT_H);
+  int accel_y_low = readFromRegister(ACCEL_YOUT_L);
+  int accel_y_high = readFromRegister(ACCEL_YOUT_H);
+  int accel_z_low = readFromRegister(ACCEL_ZOUT_L);
+  int accel_z_high = readFromRegister(ACCEL_ZOUT_H);
+  int gyro_x_low = readFromRegister(GYRO_XOUT_L);
+  int gyro_x_high = readFromRegister(GYRO_XOUT_H);
+  int gyro_y_low = readFromRegister(GYRO_YOUT_L);
+  int gyro_y_high = readFromRegister(GYRO_YOUT_H);
+  int gyro_z_low = readFromRegister(GYRO_ZOUT_L);
+  int gyro_z_high = readFromRegister(GYRO_ZOUT_H);
+  // Combine high and low bytes from accelerometer and gyroscope
+  int accel_x = (accel_x_high <<8) | accel_x_low;
+  int accel_y = (accel_y_high <<8) | accel_y_low;
+  int accel_z = (accel_z_high <<8) | accel_z_low;
+  int gyro_x = (gyro_x_high <<8) | gyro_x_low;
+  int gyro_y = (gyro_y_high <<8) | gyro_y_low;
+  int gyro_z = (gyro_z_high <<8) | gyro_z_low;
 }
 
 void dance() {
