@@ -1,52 +1,37 @@
 <?php
 function getActiveConnections() {
-    // Define the server host and port to connect to
-    $host = '145.28.188.103';
+    $host = '145.3.249.252';
     $port = 8080;
 
-    // Create a socket
     $clientsocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
     if ($clientsocket === false) {
-        echo json_encode(["error" => "Failed to create socket: " . socket_strerror(socket_last_error())]) . "\n";
-        exit;
+        return ["error" => "Failed to create socket: " . socket_strerror(socket_last_error())];
     }
 
-    // Connect the socket to the specified host and port
     if (socket_connect($clientsocket, $host, $port) === false) {
-        echo json_encode(["error" => "Failed to connect to server: " . socket_strerror(socket_last_error($clientsocket))]) . "\n";
         socket_close($clientsocket);
-        exit;
+        return ["error" => "Failed to connect to server: " . socket_strerror(socket_last_error($clientsocket))];
     }
 
-    echo json_encode(["message" => "Connected to server at $host:$port"]) . "\n";
-
-    // Stuur een commando om de actieve verbindingen op te vragen
     $request = "GET_CONNECTIONS";
-    socket_write($socket, $request, strlen($request));
+    socket_write($clientsocket, $request, strlen($request));
 
-    // Lees het antwoord van de server
-    $response = socket_read($socket, 1024);
-    socket_close($socket);
+    $response = '';
+    while ($chunk = socket_read($clientsocket, 2048)) {
+        $response .= $chunk;
+    }
+    socket_close($clientsocket);
 
-    // Verwerk het antwoord
+    // Log raw server response
+    error_log("Raw server response: " . $response);
+
     $connections = json_decode($response, true);
     if ($connections === null) {
-        return ["error" => "Failed to decode server response"];
+        return ["error" => "Failed to decode server response: " . json_last_error_msg()];
     }
 
-    return $connections;
-}
-
-// Vraag de actieve verbindingen op
-$connections = getActiveConnections();
-
-// Toon de verbindingen
-if (isset($connections['error'])) {
-    echo "Error: " . $connections['error'] . "\n";
-} else {
-    echo "Active connections:\n";
-    foreach ($connections as $connection) {
-        echo "Client: " . $connection['address'] . ":" . $connection['port'] . "\n";
-    }
+    // Directly output the JSON encoded result
+    header('Content-Type: application/json');
+    echo json_encode(getActiveConnections());
 }
 ?>
