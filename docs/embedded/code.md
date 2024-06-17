@@ -57,46 +57,73 @@ The `setFace()` method sets the facial expression on the OLED display based on t
 ### dance()
 The `dance()` method makes the robot perform a dance sequence. It involves moving the legs in a coordinated pattern. The method defines angles for moving the legs forward and backward and shifts the robot's weight to either side. The sequence is repeated for 10 seconds or until a new command is received. After dancing, the servos return to their default position.
 
-[Link to dance() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L137)
+[Link to dance() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L147)
 
 ### moveToStartPosition()
 The `moveToStartPosition()` method moves the servos to the start position. It loops through angles from 0 to 180 degrees in steps of 5, pausing for 50 milliseconds between each step to ensure smooth movement.
 
+[Link to moveToStartPosition() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L246)
+
 ### lieDown()
 The `lieDown()` method moves the legs to the lying down position using preset angles (`PRESET_FL_LIE`, `PRESET_FR_LIE`, `PRESET_RL_LIE`, `PRESET_RR_LIE`). It sets each servo to the preset lying down angles.
+
+[Link to lieDown() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L257)
 
 ### sit()
 The `sit()` method moves the legs to the sitting position using preset angles (`DEFAULT_FL_SIT`, `DEFAULT_FR_SIT`, `DEFAULT_RL_SIT`, `DEFAULT_RR_SIT`). It sets each servo to the preset sitting angles.
 
+[Link to sit() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
 ### wave()
 The `wave()` method performs a waving motion. It lifts the front left leg to the `WAVE_UP` position and pauses for 500 milliseconds, then lowers the leg to the `WAVE_DOWN` position and pauses again. This sequence is repeated three times, and the leg returns to the default position after waving.
+
+[Link to wave() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
 
 ### leftStep()
 The `leftStep()` method moves the legs to perform a left step. It sets the angles of the servos to specific positions (`FR.write(90)`, `FL.write(60)`, `RL.write(110)`, `RR.write(120)`) and pauses between each step to ensure smooth movement.
 
+[Link to leftStep() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
+
 ### rightStep()
 The `rightStep()` method moves the legs to perform a right step. It sets the angles of the servos to specific positions (`FL.write(90)`, `FR.write(120)`, `RR.write(70)`, `RL.write(60)`) and pauses between each step to ensure smooth movement.
+
+[Link to rightStep() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
 
 ### walkForward()
 The `walkForward()` method makes the robot walk forward by alternating between `leftStep()` and `rightStep()` for 5 seconds. After walking, it resets all servos to the default position.
 
+[Link to walkForward() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
 ### walkBackwards()
 The `walkBackwards()` method makes the robot walk backward. It involves lifting the back legs and tilting the front legs. The method repeats this sequence for 5 seconds and then resets all servos to the default position.
+
+[Link to walkBackwards() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
 
 ### turnRight()
 The `turnRight()` method turns the robot right. It adjusts the servo positions to specific angles for turning right (`TURN_RIGHT_FL`, `TURN_RIGHT_FR`, `TURN_RIGHT_RL`, `TURN_RIGHT_RR`). The robot moves back to the default position smoothly and repeats the sequence for 5 seconds before resetting all servos.
 
+[Link to turnRight() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
 ### turnLeft()
 The `turnLeft()` method turns the robot left. It adjusts the servo positions to specific angles for turning left (`TURN_LEFT_FL`, `TURN_LEFT_FR`, `TURN_LEFT_RL`, `TURN_LEFT_RR`). The robot moves back to the default position smoothly and repeats the sequence for 5 seconds before resetting all servos.
+
+[Link to turnLeft() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
 
 ### getCommand(const String& command)
 The `getCommand()` method converts a string command to a `Command` enum. It maps string commands to corresponding `Command` enum values and returns the appropriate enum value or `UNKNOWN` if the command is not recognized.
 
+[Link to getCommand() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
 ### handleCommand(String command)
 The `handleCommand()` method executes the command received from the server. It calls the appropriate function based on the command (`walkForward()`, `walkBackwards()`, `turnLeft()`, `turnRight()`, `sit()`, `lieDown()`, `wave()`, `dance()`, `moveToStartPosition()`). If the command is unrecognized, it prints "Unknown command."
 
+[Link to handleCommand() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
+
 ### loop()
 The `loop()` method is the main loop function. It continuously checks and maintains the server connection, reads and parses incoming JSON data, extracts and executes commands, and sets the face expression on the OLED display based on the command. If the connection is lost, it attempts to reconnect. A small delay is added to avoid overwhelming the loop.
+
+[Link to loop() method on git](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/268-as-a-user-i-want-an-idle-option-on-the-emote-code-block-so-i-can-tell-the-robot-to-be-idle/embedded/EndianB-Robot%20dog/face%20and%20move/main.ino?ref_type=heads#L266)
 
 ## Bitmaps
 Includes bitmap header files:
