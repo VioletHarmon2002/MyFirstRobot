@@ -13,6 +13,19 @@ const uint16_t server_port = 8080;      // Port number of the server to connect 
 WiFiClient client;  // WiFi client object to handle the connection
 bool isConnected = false;  // Boolean flag to track connection status
 
+enum Command {
+  FORWARD,
+  BACKWARD,
+  LEFT,
+  RIGHT,
+  SIT,
+  LIE,
+  WAVE,
+  DANCE,
+  START,
+  UNKNOWN
+};
+
 // Define the pins for the servos
 #define SERVO_FL_PIN 18  // Front left leg servo pin
 #define SERVO_RL_PIN 16  // Rear left leg servo pin
@@ -271,77 +284,184 @@ void wave() {
   FL.write(DEFAULT_POS); // Return the leg to the default position after waving
 }
 
-void moveForward() {
-  // Perform forward walking motion
-  Serial.println("Moving forward");
-  FL.write(DEFAULT_POS + WALK_OFFSET);
-  delay(WALK_DELAY);
-  FL.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS + WALK_OFFSET);
-  delay(WALK_DELAY);
-  RL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS + WALK_OFFSET);
-  delay(WALK_DELAY);
-  FR.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS + WALK_OFFSET);
-  delay(WALK_DELAY);
-  RR.write(DEFAULT_POS);
+void leftStep() {
+  FR.write(90);
+  delay(100);
+  FL.write(60);
+  delay(300);
+  RL.write(110);
+  delay(100);
+  RR.write(120);
 }
 
-void moveBackward() {
-  // Perform backward walking motion
-  Serial.println("Moving backward");
-  FL.write(DEFAULT_POS - WALK_OFFSET);
-  delay(WALK_DELAY);
-  FL.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS - WALK_OFFSET);
-  delay(WALK_DELAY);
-  RL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS - WALK_OFFSET);
-  delay(WALK_DELAY);
-  FR.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS - WALK_OFFSET);
-  delay(WALK_DELAY);
-  RR.write(DEFAULT_POS);
+void rightStep() {
+  FL.write(90);
+  delay(100);
+  FR.write(120);
+  delay(300);
+  RR.write(70);
+  delay(100);
+  RL.write(60);
 }
 
-void turnLeft() {
-  // Perform left turn
-  Serial.println("Turning left");
-  FL.write(TURN_LEFT_FL);
-  FR.write(TURN_LEFT_FR);
-  RL.write(TURN_LEFT_RL);
-  RR.write(TURN_LEFT_RR);
-  delay(TURN_DELAY);
+void walkForward() {
+  // Parameters for walking forward
+  // const int hopAngle = 35;  // Angle to lift the back legs
+  // const int tiltAngle = 15;  // Angle to tilt the front legs
+  // const int stepDelay = 500;  // Delay between steps
+
+  unsigned long startTime = millis();  // Record start time
+
+  // Walk forward for 5 seconds
+  while (millis() - startTime < 5000) {
+    leftStep();
+    delay(300);
+    rightStep();
+    delay(300);
+  }
+
+  // Stop the movement
+  FR.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  FL.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+}
+
+void walkBackwards() {
+  // Parameters for walking backwards
+  const int hopAngle = 35;  // Angle to lift the back legs
+  const int tiltAngle = 15;  // Angle to tilt the front legs
+  const int stepDelay = 500;  // Delay between steps
+
+  unsigned long startTime = millis();  // Record start time
+
+  // Walk backwards for 5 seconds
+  while (millis() - startTime < 5000) {
+    // Lift and extend back legs, and tilt front legs
+    RL.write(DEFAULT_POS + tiltAngle);
+    RR.write(DEFAULT_POS - tiltAngle);
+    FR.write(DEFAULT_POS - tiltAngle);
+    FL.write(DEFAULT_POS + tiltAngle);
+    FR.write(DEFAULT_POS - hopAngle);
+    FL.write(DEFAULT_POS + hopAngle);
+    delay(stepDelay);
+
+    // Lower back legs and return front legs to default position
+    FR.write(DEFAULT_POS);
+    FL.write(DEFAULT_POS);
+    delay(stepDelay);
+  }
+
+  // Stop the movement
+  FR.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  FL.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
 }
 
 void turnRight() {
-  // Perform right turn
   Serial.println("Turning right");
-  FL.write(TURN_RIGHT_FL);
-  FR.write(TURN_RIGHT_FR);
-  RL.write(TURN_RIGHT_RL);
-  RR.write(TURN_RIGHT_RR);
-  delay(TURN_DELAY);
+  unsigned long startTime = millis();  // Record start time
+
+  // Turn right for 5 seconds
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning right
+    FL.write(TURN_RIGHT_FL);
+    FR.write(TURN_RIGHT_FR);
+    RL.write(TURN_RIGHT_RL);
+    RR.write(TURN_RIGHT_RR);
+    delay(TURN_DELAY);
+
+    // Move back to the default position smoothly
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
+  }
+
+  // Ensure all servos return to default position at the end of the turn
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
+
+void turnLeft() {
+  Serial.println("Turning left");
+  unsigned long startTime = millis();  // Record start time
+
+  // Turn left for 5 seconds
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning left
+    FL.write(TURN_LEFT_FL);
+    FR.write(TURN_LEFT_FR);
+    RL.write(TURN_LEFT_RL);
+    RR.write(TURN_LEFT_RR);
+    delay(TURN_DELAY);
+
+    // Move back to the default position smoothly
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
+  }
+
+  // Ensure all servos return to default position at the end of the turn
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
+
+Command getCommand(const String& command) {
+  if (command == "forward") return FORWARD;
+  else if (command == "backward") return BACKWARD;
+  else if (command == "left") return LEFT;
+  else if (command == "right") return RIGHT;
+  else if (command == "sit") return SIT;
+  else if (command == "lie") return LIE;
+  else if (command == "wave") return WAVE;
+  else if (command == "dance") return DANCE;
+  else if (command == "start") return START;
+  else return UNKNOWN;
 }
 
 void handleCommand(String command) {
-  if (command == "forward") {
-    moveForward();
-  } else if (command == "backward") {
-    moveBackward();
-  } else if (command == "left") {
-    turnLeft();
-  } else if (command == "right") {
-    turnRight();
-  } else if (command == "sit") {
-    sit();
-  } else if (command == "lie") {A
-    lieDown();
-  } else if (command == "wave") {
-    wave();
-  } else if (command == "dance") {
-    dance();
+  switch (getCommand(command)) {
+    case FORWARD:
+      walkForward();
+      break;
+    case BACKWARD:
+      walkBackwards();
+      break;
+    case LEFT:
+      turnLeft();
+      break;
+    case RIGHT:
+      turnRight();
+      break;
+    case SIT:
+      sit();
+      break;
+    case LIE:
+      lieDown();
+      break;
+    case WAVE:
+      wave();
+      break;
+    case DANCE:
+      dance();
+      break;
+    case START:
+      moveToStartPosition();
+      break;
+    case UNKNOWN:
+      Serial.println("Unknown command");
+      break;
   }
 }
 
