@@ -572,6 +572,22 @@ int readFromRegister(uint8_t registerAddress) {
 
 It begins a transmission, writes the address of the register to read from, ends the transmission without closing the connection, requests 1 byte of data, and reads and returns the byte (if any data was available).
 
+To read data from the sensor, the readSensorData() function is used. It reads the accelerometer and gyroscope data from the sensor. The data is spread across 2 8-bit registers for each axis, so it has to be combined into a 16-bit value. For example, the X-axis of the gyroscope:
+
+```cpp
+#define ACCEL_XOUT_H (0x3B)
+#define ACCEL_XOUT_L (0x3C)
+
+void readSensorData() {
+// Read from registers
+int accel_x_low = readFromRegister(ACCEL_XOUT_L);
+int accel_x_high = readFromRegister(ACCEL_XOUT_H);
+// Combine bytes
+int accel_x = (accel_x_high <<8) | accel_x_low;
+}
+```
+This is repeated for the X, Y and Z axes of both the accelerometer and gyroscope. The accel_x value and equivalent values for the other axes can be printed or used.
+
 ---
 
 This markdown document explains each part of the provided code, including its purpose and functionality.

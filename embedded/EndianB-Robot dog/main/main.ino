@@ -20,12 +20,29 @@ bool isConnected = false;  // Boolean flag to track connection status
 #define I2C_SDA 0
 #define I2C_SCL 4
 
-#define SENSOR_ID (0x68)  // I2C address of the MPU9250 sensor
+// I2C-address of the MPU-9250 sensor
+#define SENSOR_ID (0x68)
 
-// Register addresses
+// Address of the configuraton register of the sensor
 #define FIFO_ENABLE (0x23)
+
+// Addresses of the data registers to read
 #define TEMP_OUT_H (0x41)
 #define TEMP_OUT_L (0x42)
+
+#define ACCEL_XOUT_H (0x3B)
+#define ACCEL_XOUT_L (0x3C)
+#define ACCEL_YOUT_H (0x3D)
+#define ACCEL_YOUT_L (0x3E)
+#define ACCEL_ZOUT_H (0x3F)
+#define ACCEL_ZOUT_L (0x40)
+
+#define GYRO_XOUT_H (0x43)
+#define GYRO_XOUT_L (0x44)
+#define GYRO_YOUT_H (0x45)
+#define GYRO_YOUT_L (0x46)
+#define GYRO_ZOUT_H (0x47)
+#define GYRO_ZOUT_L (0x48)
 
 #define DEFAULT_POS 90  // Default position for all servos
 #define WALK_OFFSET 30  // Offset for walking movement
@@ -133,6 +150,33 @@ int readFromRegister(uint8_t registerAddress) {
   } else {
     return 0; // Return 0 if no data is available
   }
+}
+
+
+/**
+ * @brief Read sensor data from the MPU-9250 sensor
+ * 
+ */
+void readSensorData() {
+  int accel_x_low = readFromRegister(ACCEL_XOUT_L);
+  int accel_x_high = readFromRegister(ACCEL_XOUT_H);
+  int accel_y_low = readFromRegister(ACCEL_YOUT_L);
+  int accel_y_high = readFromRegister(ACCEL_YOUT_H);
+  int accel_z_low = readFromRegister(ACCEL_ZOUT_L);
+  int accel_z_high = readFromRegister(ACCEL_ZOUT_H);
+  int gyro_x_low = readFromRegister(GYRO_XOUT_L);
+  int gyro_x_high = readFromRegister(GYRO_XOUT_H);
+  int gyro_y_low = readFromRegister(GYRO_YOUT_L);
+  int gyro_y_high = readFromRegister(GYRO_YOUT_H);
+  int gyro_z_low = readFromRegister(GYRO_ZOUT_L);
+  int gyro_z_high = readFromRegister(GYRO_ZOUT_H);
+  // Combine high and low bytes from accelerometer and gyroscope
+  int accel_x = (accel_x_high <<8) | accel_x_low;
+  int accel_y = (accel_y_high <<8) | accel_y_low;
+  int accel_z = (accel_z_high <<8) | accel_z_low;
+  int gyro_x = (gyro_x_high <<8) | gyro_x_low;
+  int gyro_y = (gyro_y_high <<8) | gyro_y_low;
+  int gyro_z = (gyro_z_high <<8) | gyro_z_low;
 }
 
 void dance() {
