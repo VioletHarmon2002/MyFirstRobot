@@ -51,3 +51,25 @@ javascript.javascriptGenerator.forBlock['move'] = function(block) {
 };
 ```
 you can retrieve a value from the code block and decide what code comes out using the `return` line.
+
+For adding more options for blocks like the emote block, you need to simply add a line like this to the code block:
+```javascript
+"options": [
+    ["*ID SENT TO CODE*", "*DISPLAY NAME"]
+    ["Smile", "smile"],
+    ["Frown", "frown"]
+  ]
+```
+
+### Adding a button to the arrow screen
+For adding a button to the arrow button screen, you need to head into the html code and add a line like this:
+```html
+<button class="animate-btn" onclick="sendCommand('animate', 'sit')">Sit</button>
+```
+This needs to be added to the parent div that you want to add it to, for example:
+```html
+<div class="animate-container">
+  <button class="animate-btn" onclick="sendCommand('animate', 'sit')">Sit</button>
+```
+After that you need to change the "animate" in all cases to "emote" if you want to add a emote instead of a animation.
+The `sendCommand()` function requires you add the type of message you want to send, basically `animate` or `emote` and then the animation type. For now this is pre programmed in the arduino code, but this will be later changed to interpret a array of movements.

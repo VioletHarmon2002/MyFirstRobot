@@ -36,7 +36,7 @@ function setRobotNameActive(element){
 function connect(){
     let input = document.getElementsByClassName('robot-name-input')[0];
     console.log("Connecting to " + input.value);
-    alert("connecting to " + input.value);
+    setActiveName(input.value);
 }
 
 addRobotNames();

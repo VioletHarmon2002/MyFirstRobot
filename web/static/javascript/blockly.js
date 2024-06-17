@@ -57,35 +57,6 @@ function forward(n){
   console.log("moving forward for: " + n + " seconds");
 }
 
-function sendCommand(command, value){
-  const data = {
-    "task": command,
-    "value": value
-  };
-  console.log("sendCommand: " + JSON.stringify(data));
-
-  // Send the JSON message to the API
-  fetch('http://145.3.245.224/api.php?action=task', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-  })
-  .then(response => {
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-      }
-      return response.json();
-  })
-  .then(data => {
-      console.log('API response:', data);
-  })
-  .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-  });
-}
-
 
 // BASIC BLOCKLY CODE
 Blockly.Themes.Halloween = Blockly.Theme.defineTheme('haloween', {
@@ -266,4 +237,32 @@ Blockly.common.defineBlocksWithJsonArray([
 javascript.javascriptGenerator.forBlock['wait'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   return 'await sleep(' + value +');\n';
+};
+
+// emote block
+Blockly.common.defineBlocksWithJsonArray([
+  {
+    "type": "emote",
+    "message0":"Do emote: %1",
+    "args0": [
+      {
+        "type":"field_dropdown",
+        "name": "emoteInQuestion",
+        "options": [
+          ["smile","smile"],
+          ["frown","frown"],
+          ["sleep","sleep"],
+          ["cry","cry"]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 100
+  }
+]);
+
+javascript.javascriptGenerator.forBlock['emote'] = function(block) {
+  let value = '\'' + block.getFieldValue('emoteInQuestion') + '\'';
+  return 'sendCommand("emote",' + value +');\n';
 };

@@ -1,4 +1,4 @@
-#include <ESP32Servo.h>
+\#include <ESP32Servo.h>
 #include <WiFiManager.h>
 #include <WiFiClient.h>
 #include <ArduinoJson.h>
@@ -54,6 +54,7 @@ Servo RL; // Rear left leg
 Servo RR; // Rear right leg
 
 String currentCommand = "";
+String currentValue = "";
 
 void setup() {
   Serial.begin(115200);
@@ -210,9 +211,13 @@ void checkForCommand() {
         Serial.println(error.c_str());
       } else {
         // Extract the command from the JSON object
-        const char* command = jsonDoc["command"];
+        const char* command = jsonDoc["task"];
+        const char* value = jsonDoc["value"];
 
         currentCommand = String(command);
+        currentValue = String(value);
+
+        Serial.println("Doing task : " + currentCommand + ", with value: " + currentValue);
       }
 
       messageBuffer = "";

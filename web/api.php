@@ -40,7 +40,7 @@ function rightward() {
 
     sendMessage($json_data);
     echo json_encode(['status' => 'Message sent']);
-    
+
 }
 
 function task(){

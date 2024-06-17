@@ -2,7 +2,7 @@ import socket
 
 def main():
     # Definieer de host en poort van de server
-    host = '145.3.245.224'  # IP-adres van de server
+    host = '145.28.162.219'  # IP-adres van de server
     port = 8080
 
     # Maak een socket-object

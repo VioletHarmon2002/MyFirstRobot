@@ -2,9 +2,9 @@ const forwardButton = document.querySelector('.arrow-btn.arrow-up');
 const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
 const rightwardButton = document.querySelector('.arrow-btn.arrow-right'); 
 
+
 forwardButton.addEventListener('mousedown', () => {
-    forwardButton.style.transform = 'translateY(2px)';
-    forwardButton.style.boxShadow = '0px 2px 0px #888';
+
 
     const data = {
         task: 'forward',
@@ -41,8 +41,7 @@ forwardButton.addEventListener('mouseup', () => {
 // -------------------------------------
 
 leftwardButton.addEventListener('mousedown', () => {
-    leftwardButton.style.transform = 'translateY(2px)';
-    leftwardButton.style.boxShadow = '0px 2px 0px #888';
+
 
     const data = {
         task: 'leftward' 
