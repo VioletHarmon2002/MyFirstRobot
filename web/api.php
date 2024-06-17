@@ -9,68 +9,17 @@ header('Access-Control-Allow-Origin: *');
 $method = $_SERVER['REQUEST_METHOD'];
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-function sendDirectly($message){
-    sendMessage($message);
-    echo json_encode(['status' => 'Message sent', 'data' => $message]);
+function send($data){
+    sendCommand($data);
 }
 
 function connections(){
     getConnections();
 }
 
-function forward($data) {
-    sendMessage($data);
-    echo json_encode(['status' => 'Message sent']);
-    sendMessage($json_data);
-}
-
-function leftward() {
-    $data = array(
-        'task' => 'leftward'
-    );
-
-    $json_data = json_encode($data);
-
-    sendMessage($json_data);
-    echo json_encode(['status' => 'Message sent']);
-    
-}
-
-function rightward() {
-    $data = array(
-        'task' => 'rightward'
-    );
-
-    $json_data = json_encode($data);
-
-    sendMessage($json_data);
-    echo json_encode(['status' => 'Message sent']);
-    
-}
-
-function task(){ 
-    $data = json_decode(file_get_contents('php://input'), true);
-
-    if (isset($data['task'])) {
-       // switch ($data['task']) {
-            //     case 'forward':
-            //         forward($data);
-            //         break;
-            //     case 'leftward':
-            //         leftward();
-            //         break;
-            //     case 'rightward':
-            //         rightward();
-            //         break;
-            //     default:
-            //         echo json_encode(["error" => "Unknown task"]);
-            //         break;
-            // }
-        sendDirectly($data);
-    } else {
-        echo json_encode(["error" => "No task provided"]); 
-    }
-
+function validateInput(){ 
+    $data = file_get_contents('php://input');
+    send($data);
 }
 
 function handleRequest() {
@@ -83,7 +32,7 @@ function handleRequest() {
             // Check if the action is to submit new data
             if ($action == 'task') {
                 // Call function to handle submission of new data
-                task();
+                validateInput();
             } else {
                 // Respond with an error message if action is unknown for POST requests
                 echo json_encode(["error" => "Unknown action for POST"]);
