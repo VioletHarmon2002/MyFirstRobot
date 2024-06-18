@@ -43,6 +43,7 @@ This JavaScript code sets up event listeners for arrow buttons (forwardButton, r
 ## Back-end
 
 ### api.php
+This PHP script functions as an API endpoint for handling HTTP requests. It includes send_command.php and get_connections.php to use their functions. The script sets headers to enable Cross-Origin Resource Sharing (CORS) and specifies JSON as the content type. It retrieves the HTTP request method and the action parameter from the URL. Defined functions include send($data) for sending data via sendCommand($data), connections() for retrieving connections via getConnections(), and validateInput() for validating and forwarding raw POST data to send($data). The handleRequest() function switches based on the request method, handling POST requests for task actions by validating and sending data, and GET requests for connections actions by retrieving connections. It returns appropriate error messages for unsupported actions or request methods. 
 
 ### websocket.php
 
