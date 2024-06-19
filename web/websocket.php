@@ -69,6 +69,18 @@ try {
             }
 
             $data = trim($data);
+            if ($data === "GET_CONNECTIONS") {
+                $connections = [];
+                foreach ($clients as $client_socket) {
+                    if ($client_socket !== $serversocket) {
+                        socket_getpeername($client_socket, $client_address, $client_port);
+                        $connections[] = ["address" => $client_address, "port" => $client_port];
+                    }
+                }
+                socket_write($socket, json_encode($connections), strlen(json_encode($connections)));
+                continue;
+            }
+
             if (!is_valid_string($data)) {
                 echo json_encode(["error" => "Invalid input from client. Please enter a valid string."]) . "\n";
                 continue;
@@ -93,4 +105,3 @@ try {
     socket_close($serversocket);
 }
 ?>
-
