@@ -126,6 +126,7 @@ void setup() {
 
   display.clearDisplay();
   display.display();
+  displayEmote(smile_bitmap, smile_width, smile_height);
 }
 
 void displayEmote(const unsigned char* bitmap, int width, int height) {
@@ -137,7 +138,7 @@ void displayEmote(const unsigned char* bitmap, int width, int height) {
 void setFace(String command) {
   if (command == "sit" || command == "lie") {
     displayEmote(idle_bitmap, idle_width, idle_height);
-  } else if (command == "forward" || command == "backward" || command == "dance") {
+  } else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
     displayEmote(smile_bitmap, smile_width, smile_height);
   } else if (command == "wave") {
     displayEmote(frown_bitmap, frown_width, frown_height);
@@ -305,11 +306,6 @@ void rightStep() {
 }
 
 void walkForward() {
-  // Parameters for walking forward
-  // const int hopAngle = 35;  // Angle to lift the back legs
-  // const int tiltAngle = 15;  // Angle to tilt the front legs
-  // const int stepDelay = 500;  // Delay between steps
-
   unsigned long startTime = millis();  // Record start time
 
   // Walk forward for 5 seconds
