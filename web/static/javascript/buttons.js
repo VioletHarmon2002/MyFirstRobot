@@ -1,17 +1,15 @@
 const forwardButton = document.querySelector('.arrow-btn.arrow-up');
-const rightwardButton = document.querySelector('.arrow-btn.arrow-right');
-const leftwardButton = document.querySelector('.arrow-btn.arrow-left');
+const rightwardButton = document.querySelector('.arrow-btn.arrow-right'); 
+const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
 
-const sendCommand = (button, task) => {
-    // Visual feedback when button is pressed
-    if (button) {
-        button.style.transform = 'translateY(2px)';
-        button.style.boxShadow = '0px 2px 0px #888';
-    }
+const handleButtonPress = (button, task) => {
+    button.style.transform = 'translateY(2px)';
+    button.style.boxShadow = '0px 2px 0px #888';
 
     const data = { task };
 
-    fetch('http://145.3.249.252/api.php?action=task', {
+    // Verstuur het JSON-bericht naar de API
+    fetch('http://172.16.34.136/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,28 +24,13 @@ const sendCommand = (button, task) => {
     })
     .then(data => {
         console.log('API response:', data);
-        // Reset visual feedback when command is successfully sent
-        if (button) {
-            button.style.transform = '';
-            button.style.boxShadow = '';
-        }
+        // Doe hier iets met de API-reactie als dat nodig is
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
-        // Reset visual feedback on error
-        if (button) {
-            button.style.transform = '';
-            button.style.boxShadow = '';
-        }
     });
 };
 
-// Add event listeners for mouse down events
-forwardButton.addEventListener('mousedown', () => sendCommand(forwardButton, 'forward'));
-rightwardButton.addEventListener('mousedown', () => sendCommand(rightwardButton, 'rightward'));
-leftwardButton.addEventListener('mousedown', () => sendCommand(leftwardButton, 'leftward'));
-
-// Add event listeners for mouse up events (assuming you want to send a blank command on release)
-forwardButton.addEventListener('mouseup', () => sendCommand());
-rightwardButton.addEventListener('mouseup', () => sendCommand());
-leftwardButton.addEventListener('mouseup', () => sendCommand());
+forwardButton.addEventListener('mousedown', () => handleButtonPress(forwardButton, 'forward'));
+rightwardButton.addEventListener('mousedown', () => handleButtonPress(rightwardButton, 'rightward'));
+leftwardButton.addEventListener('mousedown', () => handleButtonPress(leftwardButton, 'leftward'));
