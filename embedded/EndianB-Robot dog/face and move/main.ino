@@ -2,47 +2,35 @@
 #include <WiFiManager.h>
 #include <WiFiClient.h>
 #include <ArduinoJson.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
+const char* server_ip = "172.20.10.5";  // IP address of the server to connect to
 const uint16_t server_port = 8080;      // Port number of the server to connect to
 
 WiFiClient client;  // WiFi client object to handle the connection
 bool isConnected = false;  // Boolean flag to track connection status
+
+enum Command {
+  FORWARD,
+  BACKWARD,
+  LEFT,
+  RIGHT,
+  SIT,
+  LIE,
+  WAVE,
+  DANCE,
+  START,
+  UNKNOWN
+};
 
 // Define the pins for the servos
 #define SERVO_FL_PIN 18  // Front left leg servo pin
 #define SERVO_RL_PIN 16  // Rear left leg servo pin
 #define SERVO_FR_PIN 17  // Front right leg servo pin
 #define SERVO_RR_PIN 5   // Rear right leg servo pin
-
-// I2C pins
-#define I2C_SDA 0
-#define I2C_SCL 4
-
-// I2C-address of the MPU-9250 sensor
-#define SENSOR_ID (0x68)
-
-// Address of the configuraton register of the sensor
-#define FIFO_ENABLE (0x23)
-
-// Addresses of the data registers to read
-#define TEMP_OUT_H (0x41)
-#define TEMP_OUT_L (0x42)
-
-#define ACCEL_XOUT_H (0x3B)
-#define ACCEL_XOUT_L (0x3C)
-#define ACCEL_YOUT_H (0x3D)
-#define ACCEL_YOUT_L (0x3E)
-#define ACCEL_ZOUT_H (0x3F)
-#define ACCEL_ZOUT_L (0x40)
-
-#define GYRO_XOUT_H (0x43)
-#define GYRO_XOUT_L (0x44)
-#define GYRO_YOUT_H (0x45)
-#define GYRO_YOUT_L (0x46)
-#define GYRO_ZOUT_H (0x47)
-#define GYRO_ZOUT_L (0x48)
 
 #define DEFAULT_POS 90  // Default position for all servos
 #define WALK_OFFSET 30  // Offset for walking movement
@@ -85,6 +73,20 @@ Servo RR;  // Rear right leg servo
 
 String currentCommand = "";  // String to store the current command
 
+// OLED display definitions
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+#define OLED_RESET -1 // Reset pin # (or -1 if sharing Arduino reset pin)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// I2C address of the OLED display
+#define SSD1306_I2C_ADDRESS 0x3C
+
+// Include separate bitmap header files
+#include "smile_bitmap.h"
+#include "frown_bitmap.h"
+#include "idle_bitmap.h"
+
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
 
@@ -101,10 +103,6 @@ void setup() {
   }
   Serial.println("Connected to WiFi");
 
-  // Initialize I2C communication
-  Wire.begin(I2C_SDA, I2C_SCL);
-  writeToRegister(FIFO_ENABLE, 0b11111000);
-
   // Attach servos to their respective pins
   FL.attach(SERVO_FL_PIN);
   FR.attach(SERVO_FR_PIN);
@@ -118,65 +116,32 @@ void setup() {
   RR.write(DEFAULT_POS);
 
   delay(3000);  // Wait for 3 seconds
-}
 
-/**
- * @brief Write a value to a specific register on the MPU-9250 sensor
- * 
- * @param registerAddress 
- * @param value 
- */
-void writeToRegister(uint8_t registerAddress, uint8_t value) {
-  Wire.beginTransmission(SENSOR_ID);
-  Wire.write(registerAddress);
-  Wire.write(value);
-  Wire.endTransmission();
-}
-
-/**
- * @brief Read data from a specific I2C register on the MPU-9250 sensor
- * 
- * @param registerAddress address of the target register
- * @return one byte of available data, otherwise 0
- */
-int readFromRegister(uint8_t registerAddress) {
-  Wire.beginTransmission(SENSOR_ID);
-  Wire.write(registerAddress); // Write address of target register
-  Wire.endTransmission(false); // End transmission without closing connection
-  Wire.requestFrom(SENSOR_ID, 1); // Request 1 byte
-
-  if (Wire.available()) {
-    return Wire.read(); // Read and return the byte
-  } else {
-    return 0; // Return 0 if no data is available
+  // Initialize OLED display
+  Wire.begin(4, 15); // SDA on pin 4, SCL on pin 15
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;); // Don't proceed, loop forever
   }
+
+  display.clearDisplay();
+  display.display();
 }
 
+void displayEmote(const unsigned char* bitmap, int width, int height) {
+  display.clearDisplay();
+  display.drawBitmap((SCREEN_WIDTH - width) / 2, (SCREEN_HEIGHT - height) / 2, bitmap, width, height, WHITE);
+  display.display();
+}
 
-/**
- * @brief Read sensor data from the MPU-9250 sensor
- * 
- */
-void readSensorData() {
-  int accel_x_low = readFromRegister(ACCEL_XOUT_L);
-  int accel_x_high = readFromRegister(ACCEL_XOUT_H);
-  int accel_y_low = readFromRegister(ACCEL_YOUT_L);
-  int accel_y_high = readFromRegister(ACCEL_YOUT_H);
-  int accel_z_low = readFromRegister(ACCEL_ZOUT_L);
-  int accel_z_high = readFromRegister(ACCEL_ZOUT_H);
-  int gyro_x_low = readFromRegister(GYRO_XOUT_L);
-  int gyro_x_high = readFromRegister(GYRO_XOUT_H);
-  int gyro_y_low = readFromRegister(GYRO_YOUT_L);
-  int gyro_y_high = readFromRegister(GYRO_YOUT_H);
-  int gyro_z_low = readFromRegister(GYRO_ZOUT_L);
-  int gyro_z_high = readFromRegister(GYRO_ZOUT_H);
-  // Combine high and low bytes from accelerometer and gyroscope
-  int accel_x = (accel_x_high <<8) | accel_x_low;
-  int accel_y = (accel_y_high <<8) | accel_y_low;
-  int accel_z = (accel_z_high <<8) | accel_z_low;
-  int gyro_x = (gyro_x_high <<8) | gyro_x_low;
-  int gyro_y = (gyro_y_high <<8) | gyro_y_low;
-  int gyro_z = (gyro_z_high <<8) | gyro_z_low;
+void setFace(String command) {
+  if (command == "sit" || command == "lie") {
+    displayEmote(idle_bitmap, idle_width, idle_height);
+  } else if (command == "forward" || command == "backward" || command == "dance") {
+    displayEmote(smile_bitmap, smile_width, smile_height);
+  } else if (command == "wave") {
+    displayEmote(frown_bitmap, frown_width, frown_height);
+  }
 }
 
 void dance() {
@@ -310,71 +275,13 @@ void sit() {
 void wave() {
   // Perform waving motion three times
   for (int i = 0; i < 3; i++) {
-    Serial.print("wave");
-    FL.write(WAVE_DOWN);
-    delay(500);  // Delay for a visible wave
+    Serial.println("Waving");
     FL.write(WAVE_UP);
-    delay(500);  // Delay for a visible wave
+    delay(500);
+    FL.write(WAVE_DOWN);
+    delay(500);
   }
-  FL.write(DEFAULT_POS);  // Return to default position
-}
-
-void turnRight() {
-  Serial.println("Turning right");
-  unsigned long startTime = millis();  // Record start time
-
-  // Turn right for 5 seconds
-  while (millis() - startTime < 5000) {
-    // Adjust the servo positions for turning right
-    FL.write(TURN_RIGHT_FL);
-    FR.write(TURN_RIGHT_FR);
-    RL.write(TURN_RIGHT_RL);
-    RR.write(TURN_RIGHT_RR);
-    delay(TURN_DELAY);
-
-    // Move back to the default position smoothly
-    FL.write(DEFAULT_POS);
-    FR.write(DEFAULT_POS);
-    RL.write(DEFAULT_POS);
-    RR.write(DEFAULT_POS);
-    delay(TURN_DELAY);
-  }
-
-  // Ensure all servos return to default position at the end of the turn
-  FL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
-  delay(WALK_DELAY);
-}
-
-void turnLeft() {
-  Serial.println("Turning left");
-  unsigned long startTime = millis();  // Record start time
-
-  // Turn left for 5 seconds
-  while (millis() - startTime < 5000) {
-    // Adjust the servo positions for turning left
-    FL.write(TURN_LEFT_FL);
-    FR.write(TURN_LEFT_FR);
-    RL.write(TURN_LEFT_RL);
-    RR.write(TURN_LEFT_RR);
-    delay(TURN_DELAY);
-
-    // Move back to the default position smoothly
-    FL.write(DEFAULT_POS);
-    FR.write(DEFAULT_POS);
-    RL.write(DEFAULT_POS);
-    RR.write(DEFAULT_POS);
-    delay(TURN_DELAY);
-  }
-
-  // Ensure all servos return to default position at the end of the turn
-  FL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
-  delay(WALK_DELAY);
+  FL.write(DEFAULT_POS); // Return the leg to the default position after waving
 }
 
 void leftStep() {
@@ -452,90 +359,159 @@ void walkBackwards() {
   RL.write(DEFAULT_POS);
 }
 
-void checkForCommand() {
-  static String messageBuffer;  // Buffer to store incoming messages
+void turnRight() {
+  Serial.println("Turning right");
+  unsigned long startTime = millis();  // Record start time
 
-  // Check if the client is connected
-  if (client.connected()) {
-    // Read available data from the client
-    while (client.available()) {
-      char c = client.read();
-      messageBuffer += c;
-    }
+  // Turn right for 5 seconds
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning right
+    FL.write(TURN_RIGHT_FL);
+    FR.write(TURN_RIGHT_FR);
+    RL.write(TURN_RIGHT_RL);
+    RR.write(TURN_RIGHT_RR);
+    delay(TURN_DELAY);
 
-    // Process the message if buffer is not empty
-    if (!messageBuffer.isEmpty()) {
-      Serial.println("Received message:");
-      Serial.println(messageBuffer);
+    // Move back to the default position smoothly
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
+  }
 
-      // Decode the JSON message
-      StaticJsonDocument<200> jsonDoc;  // JSON document to store the parsed message
-      DeserializationError error = deserializeJson(jsonDoc, messageBuffer);
+  // Ensure all servos return to default position at the end of the turn
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
 
-      // Check for JSON parsing errors
-      if (error) {
-        Serial.print("deserializeJson() failed: ");
-        Serial.println(error.c_str());
-      } else {
-        // Extract the command from the JSON object
-        const char* command = jsonDoc["command"];
-        currentCommand = String(command);
-      }
+void turnLeft() {
+  Serial.println("Turning left");
+  unsigned long startTime = millis();  // Record start time
 
-      messageBuffer = "";  // Clear the message buffer
-    }
+  // Turn left for 5 seconds
+  while (millis() - startTime < 5000) {
+    // Adjust the servo positions for turning left
+    FL.write(TURN_LEFT_FL);
+    FR.write(TURN_LEFT_FR);
+    RL.write(TURN_LEFT_RL);
+    RR.write(TURN_LEFT_RR);
+    delay(TURN_DELAY);
+
+    // Move back to the default position smoothly
+    FL.write(DEFAULT_POS);
+    FR.write(DEFAULT_POS);
+    RL.write(DEFAULT_POS);
+    RR.write(DEFAULT_POS);
+    delay(TURN_DELAY);
+  }
+
+  // Ensure all servos return to default position at the end of the turn
+  FL.write(DEFAULT_POS);
+  FR.write(DEFAULT_POS);
+  RL.write(DEFAULT_POS);
+  RR.write(DEFAULT_POS);
+  delay(WALK_DELAY);
+}
+
+Command getCommand(const String& command) {
+  if (command == "forward") return FORWARD;
+  else if (command == "backward") return BACKWARD;
+  else if (command == "left") return LEFT;
+  else if (command == "right") return RIGHT;
+  else if (command == "sit") return SIT;
+  else if (command == "lie") return LIE;
+  else if (command == "wave") return WAVE;
+  else if (command == "dance") return DANCE;
+  else if (command == "start") return START;
+  else return UNKNOWN;
+}
+
+void handleCommand(String command) {
+  switch (getCommand(command)) {
+    case FORWARD:
+      walkForward();
+      break;
+    case BACKWARD:
+      walkBackwards();
+      break;
+    case LEFT:
+      turnLeft();
+      break;
+    case RIGHT:
+      turnRight();
+      break;
+    case SIT:
+      sit();
+      break;
+    case LIE:
+      lieDown();
+      break;
+    case WAVE:
+      wave();
+      break;
+    case DANCE:
+      dance();
+      break;
+    case START:
+      moveToStartPosition();
+      break;
+    case UNKNOWN:
+      Serial.println("Unknown command");
+      break;
   }
 }
 
 void loop() {
-  // Attempt to connect to the server if not connected
+  // Attempt to connect to the server if not already connected
   if (!isConnected) {
-    Serial.println("Attempting to connect to server...");
+    Serial.print("Connecting to server...");
     if (client.connect(server_ip, server_port)) {
-      Serial.println("Connected to server");
+      Serial.println("Connected");
       isConnected = true;
+      client.println("Client connected");
     } else {
-      Serial.println("Connection to server failed, retrying in 1 second...");
-      delay(1000);  // Wait before retrying
+      Serial.println("Connection failed");
+      delay(5000);  // Retry every 5 seconds if connection fails
     }
   }
 
-  // If connected, check for and execute commands
-  if (client.connected()) {
-    checkForCommand();  // Check for new commands
+  // Check for incoming data from the server
+  if (client.available()) {
+    String json = client.readStringUntil('\n');  // Read the incoming JSON data
+    Serial.println("Received JSON: " + json);
 
-    // Execute commands based on the current command
-    if (currentCommand == "forward") {
-      walkForward();
-    } else if (currentCommand == "backward") {
-      walkBackwards();
-    } else if (currentCommand == "start") {
-      moveToStartPosition();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "lie") {
-      lieDown();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "sit") {
-      sit();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "wave") {
-      wave();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "right") {
-      turnRight();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "left") {
-      turnLeft();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "dance") {
-      dance();
-      currentCommand = "";  // Clear the command after execution
-    } else if (currentCommand == "lie") {
-      lieDown();
-      currentCommand = ""; // Clear the command after execution
+    // Parse the JSON data
+    DynamicJsonDocument doc(1024);
+    DeserializationError error = deserializeJson(doc, json);
+    if (error) {
+      Serial.print("JSON deserialization failed: ");
+      Serial.println(error.c_str());
+      return;
     }
-  } else {
-    isConnected = false;  // Update connection status
-    Serial.println("Disconnected from server, attempting to reconnect...");
+
+    // Extract the command from the JSON
+    String command = doc["command"];
+    Serial.println("Command: " + command);
+
+    // Update the current command
+    currentCommand = command;
+
+    // Set the face expression based on the command
+    setFace(command);
+
+    // Execute the command
+    handleCommand(command);
   }
+
+  // Reconnect to the server if the connection is lost
+  if (!client.connected()) {
+    Serial.println("Disconnected from server");
+    isConnected = false;
+  }
+
+  delay(10);  // Small delay to avoid overwhelming the loop
 }
