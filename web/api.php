@@ -8,32 +8,9 @@ header('Access-Control-Allow-Origin: *');
 $method = $_SERVER['REQUEST_METHOD'];
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-function sendDirectly($message){
-    $json_data = json_encode($message);
-    sendMessage($json_data);
-    echo json_encode(['status' => 'Message sent', 'data' => $message]);
-}
-function forward($data) {
-    sendMessage($data);
-    echo json_encode(['status' => 'Message sent']);
-    sendMessage($json_data);
-}
-
-function leftward() {
+function forward() {
     $data = array(
-        'task' => 'leftward'
-    );
-
-    $json_data = json_encode($data);
-
-    sendMessage($json_data);
-    echo json_encode(['status' => 'Message sent']);
-    
-}
-
-function rightward() {
-    $data = array(
-        'task' => 'rightward'
+        'task' => 'forward'
     );
 
     $json_data = json_encode($data);
@@ -47,21 +24,14 @@ function task(){
     $data = json_decode(file_get_contents('php://input'), true);
 
     if (isset($data['task'])) {
-        // switch ($data['task']) {
-        //     case 'forward':
-        //         forward($data);
-        //         break;
-        //     case 'leftward':
-        //         leftward();
-        //         break;
-        //     case 'rightward':
-        //         rightward();
-        //         break;
-        //     default:
-        //         echo json_encode(["error" => "Unknown task"]);
-        //         break;
-        // }
-        sendDirectly($data);
+        switch ($data['task']) {
+            case 'forward':
+                forward();
+                break;
+            default:
+                echo json_encode(["error" => "Unknown task"]);
+                break;
+        }
     } else {
         echo json_encode(["error" => "No task provided"]);
     }

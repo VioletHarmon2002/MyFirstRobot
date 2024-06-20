@@ -1,10 +1,10 @@
 <?php
-function sendMessage($message) {
+function sendCommand($command) {
     // Define the server host and port to connect to
-    $host = 'http://145.28.162.219/';
-    $port = 8080;
+    $host = '172.20.10.2'; // Server IP address
+    $port = 8080; // Server port number
 
-    // Create a socket
+    // Create a TCP socket
     $clientsocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
     if ($clientsocket === false) {
         echo json_encode(["error" => "Failed to create socket: " . socket_strerror(socket_last_error())]) . "\n";
@@ -20,13 +20,11 @@ function sendMessage($message) {
 
     echo json_encode(["message" => "Connected to server at $host:$port"]) . "\n";
 
-
-
-    // Send the JSON-encoded test message to the server
-    if (socket_write($clientsocket, $message, strlen($message)) === false) {
-        echo json_encode(["error" => "Failed to send message: " . socket_strerror(socket_last_error($clientsocket))]) . "\n";
+    // Send the command to the server
+    if (socket_write($clientsocket, $command, strlen($command)) === false) {
+        echo json_encode(["error" => "Failed to send command: " . socket_strerror(socket_last_error($clientsocket))]) . "\n";
     } else {
-        echo json_encode(["message" => "Test message sent to server: $json_message"]) . "\n";
+        echo json_encode(["message" => "Command sent to server: " . $command]) . "\n";
     }
 
     // Close the socket connection
