@@ -3,9 +3,6 @@ const rightwardButton = document.querySelector('.arrow-btn.arrow-right');
 const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
 
 const handleButtonPress = (button, task) => {
-    button.style.transform = 'translateY(2px)';
-    button.style.boxShadow = '0px 2px 0px #888';
-
     const data = { task };
 
     // Verstuur het JSON-bericht naar de API

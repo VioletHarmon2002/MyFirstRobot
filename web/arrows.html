@@ -4,47 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HBO-ICT: Robot</title>
-    <link rel="stylesheet" href="static/css/style.css"> <!-- Link to external CSS file -->
-    <script src="static/javascript/buttons.js" defer></script> <!-- Link to external JavaScript file  -->
-    <script src="static/javascript/script.js" defer></script> <!-- Link to another external JavaScript file  -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="static/javascript/buttons.js" defer></script>
+    <script src="static/javascript/script.js" defer></script>
+
 </head>
 <body>
     <div class="top-bar">
-        <img src="static/images/logo.png" alt="HvA" class="logo"> <!-- HvA logo image -->
-        <button class="btn" onclick="window.location.replace('./index.html');" >home</button> <!-- Button to navigate back to home page -->
+        <img src="static/images/logo.png" alt="HvA" class="logo">
+        <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
+
     </div>
 
     <div class="menu">
-        <h1>HBO-ICT: Smart Robots</h1> <!-- Title of the page -->
+        <h1>HBO-ICT: Smart Robots</h1>
     </div>
-
+    
     <div class="container">
         <div class="arrow-container">
-            <!-- Arrow buttons for robot movement -->
-            <button class="arrow-btn arrow-up"></button>
-            <div class="left-right-container">
-                <button class="arrow-btn arrow-left"></button>
-                <div class="spacer"></div>
-                <button class="arrow-btn arrow-down"></button>
-                <div class="spacer"></div>
-                <button class="arrow-btn arrow-right"></button>
-            </div>
+            <button class="arrow-btn arrow-up" onclick="sendCommand('move', 'forward')"><i class="fas fa-arrow-up"></i></button>
+            <button class="arrow-btn arrow-down"onclick="sendCommand('move', 'backwards')"><i class="fas fa-arrow-down"></i></button>
+            <button class="arrow-btn arrow-left"onclick="sendCommand('move', 'left')"><i class="fas fa-arrow-left"></i></button>
+            <button class="arrow-btn arrow-right"onclick="sendCommand('move', 'right')"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="animate-container">
+            <button class="animate-btn" onclick="sendCommand('animate', 'sit')">Sit</button>
+            <button class="animate-btn" onclick="sendCommand('animate', 'laydown')">Lay down</button>
+            <button class="animate-btn" onclick="sendCommand('animate', 'wave')">Wave</button>
+        </div>
+        <div class="emote-container">
+            <button class="emote-btn" onclick="sendCommand('emote', 'smile')">Smile</button>
+            <button class="emote-btn" onclick="sendCommand('emote', 'frown')">Frown</button>
+            <button class="emote-btn" onclick="sendCommand('emote', 'cry')">Cry</button>
+            <button class="emote-btn" onclick="sendCommand('emote', 'sleep')">Sleep</button>
         </div>
     </div>
 
-    <button class="btn" id="toggleDrawer">See connection</button> <!-- Button to toggle connection information -->
+    <!-- STANDRARD ON EVERY PAGE -->
+    <button class="btn" id="toggleDrawer">See connection</button>
     <div id="drawer" class="connection-display-container">
         <h1>Robot Connection status</h1>
-        <span id="not-connected">Not Connected :(</span> <!-- Displayed when robot is not connected -->
+        <span id="not-connected">Not Connected :(</span>
         <div id="is-connected">
-            <!-- Displayed when robot is connected -->
             <div id="connected-to?" class="information-container">
                 <span class="information-span">Connected to</span>
-                <span id="connected-to?-name" >Kees</span> <!-- Name of the connected robot -->
+                <span id="connected-to?-name" >Kees</span>
             </div>
             <div id="connected-speed?" class="information-container">
                 <span class="information-span">Connection speed:</span>
-                <span id="connected-speed?-value">10</span> <!-- Connection speed value -->
+                <span id="connected-speed?-value">10</span>
             </div>
         </div>
     </div>

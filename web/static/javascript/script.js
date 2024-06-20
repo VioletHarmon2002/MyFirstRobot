@@ -32,3 +32,4 @@ function updatePage(){
         connected_speed.style.display = 'none';
     }
 }
+
