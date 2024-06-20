@@ -1,12 +1,7 @@
-const forwardButton = document.querySelector('.arrow-btn.arrow-up');
-const rightwardButton = document.querySelector('.arrow-btn.arrow-right'); 
-const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
+const sendCommand = (command) => {
+    const data = { command };
 
-const handleButtonPress = (button, task) => {
-    const data = { task };
-
-    // Verstuur het JSON-bericht naar de API
-    fetch('http://172.16.34.136/api.php?action=task', {
+    fetch('http://172.20.10.2/api.php?action=command', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -21,13 +16,8 @@ const handleButtonPress = (button, task) => {
     })
     .then(data => {
         console.log('API response:', data);
-        // Doe hier iets met de API-reactie als dat nodig is
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 };
-
-forwardButton.addEventListener('mousedown', () => handleButtonPress(forwardButton, 'forward'));
-rightwardButton.addEventListener('mousedown', () => handleButtonPress(rightwardButton, 'rightward'));
-leftwardButton.addEventListener('mousedown', () => handleButtonPress(leftwardButton, 'leftward'));

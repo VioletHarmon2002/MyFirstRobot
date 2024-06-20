@@ -24,15 +24,16 @@
     
     <div class="container">
         <div class="arrow-container">
-            <button class="arrow-btn arrow-up" onclick="sendCommand('move', 'forward')"><i class="fas fa-arrow-up"></i></button>
-            <button class="arrow-btn arrow-down"onclick="sendCommand('move', 'backwards')"><i class="fas fa-arrow-down"></i></button>
-            <button class="arrow-btn arrow-left"onclick="sendCommand('move', 'left')"><i class="fas fa-arrow-left"></i></button>
-            <button class="arrow-btn arrow-right"onclick="sendCommand('move', 'right')"><i class="fas fa-arrow-right"></i></button>
+            <button class="arrow-btn arrow-up" onclick="sendCommand('forward')"><i class="fas fa-arrow-up"></i></button>
+            <button class="arrow-btn arrow-down"onclick="sendCommand('backward')"><i class="fas fa-arrow-down"></i></button>
+            <button class="arrow-btn arrow-left"onclick="sendCommand('leftward')"><i class="fas fa-arrow-left"></i></button>
+            <button class="arrow-btn arrow-right"onclick="sendCommand('rightward')"><i class="fas fa-arrow-right"></i></button>
         </div>
         <div class="animate-container">
-            <button class="animate-btn" onclick="sendCommand('animate', 'sit')">Sit</button>
-            <button class="animate-btn" onclick="sendCommand('animate', 'laydown')">Lay down</button>
-            <button class="animate-btn" onclick="sendCommand('animate', 'wave')">Wave</button>
+            <button class="animate-btn" onclick="sendCommand('start')">Stand</button>
+            <button class="animate-btn" onclick="sendCommand('sit')">Sit</button>
+            <button class="animate-btn" onclick="sendCommand('lay')">Lay down</button>
+            <button class="animate-btn" onclick="sendCommand('wave')">Wave</button>
         </div>
         <div class="emote-container">
             <button class="emote-btn" onclick="sendCommand('emote', 'smile')">Smile</button>
