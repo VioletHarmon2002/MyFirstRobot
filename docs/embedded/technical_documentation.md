@@ -16,6 +16,10 @@ Partlist for little endian B, A.K.A. Robot Dog
 | - | HvA Makerslab | Acrylic sheet , 60x30cm | 24,7 x 16,2 cm | 8,00 | 1,78 | [Acrylic](https://acrylopmaat.nl/en/acrylic/colored/) |
 | - | Chanzon| 20mm heat shrink tubing | 3cm | 0,24 | 7,99 | [Heat shrink tubing](https://www.amazon.com/Chanzon-Shrink-Polyolefin-Sleeving-Shrinking/dp/B0B618FHKV/) |
 | 493 | TDK InvenSense | MPU-9250 9 axis sensor | 1 | 11,75 | 11,75 | [MPU-9250](https://www.tinytronics.nl/nl/mpu-9250-accelerometer-gyroscope-magnetometer-9dof-module-3.3v-5v) |
+| - | - | 3.9x27.8mm bolt | 2 | - | - | - |
+| - | - | 1.9x13.3mm screw | 2 | - | - | - |
+| - | - | 2.4x16mm riser | 3 | - | - | - |
+| - | - | 2.4x7.5mm bolt| 3 | - | - | - |
 
 ### Wiring diagram
 
