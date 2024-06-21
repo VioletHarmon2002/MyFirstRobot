@@ -1,6 +1,4 @@
 # API reference
-
-# API reference
 This API is designed to facilitate the communication between the webserver and robot. The API is structured around four main functions, two of which serve as endpoints. These endpoints are POST endpoints for sending data to the robot. 
 
 ## command
