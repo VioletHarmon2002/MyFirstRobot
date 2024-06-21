@@ -5,7 +5,6 @@ nav:
         - Functionalities: home/functionalities
         - Comparison: home/comparison
     - 🧰 Embedded:
-        - Requirements: embedded/requirements
         - Technical Documentation: embedded/technical_documentation
         - Code: embedded/code
     - 🌐 Web:
