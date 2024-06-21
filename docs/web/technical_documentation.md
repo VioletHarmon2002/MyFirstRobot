@@ -41,20 +41,49 @@ Firstly, the robot must be connected to the WebSocket. This is automatically don
 This POST request is received by the API. The API checks the task and calls the "send_command.php" file to transmit the task to the robot via the "websocket.php" file.
 
 ## Setup webserver
-To set up the web server, you need to clone [this](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80)
- GitLab project. After that, you should open the project in a CLI. In the CLI, the following command needs to be executed:
+To set up the web server, we used a server with Ubuntu 20.04. On the server, we want to open ports 22, 80, and 8080. Port 22 is used for SSH, port 80 for HTTP, and port 8080 for WebSocket. This can be done as follows:
 
+1. Enable UFW:
 ```txt
-docker build --tag little-endian .
+sudo ufw enable
 ```
 
-This command builds a Docker image tagged "little-endian" using the files in the current directory. Then, the following command needs to be executed:
-
+2. Open ports 80 (HTTP), 8080, and 22 (SSH):
 ```txt
-docker run --publish 80:80 --publish 8080:8080 --detach little-endian
+sudo ufw allow 80/tcp
+sudo ufw allow 8080/tcp
+sudo ufw allow 22/tcp
 ```
 
-This command starts a Docker container with the "little-endian" image, where port 80 of the host is linked to port 80 in the container, and port 8080 of the host is linked to port 8080 in the container.
+3. Check the UFW rules to verify that the ports are open:
+```txt
+sudo ufw status
+```
+![status example](images/ufw_status.png)
+
+4. If successful, Docker can be installed. Follow [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) tutorial for installing Docker on Ubuntu. Only step 1 is required. 
+
+5. Once Docker is installed on the server, the project can be cloned from GitLab. This can be done with:
+```txt
+sudo git clone https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80.git
+```
+
+6. Log in with your Git account.
+
+7. After the project is cloned, navigate to the correct directory with:
+```txt
+cd faaxeeheeqee80
+```
+
+8. Build a Docker image tagged "little-endian" using the following command:
+```txt
+sudo docker build --tag little-endian .
+```
+
+9. Start a Docker container with the "little-endian" image, linking port 80 of the host to port 80 in the container, and port 8080 of the host to port 8080 in the container, by executing the following command:
+```txt
+sudo docker run --publish 80:80 --publish 8080:8080 --detach little-endian
+```
 
 After this, the web server is successfully set up. However, there are still a few places where the IP address of the host needs to be specified for proper communication.
 
@@ -62,4 +91,7 @@ Firstly, the send_command.php file in the /var/www/html folder needs to be edite
 
 ![web_technical](images/send_command.png)
 
-Additionally, in the folder /var/www/html/static/javascript, in the file buttons.js, the IP address of the host needs to be provided on lines 14, 51, and 88. With these steps completed, the web server is fully set up and operational.
+Additionally, in the folder /var/www/html/static/javascript, in the file buttons.js, the IP address of the host needs to be provided on line 4. With these steps completed, the web server is fully set up and operational.
+
+
+![web_technical](images/buttons.js.png)

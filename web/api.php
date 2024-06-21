@@ -36,6 +36,7 @@ function validateInput() {
         return json_encode(['status' => 'error', 'message' => 'Invalid input']);
     }
 }
+
 function sendObject(){
     $data = json_decode(file_get_contents('php://input'), true);
     send($data);
