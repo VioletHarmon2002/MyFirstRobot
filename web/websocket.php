@@ -68,7 +68,6 @@ try {
                 continue;
             }
 
-            $data = trim($data);
             if (!is_valid_string($data)) {
                 echo json_encode(["error" => "Invalid input from client. Please enter a valid string."]) . "\n";
                 continue;
@@ -93,4 +92,3 @@ try {
     socket_close($serversocket);
 }
 ?>
-
