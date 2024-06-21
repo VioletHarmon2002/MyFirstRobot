@@ -267,3 +267,15 @@ javascript.javascriptGenerator.forBlock['wait'] = function(block) {
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   return 'await sleep(' + value +');\n';
 };
+function closeFlyout(){
+
+  document.getElementsByClassName("blocklyFlyout")[0].style.visibility = 'hidden';
+  // document.getElementsByClassName("blocklyScrollbarVertical")[0].style.visibility = 'hidden';
+  document.getElementById("toggleFlyout").textContent = "Open";
+}
+
+function openFlyout(){
+  document.getElementsByClassName("blocklyFlyout")[0].style.visibility = 'visible';
+  // document.getElementsByClassName("blocklyScrollbarVertical")[0].style.visibility = 'visible  ';
+  document.getElementById("toggleFlyout").textContent = "Close";
+}
