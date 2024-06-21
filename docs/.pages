@@ -11,7 +11,7 @@ nav:
         - Technical Documentation: web/technical_documentation
         - API reference: web/api_reference
         - Code: web/code
-        - Database: web/database
+        - Blockly: web/blocklycode
     - 👩‍🎨 User Experience Design:
         - Concept & Design: uxd/concept_design
         - Create & Test: uxd/create_test
