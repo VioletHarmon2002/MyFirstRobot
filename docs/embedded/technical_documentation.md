@@ -1,5 +1,5 @@
 # Technical Documentation
-## BOM Endian B
+## BOM Robot dog
 
 Partlist for little endian B, A.K.A. Robot Dog
 

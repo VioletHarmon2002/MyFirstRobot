@@ -22,11 +22,11 @@
 | REQ016 | The robot translates the universal commands to functions | Must | 24-04 | Gjalt | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
 | REQ017 | The robot can be controlled with a virtual joystick on the webapp | Must | 24-04 | Floris |
 | REQ018 | The robot can be given instructions through codeblocks on the webapp | Must | 24-04 | Gerald | [#121](https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/issues/121) |  2 |
-| REQ037 | The robot's legs do not collide whilst in operation | Must | 29-05 | Silvester | # | - |
-| REQ038 | The robot's body is sturdy and does not break easily | Must | 29-05 | Silvester | # | - |
-| REQ039 | ~~Microcontroller has a V-in pin for external power supply~~ | Wont | 29-05 | Silvester | # | - |
-| REQ040 | Microcontroller and components are connected through a proto-board | Must | 29-05 | Silvester | # | - |
-| REQ041 | The robot is powered by a 9V battery | Must | 05-06 | Gerald | # | - |
+| REQ037 | The robot's legs do not collide whilst in operation | Must | 29-05 | Silvester |  |  |
+| REQ038 | The robot's body is sturdy and does not break easily | Must | 29-05 | Silvester |  |  |
+| REQ039 | ~~Microcontroller has a V-in pin for external power supply~~ | Wont | 29-05 | Silvester |  |  |
+| REQ040 | Microcontroller and components are connected through a proto-board | Must | 29-05 | Silvester |  |  |
+| REQ041 | The robot is powered by a 9V battery | Must | 05-06 | Gerald |  |  |
 
 
 ## Robot functionalities

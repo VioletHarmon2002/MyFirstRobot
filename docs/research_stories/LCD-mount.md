@@ -1,5 +1,5 @@
 # LCD-mount
-June 14-06-2024
+June 14, 2024
 
 Written by: Silvester Rademakers
 
