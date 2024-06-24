@@ -4,14 +4,13 @@
 
 This document is a guide to the project, and is intended to be read by anyone who is interested in the project. It is divided into several sections, each of which covers a different aspect of the project. The sections are as follows:
 
-- [Introduction](/home/introduction): This section provides an overview of the project, including the goals, objectives, and scope of the project.
+- Introduction: This section provides an overview of the project, including the goals, objectives, and scope of the project.
 
 - [Requirements](/home/requirements): This section provides an overview of the requirements for the project, including the functional and non-functional requirements.
 
 - [Functionalities](/home/functionalities): This section provides an overview of the functionalities of the robot dog, including the different movements and actions that the robot dog can perform.
 
 - [Recommendations](/home/recommendations): This section provides recommendations for future work on the project, including features that could be implemented in the future.
-
 
 - [Embedded Technical Documentation](/embedded/technical_documentation): This section provides a detailed overview of the technical aspects of the project, including the components used, the wiring diagram, and the base assembly parts.
 
@@ -27,8 +26,12 @@ This document is a guide to the project, and is intended to be read by anyone wh
 
 - [Blockly code](/web/blocklycode): This section provides an overview of the blockly library used in the web application, including the code blocks and the functionality of the library.
 
-
+- [Concept & Design](/uxd/concept_design): This section provides an overview of the concept and design of the robot dog, including the initial design, the changes made to the design, and the design choices made for the website and the thought process behind them.
 
 - [Create & Test](/uxd/create_test): This section provides an overview of the design process, including the changes made to the robot dog design and the testing process.
 
+- [Conclude & Reflect](/uxd/conclude_reflect): This section provides a conclusion and reflection on the project, including the challenges faced, the lessons learned, and the future plans for the project.
+
 ## Project Goals
+
+The goal of the project is to itterate on the idea of the Little endian a small 
