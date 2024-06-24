@@ -10,3 +10,14 @@ There are a few features which we could only implement partially before the end 
 
 ## Accelerometer
 
+## Microphone
+
+## Security
+
+## PCB
+
+## Bigger OLED
+
+## Rechargeable battery
+
+## Database

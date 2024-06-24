@@ -1,4 +1,4 @@
-# Introduction
+# Little Endian 2.0 - Introduction
 
 ## Overview
 
@@ -32,4 +32,4 @@ This document is a guide to the project, and is intended to be read by anyone wh
 
 ## Project Goals
 
-The goal of the project is to itterate on the idea of the Little endian a small 
+The goal of the project is to itterate on the idea of the original Little Endian project and to create the Little endian 2.0, a small 
