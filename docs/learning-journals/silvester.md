@@ -10,15 +10,15 @@ At the start of the project i started with this learning story to figure out how
 
 After we had the first meeting with the client, i started with this learning story to write down all the requirements that the client asked for. I made a list of all the requirements and put them in the right format so that the team knows what to deliver for the project itself and the individual sprints.
 
-[Link to the learning story](../home/requirements.md)
+[Link to the requirements list](../home/requirements.md)
 
-## As a student, i want to research if the robot dog design can be improved. So i can iterate on our current design
+## Learning story - As a student, i want to research if the robot dog design can be improved. So i can iterate on our current design
 
 After we decided to continue with the robot dog for the remainder of the project, i started with this learning story to research if the robot dog design can be improved. I looked at the issues with the first prototype and came up with some potential improvements for the next iteration of the robot dog.
 
 [Link to the learning story](../research-stories/robot-dog-improvements.md)
 
-## As a student, i want to research where screws could be placed in the current design so that the design is easier to assemble and dissassemble
+## Learning story - As a student, i want to research where screws could be placed in the current design so that the design is easier to assemble and dissassemble
 
 After we decided to continue with the robot dog for the remainder of the project, i started with this learning story to research where screws could be placed in the current design so that the design is easier to assemble and dissassemble. I looked at the different options we had and decided to use screws to attach the legs to the servos.
 
