@@ -4,6 +4,7 @@ nav:
         - Requirements: home/requirements
         - Functionalities: home/functionalities
         - Comparison: home/comparison
+        - Recommendations: home/recommendations
     - 🧰 Embedded:
         - Technical Documentation: embedded/technical_documentation
         - Code: embedded/code
