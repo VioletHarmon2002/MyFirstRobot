@@ -24,8 +24,6 @@ This document is a guide to the project, and is intended to be read by anyone wh
 
 - [Web code](/web/code): This section provides an overview of the code used in the web application, including the code for the webapp and the code for the blockly library.
 
-- [Blockly code](/web/blocklycode): This section provides an overview of the blockly library used in the web application, including the code blocks and the functionality of the library.
-
 - [Concept & Design](/uxd/concept_design): This section provides an overview of the concept and design of the robot dog, including the initial design, the changes made to the design, and the design choices made for the website and the thought process behind them.
 
 - [Create & Test](/uxd/create_test): This section provides an overview of the design process, including the changes made to the robot dog design and the testing process.
