@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - 🏚️ Home:
-        - Introduction: home/introduction
         - Requirements: home/requirements
         - Functionalities: home/functionalities
         - Comparison: home/comparison
