@@ -4,20 +4,20 @@
 These are some recommendations that we have for whichever team picks up this project next.
 There are a few features which we could only implement partially before the end of the project. These are some features that we recommend to be implemented in the future.
 
-## Code blocks
+## Code blocks - Floris
 
-## Sessions
+## Sessions - Ilias
 
-## Accelerometer
+## Accelerometer - Jayden
 
-## Microphone
+## Microphone - Timo
 
-## Security
+## Security - Ilias
 
-## PCB
+## PCB - Luc
 
-## Bigger OLED
+## Bigger OLED - Gjalt
 
-## Rechargeable battery
+## Rechargeable battery - Gjalt
 
-## Database
+## Database - Silvester
