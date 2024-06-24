@@ -1,4 +1,5 @@
 # Scrum poker
+May 23, 2024
 
 At the start of sprint 2 we wanted to have a good sprint board so we can start working. To do this, we had to create good user stories. We also did all of this together with the whole team.
 
