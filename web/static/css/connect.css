@@ -24,15 +24,6 @@
     font-size: 3vh;
 }
 
-.btn{
-    background-color: rgb(156, 156, 156);
-    border: 0px solid;
-    font-size: 3vh;
-    padding:20px;
-    height: 10vh;
-    cursor: pointer;
-}
-
 .btn:active{
     background-color: gray;
 }
