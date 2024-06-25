@@ -28,5 +28,8 @@ Addressing these vulnerabilities will significantly enhance the security of the 
 
 ## Rechargeable battery - Gjalt
 
+## Power switch
+The robot currently does not have a power switch. This means that the only way to turn the robot on or off is by physically connecting/disconnecting the battery. We recommend adding a power switch to the robot to allow users to easily turn the robot on or off without having to disconnect the battery.
+
 ## Database
 The project currently has no accosiated database. This means that all data is stored in the memory of the ESP32. This is not ideal as the data is lost when the ESP32 is powered off. We recommend implementing a database to store data such as user settings, user profiles, and robot configurations. This will allow the data to be persistent and accessible across different sessions and devices. We recommend using a lightweight database such as SQLite or MariaDB for this purpose.
