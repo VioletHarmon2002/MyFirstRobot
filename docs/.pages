@@ -10,6 +10,7 @@ nav:
         - Technical Documentation: embedded/technical_documentation
         - Code: embedded/code
     - 🌐 Web:
+        - User manual: web/user_manual
         - Technical Documentation: web/technical_documentation
         - API reference: web/api_reference
         - Code: web/code
