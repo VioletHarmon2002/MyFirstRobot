@@ -37,11 +37,13 @@ function validateInput() {
     }
 }
 
-function sendObject(){
-    $data = json_decode(file_get_contents('php://input'), true);
-    send($data);
-    return json_encode(['status' => 'success', 'message' => 'Valid command']);
-}
+// Function for sending a Json object, WORK IN PROGESS
+
+// function sendObject(){
+//     $data = json_decode(file_get_contents('php://input'), true);
+//     send($data);
+//     return json_encode(['status' => 'success', 'message' => 'Valid command']);
+// }
 
 function handleRequest() {
     // Retrieve global variables $method and $action
