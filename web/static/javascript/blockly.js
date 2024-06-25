@@ -2,7 +2,7 @@ const HVA_DARK_COLOR = '#28147C'
 const HVA_LIGHT_COLOR = '#381CB4'
 const forward_color = "#1b97b3";
 const turn_color = "#16c548";
-
+const IP_ADRESS = '145.3.245.224';
 
 let running;
 
@@ -78,7 +78,7 @@ function sendCommandBlock(command){
   console.log("sendCommand: " + JSON.stringify(data));
 
   // Send the JSON message to the API
-  fetch('http://145.3.245.224/api.php?action=task', {
+  fetch('http://' + IP_ADRESS + '/api.php?action=task', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
