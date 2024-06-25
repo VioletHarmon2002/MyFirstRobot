@@ -8,7 +8,13 @@
 
 (Reflect on the requirements, which ones were met and which ones were not met)
 
-These are all our requirements, per requirement is described if it's met or not. The requirements with the *won't* priority are left out. The full table of requirements can be found [here](../home/requirements.md).
+These are all our requirements, per requirement is described if it's met or not. The requirements with the *won't* priority are left out.
+
+<div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
+Info<br>
+<a href="../../home/requirements/">Click here</a>
+for the full list of requirements, along with the date and who added them..
+</div>
 
 ## Functional requirements
 | REQ number | Description | MoSCoW | Met? | explanation |
