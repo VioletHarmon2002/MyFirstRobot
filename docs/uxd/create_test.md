@@ -1,5 +1,8 @@
 # Create & test
 
+## Web Design
+The first design of the web app was the most simple, it consisted of just the direct movement buttons, this looked like this:
+
 ## Robot dog design
 
 ## Third iteration
