@@ -9,7 +9,7 @@ There are a few features which we could only implement partially before the end 
 ## Sessions
 Currently, no session management is implemented when the robot connects to the web server. This means that multiple users can simultaneously access and communicate with the same robot, which can lead to conflicts and unpredictable behavior of the robot. Therefore, we recommend developing a session management system so that each user is assigned a unique session upon connecting to the web server. Ensure that each session is unique and that session data is securely stored and managed
 
-## Accelerometer - Jayden
+## Accelerometer
 We tested using the MPU9250 9-axis accelerometer, gyroscope, temperature sensor and magnetometer. We are able to read data from the registers using I2C. The data is not yet converted to actual values. This is a feature that could be implemented in the future. We also haven't used the gyroscope/accelerometer values for anything. In the future, they could be used to detect orientation and change the walking animation accordingly.
 
 ## Microphone - Timo
