@@ -166,7 +166,7 @@ Lastly we'll place the ESP32 on the protoboard and connect the servo's and power
 ![step13](../assets/assembly/step13-1.png)
 
 The ESP32 is placed in the middle of the protoboard. The servo's are connected to the pins on the ESP32. The power supply is connected to battery connector on the protoboard. And the OLED is also connected through the pins on the protoboard
-
+    
 ![step13](../assets/assembly/step13-2.png)
 
 ![step13](../assets/assembly/step13-3.png)
