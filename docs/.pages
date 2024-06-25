@@ -5,6 +5,7 @@ nav:
         - Functionalities: home/functionalities
         - Comparison: home/comparison
         - Recommendations: home/recommendations
+        - Assembly guide: home/assembly_guide
     - 🧰 Embedded:
         - Technical Documentation: embedded/technical_documentation
         - Code: embedded/code

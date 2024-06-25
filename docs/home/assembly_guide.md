@@ -6,7 +6,7 @@ The assembly requires a philips head screwdriver and the following parts:
 ![robotDog legend](../assets/robotDog-lagenda.PNG)
 
 
-### step 1 - Risers
+### Step 1 - Risers
 We'll first start by attaching the risers to the top plate. The risers are the 2.4x16mm risers. You'll need 3 of them. These are to mount the protoboard on later.
 
 ![step1](../assets/assembly/step1-1.png)
@@ -17,7 +17,7 @@ Use the bolt to tighten the riser to the top baseplate.
 
 ![step1](../assets/assembly/step1-3.png)
 
-### step 2 - Sides
+### Step 2 - Sides
 Put the top baseplate aside for now. We'll now attach the sides to the bottom baseplate.
 
 ![step2](../assets/assembly/step2-1.png)
@@ -36,7 +36,7 @@ You can simply put the sides on side parts of the bottom plate.
 
 ![step2](../assets/assembly/step2-5.png)
 
-### step 3 - Servo's
+### Step 3 - Servo's
 Now we'll attach the servo's to the sides. The servo's are the SG90 Mini servo's. You'll need 4 of them.
 
 ![step3](../assets/assembly/step3-1.png)
@@ -51,8 +51,7 @@ They should fit snuggly.
 
 ![step3](../assets/assembly/step3-4.png)
 
-### step 4 - baseplate connectors
-
+### Step 4 - baseplate connectors
 Now we'll place the baseplate connectors in the slots of the bottom plate.
 These connectors are used to connect the top and bottom plate and also to hold the servo's we just placed in place.
 
@@ -68,8 +67,7 @@ Make sure whilst placing the baseplate connectors that the servo's are still wel
 
 ![step4](../assets/assembly/step4-4.png)
 
-### step 5 - top plate
-
+### Step 5 - top plate
 Now we'll place the top plate on the bottom plate, connectors and sides.
 
 ![step5](../assets/assembly/step5-1.png)
@@ -82,8 +80,7 @@ All the baseplate connectors should be fully inside the bottom and top plate and
 
 ![step5](../assets/assembly/step5-3.png)
 
-### step 6 - 3.9mm bolts
-
+### Step 6 - 3.9mm bolts
 Now we'll attach the top and bottom plate together using the 3.9mm bolts.
 The plates shouldnt fall apart easily but these bolts will make sure they stay together.
 
@@ -95,8 +92,7 @@ Make sure you dont tighten the nuts too tightly as you might shatter the plexigl
 
 ![step6](../assets/assembly/step6-3.png)
 
-### step 7 - Legs 
-
+### Step 7 - Legs 
 This step requires the philips head screwdriver. We'll attach the legs to the servo's. 
 
 ![step7](../assets/assembly/step7-1.png)
@@ -115,8 +111,7 @@ When you move the leg afterwads you should be able to hear the servo turn with i
 
 ![step7](../assets/assembly/step7-5.png)
 
-### step 8 - Face mount
-
+### Step 8 - Face mount
 Now we'll attach the face mount to the front of the robot dog.
 
 ![step8](../assets/assembly/step8-1.png)
@@ -124,3 +119,5 @@ Now we'll attach the face mount to the front of the robot dog.
 The face mount should fit nicely in the slit in the front of the robot dog.
 
 ![step8](../assets/assembly/step8-2.png)
+
+### Step 9

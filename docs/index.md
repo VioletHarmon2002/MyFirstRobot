@@ -12,6 +12,8 @@ This document is a guide to the project, and is intended to be read by anyone wh
 
 - [Recommendations](/home/recommendations): This section provides recommendations for future work on the project, including features that could be implemented in the future.
 
+- [Assembly guide](/home/assembly_guide): This section provides a step-by-step guide to assembling the robot dog, including the parts required and the assembly process.
+
 - [Embedded Technical Documentation](/embedded/technical_documentation): This section provides a detailed overview of the technical aspects of the project, including the components used, the wiring diagram, and the base assembly parts.
 
 - [Embedded code](/embedded/code): This section provides an overview of the embedded code used in the project, including the code for the microcontroller and the code for the different functionalities of the robot dog.
