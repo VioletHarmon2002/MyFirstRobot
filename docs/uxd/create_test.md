@@ -2,7 +2,15 @@
 
 ## Web Design
 The first design of the web app was the most simple, it consisted of just the direct movement buttons, this looked like this:
+![oud-web](image.png)
 
+We used this page to test the functionality of the api.
+We uses html, which stands for Hypertext markup language. This is used for creating the structure to our website. Then we use CSS, which stands for Cascading Style Sheets. This is used for giving style and positioning to the elements defined in the HTML code. We dont use bootstrap or any other library for styling the CSS, just grid and flexbox.
+
+All the functionality of the website is implemented by the javascript code, we can use javascript to add interactiveness and functions to the elements defined in the HTML code.
+
+### The first dragging design
+For our requirements, we needed code blocks that we could drag to program the robot, and have those commands be executed on the robot. Our first approach for draggable blocks was to program it by hand using javascipt, this looked like this
 ## Robot dog design
 
 ## Third iteration
