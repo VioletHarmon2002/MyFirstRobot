@@ -10,7 +10,31 @@ We uses html, which stands for Hypertext markup language. This is used for creat
 All the functionality of the website is implemented by the javascript code, we can use javascript to add interactiveness and functions to the elements defined in the HTML code.
 
 ### The first dragging design
-For our requirements, we needed code blocks that we could drag to program the robot, and have those commands be executed on the robot. Our first approach for draggable blocks was to program it by hand using javascipt, this looked like this
+For our requirements, we needed code blocks that we could drag to program the robot, and have those commands be executed on the robot. Our first approach for draggable blocks was to program it by hand using javascipt, this looked like this:
+![oud-dragging](image-1.png)
+
+We have here 5 buttons on the side which you could press to create a draggable block and drag it into the instruction list. This would however make the program more a instruction list, without logic, and without values.
+
+### Second dragging design
+After client meeting 2 of sprint 2, we chose to transition to blockly, a library made by google for generating code from draggable blocks. This library was very easy to implement and use, creating new code blocks for our application and executing that code in javascript on the website. This is what the next (and current) design looked like:
+![alt text](image-2.png)
+
+With blockly we can add values, logic, and more by just defining more blocks in the javascript file, and creating a translation to javascript like this.
+![alt text](image-3.png)
+
+Here the value that is returned is the javascript code that is excecuted on the web app. One downside of this is the security, since there probably could be a way to inject your own javascript code into the webapp and thus into the API.
+
+### Connect page
+After finishing the dragging webpage we decided to have a extra page for connecting to the specific robot you want, chosing from a list of active robots. This looked like this:
+![alt text](image-4.png)
+
+This page doesnt do enything yet, but is already there for other groups working further on this project.
+
+### Buttons page
+We also made a second itteration of the buttons page, with updated CSS and better styling, this also works better on your phone, which was a requirement for every page except the dragging page.
+![alt text](image-5.png)
+
+The robot also doesnt have a function for directly reading and playing an emote like frown or smile, instead it plays those emotes with the animations. But this functionality for directly imputting an emote is already added for future teams.
 ## Robot dog design
 
 ## Third iteration
