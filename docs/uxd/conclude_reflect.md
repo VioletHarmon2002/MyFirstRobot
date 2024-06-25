@@ -10,4 +10,9 @@
 
 ## Failures
 
-(Describe at least 4 failures during the design and creation process)
+(Describe at least 4 failures during the design and creation process. Per failure, describe:
+o    what you wanted to achieve
+o    what went wrong  
+o    how you tried to solve it  
+o    how you would approach the problem next time
+ALSO ADD PHOTOS/VIDEOS)
