@@ -135,6 +135,8 @@ Now we'll place the power supply on the bottom plate. The power supply is a 9v b
 
 ![step10](../assets/assembly/step10-1.png)
 
+![step10](../assets/assembly/step10-2.png)
+
 You could now connect the power to the protoboard. Keep in mind that as soon as it is connected the robot dog will be powered on.
 We advise to connect the power supply last.
 
@@ -145,11 +147,15 @@ It is placed on the top plate between the face mount and the battery
 
 ![step11](../assets/assembly/step11-1.png)
 
-![step11](../assets/assembly/step11-2.png)
-
 You can simply stick the breadboard on the top plate. It should fit snuggly between the battery and the face mount.
 
+Try out the placement before sticking it on.
+
+![step11](../assets/assembly/step11-2.png)
+
 ![step11](../assets/assembly/step11-3.png)
+
+![step11](../assets/assembly/step11-4.png)
 
 ### Step 12 - OLED display
 The OLED display is placed on the face mount. The display is used to let the robot dog showcase its emotions. The display is connected to the protoboard.
@@ -166,8 +172,12 @@ Lastly we'll place the ESP32 on the protoboard and connect the servo's and power
 ![step13](../assets/assembly/step13-1.png)
 
 The ESP32 is placed in the middle of the protoboard. The servo's are connected to the pins on the ESP32. The power supply is connected to battery connector on the protoboard. And the OLED is also connected through the pins on the protoboard
-    
+
 ![step13](../assets/assembly/step13-2.png)
+
+You should connect the wires to the servo's on the protoboard. Make sure to connect the brown wire from the servo to the black wire on the protoboard.
+
+If you look at the protoboard from where the mini usb comes in that would be the back. The servo's are wired to their respective sides on the protoboards. The front servo's are wired to the front of the protoboard and the back servo's are wired to the back of the protoboard.
 
 ![step13](../assets/assembly/step13-3.png)
 
