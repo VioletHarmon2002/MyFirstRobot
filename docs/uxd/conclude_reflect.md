@@ -21,7 +21,7 @@ for the full list of requirements, along with the date and who added them..
 |---|---|---|---|---|
 | REQ001 | The robot must have a **wow** factor | Must | yes | According to our research, the requirements in the next row impact the wow-factor and our robot has those. |
 | | The robot needs to have moving parts and should be able to do precise movements. | | | |
-| REQ003 | The robot must be easy to assemble for prospective students | Must | 24-04 | Gerald |
+| REQ003 | The robot must be easy to assemble for prospective students | Must | Yes | We tested with a few teammates and we have also created a user manual to guide users through the process. |
 | REQ004 | The price per robot must be as low as possible (maximum €20) | Must | No | We tried to keep the price as low as possible, but it is a bit higher than €20. |
 | REQ005 | Webapp is a docker IMG that runs on a Raspberry Pi | Must | No | We have implemented a different method which can be found [here](../web/technical_documentation.md). |
 | REQ006 | The robot must fit in the Smart city sub theme | Must | Yes | Our robot fits the smart home theme, because of the user interactability. |
