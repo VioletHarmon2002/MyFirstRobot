@@ -34,4 +34,5 @@ This document is a guide to the project, and is intended to be read by anyone wh
 
 ## Project Goals
 
-The goal of the project is to itterate on the idea of the original Little Endian project and to create the Little endian 2.0, a small 
+The goal of the project is to iterate on the idea of the original Little Endian project and to create the Little endian 2.0, a small robot that can be assembled by potential students on open door days here at the HvA (Hogeschool van Amsterdam) or by students doing a workshop. It should be low cost and easy to produce in large quantity's.\
+The robot needs to have a high WOW factor for the open door days and it also needs to be SMART for potential use in studio's and workshops. The process needs to be documented thoroughly with photos and videos so it can be displayed at the HBO-ICT experience.

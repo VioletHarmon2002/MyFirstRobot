@@ -1,7 +1,7 @@
 import socket
 import json
 
-valid_commands = ["forward", "backward", "start", "sit", "left", "right", "wave", "lie", "dance"]
+valid_commands = ["forward", "backward", "start", "sit", "left", "right", "wave", "lay", "dance"]
 
 
 def is_number(s):
