@@ -41,7 +41,16 @@ We recommend addressing the following security vulnerabilities currently present
 - Unencrypted Communication: The communication between the robot and the web server currently occurs over HTTP, which is unencrypted and vulnerable to interception and manipulation.
 
 Addressing these vulnerabilities will significantly enhance the security of the project and reduce the risks of unauthorized access and data breaches.
+
 ## PCB - Luc
+
+We also recoomend to make PCB's in the future. 
+
+- time efficient: In the long run, this is the most time efficient and best option for the board. Especially if you need to make more robot's, we have used proto board because it was the easiest option for us, but it took a long time to make one board.
+
+- easier to expand: because you can already connect all the pins of the esp to an output, it will be easier to expand. Now you need to manually solder wires to the pins itself and then connect it somewhere on the board to the I/O you want to use.
+
+- Best looking: it looks much cleaner then a messy protoboard. This will also improve the "wow" factor of the robot.
 
 ## Bigger OLED - Gjalt
 
