@@ -50,3 +50,11 @@ o    what went wrong
 o    how you tried to solve it  
 o    how you would approach the problem next time
 ALSO ADD PHOTOS/VIDEOS)
+
+### Failure 1
+The power supply we initialy tried to use was not strong enough to power the servo's and esp at the same time. At first we wanted to use a few AA battery's to power the robot. We tried it with 2 AA battery's (3V) first but quickly realized this was far from enough. Then we tested it with 3 AA battery's, still not enough. And when 4 were tested, it was too much without any resistors. We then decided to use a 9V battery, which was clearly strong enough. But we needed to limit it somehow, so we orderd 9V voltage regulators not realizing it would be letting through 9V, we would be needing a 5V regulator. But since our power supply was 9V we just assumed we needed a matching 9V voltage regulator. After some trial and error we found out that we needed a different voltage regulator. We managed to find a 5V 2A voltage regulator online and used that in our final protoboard design. Next time we would first check the voltage of the power supply and then order the correct voltage regulator. And just start on powering the system earlier into the process. We waited untill quite late to start on the power supply and when the plan did not work out it brought on delay's.
+
+### Failure 2
+
+Servo's met benen - Luc
+Individuele sessies - Floris
