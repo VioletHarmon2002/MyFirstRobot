@@ -73,12 +73,12 @@ async function forward(dir, n){
 // THis function sends a command from a block
 function sendCommandBlock(command){
   const data = {
-    "task": command,
+    "command": command,
   };
   console.log("sendCommand: " + JSON.stringify(data));
 
   // Send the JSON message to the API
-  fetch('http://145.3.245.224/api.php?action=task', {
+  fetch('http://172.20.10.2/api.php?action=command', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

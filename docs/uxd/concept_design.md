@@ -32,8 +32,6 @@ The first design we made for the robot dog was a simple design with 4 legs and 4
 We made some improvements to the design for the second iteration of the robot dog. We made the inlay in the legs just for the servo without the horn. This way the leg could be attached to the servo without the horn so there was more room for the screw. This made the legs more secure and less likely to fall off. We added a small piece of plastic to the frame which could be placed behind the servo's (green cross pieces are slotted into the green slits in the bottom and top plate). This way the servo could not be pushed back into the frame. We also added a small hole for the wires to be routed through on the top plate. This way the wires had to bridge a shorter distance limiting clutter.
 
 ## Web 
-### Figma Design
-
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
 <a href="https://www.figma.com/file/QwEjuxT9gG5FV2NpbiBzCe/Little-Endian-Web?type=design&node-id=2311%3A2&mode=design&t=2ituEHdazxHDJet1-1">Click here</a>,
