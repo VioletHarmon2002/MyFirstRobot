@@ -3,7 +3,7 @@
 This following document will take you through the assembly process of the robot dog in a step by step mannner. 
 
 The assembly requires a philips head screwdriver and the following parts:
-![robotDog legend](../assets/robotDog-lagenda.PNG)
+![robotDog legend](../assets/robotDog-lagenda.png)
 
 
 ### Step 1 - Risers

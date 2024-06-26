@@ -32,7 +32,6 @@ However, we came across a few projects which could be helpful for implementing v
 
 These projects could bring a promising start for whoever is willing to add voice recognition, be aware it will be a difficult task and time consuming.
 
-
 ## Security
 We recommend addressing the following security vulnerabilities currently present in the project:
 
@@ -41,6 +40,7 @@ We recommend addressing the following security vulnerabilities currently present
 - Unencrypted Communication: The communication between the robot and the web server currently occurs over HTTP, which is unencrypted and vulnerable to interception and manipulation.
 
 Addressing these vulnerabilities will significantly enhance the security of the project and reduce the risks of unauthorized access and data breaches.
+
 ## PCB - Luc
 
 ## Bigger OLED - Gjalt
