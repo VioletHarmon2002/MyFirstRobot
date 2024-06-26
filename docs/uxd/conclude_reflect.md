@@ -84,4 +84,12 @@ Here we have the servo arms back into the design, but we now have uses plasitc g
 
 
 
-Individuele sessies - Floris
+### Individual sessions
+One of our failures in the communication section are private sessions, we now have it that every command is broadcasted to all the robots active. We would want it to have it selected by the connect web page. A solution would be to add a recipient value to the sent message, but this would need the api to be changed to recieve a JSON file format.
+
+Another failure was the sent data, the only thing that is sent is a single string like "forward". We currently don't support more values being sent, like for how long the robot would walk, or to what robot you want to send it to. Sending a JSON object and processing that on the embedded side would resolve this failure.
+
+### Web app
+We are pretty happy with the way the web app turned out, allthough we could have started earlier with the blockly library instead of coding the draggable blocks by hand. This cost us a lot of time that could have been better spent. 
+
+The web app turned out pretty well, and has lots of room for future projects and expandability.
