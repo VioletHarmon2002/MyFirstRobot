@@ -41,9 +41,8 @@ We recommend addressing the following security vulnerabilities currently present
 
 Addressing these vulnerabilities will significantly enhance the security of the project and reduce the risks of unauthorized access and data breaches.
 
-## PCB - Luc
-
-We also recoomend to make PCB's in the future. 
+## PCB
+We also recommend to make PCB's in the future. 
 
 - time efficient: In the long run, this is the most time efficient and best option for the board. Especially if you need to make more robot's, we have used proto board because it was the easiest option for us, but it took a long time to make one board.
 
