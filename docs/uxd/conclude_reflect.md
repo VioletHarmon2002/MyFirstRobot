@@ -57,4 +57,25 @@ The power supply we initialy tried to use was not strong enough to power the ser
 ### Failure 2
 
 Servo's met benen - Luc
+
+Our first idea was to make a design for legs to fit onto servo's with a servo arm attached. We had this idea, because we thought it would look cool and with the servo arm it would have extra grip.
+
+![1st leg design](images/failure_leg/1st_leg.png)
+
+this didn't really work out, because we coulnd't get the servo arm to tightly fit into the hole. So we where going to think of another design that could work better, so the servo would have a better gip on the legs.
+
+We noticed that we could mount a screw into the servo gear so we changed to a design where we could mount the leg directly onto the servo gear and put a screw through the hole.
+
+![2nd leg design](images/failure_leg/2nd_leg.png)
+
+Here we also had some trouble, because the teeth of the servo gears are so small we can't cut it into the design. so this also wasn't really a good option to get a good fit onto the legs. it worked, but not perfectly and you had to be very precice to put the legs staight onto the servo.
+
+So we went back to the first design but with a slight modification.
+
+![3rd legs](images/failure_leg/3d_leg.png)
+
+Here we have the servo arms back into the design, but we now have uses plasitc glue to glue the servo arms into the legs so we have a perfict fit with the easiest option to mount it. And if it still falls off we can still add the screw.
+
+
+
 Individuele sessies - Floris
