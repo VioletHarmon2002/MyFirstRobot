@@ -219,7 +219,7 @@ This JavaScript code sets up event listeners for arrow buttons (forwardButton, r
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/7c909de3468cd1538b87c47c34351c33431865ac/web/static/javascript/buttons.js">Click here</a>,
 to see the code for the buttons.js file.
 </div>
 
@@ -239,7 +239,7 @@ The script concludes by invoking addRobotNames() to populate the robot names lis
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/7c909de3468cd1538b87c47c34351c33431865ac/web/static/javascript/connect.js">Click here</a>,
 to see the code for the connect.js file.
 </div>
 
@@ -263,7 +263,7 @@ The script concludes by loading initial draggable elements (loadDraggables()) an
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/7c909de3468cd1538b87c47c34351c33431865ac/web/static/javascript/dragging.js">Click here</a>,
 to see the code for the dragging.js file.
 </div>
 
@@ -283,7 +283,7 @@ The sendCommand(jsonData) function sends a JSON message to an API endpoint (http
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/7c909de3468cd1538b87c47c34351c33431865ac/web/static/javascript/script.js">Click here</a>,
 to see the code for the script.js file.
 </div>
 
@@ -294,7 +294,7 @@ This PHP script functions as an API endpoint for handling HTTP requests. It incl
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/56918f47ce7e85a0646a3886ccbdeb6bf17fdb3c/web/api.php">Click here</a>,
 to see the code for the api.php file.
 </div>
 
@@ -306,6 +306,6 @@ The script uses socket functions to manage connections, read and write data, and
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/56918f47ce7e85a0646a3886ccbdeb6bf17fdb3c/web/websocket.php">Click here</a>,
 to see the code for the websocket.php file.
 </div>
