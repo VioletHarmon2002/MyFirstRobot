@@ -58,7 +58,7 @@ The file will now be sent to the laser.
 
 1. First you click the file button to go to all the availible files. Then in the top you should see the "LIGHTBRN" file, press the "Enter" button to select the file. With the arrows in the right hand corner you can move the laser.  
 
-2. the laser has a very specific distance where the laser will cut optimal. To get this optimal distance, position your laser above your material (Preffered more in the middle of your material). Then press the "Focus" button, and the machine will automatically change the distance for optimal cutting. 
+2. the laser has a very specific distance where the laser will cut the most optimal. To get this optimal distance, position your laser above your material (Preffered more in the middle of your material). Then press the "Focus" button, and the machine will automatically change the distance for optimal cutting. 
 
 3. Now move the laser to the top left corner of your material. Leave some edge for error. 
 
