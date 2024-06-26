@@ -21,7 +21,7 @@ We already have this on functionality on the website, but it has not been implem
 ## Accelerometer
 We tested using the MPU9250 9-axis accelerometer, gyroscope, temperature sensor and magnetometer. We are able to read data from the registers using I2C. The data is not yet converted to actual values. This is a feature that could be implemented in the future. We also haven't used the gyroscope/accelerometer values for anything. In the future, they could be used to detect orientation and change the walking animation accordingly.
 
-## Microphone - Timo
+## Microphone
 Due to the storage limitations of the esp32 microcontroller, it's not possible to process the audio locally. So we recommend to send the received audio to a webserver for processing instead. 
 Keep in mind voice recognition is a difficult and complex thing to work effectively. 
 However, we came across a few projects which could be helpful for implementing voice recognition.
