@@ -6,8 +6,10 @@ There are a few features which we could only implement partially before the end 
 
 ## Code blocks
 For the code blocks there are a couple things that could be added.
+
 ### Functionality for the emote block
 Currently the emotes are bound to the animations, so when the robot sits, it smiles. You could want it to change so that you could directly tell the robot to smile or frown. The base functionality for this is already added, but there needs to be another part added which is described below
+
 ### Additional data to be sent by the api
 Currently the messages sent are one dimensional, its just one message like: "forward" or "sit". This means we can have functions like "forward for 2 seconds", since we cant add the value 2. How we do this now is we read how many seconds we want to walk forward and repeat it every one of those seconds on the website. So we send every second the command 'forward' to the robot for the amount of seconds you want to walk.  
 
@@ -59,3 +61,10 @@ The robot currently does not have a power switch. This means that the only way t
 
 ## Database
 The project currently has no accosiated database. This means that all data is stored in the memory of the ESP32. This is not ideal as the data is lost when the ESP32 is powered off. We recommend implementing a database to store data such as user settings, user profiles, and robot configurations. This will allow the data to be persistent and accessible across different sessions and devices. We recommend using a lightweight database such as SQLite or MariaDB for this purpose.
+
+## Servo's
+We used two different servo's during our development of the robot. We used a servo with plastic parts (micro servo 9g) and another one with metal parts (micro servo ts90m). During our development we concluded the following:
+
+- The 9g servo's plastic parts wear off quickly, which decreases the grip between the servo and the leg. This will result in the leg being unable to function properly, resulting the robot being unable to walk.
+
+- Due to the weight of the robot, which will increase after adding more parts to it, the ts90m would be better to use since the metal parts are more durable in comparison to the plastic parts of the 9g.
