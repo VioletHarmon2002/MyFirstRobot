@@ -10,7 +10,7 @@ At the bottom of the page, there's a button labeled "See connection" which, when
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/main/web/index.html">Click here</a>,
 to see the code for the index.html.html file.
 </div>
 
@@ -21,7 +21,7 @@ The body section includes several elements: a top bar containing an image and a 
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/arrows.html">Click here</a>,
 to see the code for the arrows.html file.
 </div>
 
@@ -36,7 +36,7 @@ At the bottom of the body, external scripts for Blockly are included, which enab
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/blocky.html">Click here</a>,
 to see the code for the blockly.html file.
 </div>
 
@@ -51,7 +51,7 @@ At the bottom of the page, there is a button labeled "See connection" which togg
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/drag.html">Click here</a>,
 to see the code for the connect.html file.
 </div>
 
@@ -93,7 +93,7 @@ Styling for Blockly's visual elements includes removing stroke widths (stroke-wi
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/static/css/blockly.css">Click here</a>,
 to see the code for the blockly.css file.
 </div>
 
@@ -115,7 +115,7 @@ These styles collectively create a user-friendly interface for managing and inte
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/static/css/connect.css">Click here</a>,
 to see the code for the connect.css file.
 </div>
 
@@ -144,7 +144,7 @@ draggable-container styles the main container for draggable blocks with a light 
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/static/css/dragging.css">Click here</a>,
 to see the code for the dragging.css file.
 </div>
 
@@ -164,7 +164,7 @@ For screens 768px or wider, .redirect-container switches to a row layout instead
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/static/css/index.css">Click here</a>,
 to see the code for the index.css file.
 </div>
 
@@ -183,7 +183,7 @@ Hover effects (:hover) on buttons (btn, #toggleDrawer) and links (redirect-conta
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/e1a8c6fd326d72ed39522a06982a84280d4e574b/web/static/css/style.css">Click here</a>,
 to see the code for the style.css file.
 </div>
 
@@ -210,7 +210,7 @@ DOM manipulation (closeFlyout(), openFlyout()) controls the visibility of the Bl
 
 <div style="background-color: #f2f2f2; padding: 10px; border-left: 6px solid #4d90fe;"> 
 Info<br>
-<a href="">Click here</a>,
+<a href="https://gitlab.fdmci.hva.nl/IoT/2023-2024-semester-2/group-project/faaxeeheeqee80/-/blob/7c909de3468cd1538b87c47c34351c33431865ac/web/static/javascript/buttons.js">Click here</a>,
 to see the code for the blockly.js file.
 </div>
 
