@@ -3,7 +3,6 @@ nav:
     - 🏚️ Home:
         - Requirements: home/requirements
         - Functionalities: home/functionalities
-        - Comparison: home/comparison
         - Recommendations: home/recommendations
         - Assembly guide: home/assembly_guide
     - 🧰 Embedded:
