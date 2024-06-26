@@ -52,31 +52,23 @@ We also recommend to make PCB's in the future.
 
 - Best looking: it looks much cleaner then a messy protoboard. This will also improve the "wow" factor of the robot.
 
-## Bigger OLED - Gjalt
-
-To the Next Project Group,
-
-I recommend switching to a larger, square OLED screen for our robot dog's facial expressions.
+## Bigger OLED
+We recommend switching to a larger, square OLED screen for our robot dog's facial expressions.
 
 The current screen is too small and not square, making it difficult to properly display the robot dog's faces. A larger, square OLED screen will provide more space and better proportions, allowing for clearer and more expressive faces.
 
 Using a bigger screen will improve the visual appeal and functionality of our robot dog, making its expressions more lifelike and engaging. This change will enhance user interaction and overall project success.
 
-In summary, a larger, square OLED screen will greatly benefit our robot dog by providing better facial expressions and improving user experience. I highly recommend making this upgrade for future projects.
+A larger, square OLED screen will greatly benefit our robot dog by providing better facial expressions and improving user experience.
 
 ## Rechargeable battery
-
-To the Next Project Group,
-
-I recommend switching from 9V alkaline batteries to rechargeable 9V batteries for our project.
+We recommend switching from 9V alkaline batteries to rechargeable 9V batteries for our project.
 
 Rechargeable batteries will save money over time since they can be used many times, unlike single-use alkaline batteries. They are also better for the environment, reducing waste and pollution.
 
 Additionally, rechargeable batteries provide a more reliable power supply and have a longer lifespan. This means fewer interruptions and replacements, allowing us to work more efficiently.
 
-Using rechargeable batteries is convenient, as we won't run out of power and face delays. This switch also demonstrates our commitment to modern technology and sustainability.
-
-In summary, rechargeable 9V batteries are cost-effective, eco-friendly, reliable, and convenient. I highly recommend adopting them for our project.
+Rechargeable 9V batteries are cost-effective, eco-friendly, reliable, and convenient.
 
 ## Power switch
 The robot currently does not have a power switch. This means that the only way to turn the robot on or off is by physically connecting/disconnecting the battery. We recommend adding a power switch to the robot to allow users to easily turn the robot on or off without having to disconnect the battery.
