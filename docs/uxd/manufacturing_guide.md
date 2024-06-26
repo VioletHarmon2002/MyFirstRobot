@@ -28,6 +28,8 @@ To make our robot's we use a 3mm thick Acryllic plate. If you want to follow thi
 
 ![Acryllic plate in lasercutter](images/Manufactoring/Plate_in_machine.jpeg)
 
+**Important**: the acryllic plates we can buy at the makerslab, have a platic protective film over the clear plate. If you want to keep some of the (in our case) blue collor you only need to remove the top layer of the film (the one facing the laser). 
+
 We use the metal bits to increase the hight of the plate so it doesn't touch the bottom. We do this so when the laser goes over the metal grid the licht doesn't get refected into your material, which gives you a better looking cut.
 
 
@@ -49,6 +51,7 @@ Here we still have both baseplates (for the metal servo's and the plastic ones),
 To cut in the most optimal way you should copy the order like in the picture, also copy the Spd/Pwr settings, you can change this by double clicking on the "Layer" you want to change.
 
 7. After you copied everything, you can send the file to the machine by clicking the "send" button on the right hand side of the software. Keep the file name "LIGHTBRN" and click "OKE"
+![send](images/Manufactoring/send_button.jpeg)
 
 The file will now be sent to the laser. 
 
@@ -58,7 +61,14 @@ The file will now be sent to the laser.
 
 1. First you click the file button to go to all the availible files. Then in the top you should see the "LIGHTBRN" file, press the "Enter" button to select the file. With the arrows in the right hand corner you can move the laser.  
 
-2. the laser has a very specific distance where the laser will cut the most optimal. To get this optimal distance, position your laser above your material (Preffered more in the middle of your material). Then press the "Focus" button, and the machine will automatically change the distance for optimal cutting. 
+![files](images/Manufactoring/files.jpeg)
+
+
+2. the laser has a very specific distance where the laser will cut the most optimal. To get this optimal distance, position your laser above your material (Preffered more in the middle of your material). Then press the "Focus" button, and the machine will automatically change the distance for optimal cutting.
+
+![laser focus](images/Manufactoring/laser_focus.jpeg)
+
+![focus](images/Manufactoring/focus.jpeg)
 
 3. Now move the laser to the top left corner of your material. Leave some edge for error. 
 
