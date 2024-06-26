@@ -21,7 +21,7 @@ We already have this on functionality on the website, but it has not been implem
 ## Accelerometer
 We tested using the MPU9250 9-axis accelerometer, gyroscope, temperature sensor and magnetometer. We are able to read data from the registers using I2C. The data is not yet converted to actual values. This is a feature that could be implemented in the future. We also haven't used the gyroscope/accelerometer values for anything. In the future, they could be used to detect orientation and change the walking animation accordingly.
 
-## Microphone - Timo
+## Microphone
 Due to the storage limitations of the esp32 microcontroller, it's not possible to process the audio locally. So we recommend to send the received audio to a webserver for processing instead. 
 Keep in mind voice recognition is a difficult and complex thing to work effectively. 
 However, we came across a few projects which could be helpful for implementing voice recognition.
@@ -32,7 +32,6 @@ However, we came across a few projects which could be helpful for implementing v
 
 These projects could bring a promising start for whoever is willing to add voice recognition, be aware it will be a difficult task and time consuming.
 
-
 ## Security
 We recommend addressing the following security vulnerabilities currently present in the project:
 
@@ -42,9 +41,8 @@ We recommend addressing the following security vulnerabilities currently present
 
 Addressing these vulnerabilities will significantly enhance the security of the project and reduce the risks of unauthorized access and data breaches.
 
-## PCB - Luc
-
-We also reccomand to make PCB's in the future. 
+## PCB
+We also recommend to make PCB's in the future. 
 
 - time efficient: In the long run, this is the most time efficient and best option for the board. Especially if you need to make more robot's, we have used proto board because it was the easiest option for us, but it took a long time to make one board.
 

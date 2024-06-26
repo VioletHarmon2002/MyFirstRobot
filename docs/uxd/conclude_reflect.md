@@ -2,11 +2,17 @@
 
 ## Demonstration
 
-(add photos or videos that show the final product in all angles and demonstrate the workings of the product)
+These are 3 of our robot walking forward:
+
+![Robots walking](../assets/3robots.gif)
+
+Not all of them are perfect, but here is the best one:
+
+![Robot walking](../assets/1robot.gif)
+
+The face is flickering in the video, but this is just a camera artifact. In real life it looks fine.
 
 ## Requirements
-
-(Reflect on the requirements, which ones were met and which ones were not met)
 
 These are all our requirements, per requirement is described if it's met or not. The requirements with the *won't* priority are left out.
 
