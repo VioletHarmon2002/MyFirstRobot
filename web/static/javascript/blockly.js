@@ -78,7 +78,7 @@ function sendCommandBlock(command){
   console.log("sendCommand: " + JSON.stringify(data));
 
   // Send the JSON message to the API
-  fetch('http://172.20.10.2/api.php?action=command', {
+  fetch('http://IP_ADDR/api.php?action=command', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
