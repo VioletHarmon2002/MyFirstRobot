@@ -7,7 +7,7 @@
 #include <Adafruit_SSD1306.h>
 
 // WiFi and server details
-const char* server_ip = "172.20.10.5";  // IP address of the server to connect to
+const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
 const uint16_t server_port = 8080;      // Port number of the server to connect to
 
 WiFiClient client;  // WiFi client object to handle the connection
@@ -107,9 +107,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define SSD1306_I2C_ADDRESS 0x3C
 
 // Include separate bitmap header files
-#include "smile_bitmap.h"
-#include "frown_bitmap.h"
-#include "idle_bitmap.h"
+#include "bitmapForFace/smile_bitmap.h"
+#include "bitmapForFace/frown_bitmap.h"
+#include "bitmapForFace/idle_bitmap.h"
 
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
