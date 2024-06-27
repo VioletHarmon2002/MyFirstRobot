@@ -84,7 +84,7 @@ cd faaxeeheeqee80
     ![web_technical](images/buttons.js.png)
 
 10. Lastly, in the folder `/web/static/javascrip`, in the file `blockly.js`, the IP address also needs to be changed on line 5.
-    ![web_](image.png)
+    ![web_](images/ip.png)
 
 10. Build a Docker image tagged "little-endian" using the following command:
     ```txt
