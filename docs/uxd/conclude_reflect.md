@@ -50,20 +50,16 @@ for the full list of requirements, along with the date and who added them..
 
 ## Failures
 
-(Describe at least 4 failures during the design and creation process. Per failure, describe:
-o    what you wanted to achieve
-o    what went wrong  
-o    how you tried to solve it  
-o    how you would approach the problem next time
-ALSO ADD PHOTOS/VIDEOS)
+### Failure 1 - Power supply
+The power supply we initialy tried to use was not strong enough to power the servo's and esp at the same time. At first we wanted to use a few AA battery's to power the robot.
 
-### Failure 1
-The power supply we initialy tried to use was not strong enough to power the servo's and esp at the same time. At first we wanted to use a few AA battery's to power the robot. We tried it with 2 AA battery's (3V) first but quickly realized this was far from enough. Then we tested it with 3 AA battery's, still not enough. And when 4 were tested, it was too much without any resistors. We then decided to use a 9V battery, which was clearly strong enough. But we needed to limit it somehow, so we orderd 9V voltage regulators not realizing it would be letting through 9V, we would be needing a 5V regulator. But since our power supply was 9V we just assumed we needed a matching 9V voltage regulator. After some trial and error we found out that we needed a different voltage regulator. We managed to find a 5V 2A voltage regulator online and used that in our final protoboard design. Next time we would first check the voltage of the power supply and then order the correct voltage regulator. And just start on powering the system earlier into the process. We waited untill quite late to start on the power supply and when the plan did not work out it brought on delay's.
+We tried it with 2 AA battery's (3V) first but quickly realized this was far from enough. Then we tested it with 3 AA battery's, still not enough. And when 4 were tested, it was too much without any resistors.
 
-### Failure 2
+We then decided to use a 9V battery, which was clearly strong enough. But we needed to limit it somehow, so we orderd 9V voltage regulators not realizing it would be letting through 9V, we would be needing a 5V regulator. But since our power supply was 9V we just assumed we needed a matching 9V voltage regulator. After some trial and error we found out that we needed a different voltage regulator. We managed to find a 5V 2A voltage regulator online and used that in our final protoboard design.
 
-Servo's met benen - Luc
+Next time we would first check the voltage of the power supply and then order the correct voltage regulator. And just start on powering the system earlier into the process. We waited untill quite late to start on the power supply and when the plan did not work out it brought on delay's.
 
+### Failure 2 - Servo legs
 Our first idea was to make a design for legs to fit onto servo's with a servo arm attached. We had this idea, because we thought it would look cool and with the servo arm it would have extra grip.
 
 ![1st leg design](images/failure_leg/1st_leg.png)
@@ -84,12 +80,12 @@ Here we have the servo arms back into the design, but we now have uses plasitc g
 
 
 
-### Individual sessions
+### Failure 3 - Individual sessions
 One of our failures in the communication section are private sessions, we now have it that every command is broadcasted to all the robots active. We would want it to have it selected by the connect web page. A solution would be to add a recipient value to the sent message, but this would need the api to be changed to recieve a JSON file format.
 
 Another failure was the sent data, the only thing that is sent is a single string like "forward". We currently don't support more values being sent, like for how long the robot would walk, or to what robot you want to send it to. Sending a JSON object and processing that on the embedded side would resolve this failure.
 
-### Web app
+### Failure 4 - Web app
 We are pretty happy with the way the web app turned out, allthough we could have started earlier with the blockly library instead of coding the draggable blocks by hand. This cost us a lot of time that could have been better spent. 
 
 The web app turned out pretty well, and has lots of room for future projects and expandability.
