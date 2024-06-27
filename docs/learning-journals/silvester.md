@@ -28,7 +28,7 @@ Plexiglas is more durable and more environmentally friendly.
 The current wheels have some trouble turning, this is partly to blame to the friction the front and back chestnut have with the table. This could maybe be fixed by increasing the 
 
 ### Learning story
-[Link to the learning story](../research_stories/robot-dog-improvements.md)
+[Link to the learning story](../research_stories/Robot-dog-improvements.md)
 
 ## Learning story - As a student, i want to research where screws could be placed in the current design so that the design is easier to assemble and dissassemble
 
