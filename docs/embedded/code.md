@@ -29,7 +29,7 @@ This code controls a robot dog using an ESP32 microcontroller. The robot dog con
 - **Command**: An enumeration that lists possible commands (`FORWARD`, `BACKWARD`, `LEFT`, `RIGHT`, `SIT`, `LIE`, `WAVE`, `DANCE`, `START`, `UNKNOWN`).
 
 ## Objects
-- **WiFiClient `client`**: Manages the Wi-Fi client connection.
+- **WiFiManager `Manager`**: Manages the Wi-Fi client connection.
 - **Servo Objects**: `FL`, `FR`, `RL`, `RR` control the front left, front right, rear left, and rear right leg servos.
 - **Adafruit_SSD1306 `display`**: Manages the OLED display.
 
