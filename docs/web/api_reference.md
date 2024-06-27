@@ -6,4 +6,6 @@ To use this endpoint, you should make a POST request to the following URL: "http
 
 - command (required): command for the robot
 
-When all required parameters are provided, the validateInput function is invoked. This function checks if the provided command is allowed by examining the allowedCommands list. If the command is valid, it calls the send($data) function and returns a JSON-encoded success message. If the command is invalid, it returns a JSON-encoded error message indicating the issue. In the send($data) function, the command is forwarded to a script that communicates with a WebSocket. This WebSocket script is responsible for transmitting the command to the robot.
+When all required parameters are provided, the validateInput function is invoked. This function checks if the provided command is allowed by examining the allowedCommands list. The allowed commands are: forward, leftward, rightward,backward, lay, start, wave, dance, sit
+
+If the command is valid, it calls the send($data) function and returns a JSON-encoded success message. If the command is invalid, it returns a JSON-encoded error message indicating the issue. In the send($data) function, the command is forwarded to a script that communicates with a WebSocket. This WebSocket script is responsible for transmitting the command to the robot.
