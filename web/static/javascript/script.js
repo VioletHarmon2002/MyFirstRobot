@@ -33,3 +33,26 @@ function updatePage(){
     }
 }
 
+function sendCommand(jsonData){
+    // Verstuur het JSON-bericht naar de API
+    fetch('http://172.16.34.136/api.php?action=task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('API response:', data);
+        // Doe hier iets met de API-reactie als dat nodig is
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}

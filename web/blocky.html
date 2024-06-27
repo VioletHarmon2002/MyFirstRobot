@@ -11,20 +11,21 @@
     <script src="static/javascript/script.js" defer></script>
 </head>
 <body>
-    <div class="top-bar">
+    <div class="top-bar" style="height: auto;">
         <img src="static/images/logo.png" alt="HvA" class="logo">
         <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
-
+        <!-- <button class='btn' onclick="closeFlyout()" id="toggleFlyout">close</button>
+        <button class="btn" onclick="openFlyout()" >open</button> -->
     </div>
     <div class="flex-row">
 
-        <div id="blocklyDiv" class="blocklyContainer" style="height: 80vh; width: 70%;"></div>
+        <div id="blocklyDiv" class="blocklyContainer" style="height: 80vh; width: 80%;"></div>
         <xml id="toolbox" style="display: none">
             <block type="move"></block>
             <block type="turn"></block>
-            <block type="controls_if"></block>
-            <block type="logic_compare"></block>
-            <block type="math_number"></block>
+            <!-- <block type="controls_if"></block> -->
+            <!-- <block type="logic_compare"></block>
+            <block type="math_number"></block> -->
             <block type="controls_repeat_ext">
                 <value name="TIMES">
                   <shadow type="math_number">
@@ -32,14 +33,14 @@
                   </shadow>
                 </value>
               </block>
-            <block type="math_arithmetic"></block>
+            <!-- <block type="math_arithmetic"></block> -->
             <block type="text"></block>
             <block type="print"></block>
             <block type="play_animation"></block>
             <block type="wait"></block>
             <block type="emote"></block>
         </xml>
-        <div id="code_display_parent" style="left: 0px;">
+        <div id="code_display_parent">
             <h1>Code:</h1>
             <div class="program_controlls flex-row" style="position: relative; bottom: 0px">
                 <button class="control-btn program-direction-button" id="back-btn" onclick="testAsync()"><i class="fa fa-step-backward"></i></ibutton>
@@ -52,8 +53,8 @@
     </div>
 
     <!-- STANDRARD ON EVERY PAGE -->
-    <button class="btn open" id="toggleDrawer">See connection</button>
-    <div id="drawer" class="connection-display-container open" style="left: 50%">
+    <button class="btn close" id="toggleDrawer">See connection</button>
+    <div id="drawer" class="connection-display-container close" style="left: 65%">
         <h1>Robot Connection status</h1>
         <span id="not-connected">Not Connected :(</span>
         <div id="is-connected">

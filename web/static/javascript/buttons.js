@@ -1,33 +1,29 @@
-const forwardButton = document.querySelector('.arrow-btn.arrow-up');
-const rightwardButton = document.querySelector('.arrow-btn.arrow-right'); 
-const leftwardButton = document.querySelector('.arrow-btn.arrow-left'); 
+const sendCommand = (command) => {
+    // data object with the command key and the provided command value
+    const data = { command };
 
-const handleButtonPress = (button, task) => {
-    const data = { task };
-
-    // Verstuur het JSON-bericht naar de API
-    fetch('http://172.16.34.136/api.php?action=task', {
+    // Perform a fetch request to the specified URL with the action 'command'
+    fetch('http://IP_ADDR/api.php?action=command', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
+        // Convert the data object to a JSON string and set it as the request body
         body: JSON.stringify(data)
     })
+    // Check if the response status is not OK (status code outside the range 200-299)
     .then(response => {
         if (!response.ok) {
+            // If the response is not OK, throw an error
             throw new Error('Network response was not ok');
         }
+        // If the response is OK, parse the response body as JSON
         return response.json();
     })
     .then(data => {
         console.log('API response:', data);
-        // Doe hier iets met de API-reactie als dat nodig is
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 };
-
-forwardButton.addEventListener('mousedown', () => handleButtonPress(forwardButton, 'forward'));
-rightwardButton.addEventListener('mousedown', () => handleButtonPress(rightwardButton, 'rightward'));
-leftwardButton.addEventListener('mousedown', () => handleButtonPress(leftwardButton, 'leftward'));

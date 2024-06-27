@@ -4,36 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HBO-ICT: Robot</title>
+     <!-- Link to the main stylesheet -->
     <link rel="stylesheet" href="static/css/style.css">
+    <!-- Link to the buttons stylesheet -->
     <link rel="stylesheet" href="static/css/buttons.css">
+    <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include JavaScript files with defer to load them after the HTML document is parsed -->
     <script src="static/javascript/buttons.js" defer></script>
     <script src="static/javascript/script.js" defer></script>
 
 </head>
 <body>
+    <!-- Top bar with logo and home button -->
     <div class="top-bar">
         <img src="static/images/logo.png" alt="HvA" class="logo">
         <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
 
     </div>
-
+    <!-- Menu section with title -->
     <div class="menu">
         <h1>HBO-ICT: Smart Robots</h1>
     </div>
-    
+    <!-- Main container for buttons -->
     <div class="container">
+        <!-- Container for directional arrow buttons -->
         <div class="arrow-container">
-            <button class="arrow-btn arrow-up" onclick="sendCommand('move', 'forward')"><i class="fas fa-arrow-up"></i></button>
-            <button class="arrow-btn arrow-down"onclick="sendCommand('move', 'backwards')"><i class="fas fa-arrow-down"></i></button>
-            <button class="arrow-btn arrow-left"onclick="sendCommand('move', 'left')"><i class="fas fa-arrow-left"></i></button>
-            <button class="arrow-btn arrow-right"onclick="sendCommand('move', 'right')"><i class="fas fa-arrow-right"></i></button>
+            <button class="arrow-btn arrow-up" onclick="sendCommand('forward')"><i class="fas fa-arrow-up"></i></button>
+            <button class="arrow-btn arrow-down"onclick="sendCommand('backward')"><i class="fas fa-arrow-down"></i></button>
+            <button class="arrow-btn arrow-left"onclick="sendCommand('leftward')"><i class="fas fa-arrow-left"></i></button>
+            <button class="arrow-btn arrow-right"onclick="sendCommand('rightward')"><i class="fas fa-arrow-right"></i></button>
         </div>
+        <!-- Container for animation buttons -->
         <div class="animate-container">
-            <button class="animate-btn" onclick="sendCommand('animate', 'sit')">Sit</button>
-            <button class="animate-btn" onclick="sendCommand('animate', 'laydown')">Lay down</button>
-            <button class="animate-btn" onclick="sendCommand('animate', 'wave')">Wave</button>
+            <button class="animate-btn" onclick="sendCommand('start')">Stand</button>
+            <button class="animate-btn" onclick="sendCommand('sit')">Sit</button>
+            <button class="animate-btn" onclick="sendCommand('lay')">Lay down</button>
+            <button class="animate-btn" onclick="sendCommand('wave')">Wave</button>
         </div>
+        <!-- Container for emote buttons -->
         <div class="emote-container">
             <button class="emote-btn" onclick="sendCommand('emote', 'smile')">Smile</button>
             <button class="emote-btn" onclick="sendCommand('emote', 'frown')">Frown</button>

@@ -1,5 +1,6 @@
 ### For adding a new block you have to do 3 things
 1. Go to the html file and add a new block in the toolbox with the type you want to create, we are for example adding the move block
+
 ```html
 <xml id="toolbox" style="display: none">
         <block type="move"></block>
