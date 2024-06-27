@@ -29,7 +29,7 @@ This is the wiring diagram. It shows how all the components are connected to the
 
 ### Base assembly parts
 
-![robotDog legend](../assets/robotDog-lagenda.PNG)
+![robotDog legend](../assets/robotDog-lagenda.png)
 
 
 ### Purchased items
