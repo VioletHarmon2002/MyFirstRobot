@@ -172,8 +172,6 @@ void setFace(String command) {
   }
 }
 
-<<<<<<< HEAD
-=======
 /**
  * @brief Write a value to a specific register on the MPU-9250 sensor
  * 
@@ -206,7 +204,6 @@ int readFromRegister(uint8_t registerAddress) {
   }
 }
 
->>>>>>> dev
 void dance() {
   // Define dance movement parameters
   const int forwardAngle = 40;  // Angle to move the leg forward
