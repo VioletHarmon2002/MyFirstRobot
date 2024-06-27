@@ -473,16 +473,28 @@ void turnLeft() {
 }
 
 Command getCommand(const String& command) {
-  if (command == "forward") return FORWARD;
-  else if (command == "backward") return BACKWARD;
-  else if (command == "left") return LEFT;
-  else if (command == "right") return RIGHT;
-  else if (command == "sit") return SIT;
-  else if (command == "lie") return LIE;
-  else if (command == "wave") return WAVE;
-  else if (command == "dance") return DANCE;
-  else if (command == "start") return START;
-  else return UNKNOWN;
+  switch(command) {
+    case "forward":
+      return FORWARD;
+    case "backward":
+      return BACKWARD;
+    case "left":
+      return LEFT;
+    case "right":
+      return RIGHT;
+    case "sit":
+      return SIT;
+    case "lie":
+      return LIE;
+    case "wave":
+      return WAVE;
+    case "dance":
+      return DANCE;
+    case "start":
+      return START;
+    default:
+      return UNKNOWN;
+  }
 }
 
 void handleCommand(String command) {
