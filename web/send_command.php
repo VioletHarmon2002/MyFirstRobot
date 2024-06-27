@@ -1,7 +1,7 @@
 <?php
 function sendCommand($command) {
     // Define the server host and port to connect to
-    $host = 'IP_ADDR'; // Server IP address
+    $host = '172.20.10.2'; // Server IP address
     $port = 8080; // Server port number
 
     // Create a TCP socket

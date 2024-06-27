@@ -3,7 +3,7 @@ const sendCommand = (command) => {
     const data = { command };
 
     // Perform a fetch request to the specified URL with the action 'command'
-    fetch('http://IP_ADDR/api.php?action=command', {
+    fetch('http://172.20.10.2/api.php?action=command', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -2,7 +2,7 @@ const HVA_DARK_COLOR = '#28147C'
 const HVA_LIGHT_COLOR = '#381CB4'
 const forward_color = "#1b97b3";
 const turn_color = "#16c548";
-const IP_ADRESS = '145.3.245.224';
+const IP_ADRESS = '172.20.10.2';
 
 let running;
 
@@ -70,8 +70,6 @@ async function forward(dir, n){
   }
 }
 
-<<<<<<< HEAD
-=======
 // THis function sends a command from a block
 function sendCommandBlock(command){
   const data = {
@@ -80,7 +78,7 @@ function sendCommandBlock(command){
   console.log("sendCommand: " + JSON.stringify(data));
 
   // Send the JSON message to the API
-  fetch('http://IP_ADDR/api.php?action=command', {
+  fetch('http://172.20.10.2/api.php?action=command', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -101,7 +99,6 @@ function sendCommandBlock(command){
   });
 }
 
->>>>>>> dev
 
 // BASIC BLOCKLY CODE
 // This is the basic theming
@@ -285,7 +282,6 @@ Blockly.common.defineBlocksWithJsonArray([
 ]);
 
 javascript.javascriptGenerator.forBlock['wait'] = function(block) {
-<<<<<<< HEAD
   let value = '\'' + block.getFieldValue('NUMBER') + '\'';
   return 'await sleep(' + value +');\n';
 };
@@ -314,10 +310,6 @@ Blockly.common.defineBlocksWithJsonArray([
 ]);
 
 javascript.javascriptGenerator.forBlock['emote'] = function(block) {
-  let value = '\'' + block.getFieldValue('emoteInQuestion') + '\'';
-  return 'sendCommand("emote",' + value +');\n';
-};
-=======
   let value = '\'' + block.getFieldValue('NUMBER') + '\''; // Get value from field
   return 'await sleep(' + value +');\n'; // Turn block into code returned here
 };
@@ -333,4 +325,3 @@ function openFlyout(){
   // document.getElementsByClassName("blocklyScrollbarVertical")[0].style.visibility = 'visible  ';
   document.getElementById("toggleFlyout").textContent = "Close";
 }
->>>>>>> dev
