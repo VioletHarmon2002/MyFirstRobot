@@ -13,3 +13,10 @@ This could be very hard but doable, you would translate every line to a command 
 #### Method 2, interpret in javascript
 From what ive found in javascript its way easier to interpret all the code and have it excecuted live, this method does however make it so that the robot isnt really doing it autonomous. Instead the phone or laptop is still making it so that the robot moves, its sends the commands line for line and not the intire program. You do need to be connected the robot at all times.
 
+# Endian A
+this is the endian A design
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
