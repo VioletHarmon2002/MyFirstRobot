@@ -27,11 +27,11 @@ theme:
 nav:
   - Home: index.md
   - Learning Journals:
-      - Learning Journal - Joshua: learning-journal-joshua.md
-      - Learning Journal - Tim: learning-journal-tim.md
-      - Learning Journal - Tom: learning-journal-tom.md
-      - Learning Journal - Despoina: learning-journal-despoina.md
-      - Learning Journal - Elizaveta: learning-journal-elizaveta.md
+      - Learning Journal - Joshua: Learning Journals/learning-journal-joshua.md
+      - Learning Journal - Tim: Learning Journals/learning-journal-tim.md
+      - Learning Journal - Tom: Learning Journals/learning-journal-tom.md
+      - Learning Journal - Despoina: Learning Journals/learning-journal-despoina.md
+      - Learning Journal - Elizaveta: Learning Journals/learning-journal-elizaveta.md
 
 
 markdown_extensions:
