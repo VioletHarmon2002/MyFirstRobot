@@ -2,6 +2,8 @@ image: python:3.9
 
 pages:
   stage: deploy
+  tags:
+    - hva
   script:
     - pip install mkdocs-material
     - mkdocs build -d public
