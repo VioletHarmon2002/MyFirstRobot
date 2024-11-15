@@ -1,0 +1,2 @@
+call mkdocs serve
+PAUSE
