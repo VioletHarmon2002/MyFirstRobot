@@ -14,8 +14,9 @@ RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 /var/www/html && \
     chmod +x /usr/local/bin/start.sh
 
+
 EXPOSE 80
 EXPOSE 8080
 
 
-CMD ["/usr/local/bin/start.sh"]
+ENTRYPOINT ["apache2ctl", "-D", "FOREGROUND"]
