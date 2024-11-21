@@ -24,3 +24,6 @@ User stories typically follow the format: ***"As a [user type], I want to [actio
 Issues fucntion as the executable task. Issues remove the ambiguity for developers, make progress visible and tangible by marking them as complete, and allowing Product Owners to identify blockers and dependencies early. By assigning a developer to an issue, responsility and ownership can be clarified.
 
 **Example:** `"Desing the password recovery UI."` or `"Create and API endpoint for requesting password resets."`
+
+<br>
+Using these four components allows for an efficient, tangible and manageable Agile environment. Combining and Agile workflow with GitLab can be achieved by using GitLab's Planning functionality, allowing us to create Epics, Features and Issues and visualising them on a trello-like sprint board. Tags can be assigned to each issue, allowing the user to group tasks and assign priorities, visualising the priority of tasks.
