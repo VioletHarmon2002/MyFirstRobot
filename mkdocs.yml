@@ -33,6 +33,12 @@ nav:
       - Learning Journal - Despoina: Learning Journals/learning-journal-despoina.md
       - Learning Journal - Elizaveta: Learning Journals/learning-journal-elizaveta.md
       - Learning Journal - Xander: Learning Journals/learning-journal-xander.md
+  - Meetings:
+      - Gerald:
+          - 13 November: Meetings/Gerald/13-11-2024.md
+          - 20 November: Meetings/Gerald/20-11-2024.md
+      - Bernardo:
+          - 22 November: Meetings/Bernardo/22-11-2024.md
 
 
 markdown_extensions:
