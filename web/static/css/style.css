@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
-    --hva-color-dark: #28147C;
+    --hva-color-dark: #25167A;
     --hva-color-light: #351FB7;
 
     --hva-color-darker: #200f60;
     --hva-color-lighter: rgb(54, 29, 155);
 
-    --hva-color-buttons: #321896;
-    --hva-color-buttons-hover: #28147C;
+    --hva-color-buttons: #25167A;
+    --hva-color-buttons-hover: #F35279;
     --hva-color-text: #ffffff;
-  }
-  
+}
+
+:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -19,6 +23,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 h1 {
     color: white;
 }
@@ -63,7 +68,7 @@ center {
     font-weight: bold;
     font-style: normal;
     font-size: 20px;
-    color: #fff;
+    color: var(--hva-color-text);
     margin: 0vh;
 }
 
@@ -90,20 +95,105 @@ center {
 .redirect-container a {
     color: white;
     width: 100%;
-    height: 10vh;
     margin-top: 10px;
-    line-height: 10vh;
-    text-align: center;
-    background-color: var(--hva-color-buttons);
+    background-image: linear-gradient(to right, transparent 20px, var(--hva-color-buttons) 20px, var(--hva-color-buttons) 100%);
     text-decoration: none;
+    font-weight: bold;
     margin: 10px;
+    z-index: 10;
+    position: relative;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
 }
 
-.redirect-container a:hover {
-    background-color:var(--hva-color-darker);
+.button-with-icon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-column-gap: 8px;
+    -moz-column-gap: 8px;
+    column-gap: 8px;
+    text-align: left;
+    pointer-events: none;
+    padding-right: 16px;
+    padding: 24px 24px 24px 0;
+}
+
+.button-with-icon:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    z-index: -10;
+    opacity: 0;
+}
+
+.redirect-container a:hover .button-with-icon:after {
+    opacity: 1;
+    background-image: linear-gradient(to right,transparent 12px,var(--hva-color-buttons-hover) 12px,var(--hva-color-buttons-hover) 100%);
+}
+
+.redirect-container a:hover .button-icon .icon-arrow-pointer {
+    margin-left: 10px;
+}
+
+.redirect-container a:hover .button-label {
+    margin-left: 10px;
+}
+
+.redirect-container a:hover .button-label .button-span::after {
+    width: calc(100% + 8px);
+}
+
+.button-label {
+    position: relative;
+    margin-top: 6px;
+    padding-bottom: 10px;
+    -webkit-transition: margin-left .2s ease-in-out;
+    transition: margin-left .2s ease-in-out;
+}
+
+.button-span {
+    padding-bottom: 6px;
+}
+
+.button-span::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    -webkit-box-shadow: 0 4px var(--hva-color-text);
+    box-shadow: 0 4px var(--hva-color-text);
+    -webkit-transition: width .2s ease-in-out;
+    transition: width .2s ease-in-out;
+}
+
+.button-icon {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-arrow-line, .icon-arrow-pointer {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: margin-left .2s ease-in-out;
+    transition: margin-left .2s ease-in-out;
 }
 
 #toggleDrawer {
+    background-color: var(--hva-color-lighter);
     color:white;
     position: fixed;
     right: 0px;
@@ -114,7 +204,7 @@ center {
 }
 
 #toggleDrawer:hover {
-    background-color: var(--hva-color-buttons-hover);
+    background-color: var(--hva-color-darker);
 }
 
 #toggleDrawer.open {
@@ -163,13 +253,13 @@ center {
     padding-left: 10px;
 }
 
-
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
     }
 
     .redirect-container a {
+        width: 95%;
         margin: 5px 0px 5px 0px; 
     }
 }
