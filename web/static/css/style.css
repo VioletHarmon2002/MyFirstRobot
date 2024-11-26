@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
     --hva-color-dark: #28147C;
-    --hva-color-light: #381CB4;
+    --hva-color-light: #351FB7;
 
     --hva-color-darker: #200f60;
     --hva-color-lighter: rgb(54, 29, 155);
@@ -12,17 +14,20 @@
   
 
 body {
+    font-family: "Open Sans", sans-serif;
     background-color:  var(--hva-color-dark);
     margin: 0;
     padding: 0;
 }
-h1{
+h1 {
     color: white;
 }
+
 .flex-row{
     display: flex;
     flex-direction: row;
 }
+
 .top-bar {
     background-color: var(--hva-color-light);
     padding: 10px;
@@ -30,14 +35,14 @@ h1{
     width: 100%;
     height: 10vh;
     box-sizing: border-box;
-    
 }
 
 .top-bar .logo {
     height: 5vh;
     margin-top: 1vh;
 }
-center{
+
+center {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,8 +60,7 @@ center{
 }
 
 .menu h1 {
-    font-family: "Jersey 25", sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
     font-size: 20px;
     color: #fff;
@@ -69,11 +73,12 @@ center{
     background-color:  var(--hva-color-buttons);
     border:  0px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: var(--hva-color-buttons-hover);
 }
 
-.redirect-container{
+.redirect-container {
     display: flex;
     flex-direction: column;
     background-color: var(--hva-color-lighter);
@@ -81,7 +86,8 @@ center{
     overflow-x: wrap;
     padding: 5px 0px 5px 0px;
 }
-.redirect-container a{
+
+.redirect-container a {
     color: white;
     width: 100%;
     height: 10vh;
@@ -92,8 +98,9 @@ center{
     text-decoration: none;
     margin: 10px;
 }
-.redirect-container a:hover{
-background-color:var(--hva-color-darker);
+
+.redirect-container a:hover {
+    background-color:var(--hva-color-darker);
 }
 
 #toggleDrawer {
@@ -105,13 +112,20 @@ background-color:var(--hva-color-darker);
     padding: 10px;
     transition: bottom 0.3s ease-in-out;
 }
-#toggleDrawer:hover{
+
+#toggleDrawer:hover {
     background-color: var(--hva-color-buttons-hover);
 }
-#toggleDrawer.open{
+
+#toggleDrawer.open {
     bottom: 30vh;
 }
-.connection-display-container{
+
+#is-connected {
+    margin: 20px;
+}
+
+.connection-display-container {
     background-color: var(--hva-color-lighter);
     color: var(--hva-color-text);
     width: 100%;
@@ -120,36 +134,48 @@ background-color:var(--hva-color-darker);
     bottom: -30vh;
     transition: bottom 0.3s ease-in-out;
 }
-.connection-display-container.open{
+
+.connection-display-container.open {
     bottom: 0px;
 }
-.connection-display-container h1{
+
+.connection-display-container h1 {
     font-size: 20px;
 }
 
-.information-container{
+.information-span, .information-value {
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.information-container {
+    margin: 10px 0;
+    display: flex !important;
+}
+
+.information-span {
+    width: 150px;
+}
+
+.information-value {
+    flex: 1;
     background-color: var(--hva-color-light);
-    padding: 10px;
-    margin: 10px;
-    padding-left: 0px;
+    padding-left: 10px;
 }
-.information-span{
-    background-color: var(--hva-color-lighter);
-    padding: 10px;
-}
+
 
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
     }
-    .redirect-container a{
-        margin: 5px 0px 5px 0px;
-        
+
+    .redirect-container a {
+        margin: 5px 0px 5px 0px; 
     }
 }
 
 @media only screen and (min-width: 768px)  {
-    .redirect-container{
+    .redirect-container {
         flex-direction: row;
     }
 }
