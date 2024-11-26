@@ -135,7 +135,7 @@ center {
 
 .redirect-container a:hover .button-with-icon:after {
     opacity: 1;
-    background-image: linear-gradient(to right,transparent 12px,var(--hva-color-buttons-hover) 12px,var(--hva-color-buttons-hover) 100%);
+    background-image: linear-gradient(to right,transparent 20px,var(--hva-color-buttons-hover) 20px,var(--hva-color-buttons-hover) 100%);
 }
 
 .redirect-container a:hover .button-icon .icon-arrow-pointer {
