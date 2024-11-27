@@ -39,6 +39,9 @@ nav:
           - 20 November: Meetings/Gerald/20-11-2024.md
       - Bernardo:
           - 22 November: Meetings/Bernardo/22-11-2024.md
+  - Setup:
+      - Server: Setup/server.md
+      - ZeroTier: Setup/zerotier.md
 
 
 markdown_extensions:
