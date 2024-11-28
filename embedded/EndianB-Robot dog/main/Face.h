@@ -6,7 +6,7 @@ public:
     Face();
     ~Face();
 
-    bool Initialize(int width, int height, int rstPin = -1);
+    bool Initialize(int width, int height, int address, int rstPin = -1);
     void DisplayFace(int width, int height, const unsigned char* bitmap);
 
 private:

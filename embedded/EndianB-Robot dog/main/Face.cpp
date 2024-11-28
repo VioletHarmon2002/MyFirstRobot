@@ -9,7 +9,7 @@ Face::~Face()
 	delete _display;
 }
 
-bool Face::Initialize(int width, int height, int rstPin, int address)
+bool Face::Initialize(int width, int height, int address, int rstPin)
 {
 	_width = width;
 	_height = height;

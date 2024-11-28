@@ -101,15 +101,14 @@ String currentCommand = "";  // String to store the current command
 
 // Include separate bitmap header files
 #include "bitmapForFace/smile_bitmap.h"
-#include "bitmapForFace/frown_bitmap.h"
-#include "bitmapForFace/idle_bitmap.h"
+
 
 Face face;
 
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
 
-  bool result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
+  bool result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
   if (!result)
       Serial.println("Failed to initialize the display");
 
@@ -146,17 +145,13 @@ void setup() {
   // Initialize the MPU-9250 sensor
   writeToRegister(FIFO_ENABLE, 0b11111000);
 
-  face.DisplayFace(128, 64, BM_SMILE);
+  face.DisplayFace(128, 64, BM_IDLE);
 }
 
 void setFace(String command) {
-  if (command == "sit" || command == "lie") {
-    displayEmote(idle_bitmap, idle_width, idle_height);
-  } else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
-    displayEmote(BM_SMILE, smile_width, smile_height);
-  } else if (command == "wave") {
-    displayEmote(frown_bitmap, frown_width, frown_height);
-  }
+    if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
+        face.DisplayFace(128, 64, BM_SMILE);
+    }
 }
 
 /**
