@@ -1,9 +1,7 @@
-#ifndef WALKING_H
-#define WALKING_H
+#pragma once
 
 #include <Arduino.h>
 #include <ESP32Servo.h>
-
 
 // Define the pins for the servos
 #define SERVO_FL_PIN 18  // Front left leg servo pin
@@ -67,7 +65,3 @@ void walkForward() {
 
   stopServos();  // Stop all servos after walking
 }
-
-
-
-#endif  // WALKING_H
