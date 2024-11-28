@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <ESP32Servo.h>
 #include <WiFiManager.h>
 #include <WiFiClient.h>
@@ -5,6 +6,8 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Face.h"
+
+#include "walking.h"
 
 // WiFi and server details
 const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
@@ -25,16 +28,6 @@ enum Command {
   START,
   UNKNOWN
 };
-
-// Define the pins for the servos
-#define SERVO_FL_PIN 18  // Front left leg servo pin
-#define SERVO_RL_PIN 16  // Rear left leg servo pin
-#define SERVO_FR_PIN 17  // Front right leg servo pin
-#define SERVO_RR_PIN 5   // Rear right leg servo pin
-
-#define DEFAULT_POS 90  // Default position for all servos
-#define WALK_OFFSET 30  // Offset for walking movement
-#define WALK_DELAY 350  // Delay between walking steps
 
 
 // Preset angles for lying down position
@@ -84,11 +77,6 @@ enum Command {
 #define GYRO_ZOUT_H (0x47)
 #define GYRO_ZOUT_L (0x48)
 
-// Create servo objects for each leg
-Servo FL;  // Front left leg servo
-Servo FR;  // Front right leg servo
-Servo RL;  // Rear left leg servo
-Servo RR;  // Rear right leg servo
 
 String currentCommand = "";  // String to store the current command
 
@@ -125,22 +113,17 @@ void setup() {
   }
   Serial.println("Connected to WiFi");
 
-  // Attach servos to their respective pins
-  FL.attach(SERVO_FL_PIN);
-  FR.attach(SERVO_FR_PIN);
-  RL.attach(SERVO_RL_PIN);
-  RR.attach(SERVO_RR_PIN);
-
-  // Move servos to their initial positions
-  FL.write(DEFAULT_POS);
-  FR.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
+  // Initialize the servos
+  init_servo();
 
   delay(3000);  // Wait for 3 seconds
 
   // TODO: Figure out where this 'Wire' comes from...
   Wire.begin(4, 15); // SDA on pin 4, SCL on pin 15
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;); // Don't proceed, loop forever
+  }
 
   // Initialize the MPU-9250 sensor
   writeToRegister(FIFO_ENABLE, 0b11111000);
@@ -148,11 +131,16 @@ void setup() {
   face.DisplayFace(128, 64, BM_IDLE);
 }
 
+void displayEmote(const unsigned char* bitmap, int width, int height) {
+  display.clearDisplay();
+  display.drawBitmap((SCREEN_WIDTH - width) / 2, (SCREEN_HEIGHT - height) / 2, bitmap, width, height, WHITE);
+  display.display();
+}
 
 void setFace(String command) {
     if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
         face.DisplayFace(128, 64, BM_SMILE);
-    }
+  }
 }
 
 /**
@@ -308,7 +296,7 @@ void lieDown() {
 
 void sit() {
   Serial.println("Sitting down");
-  int sitPosition[] = {110, 70, 35, 145}
+  int sitPosition[] = {110, 70, 35, 145};
   // Move legs to sitting position
    FL.write(sitPosition[0]);
    FR.write(sitPosition[1]);
@@ -348,23 +336,6 @@ void rightStep() {
   RL.write(60);
 }
 
-void walkForward() {
-  unsigned long startTime = millis();  // Record start time
-
-  // Walk forward for 5 seconds
-  while (millis() - startTime < 5000) {
-    leftStep();
-    delay(300);
-    rightStep();
-    delay(300);
-  }
-
-  // Stop the movement
-  FR.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
-  FL.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-}
 
 void walkBackwards() {
   // Parameters for walking backwards
@@ -457,28 +428,17 @@ void turnLeft() {
 }
 
 Command getCommand(const String& command) {
-  switch(command) {
-    case "forward":
-      return FORWARD;
-    case "backward":
-      return BACKWARD;
-    case "left":
-      return LEFT;
-    case "right":
-      return RIGHT;
-    case "sit":
-      return SIT;
-    case "lie":
-      return LIE;
-    case "wave":
-      return WAVE;
-    case "dance":
-      return DANCE;
-    case "start":
-      return START;
-    default:
-      return UNKNOWN;
-  }
+  if (command == "forward") return FORWARD;
+  if (command == "backward") return BACKWARD;
+  if (command == "left") return LEFT;
+  if (command == "right") return RIGHT;
+  if (command == "sit") return SIT;
+  if (command == "lie") return LIE;
+  if (command == "wave") return WAVE;
+  if (command == "dance") return DANCE;
+  if (command == "start") return START;
+  return UNKNOWN;
+}
 }
 
 void handleCommand(String command) {
