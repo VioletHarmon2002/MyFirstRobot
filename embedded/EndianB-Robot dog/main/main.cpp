@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <ESP32Servo.h>
 #include <WiFiManager.h>
 #include <WiFiClient.h>
@@ -430,6 +431,7 @@ void turnLeft() {
   delay(WALK_DELAY);
 }
 
+// BUG: c++ doesnt support switch case with strings
 // Command getCommand(const String& command) {
 //   switch(command) {
 //     case "forward":
