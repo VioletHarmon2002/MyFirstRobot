@@ -148,6 +148,7 @@ void setup() {
   face.DisplayFace(128, 64, BM_IDLE);
 }
 
+
 void setFace(String command) {
     if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
         face.DisplayFace(128, 64, BM_SMILE);
