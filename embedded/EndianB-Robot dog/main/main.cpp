@@ -4,7 +4,6 @@
 #include <ArduinoJson.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
 #include "Face.h"
 
 // WiFi and server details
@@ -96,8 +95,6 @@ String currentCommand = "";  // String to store the current command
 // OLED display definitions
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
-#define OLED_RESET -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // I2C address of the OLED display
 #define SSD1306_I2C_ADDRESS 0x3C
@@ -112,7 +109,7 @@ Face face;
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
 
-  face.Initialize();
+  face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
   // Initialize WiFiManager to manage WiFi connections
   WiFiManager wifiManager;
@@ -141,32 +138,20 @@ void setup() {
 
   delay(3000);  // Wait for 3 seconds
 
-  // Initialize OLED display
+  // TODO: Figure out where this 'Wire' comes from...
   Wire.begin(4, 15); // SDA on pin 4, SCL on pin 15
-  if (!display.begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS)) {
-    Serial.println(F("SSD1306 allocation failed"));
-    for (;;); // Don't proceed, loop forever
-  }
 
   // Initialize the MPU-9250 sensor
   writeToRegister(FIFO_ENABLE, 0b11111000);
 
-  display.clearDisplay();
-  display.display();
-  displayEmote(smile_bitmap, smile_width, smile_height);
-}
-
-void displayEmote(const unsigned char* bitmap, int width, int height) {
-  display.clearDisplay();
-  display.drawBitmap((SCREEN_WIDTH - width) / 2, (SCREEN_HEIGHT - height) / 2, bitmap, width, height, WHITE);
-  display.display();
+  face.DisplayFace(128, 64, BM_SMILE);
 }
 
 void setFace(String command) {
   if (command == "sit" || command == "lie") {
     displayEmote(idle_bitmap, idle_width, idle_height);
   } else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
-    displayEmote(smile_bitmap, smile_width, smile_height);
+    displayEmote(BM_SMILE, smile_width, smile_height);
   } else if (command == "wave") {
     displayEmote(frown_bitmap, frown_width, frown_height);
   }
