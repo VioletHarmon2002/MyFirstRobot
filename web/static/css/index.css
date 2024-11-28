@@ -1,78 +1,3 @@
-:root {
-    --hva-color-dark: #28147C;
-    --hva-color-light: #381CB4;
-
-    --hva-color-darker: #200f60;
-    --hva-color-lighter: rgb(54, 29, 155);
-
-    --hva-color-buttons: #321896;
-    --hva-color-buttons-hover: #28147C;
-    --hva-color-text: #ffffff;
-  }
-  
-
-body {
-    background-color:  var(--hva-color-dark);
-    margin: 0;
-    padding: 0;
-}
-h1{
-    color: white;
-}
-.flex-row{
-    display: flex;
-    flex-direction: row;
-}
-.top-bar {
-    background-color: var(--hva-color-light);
-    padding: 10px;
-    text-align: left;
-    width: 100%;
-    height: 10vh;
-    box-sizing: border-box;
-    
-}
-
-.top-bar .logo {
-    height: 5vh;
-    margin-top: 1vh;
-}
-center{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    height: 10vh;
-    background-color: var(--hva-color-darker);
-}
-
-.menu h1 {
-    font-family: "Jersey 25", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
-    color: #fff;
-    margin: 0vh;
-}
-
-.btn {
-    color: white;
-    padding:10px;
-    background-color:  var(--hva-color-buttons);
-    border:  0px;
-}
-.btn:hover{
-    background-color: var(--hva-color-buttons-hover);
-}
-
 .redirect-container{
     display: flex;
     flex-direction: column;
@@ -106,7 +31,7 @@ background-color:var(--hva-color-darker);
     transition: bottom 0.3s ease-in-out;
 }
 #toggleDrawer:hover{
-    background-color: var(--hva-color-buttons-hover);
+    background-color: var(--hva-color-buttons);
 }
 #toggleDrawer.open{
     bottom: 30vh;
