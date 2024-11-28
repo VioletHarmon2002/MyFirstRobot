@@ -89,7 +89,7 @@ String currentCommand = "";  // String to store the current command
 
 // Include separate bitmap header files
 #include "bitmapForFace/smile_bitmap.h"
-
+#include "bitmapForFace/frown_bitmap.h"
 
 Face face;
 
@@ -138,9 +138,12 @@ void displayEmote(const unsigned char* bitmap, int width, int height) {
 }
 
 void setFace(String command) {
-    if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
+    if (command == "sit" || command == "lie") {
+        face.DisplayFace(128, 64, BM_FROWN);
+    }
+    else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
         face.DisplayFace(128, 64, BM_SMILE);
-  }
+    }
 }
 
 /**
