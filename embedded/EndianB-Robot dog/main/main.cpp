@@ -109,7 +109,9 @@ Face face;
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
 
-  face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
+  bool result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
+  if (!result)
+      Serial.println("Failed to initialize the display");
 
   // Initialize WiFiManager to manage WiFi connections
   WiFiManager wifiManager;
