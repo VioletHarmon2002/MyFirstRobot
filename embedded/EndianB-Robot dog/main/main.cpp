@@ -5,6 +5,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "Face.h"
 
 // WiFi and server details
 const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
@@ -106,8 +107,12 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #include "bitmapForFace/frown_bitmap.h"
 #include "bitmapForFace/idle_bitmap.h"
 
+Face face;
+
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
+
+  face.Initialize();
 
   // Initialize WiFiManager to manage WiFi connections
   WiFiManager wifiManager;
