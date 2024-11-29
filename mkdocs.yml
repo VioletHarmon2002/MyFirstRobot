@@ -42,6 +42,9 @@ nav:
   - Setup:
       - Server: Setup/server.md
       - ZeroTier: Setup/zerotier.md
+  - Embedded:
+      - Code: 
+          - Movement: Embedded/Code/movement.md
 
 
 markdown_extensions:

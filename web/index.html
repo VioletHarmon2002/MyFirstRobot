@@ -6,13 +6,13 @@
     <title>HBO-ICT: Robot</title>
     <link rel="stylesheet" href="static/css/style.css">
     <script src="static/javascript/script.js" defer></script>
-    <link rel="stylesheet" href="static/css/index.css">
     <script src="static/javascript/buttons.js" defer></script>
 </head>
 <body>
     <div class="top-bar">
-        <img src="static/images/logo.png" alt="HvA" class="logo">
-        <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
+        <a href="./index.html">
+            <img src="static/images/logo.png" alt="HvA" class="logo">
+        </a>
     </div>
     
     <div class="menu">
@@ -22,9 +22,39 @@
     </div>
 
     <div class="redirect-container">
-        <a href="arrows.html">Arrows</a>
-        <a href="blocky.html">Dragging</a>
-        <a href="connect.html">Connect</a>
+        <a href="arrows.html">
+            <div class="button-with-icon">
+                <div class="button-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-line" role="presentation"><path d="M32.1237 18L5.0098 18.0025L3 19.9471L5.12201 22L32.1237 21.9961V18Z" fill="#ffffff"></path></svg>
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-pointer" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M36.8943 19.9673L19.9205 3.00002L17.0916 5.8279L29.2683 18H17V22H29.2089L17.0922 34.1121L19.9211 36.94L36.8949 19.9727L36.892 19.9697L36.8943 19.9673Z" fill="#ffffff"></path></svg>
+                </div>
+                <div class="button-label">
+                    <span class="button-span">Robot controls</span>
+                </div>
+            </div>
+        </a>
+        <a href="blocky.html">
+            <div class="button-with-icon">
+                <div class="button-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-line" role="presentation"><path d="M32.1237 18L5.0098 18.0025L3 19.9471L5.12201 22L32.1237 21.9961V18Z" fill="#ffffff"></path></svg>
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-pointer" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M36.8943 19.9673L19.9205 3.00002L17.0916 5.8279L29.2683 18H17V22H29.2089L17.0922 34.1121L19.9211 36.94L36.8949 19.9727L36.892 19.9697L36.8943 19.9673Z" fill="#ffffff"></path></svg>
+                </div>
+                <div class="button-label">
+                    <span class="button-span">Block editor</span>
+                </div>
+            </div>
+        </a>
+        <a href="connect.html">
+            <div class="button-with-icon">
+                <div class="button-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-line" role="presentation"><path d="M32.1237 18L5.0098 18.0025L3 19.9471L5.12201 22L32.1237 21.9961V18Z" fill="#ffffff"></path></svg>
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-pointer" role="presentation"><path fill-rule="evenodd" clip-rule="evenodd" d="M36.8943 19.9673L19.9205 3.00002L17.0916 5.8279L29.2683 18H17V22H29.2089L17.0922 34.1121L19.9211 36.94L36.8949 19.9727L36.892 19.9697L36.8943 19.9673Z" fill="#ffffff"></path></svg>
+                </div>
+                <div class="button-label">
+                    <span class="button-span">Connect to a robot</span>
+                </div>
+            </div>
+        </a>
     </div>
 
     <center>
@@ -32,19 +62,19 @@
     </center>
 
 
-    <!-- STANDRARD ON EVERY PAGE -->
+    <!-- STANDARD ON EVERY PAGE -->
     <button class="btn open" id="toggleDrawer">See connection</button>
     <div id="drawer" class="connection-display-container open">
-        <h1>Robot Connection status</h1>
         <span id="not-connected">Not Connected :(</span>
         <div id="is-connected">
+            <h1>Robot Connection status</h1>
             <div id="connected-to?" class="information-container">
-                <span class="information-span">Connected to</span>
-                <span id="connected-to?-name" >Kees</span>
+                <span class="information-span">Connected to:</span>
+                <span class="information-value" id="connected-to?-name" >Kees</span>
             </div>
             <div id="connected-speed?" class="information-container">
                 <span class="information-span">Connection speed:</span>
-                <span id="connected-speed?-value">10</span>
+                <span class="information-value" id="connected-speed?-value">10</span>
             </div>
         </div>
     </div>

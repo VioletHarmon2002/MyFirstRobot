@@ -12,9 +12,9 @@
 </head>
 <body>
     <div class="top-bar">
-        <img src="static/images/logo.png" alt="HvA" class="logo">
-        <button class="btn" onclick="window.location.replace('./index.html');" >home</button>
-
+        <a href="./index.html">
+            <img src="static/images/logo.png" alt="HvA" class="logo">
+        </a>
     </div>
 
     <div class="menu">
@@ -36,19 +36,19 @@
         <button class="btn connect" onclick="connect()">Connect to robot</button>
     </div>
 
-    <!-- STANDRARD ON EVERY PAGE -->
+    <!-- STANDARD ON EVERY PAGE -->
     <button class="btn open" id="toggleDrawer">See connection</button>
     <div id="drawer" class="connection-display-container open">
-        <h1>Robot Connection status</h1>
         <span id="not-connected">Not Connected :(</span>
         <div id="is-connected">
+            <h1>Robot Connection status</h1>
             <div id="connected-to?" class="information-container">
-                <span class="information-span">Connected to</span>
-                <span id="connected-to?-name" >Kees</span>
+                <span class="information-span">Connected to:</span>
+                <span class="information-value" id="connected-to?-name" >Kees</span>
             </div>
             <div id="connected-speed?" class="information-container">
                 <span class="information-span">Connection speed:</span>
-                <span id="connected-speed?-value">10</span>
+                <span class="information-value" id="connected-speed?-value">10</span>
             </div>
         </div>
     </div>
