@@ -5,7 +5,7 @@
 #include <ArduinoJson.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include "Face.h"
 
 #include "walking.h"
 #include "walking_backwards.h"
@@ -84,19 +84,22 @@ String currentCommand = "";  // String to store the current command
 // OLED display definitions
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
-#define OLED_RESET -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // I2C address of the OLED display
 #define SSD1306_I2C_ADDRESS 0x3C
 
 // Include separate bitmap header files
 #include "bitmapForFace/smile_bitmap.h"
-#include "bitmapForFace/frown_bitmap.h"
-#include "bitmapForFace/idle_bitmap.h"
+
+
+Face face;
 
 void setup() {
   Serial.begin(115200);  // Initialize serial communication at 115200 baud
+
+  bool result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
+  if (!result)
+      Serial.println("Failed to initialize the display");
 
   // Initialize WiFiManager to manage WiFi connections
   WiFiManager wifiManager;
@@ -116,7 +119,7 @@ void setup() {
 
   delay(3000);  // Wait for 3 seconds
 
-  // Initialize OLED display
+  // TODO: Figure out where this 'Wire' comes from...
   Wire.begin(4, 15); // SDA on pin 4, SCL on pin 15
   if (!display.begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
@@ -126,9 +129,7 @@ void setup() {
   // Initialize the MPU-9250 sensor
   writeToRegister(FIFO_ENABLE, 0b11111000);
 
-  display.clearDisplay();
-  display.display();
-  displayEmote(smile_bitmap, smile_width, smile_height);
+  face.DisplayFace(128, 64, BM_IDLE);
 }
 
 void displayEmote(const unsigned char* bitmap, int width, int height) {
@@ -138,13 +139,8 @@ void displayEmote(const unsigned char* bitmap, int width, int height) {
 }
 
 void setFace(String command) {
-  if (command == "sit" || command == "lie") {
-    displayEmote(idle_bitmap, idle_width, idle_height);
-  // } else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") { // BUG dance is repeated
-  } else if (command == "forward" || command == "backward" || command == "dance") {
-    displayEmote(smile_bitmap, smile_width, smile_height);
-  } else if (command == "wave") {
-    displayEmote(frown_bitmap, frown_width, frown_height);
+    if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
+        face.DisplayFace(128, 64, BM_SMILE);
   }
 }
 
@@ -399,33 +395,6 @@ void turnLeft() {
   delay(WALK_DELAY);
 }
 
-// BUG: c++ doesnt support switch case with strings
-// Command getCommand(const String& command) {
-//   switch(command) {
-//     case "forward":
-//       return FORWARD;
-//     case "backward":
-//       return BACKWARD;
-//     case "left":
-//       return LEFT;
-//     case "right":
-//       return RIGHT;
-//     case "sit":
-//       return SIT;
-//     case "lie":
-//       return LIE;
-//     case "wave":
-//       return WAVE;
-//     case "dance":
-//       return DANCE;
-//     case "start":
-//       return START;
-//     default:
-//       return UNKNOWN;
-//   }
-// }
-
-// c++ doesnt support switch case with strings
 Command getCommand(const String& command) {
   if (command == "forward") return FORWARD;
   if (command == "backward") return BACKWARD;
@@ -438,8 +407,7 @@ Command getCommand(const String& command) {
   if (command == "start") return START;
   return UNKNOWN;
 }
-
-
+}
 
 void handleCommand(String command) {
   switch (getCommand(command)) {
