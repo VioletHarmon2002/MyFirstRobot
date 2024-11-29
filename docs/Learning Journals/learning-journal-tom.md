@@ -31,3 +31,7 @@ Using these four components allows for an efficient, tangible and manageable Agi
 
 
 ## **Working with the 8-Point Grid**
+Since no screen is the same, displaying the same website, application, dashboard or UI is difficult. The constant increase of pixel densities make the life of designers even more difficult.
+Although all screens use different dimensions, popular displays all seem to be divisible by 8, making 8 a great standard for spacing.
+
+The principle of 8pt Grid is that use multiples of 8 (8, 16, 24, 32, 40, 48, 56, etc.) to layout, dimensions, padding, and margin of elements.
