@@ -5,6 +5,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "lieDown.h"  
 
 // WiFi and server details
 const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
@@ -309,15 +310,6 @@ void moveToStartPosition() {
   }
 }
 
-void lieDown() {
-  Serial.println("Lying down");
-  // Move legs to lying down position
-  FL.write(PRESET_FL_LIE);
-  FR.write(PRESET_FR_LIE);
-  RL.write(PRESET_RL_LIE);
-  RR.write(PRESET_RR_LIE);
-}
-
 void sit() {
   Serial.println("Sitting down");
   int sitPosition[] = {110, 70, 35, 145}
@@ -511,7 +503,7 @@ void handleCommand(String command) {
       sit();
       break;
     case LIE:
-      lieDown();
+      lieDown(FL, FR, RL, RR);
       break;
     case WAVE:
       wave();
