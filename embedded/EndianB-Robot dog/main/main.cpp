@@ -91,6 +91,7 @@ String currentCommand = "";  // String to store the current command
 // Include separate bitmap header files
 #include "bitmapForFace/smile_bitmap.h"
 #include "bitmapForFace/frown_bitmap.h"
+#include "bitmapForFace/idle_bitmap.h"
 
 Face face;
 
@@ -144,6 +145,9 @@ void setFace(String command) {
     }
     else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
         face.DisplayFace(128, 64, BM_SMILE);
+    }
+    else if (command == "wave") {
+        face.DisplayFace(128, 64, BM_IDLE);
     }
 }
 
