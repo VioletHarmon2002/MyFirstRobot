@@ -1,28 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
-    --hva-color-dark: #28147C;
-    --hva-color-light: #381CB4;
+    --hva-color-dark: #25167A;
+    --hva-color-light: #351FB7;
 
     --hva-color-darker: #200f60;
     --hva-color-lighter: rgb(54, 29, 155);
 
-    --hva-color-buttons: #321896;
-    --hva-color-buttons-hover: #28147C;
+    --hva-color-buttons: #25167A;
+    --hva-color-buttons-hover: #F35279;
     --hva-color-text: #ffffff;
-  }
-  
+}
+
+:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
 
 body {
+    font-family: "Open Sans", sans-serif;
     background-color:  var(--hva-color-dark);
     margin: 0;
     padding: 0;
 }
-h1{
+
+h1 {
     color: white;
 }
+
 .flex-row{
     display: flex;
     flex-direction: row;
 }
+
 .top-bar {
     background-color: var(--hva-color-light);
     padding: 10px;
@@ -30,14 +40,14 @@ h1{
     width: 100%;
     height: 10vh;
     box-sizing: border-box;
-    
 }
 
 .top-bar .logo {
     height: 5vh;
     margin-top: 1vh;
 }
-center{
+
+center {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,11 +65,10 @@ center{
 }
 
 .menu h1 {
-    font-family: "Jersey 25", sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
     font-size: 20px;
-    color: #fff;
+    color: var(--hva-color-text);
     margin: 0vh;
 }
 
@@ -69,11 +78,12 @@ center{
     background-color:  var(--hva-color-buttons);
     border:  0px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: var(--hva-color-buttons-hover);
 }
 
-.redirect-container{
+.redirect-container {
     display: flex;
     flex-direction: column;
     background-color: var(--hva-color-lighter);
@@ -81,22 +91,109 @@ center{
     overflow-x: wrap;
     padding: 5px 0px 5px 0px;
 }
-.redirect-container a{
+
+.redirect-container a {
     color: white;
     width: 100%;
-    height: 10vh;
     margin-top: 10px;
-    line-height: 10vh;
-    text-align: center;
-    background-color: var(--hva-color-buttons);
+    background-image: linear-gradient(to right, transparent 20px, var(--hva-color-buttons) 20px, var(--hva-color-buttons) 100%);
     text-decoration: none;
+    font-weight: bold;
     margin: 10px;
+    z-index: 10;
+    position: relative;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
 }
-.redirect-container a:hover{
-background-color:var(--hva-color-darker);
+
+.button-with-icon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-column-gap: 8px;
+    -moz-column-gap: 8px;
+    column-gap: 8px;
+    text-align: left;
+    pointer-events: none;
+    padding-right: 16px;
+    padding: 24px 24px 24px 0;
+}
+
+.button-with-icon:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    z-index: -10;
+    opacity: 0;
+}
+
+.redirect-container a:hover .button-with-icon:after {
+    opacity: 1;
+    background-image: linear-gradient(to right,transparent 20px,var(--hva-color-buttons-hover) 20px,var(--hva-color-buttons-hover) 100%);
+}
+
+.redirect-container a:hover .button-icon .icon-arrow-pointer {
+    margin-left: 10px;
+}
+
+.redirect-container a:hover .button-label {
+    margin-left: 10px;
+}
+
+.redirect-container a:hover .button-label .button-span::after {
+    width: calc(100% + 8px);
+}
+
+.button-label {
+    position: relative;
+    margin-top: 6px;
+    padding-bottom: 10px;
+    -webkit-transition: margin-left .2s ease-in-out;
+    transition: margin-left .2s ease-in-out;
+}
+
+.button-span {
+    padding-bottom: 6px;
+}
+
+.button-span::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    -webkit-box-shadow: 0 4px var(--hva-color-text);
+    box-shadow: 0 4px var(--hva-color-text);
+    -webkit-transition: width .2s ease-in-out;
+    transition: width .2s ease-in-out;
+}
+
+.button-icon {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-arrow-line, .icon-arrow-pointer {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: margin-left .2s ease-in-out;
+    transition: margin-left .2s ease-in-out;
 }
 
 #toggleDrawer {
+    background-color: var(--hva-color-lighter);
     color:white;
     position: fixed;
     right: 0px;
@@ -105,13 +202,20 @@ background-color:var(--hva-color-darker);
     padding: 10px;
     transition: bottom 0.3s ease-in-out;
 }
-#toggleDrawer:hover{
-    background-color: var(--hva-color-buttons-hover);
+
+#toggleDrawer:hover {
+    background-color: var(--hva-color-darker);
 }
-#toggleDrawer.open{
+
+#toggleDrawer.open {
     bottom: 30vh;
 }
-.connection-display-container{
+
+#is-connected {
+    margin: 20px;
+}
+
+.connection-display-container {
     background-color: var(--hva-color-lighter);
     color: var(--hva-color-text);
     width: 100%;
@@ -120,36 +224,48 @@ background-color:var(--hva-color-darker);
     bottom: -30vh;
     transition: bottom 0.3s ease-in-out;
 }
-.connection-display-container.open{
+
+.connection-display-container.open {
     bottom: 0px;
 }
-.connection-display-container h1{
+
+.connection-display-container h1 {
     font-size: 20px;
 }
 
-.information-container{
-    background-color: var(--hva-color-light);
-    padding: 10px;
-    margin: 10px;
-    padding-left: 0px;
+.information-span, .information-value {
+    display: inline-block;
+    padding: 10px 0;
 }
-.information-span{
-    background-color: var(--hva-color-lighter);
-    padding: 10px;
+
+.information-container {
+    margin: 10px 0;
+    display: flex !important;
+}
+
+.information-span {
+    width: 150px;
+}
+
+.information-value {
+    flex: 1;
+    background-color: var(--hva-color-light);
+    padding-left: 10px;
 }
 
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
     }
-    .redirect-container a{
-        margin: 5px 0px 5px 0px;
-        
+
+    .redirect-container a {
+        width: 95%;
+        margin: 5px 0px 5px 0px; 
     }
 }
 
 @media only screen and (min-width: 768px)  {
-    .redirect-container{
+    .redirect-container {
         flex-direction: row;
     }
 }
