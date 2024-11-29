@@ -8,6 +8,7 @@
 #include <Adafruit_SSD1306.h>
 
 #include "walking.h"
+#include "walking_backwards.h"
 
 // WiFi and server details
 const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
@@ -340,39 +341,6 @@ void rightStep() {
   RL.write(60);
 }
 
-
-void walkBackwards() {
-  // Parameters for walking backwards
-  const int hopAngle = 35;  // Angle to lift the back legs
-  const int tiltAngle = 15;  // Angle to tilt the front legs
-  const int stepDelay = 500;  // Delay between steps
-
-  unsigned long startTime = millis();  // Record start time
-
-  // Walk backwards for 5 seconds
-  while (millis() - startTime < 5000) {
-    // Lift and extend back legs, and tilt front legs
-    RL.write(DEFAULT_POS + tiltAngle);
-    RR.write(DEFAULT_POS - tiltAngle);
-    FR.write(DEFAULT_POS - tiltAngle);
-    FL.write(DEFAULT_POS + tiltAngle);
-    FR.write(DEFAULT_POS - hopAngle);
-    FL.write(DEFAULT_POS + hopAngle);
-    delay(stepDelay);
-
-    // Lower back legs and return front legs to default position
-    FR.write(DEFAULT_POS);
-    FL.write(DEFAULT_POS);
-    delay(stepDelay);
-  }
-
-  // Stop the movement
-  FR.write(DEFAULT_POS);
-  RR.write(DEFAULT_POS);
-  FL.write(DEFAULT_POS);
-  RL.write(DEFAULT_POS);
-}
-
 void turnRight() {
   Serial.println("Turning right");
   unsigned long startTime = millis();  // Record start time
@@ -479,7 +447,7 @@ void handleCommand(String command) {
       walkForward();
       break;
     case BACKWARD:
-      walkBackwards();
+      walkBackward();
       break;
     case LEFT:
       turnLeft();
