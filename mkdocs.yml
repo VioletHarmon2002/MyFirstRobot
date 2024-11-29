@@ -33,6 +33,9 @@ nav:
       - Learning Journal - Despoina: Learning Journals/learning-journal-despoina.md
       - Learning Journal - Elizaveta: Learning Journals/learning-journal-elizaveta.md
       - Learning Journal - Xander: Learning Journals/learning-journal-xander.md
+  - Embedded:
+      - Code: 
+          - Movement: Embedded/Code/movement.md
 
 
 markdown_extensions:
