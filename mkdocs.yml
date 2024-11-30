@@ -33,6 +33,15 @@ nav:
       - Learning Journal - Despoina: Learning Journals/learning-journal-despoina.md
       - Learning Journal - Elizaveta: Learning Journals/learning-journal-elizaveta.md
       - Learning Journal - Xander: Learning Journals/learning-journal-xander.md
+  - Meetings:
+      - Gerald:
+          - 13 November: Meetings/Gerald/13-11-2024.md
+          - 20 November: Meetings/Gerald/20-11-2024.md
+      - Bernardo:
+          - 22 November: Meetings/Bernardo/22-11-2024.md
+  - Setup:
+      - Server: Setup/server.md
+      - ZeroTier: Setup/zerotier.md
   - Embedded:
       - Code: 
           - Movement: Embedded/Code/movement.md
@@ -54,3 +63,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - css/extra_style.css

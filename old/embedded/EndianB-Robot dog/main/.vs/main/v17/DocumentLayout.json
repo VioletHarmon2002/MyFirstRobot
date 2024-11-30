@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\main.ino||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.ino||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Wetinator.ino||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{216B8F35-E8D9-46B6-9176-B5C4C9554D9E}|C:\\Users\\Tom\\AppData\\Roaming\\Microsoft\\VisualStudio\\17.0_295c7a32\\SingleFileISense\\_sfi_1582d16e-a864-418e-a7c6-8400dbc4df9e_.vcxproj|D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Network.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Network.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 388,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.ino",
+              "DocumentMoniker": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\main.ino",
+              "RelativeDocumentMoniker": "main.ino",
+              "ToolTip": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\main.ino",
+              "RelativeToolTip": "main.ino",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAIUAAAAfAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVDhPlVM9aFNRGD33vtf0pSZNYxpDKSQtsdoo1MFCEVTERRCsFAcLonZxVVxEJ8GtHZwLDg6Kq4KDk\u002BAgSNPW2kCxXVS00J/0NbF5TfJ\u002Br\u002Be1dauiF07uzXe/8/Gd870rvCDA49IC8u3xxHqjccJVQQp/WbqQlU7DKM2UNzYnhgaVePChiHTUKKw1GuN1zz\u002BjoIy93H2XAOyopk8dihr3v1vWnJgsLbTPm\u002BazquMMB0rtpf19CSGQiETeFjo6RsXtd\u002B/PfrVqr5q\u002BnxRh/X9aChGpWblYbFSWG42U2bSj7ACbto2NZnMXdhMVx95BeP4dD3MqzDVtu5XcTlllYMv1UHU86JqGi7ksxvqP4GQ6DXoCixhIpXCTsUs9ORi6vpO75bqo2g6kxUPd99CqSdwpHMVhoVBeXcHlTBpjfXlcy/fialcG1bVVZBHg7rF\u002BxHRttzi50vZ9uBzlQLIDfn0bk4tLmLa2Mf7xE44faMOp9hgmpmfwU2p4/uUbqtsWBpMJcnw45EqbZBW673mwGBCaDoMaXTpd415jm06kFTq9AO8tyg0oO\u002BSEXOmGJP4pmSYUCRe6u5CIx3GjN4el5WXMEtd7sqgw7zSltLHQ7HoZkrMIu9CSwyMFXwVXGp6vfzY3cJB\u002BZHg5t7KCN2UT81YdzVoN2RYdW9xf/lhGWUhIIQKp1GuRf/J0xFXqBTlG2FbAAsKnLE5E0qzw2wvCLhlXPAsWkiwQNtAixC2pXLciXLcJOirog0Y7pJTcmU69vIMWaiVJoy\u002BS7u/kuq4TkBsWmIfjTIHG/CfmWKioxc\u002BdbyIIFpTn9REZQhA\u002BEewDRdicRpFjuOc7zqLofviIb1Tn563SFDnEQyf1/elV8bGITf4WIeQqfA\u002B/AN6Qto\u002BLDNA3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-11-18T11:53:43.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Network.h",
+              "DocumentMoniker": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.h",
+              "RelativeDocumentMoniker": "Network.h",
+              "ToolTip": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.h",
+              "RelativeToolTip": "Network.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-18T12:22:26.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Network.cpp",
+              "DocumentMoniker": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.cpp",
+              "RelativeDocumentMoniker": "Network.cpp",
+              "ToolTip": "D:\\HVA\\poonuugaaqii15\\old\\embedded\\EndianB-Robot dog\\main\\Network.cpp",
+              "RelativeToolTip": "Network.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-18T12:22:34.508Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 388,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Wetinator.ino",
+              "DocumentMoniker": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Wetinator.ino",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Wetinator.ino",
+              "ToolTip": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Wetinator.ino",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Wetinator.ino",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVDhPlVM9aFNRGD33vtf0pSZNYxpDKSQtsdoo1MFCEVTERRCsFAcLonZxVVxEJ8GtHZwLDg6Kq4KDk\u002BAgSNPW2kCxXVS00J/0NbF5TfJ\u002Br\u002Be1dauiF07uzXe/8/Gd870rvCDA49IC8u3xxHqjccJVQQp/WbqQlU7DKM2UNzYnhgaVePChiHTUKKw1GuN1zz\u002BjoIy93H2XAOyopk8dihr3v1vWnJgsLbTPm\u002BazquMMB0rtpf19CSGQiETeFjo6RsXtd\u002B/PfrVqr5q\u002BnxRh/X9aChGpWblYbFSWG42U2bSj7ACbto2NZnMXdhMVx95BeP4dD3MqzDVtu5XcTlllYMv1UHU86JqGi7ksxvqP4GQ6DXoCixhIpXCTsUs9ORi6vpO75bqo2g6kxUPd99CqSdwpHMVhoVBeXcHlTBpjfXlcy/fialcG1bVVZBHg7rF\u002BxHRttzi50vZ9uBzlQLIDfn0bk4tLmLa2Mf7xE44faMOp9hgmpmfwU2p4/uUbqtsWBpMJcnw45EqbZBW673mwGBCaDoMaXTpd415jm06kFTq9AO8tyg0oO\u002BSEXOmGJP4pmSYUCRe6u5CIx3GjN4el5WXMEtd7sqgw7zSltLHQ7HoZkrMIu9CSwyMFXwVXGp6vfzY3cJB\u002BZHg5t7KCN2UT81YdzVoN2RYdW9xf/lhGWUhIIQKp1GuRf/J0xFXqBTlG2FbAAsKnLE5E0qzw2wvCLhlXPAsWkiwQNtAixC2pXLciXLcJOirog0Y7pJTcmU69vIMWaiVJoy\u002BS7u/kuq4TkBsWmIfjTIHG/CfmWKioxc\u002BdbyIIFpTn9REZQhA\u002BEewDRdicRpFjuOc7zqLofviIb1Tn563SFDnEQyf1/elV8bGITf4WIeQqfA\u002B/AN6Qto\u002BLDNA3AAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-11-18T12:48:21.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Network.h",
+              "DocumentMoniker": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Network.h",
+              "ToolTip": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Network.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-18T12:22:06.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Network.cpp",
+              "DocumentMoniker": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Network.cpp",
+              "ToolTip": "D:\\HVA\\IOT\\Hardware Tests\\Wetinator\\Network.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\IOT\\Hardware Tests\\Wetinator\\Network.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-18T12:22:06.138Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
