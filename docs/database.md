@@ -63,3 +63,16 @@ In phpMyAdmin, a table was added with the following structure:
 | uuid        | VARCHAR(36)  | Unique                         |
 | name        | VARCHAR(50)  | Not Null                       |
 | uptime      | FLOAT        | Tracks uptime in hours         |
+
+### For End Users
+
+- A database named my_first_robot is ready to store data about a robot dog.  
+- It includes a table called robot_data that keeps track of:  
+    - id: A unique number for each entry.
+    - uuid: MAC address of each robot.
+    - name: The robot’s name.
+    - uptime: How long the robot has been active.
+
+The database can accessed through phpMyAdmin at: http://localhost:8081
+
+If you need to add or update data, phpMyAdmin provides an interface to manage the database without requiring advanced technical skills.
