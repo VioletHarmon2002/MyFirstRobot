@@ -45,6 +45,7 @@ nav:
   - Embedded:
       - Code: 
           - Movement: Embedded/Code/movement.md
+  - Database: database.md
 
 
 markdown_extensions:
