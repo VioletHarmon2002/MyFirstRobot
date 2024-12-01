@@ -85,9 +85,23 @@ The predefined servo positions for the lying-down motion are stored in the lieDo
 
 These correspond to specific angles for each leg:  
 
-* 0° for the Front Left leg
-* 180° for the Front Right leg
-* 180° for the Rear Left leg
-* 0° for the Rear Right leg
+- 0° for the Front Left leg
+- 180° for the Front Right leg
+- 180° for the Rear Left leg
+- 0° for the Rear Right leg
 
 When the function is called, each servo is commanded to move to the assigned angle using the write method.
+
+### For End Users
+The lieDown function allows the robot to smoothly transition into a lying-down position. This motion should be visually natural, with each leg moving to a predefined angle.
+
+**How It Works:**
+
+- Upon activating the "lie down" command, the robot's legs are adjusted via its servo motors to specific angles.  
+- The motion ensures that the robot adopts a stable and balanced lying posture.
+
+**Key Features:**
+
+- The function ensures smooth movement of the robot.
+- Predefined positions make the movement accurate and repeatable.
+- The design is efficient, enabling reliable execution of the lying-down motion.
