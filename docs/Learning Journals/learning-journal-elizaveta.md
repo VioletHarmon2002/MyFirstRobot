@@ -13,7 +13,7 @@ sidebar_position: 1
 - How to use GitLab for version control, collaboration, and project management.
 
 ## What I've learned
-In our robot dog project, one important functionality was making the dog fall to its right side, which could be useful for certain tricks or recovery actions. This task provided a great opportunity to enhance both my programming skills and my ability to collaborate using GitLab.
+In our robot dog project, one important functionality was making the dog fall to its right side. This task provided a great opportunity to enhance both my programming skills and my ability to collaborate using GitLab. I have gained some exeprience with embedded coding during this task.
 
 ### Step 1: Understanding Servo Control
 The first step was understanding how to control servo motors with the ESP32Servo library. I learned that each servo motor's angle could be set from 0 to 180 degrees, allowing me to determine the necessary angles to position each leg for a controlled fall.
@@ -27,7 +27,7 @@ Using `Serial.println()` helped me track function execution,
 ## GitLab Workflow
 
 ### Step 1: Creating Issues
-Before coding, I created an issue in our GitLab repository. The issue detailed the need for a "fall right" function.
+Before coding, I created an issue in our GitLab repository. The issue detailed the need for a "fall right" function. For issue I ahve creted accepatnce criterias and DoD.
 
 ### Step 2: Working with Branches
 A new branch was created for this task. Working in a separate branch helped me isolate my changes from the main project.
@@ -39,11 +39,13 @@ As I developed the `fall_right.h` file, I made commits with descriptive messages
 After completing and testing the feature, I created a merge request in GitLab. This process helped me present my changes to the team for review. I learned to write clear descriptions.
 
 ### Step 5: Code Review and Collaboration
-Through the merge request, I received feedback from my team members. This experience showed me the benefits of peer review in catching potential issues.
+Through the merge request, I received feedback from my team members. This experience showed me the benefits of peer review in catching potential issues, so the code can be improved or changed.
 
 ### Step 6: Merging and Closing the Issue
 Once the changes were approved, I merged my branch into the main branch. I also learned to close the issue in GitLab.
 
 ## Conclusion
 Implementing the `fall_right.h` file not only enhanced the functionality of our robot dog but also improved my embedded programming and GitLab collaboration skills.
+
+
 
