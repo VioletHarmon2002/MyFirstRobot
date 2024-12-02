@@ -27,3 +27,37 @@ Issues fucntion as the executable task. Issues remove the ambiguity for develope
 
 <br>
 Using these four components allows for an efficient, tangible and manageable Agile environment. Combining and Agile workflow with GitLab can be achieved by using GitLab's Planning functionality, allowing us to create Epics, Features and Issues and visualising them on a trello-like sprint board. Tags can be assigned to each issue, allowing the user to group tasks and assign priorities, visualising the priority of tasks.
+
+---
+
+## **Working with the 8-Point Grid**
+Since no screen is the same, displaying the same website, application, dashboard or UI is difficult. The constant increase of pixel densities make the life of designers even more difficult.
+Although all screens use different dimensions, popular displays all seem to be divisible by 8, making 8 a great standard for spacing.
+
+The principle of 8pt Grid is that use multiples of 8 (8, 16, 24, 32, 40, 48, 56, etc.) to layout, dimensions, padding, and margin of elements.
+
+### The value of the 8-point Grid
+
+A Point (pt) is a measurement of space that depends on the resolution of a screen. When designing UI, a small artboard/frame is used, which is later upscaled to the required size. Designing on a smaller artboard allows the designer
+to scale their assets on other screens easily, while maintaining pixel perfect rendering. Following a grid structure ensures the content of the website is scaled and rendered the same on all devices.
+
+The 8pt grid ensures visual hierarchy to elements and drives consistent scalability, maintaining a 'quality of rythm' and creating a consistent look and feel.
+Besides the improved design feel, it is also easier for designers to use in communication. A designer can recognize distances like 4px, 8px, 16px and 24px easily without measuring, as long as the 8pt grid system is used.
+
+<figure markdown="span">
+    ![8pt Grid](Assets/[8pt-Grid]Variables.webp){ align=left }
+    <figcaption>Figure 1: 8pt-grid in variables</figcaption>
+</figure>
+
+Using Figma as a design tool, variables and grid-layouts can be used to achieve better results. For example, as seen in Figure 1, variables can be made, each holding a larger value following the 8pt grid. This way, margins, paddings and other layout related variables don't have to be set manually, making the designing process more efficient and less prone to errors.
+
+<figure markdown="span">
+    ![8pt Grid](Assets/[8pt-Grid]Columns.webp){ align=left }
+    <figcaption>Figure 2: Using auto layout columns</figcaption>
+</figure>
+
+When working on websites you must make responsive web pages. The pages not only has to be displayed on a laptop, but also on smaller devices like phones and tablets. When we're talking about design rhythm, horizontal rhythm can be achieved by using a column grid. Again, using Figma as an example, a responsive column grid can be created, helping designers achieve horizontal rhtythm, improving their designs.
+
+source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
+
+---
