@@ -80,3 +80,7 @@ If headers are large or include other headers, it can lead to longer compilation
 - Easier to create circular dependencies: Poorly designed header files can lead to circular dependencies, leading to compilation errors.
 
 - Overuse: Using too many headers can lead to unnecessarily complex codebases. 
+
+### Sources
+
+https://www.learncpp.com/cpp-tutorial/header-files/
