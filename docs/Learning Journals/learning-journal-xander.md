@@ -60,3 +60,23 @@ int main() {
 ```
 
 This is not a big deal when you only have a few declarations, but can get annoying quickly when dealing with a lot of declarations that need to be written down in every file.
+
+### Upsides
+
+- Code Organization:
+Header files help separate interface from implementation, making code easier to manage.
+
+- Reusability:
+Once written, a header file can be included in multiple source files.
+
+- Ease of Collaboration:
+In larger projects, header files allow team members to work independently on different parts of the program by clearly defining the interface between modules.
+
+### Downsides
+
+- Increased Compilation Time:
+If headers are large or include other headers, it can lead to longer compilation times due to repeated processing of the same headers for each source file.
+
+- Easier to create circular dependencies: Poorly designed header files can lead to circular dependencies, leading to compilation errors.
+
+- Overuse: Using too many headers can lead to unnecessarily complex codebases. 
