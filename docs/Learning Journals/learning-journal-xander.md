@@ -15,3 +15,48 @@ The content of a header file is inserted at the point of inclusion. That means t
 If you use a function multiple times across several files, then any change would require you to go through all those files and change the function everywhere. 
 
 By using a function file to contain the function in combination with a header file to contain the declarations, you can simply include these two files in every file that you want to access the function and then you only need to change these two files to have it change everywhere.
+
+### Example
+
+If you have a function <code> add() </code> that you want to access in multiple files, you could create a function and header file for it.
+
+The header file: <code>add.h</code> would look like this:
+
+```
+int add(int x, int y);
+```
+
+The function file: <code>add.cpp</code> could look something like this:
+
+```
+#include "add.h"
+
+int add(int x, int y) {
+    return x + y;
+}
+```
+
+And then in <code>main.cpp</code> you can have it as follows:
+
+```
+#include "add.h"
+#include <iostream>
+
+int main() {
+    std::cout << "The sum of 3 and 4 is " << add(3, 4) << '\n';
+    return 0;
+}
+```
+
+Without a header file, you would have to include the declaration for the function file in every file where you'd wnat to use the function like in the code example below:
+
+```
+int add(int x, int y);
+
+int main() {
+    std::cout << "The sum of 3 and 4 is " << add(3, 4) << '\n';
+    return 0;
+}
+```
+
+This is not a big deal when you only have a few declarations, but can get annoying quickly when dealing with a lot of declarations that need to be written down in every file.
