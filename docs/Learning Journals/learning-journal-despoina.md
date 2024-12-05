@@ -37,7 +37,12 @@ Check the docker-compose.yml file to confirm:
 ### User Story [#129]: Sharing database tables and data via docker-compose.yml
 In order to address some of the issues I encountered during the development process, I decided to implement a solution that would ensure persistence of data in MariaDB when using Docker. Initially, I faced challenges with maintaining the database content across container restarts, as well as managing large commits due to changes in the MariaDB data files. Through researching for my learning story, I found an effective solution using Docker volumes and initialization scripts.
 
-1. Data storage Issue:
+1. Data storage Issue:  
 Previously, whenever I stopped or deleted the Docker container, I would lose all the data stored in the MariaDB database. To resolve this, I implemented a solution by creating a data folder named mariadb_data. This folder is used to store all the necessary SQL files and data needed by MariaDB. By using a Docker volume, I ensured that data stored in mariadb_data persists even when the container is deleted or rebuilt.
 
 To verify that it works, I tested it by deleting the container, initializing it again, and rebuilding the Docker service. I confirmed that all the rows inserted into the database remained intact, and the tables were still available.
+
+2. Git Commit Issue:  
+While trying to commit my changes, I realized that over 200 changes were being tracked by Git, most of which were related to the MariaDB data files. This wasn’t ideal, as it would result in an unnecessary bloated commit history. To resolve this, I needed a way to avoid tracking these large data files in Git while still making sure that the necessary schema and database setup were shared with my teammates.
+
+The solution was to use a .gitignore file to exclude the mariadb_data folder from version control. By doing this, the database data files wouldn’t be included in commits, yet I could still share the database structure and initialization scripts.
