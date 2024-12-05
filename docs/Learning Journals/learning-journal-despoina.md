@@ -51,3 +51,23 @@ The solution was to use a .gitignore file to exclude the mariadb_data folder fro
 Since the database tables needed to be created and initialized every time the container starts, I created an init-scripts folder to store SQL files like schema.sql. These files define the structure of the database and the tables, including the robots table, which tracks information such as the robot's ID, UUID, name, and uptime.
 
 I then updated the docker-compose.yml file to automatically run these initialization scripts when the MariaDB container starts. By mapping the init-scripts folder to /docker-entrypoint-initdb.d in the container, Docker will automatically execute the SQL files in this directory upon initialization. This ensures that the database is correctly set up each time the container is started.
+
+The change is located in the volumes part of mariadb in the docker-compose.yml file:
+````
+mariadb:
+    image: mariadb:latest
+    container_name: mariadb_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+````
+
+This setup ensures that the MariaDB container will use the SQL files located in the init-scripts folder to initialize the database when it starts.
