@@ -259,6 +259,11 @@ center {
     padding-left: 10px;
 }
 
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
