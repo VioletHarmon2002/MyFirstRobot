@@ -72,3 +72,14 @@ In phpMyAdmin, a table was added with the following structure:
 - uuid: A unique identifier for the robot, namely its MAC address.
 - name: The name of the robot.
 - uptime: How long the robot has been active in hours.
+
+**Accessing phpMyAdmin:** 
+The database can be accessed via phpMyAdmin, a user-friendly interface, at the following URL:  
+````
+http://localhost:8081
+````
+
+Login credentials: Use the credentials defined in the .env file or the root password for accessing phpMyAdmin.
+
+  - Username: root
+  - Password: Set in .env as MYSQL_ROOT_PASSWORD
