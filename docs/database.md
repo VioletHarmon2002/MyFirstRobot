@@ -89,3 +89,8 @@ Login credentials: Use the credentials defined in the .env file or the root pass
 - You can easily add or update data in the robot_data table through phpMyAdmin. The interface provides a simple way to insert or modify records without needing to write complex SQL queries.  
 - To insert new data, use the "Insert" tab inside phpMyAdmin and fill in the fields for uuid, name, and uptime.    
 - To view or edit existing data, simply click on the table name, and you will be able to see and modify the records.
+
+**Using phpMyAdmin:**  
+
+- phpMyAdmin provides a graphical user interface for interacting with the database.
+- You can view, edit, and delete entries in the robot_data table using the web interface. This is helpful for non-technical users who need to manage the data without directly interacting with SQL commands.
