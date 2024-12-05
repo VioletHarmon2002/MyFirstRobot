@@ -71,3 +71,6 @@ mariadb:
 ````
 
 This setup ensures that the MariaDB container will use the SQL files located in the init-scripts folder to initialize the database when it starts.
+
+4. Testing  
+After implementing the changes, I verified that everything was working correctly. I stopped and restarted the containers multiple times to confirm that the data was still there after the restarts. I also tested the database intitaization by ensuring that the robots zable was created properly with the correct structure and that the intitial data was inserted successfully.
