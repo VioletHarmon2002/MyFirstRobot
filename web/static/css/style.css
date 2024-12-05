@@ -305,7 +305,7 @@ center {
     display: inline-block;
 }
 
-.navigation-link::after {
+.navigation-link::after, .social-link span::after {
     content: "";
     position: absolute;
     left: 16px;
@@ -317,8 +317,30 @@ center {
     transition: opacity .2s ease-in-out;
 }
 
-.navigation-link:hover::after {
+.navigation-link:hover::after, .social-link:hover span::after {
     opacity: 1;
+}
+
+.social-link {
+    cursor: pointer;
+    color: currentColor;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center;
+    text-decoration: none;
+}
+
+.social-link span {
+    margin-left: 8px;
+    position: relative;
+    display: inline-block;
+}
+
+.social-link svg {
+    width: 30px;
+    height: 30px;
 }
 
 .footer-category {
@@ -352,8 +374,37 @@ center {
 }
 
 .footer-list a {
-    display: block;
     margin-left: 16px;
+    width: fit-content;
+}
+
+.footer-bottom {
+    grid-column: 1 / -1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    row-gap: 80px;
+}
+
+.footer-bottom svg {
+    height: 24px;
+    width: 229px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.footer-bottom-list {
+    list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    row-gap: 16px;
+    margin: 0;
+}
+
+.footer-bottom-list li {
     width: fit-content;
 }
 
@@ -387,6 +438,16 @@ center {
         row-gap: 64px;
         margin-bottom: 104px;
     }
+
+    .footer-bottom-list {
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-column-gap: 40px;
+        -moz-column-gap: 40px;
+        column-gap: 40px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -395,5 +456,25 @@ center {
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
         margin-bottom: 120px;
-    }   
+    }
+
+    .footer-bottom {
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-top: 0;
+        -webkit-column-gap: 120px;
+        -moz-column-gap: 120px;
+        column-gap: 120px;
+    }
+
+    .footer-bottom-list {
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+    }
 }
