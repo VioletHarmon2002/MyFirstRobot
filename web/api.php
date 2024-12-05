@@ -18,7 +18,7 @@ function validateInput() {
     $data = json_decode(file_get_contents('php://input'), true);
 
     // Defined the allowed commands
-    $allowedCommands = ['forward', 'leftward', 'rightward', 'backward', 'lay', 'start', 'wave', 'dance', 'sit', 'wagtail'];
+    $allowedCommands = ['forward', 'leftward', 'rightward', 'backward', 'lay', 'start', 'wave', 'dance', 'sit'];
 
     // Check if the input data is an array and contains the 'command' key
     if (is_array($data) && isset($data['command'])) {
