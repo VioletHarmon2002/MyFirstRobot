@@ -297,6 +297,47 @@ center {
     margin-bottom: 40px;
 }
 
+.navigation-link {
+    color: var(--color-white);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer-category {
+    font-size: 18px;
+    font-weight: 800;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 22px;
+    padding-right: 8px;
+}
+
+.footer-category::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    bottom: -10px;
+    border-bottom: 4px solid;
+    width: calc(100% - 16px);
+}
+
+.footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-list li:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.footer-list a {
+    display: block;
+    margin-left: 16px;
+}
+
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
