@@ -338,7 +338,7 @@ center {
     display: inline-block;
 }
 
-.social-link svg {
+.social-link img {
     width: 30px;
     height: 30px;
 }
@@ -387,7 +387,7 @@ center {
     row-gap: 80px;
 }
 
-.footer-bottom svg {
+.footer-bottom img {
     height: 24px;
     width: 229px;
     -ms-flex-negative: 0;
