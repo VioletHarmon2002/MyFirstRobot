@@ -1,17 +1,19 @@
-#ifndef FALL_RIGHT_H
-#define FALL_RIGHT_H
+#ifndef EMBEDDED_ENDIANB_ROBOT_DOG_MAIN_FALL_H_
+#define EMBEDDED_ENDIANB_ROBOT_DOG_MAIN_FALL_H_
 
 #define MAX_LEG_ROTATION 180
 
 #include <ESP32Servo.h>
 
 class Fall {
-    public:
-        Fall();
-        ~Fall();
+ public:
+    Fall();
+    ~Fall();
 
-        void FallRight(Servo& FL, Servo& FR, Servo& RL, Servo& RR);
-        void FallLeft(Servo& FL, Servo& FR, Servo& RL, Servo& RR);
+    const void FallRight(const Servo& FL, const Servo& FR,
+                        const Servo& RL, const Servo& RR);
+    const void FallLeft(const Servo& FL, const Servo& FR,
+                        const Servo& RL, const Servo& RR);
 };
 
-#endif
+#endif  // EMBEDDED_ENDIANB_ROBOT_DOG_MAIN_FALL_H_
