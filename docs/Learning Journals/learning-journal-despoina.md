@@ -46,3 +46,8 @@ To verify that it works, I tested it by deleting the container, initializing it 
 While trying to commit my changes, I realized that over 200 changes were being tracked by Git, most of which were related to the MariaDB data files. This wasn’t ideal, as it would result in an unnecessary bloated commit history. To resolve this, I needed a way to avoid tracking these large data files in Git while still making sure that the necessary schema and database setup were shared with my teammates.
 
 The solution was to use a .gitignore file to exclude the mariadb_data folder from version control. By doing this, the database data files wouldn’t be included in commits, yet I could still share the database structure and initialization scripts.
+
+3. Creating Initialization Script:  
+Since the database tables needed to be created and initialized every time the container starts, I created an init-scripts folder to store SQL files like schema.sql. These files define the structure of the database and the tables, including the robots table, which tracks information such as the robot's ID, UUID, name, and uptime.
+
+I then updated the docker-compose.yml file to automatically run these initialization scripts when the MariaDB container starts. By mapping the init-scripts folder to /docker-entrypoint-initdb.d in the container, Docker will automatically execute the SQL files in this directory upon initialization. This ensures that the database is correctly set up each time the container is started.
