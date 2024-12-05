@@ -66,13 +66,9 @@ In phpMyAdmin, a table was added with the following structure:
 
 ### For End Users
 
-- A database named my_first_robot is ready to store data about a robot dog.  
-- It includes a table called robot_data that keeps track of:  
-    - id: A unique number for each entry.
-    - uuid: MAC address of each robot.
-    - name: The robot’s name.
-    - uptime: How long the robot has been active.
+**Database Overview:** A database named my_first_robot is ready to store data about a robot dog. This database includes a table called robots, which stores the following information:
 
-The database can accessed through phpMyAdmin at: http://localhost:8081
-
-If you need to add or update data, phpMyAdmin provides an interface to manage the database without requiring advanced technical skills.
+- id: A unique number for each robot entry.
+- uuid: A unique identifier for the robot, namely its MAC address.
+- name: The name of the robot.
+- uptime: How long the robot has been active in hours.
