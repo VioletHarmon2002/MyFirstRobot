@@ -27,16 +27,6 @@
     </div>
     <!-- Main container for buttons -->
     <div class="container">
-        <!-- Container for directional arrow buttons -->
-        <div class="section">
-            <h2 class="movements">Movement</h2>
-            <div class="arrow-container">
-                <button class="arrow-btn arrow-up" onclick="sendCommand('forward')"><i class="fas fa-arrow-up"></i></button>
-                <button class="arrow-btn arrow-down" onclick="sendCommand('backward')"><i class="fas fa-arrow-down"></i></button>
-                <button class="arrow-btn arrow-left" onclick="sendCommand('leftward')"><i class="fas fa-arrow-left"></i></button>
-                <button class="arrow-btn arrow-right" onclick="sendCommand('rightward')"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
         <!-- Container for animation and emote buttons -->
         <div class="animate-emote-container">
             <!-- Container for animation buttons -->
@@ -47,7 +37,6 @@
                     <button class="animate-btn" onclick="sendCommand('sit')">Sit</button>
                     <button class="animate-btn" onclick="sendCommand('lay')">Lay down</button>
                     <button class="animate-btn" onclick="sendCommand('wave')">Wave</button>
-                    <button class="animate-btn" onclick="sendCommand('wagtail')">Wag tail</button>
                 </div>
             </div>
             <!-- Container for emote buttons -->
@@ -59,6 +48,16 @@
                     <button class="emote-btn" onclick="sendCommand('emote', 'cry')">Cry</button>
                     <button class="emote-btn" onclick="sendCommand('emote', 'sleep')">Sleep</button>
                 </div>
+            </div>
+        </div>
+        <!-- Container for directional arrow buttons -->
+        <div class="section">
+            <h2 class="movements">Movement</h2>
+            <div class="arrow-container">
+                <button class="arrow-btn arrow-up" onclick="sendCommand('forward')"><i class="fas fa-arrow-up"></i></button>
+                <button class="arrow-btn arrow-down" onclick="sendCommand('backward')"><i class="fas fa-arrow-down"></i></button>
+                <button class="arrow-btn arrow-left" onclick="sendCommand('leftward')"><i class="fas fa-arrow-left"></i></button>
+                <button class="arrow-btn arrow-right" onclick="sendCommand('rightward')"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
