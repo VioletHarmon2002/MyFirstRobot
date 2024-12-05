@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
+    /* New Colors */
     --color-hva-purple: #25167A;
     --color-marine: #351FB7;
     --color-black: #000000;
@@ -9,7 +10,7 @@
     --color-fresh: #02857D;
     --color-sweet: #F35279;
 
-    /*Deprecated*/
+    /* Deprecated */
     --hva-color-dark: #25167A;
     --hva-color-light: #351FB7;
     --hva-color-darker: #200f60;
