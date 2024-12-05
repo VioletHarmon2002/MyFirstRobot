@@ -47,5 +47,28 @@ Once the changes were approved, I merged my branch into the main branch. I also 
 ## Conclusion
 Implementing the `fall_right.h` file not only enhanced the functionality of our robot dog but also improved my embedded programming and GitLab collaboration skills.
 
+# Learning Story: Creating a bitmap 
+
+
+## What needs to be learned
+- How to create a bitmap.
+- How to use it in a code.
+- How to use .
+
+## What I've learned
+I have learned how to 
+
+### Step 1: Changing the size of the image 
+
+I have found a nice picture from google, but it is needed to be resized, so the first thing I have done is found a simpe bitmap tool, so i can put new width and height.
+
+### Step 2: Converting the bmf file into actual  
+
+For the converting my file into the i was using some tools. 
+
+### Step 3: Implementing my code into Header file    
+
+
+
 
 
