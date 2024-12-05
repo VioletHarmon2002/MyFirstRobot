@@ -83,3 +83,9 @@ Login credentials: Use the credentials defined in the .env file or the root pass
 
   - Username: root
   - Password: Set in .env as MYSQL_ROOT_PASSWORD
+  
+**Managing Data:**    
+
+- You can easily add or update data in the robot_data table through phpMyAdmin. The interface provides a simple way to insert or modify records without needing to write complex SQL queries.  
+- To insert new data, use the "Insert" tab inside phpMyAdmin and fill in the fields for uuid, name, and uptime.    
+- To view or edit existing data, simply click on the table name, and you will be able to see and modify the records.
