@@ -33,3 +33,6 @@ Check the docker-compose.yml file to confirm:
     ``
 
     - The db_data directory ensures all changes, including new tables, are saved and shared.
+
+### User Story [#129]: Sharing database tables and data via docker-compose.yml
+In order to address some of the issues I encountered during the development process, I decided to implement a solution that would ensure persistence of data in MariaDB when using Docker. Initially, I faced challenges with maintaining the database content across container restarts, as well as managing large commits due to changes in the MariaDB data files. Through researching for my learning story, I found an effective solution using Docker volumes and initialization scripts.
