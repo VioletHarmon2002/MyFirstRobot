@@ -57,9 +57,7 @@ Implementing the `fall_right.h` file not only enhanced the functionality of our 
 - How to implement the bitmap into a header file.
 
 ## What I've learned
-I have learned how to 
-
-
+I have learned how to create and manipulate bitmap images, convert them into C++ header files. So now Ia capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
 
 ### Step 1: Changing the Size of the Image
 
