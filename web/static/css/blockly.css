@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
 }
 #code_display_parent{
     background-color: var(--hva-color-light);
