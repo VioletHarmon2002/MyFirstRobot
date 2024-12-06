@@ -329,6 +329,10 @@ center {
     opacity: 1;
 }
 
+.social-link:hover {
+    color: var(--color-sweet);
+}
+
 .social-link {
     cursor: pointer;
     color: currentColor;
@@ -338,6 +342,7 @@ center {
     align-items: center;
     justify-items: center;
     text-decoration: none;
+    transition: color .2s ease;
 }
 
 .social-link span {
@@ -346,7 +351,7 @@ center {
     display: inline-block;
 }
 
-.social-link img {
+.social-link svg {
     width: 30px;
     height: 30px;
 }
