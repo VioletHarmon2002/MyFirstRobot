@@ -9,6 +9,7 @@
 
 #include "walking.h"
 #include "walking_backwards.h"
+#include "animation.h"
 
 // WiFi and server details
 const char* server_ip = "172.20.10.2";  // IP address of the server to connect to
@@ -300,16 +301,6 @@ void lieDown() {
   FR.write(PRESET_FR_LIE);
   RL.write(PRESET_RL_LIE);
   RR.write(PRESET_RR_LIE);
-}
-
-void sit() {
-  Serial.println("Sitting down");
-  int sitPosition[] = {110, 70, 35, 145};
-  // Move legs to sitting position
-   FL.write(sitPosition[0]);
-   FR.write(sitPosition[1]);
-   RL.write(sitPosition[2]);
-   RR.write(sitPosition[3]);
 }
 
 void wave() {
