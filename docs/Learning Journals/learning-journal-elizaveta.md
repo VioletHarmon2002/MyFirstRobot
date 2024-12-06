@@ -77,6 +77,11 @@ Throughout this process, I learned the importance of understanding the project's
 ## Conclusion
 Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps, and integrating them into a C++ codebase. I also learned the importance of understanding the project's existing codebase and how to integrate new features seamlessly.
 
+# Sources 
+https://javl.github.io/image2cpp/
+
+
+
 
 
 
