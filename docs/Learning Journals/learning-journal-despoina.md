@@ -90,3 +90,44 @@ How can I create and configure a MariaDB database using Docker Compose to ensure
 
 4. Access PhpMyAdmin:  
 PhpMyAdmin can be accessed through the web browser at http://localhost:8081. Use the MYSQL_USER and PMA_PASSWORD from the .env file to log in.
+
+### User Story [#129]: Sharing database tables and data via docker-compose.yml
+In order to address some of the issues I encountered during the development process, I decided to implement a solution that would ensure persistence of data in MariaDB when using Docker. Initially, I faced challenges with maintaining the database content across container restarts, as well as managing large commits due to changes in the MariaDB data files. Through researching for my learning story, I found an effective solution using Docker volumes and initialization scripts.
+
+1. Data storage Issue:  
+Previously, whenever I stopped or deleted the Docker container, I would lose all the data stored in the MariaDB database. To resolve this, I implemented a solution by creating a data folder named mariadb_data. This folder is used to store all the necessary SQL files and data needed by MariaDB. By using a Docker volume, I ensured that data stored in mariadb_data persists even when the container is deleted or rebuilt.
+
+To verify that it works, I tested it by deleting the container, initializing it again, and rebuilding the Docker service. I confirmed that all the rows inserted into the database remained intact, and the tables were still available.
+
+2. Git Commit Issue:  
+While trying to commit my changes, I realized that over 200 changes were being tracked by Git, most of which were related to the MariaDB data files. This wasn’t ideal, as it would result in an unnecessary bloated commit history. To resolve this, I needed a way to avoid tracking these large data files in Git while still making sure that the necessary schema and database setup were shared with my teammates.
+
+The solution was to use a .gitignore file to exclude the mariadb_data folder from version control. By doing this, the database data files wouldn’t be included in commits, yet I could still share the database structure and initialization scripts.
+
+3. Creating Initialization Script:  
+Since the database tables needed to be created and initialized every time the container starts, I created an init-scripts folder to store SQL files like schema.sql. These files define the structure of the database and the tables, including the robots table, which tracks information such as the robot's ID, UUID, name, and uptime.
+
+I then updated the docker-compose.yml file to automatically run these initialization scripts when the MariaDB container starts. By mapping the init-scripts folder to /docker-entrypoint-initdb.d in the container, Docker will automatically execute the SQL files in this directory upon initialization. This ensures that the database is correctly set up each time the container is started.
+
+The change is located in the volumes part of mariadb in the docker-compose.yml file:
+````
+mariadb:
+    image: mariadb:latest
+    container_name: mariadb_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+````
+
+This setup ensures that the MariaDB container will use the SQL files located in the init-scripts folder to initialize the database when it starts.
+
+4. Testing  
+After implementing the changes, I verified that everything was working correctly. I stopped and restarted the containers multiple times to confirm that the data was still there after the restarts. I also tested the database intitaization by ensuring that the robots zable was created properly with the correct structure and that the intitial data was inserted successfully.

@@ -66,13 +66,31 @@ In phpMyAdmin, a table was added with the following structure:
 
 ### For End Users
 
-- A database named my_first_robot is ready to store data about a robot dog.  
-- It includes a table called robot_data that keeps track of:  
-    - id: A unique number for each entry.
-    - uuid: MAC address of each robot.
-    - name: The robot’s name.
-    - uptime: How long the robot has been active.
+**Database Overview:** A database named my_first_robot is ready to store data about a robot dog. This database includes a table called robots, which stores the following information:
 
-The database can accessed through phpMyAdmin at: http://localhost:8081
+- id: A unique number for each robot entry.
+- uuid: A unique identifier for the robot, namely its MAC address.
+- name: The name of the robot.
+- uptime: How long the robot has been active in hours.
 
-If you need to add or update data, phpMyAdmin provides an interface to manage the database without requiring advanced technical skills.
+**Accessing phpMyAdmin:** 
+The database can be accessed via phpMyAdmin, a user-friendly interface, at the following URL:  
+````
+http://localhost:8081
+````
+
+Login credentials: Use the credentials defined in the .env file or the root password for accessing phpMyAdmin.
+
+  - Username: root
+  - Password: Set in .env as MYSQL_ROOT_PASSWORD
+  
+**Managing Data:**    
+
+- You can easily add or update data in the robot_data table through phpMyAdmin. The interface provides a simple way to insert or modify records without needing to write complex SQL queries.  
+- To insert new data, use the "Insert" tab inside phpMyAdmin and fill in the fields for uuid, name, and uptime.    
+- To view or edit existing data, simply click on the table name, and you will be able to see and modify the records.
+
+**Using phpMyAdmin:**  
+
+- phpMyAdmin provides a graphical user interface for interacting with the database.
+- You can view, edit, and delete entries in the robot_data table using the web interface. This is helpful for non-technical users who need to manage the data without directly interacting with SQL commands.
