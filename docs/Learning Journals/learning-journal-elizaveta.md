@@ -57,7 +57,7 @@ Implementing the `fall_right.h` file not only enhanced the functionality of our 
 - How to implement the bitmap into a header file.
 
 ## What I've learned
-I have learned how to create and manipulate bitmap images, convert them into C++ header files. So now Ia capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
+I have learned how to create and manipulate bitmap images. So now I am capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
 
 ### Step 1: Changing the Size of the Image
 
@@ -67,15 +67,16 @@ I found a suitable image for the bitmap on Google. However, I needed to resize t
 
 To convert the image into a usable bitmap, I used an online tool called ["image2cpp"](https://www.image2cpp.com/). This tool converted the image file into a C++ header file containing the bitmap data. I chose this tool because it provided the output in a format that was easy to integrate into the project's existing codebase.
 
-### Step 3: Implementing my code into Header file
+## Step 3: Preparing the Bitmap for Implementation
 
-Implementing the Bitmap into the Header File
-Once I had the bitmap data in a C++ header file, I integrated it into the project's existing codebase. I added the necessary code to display the bitmap on the dog's face display
+After converting the image into a  header file containing the bitmap data, I prepared it for integration into the project's codebase. While I have not yet implemented the bitmap into the robot dog's face display, I now have the necessary data and understand how to include it.
 
-Throughout this process, I learned the importance of understanding the project's existing codebase and how to integrate new features seamlessly. I also gained a better understanding of the display's capabilities and how to work with bitmap data to create various face expressions for our robot dog.
+This process has helped me understand how to structure the bitmap data and where it fits within the project's existing code. Additionally, I have learned about the display's capabilities and how to use bitmap data to create various face expressions for the robot dog.
+
+The next step will involve integrating the header file into the codebase and testing it on the actual hardware.
 
 ## Conclusion
-Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps, and integrating them into a C++ codebase. I also learned the importance of understanding the project's existing codebase and how to integrate new features seamlessly.
+Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps. I also learned the importance of understanding the project's existing codebase and  partly how to integrate new features seamlessly.
 
 # Sources 
 https://javl.github.io/image2cpp/
