@@ -79,6 +79,10 @@ Creating bitmaps for the robot dog's face expressions was a valuable learning ex
 
 # Sources 
 https://javl.github.io/image2cpp/
+https://www.hackster.io/379798/making-oled-bitmap-graphics-in-arduino-3e50db
+
+
+
 
 
 
