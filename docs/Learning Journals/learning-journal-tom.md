@@ -72,3 +72,4 @@ source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-syste
 
 ## **Creating a solid and modular Movement code architecture**
 
+Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach
