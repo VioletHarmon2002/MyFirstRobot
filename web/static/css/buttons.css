@@ -109,14 +109,3 @@
     margin-left: -15px;
 }
 
-.stop-btn-smaller {
-    padding: 10px;
-    font-size: 20px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
-    width: 120px;
-    margin: 5px 0;
-    cursor: pointer;
-    min-width: 120px;
-    border-radius: 5px; 
-}
