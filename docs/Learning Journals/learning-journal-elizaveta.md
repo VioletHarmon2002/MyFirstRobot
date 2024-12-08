@@ -65,7 +65,7 @@ I found a suitable image for the bitmap on Google. However, I needed to resize t
 
 ### Step 2: Converting the bmf file into actual  
 
-To convert the image into a usable bitmap, I used an online tool called ["image2cpp"](https://www.image2cpp.com/). This tool converted the image file into a C++ header file containing the bitmap data. I chose this tool because it provided the output in a format that was easy to integrate into the project's existing codebase.
+To convert the image into a usable bitmap, I used an online tool called ["image2cpp"](https://www.image2cpp.com/). This tool converted the image file into code, containing the bitmap data. I chose this tool because it provided the output in a format that was easy to integrate into the project's existing codebase.
 
 ## Step 3: Preparing the Bitmap for Implementation
 
