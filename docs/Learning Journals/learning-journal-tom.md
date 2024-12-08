@@ -28,7 +28,11 @@ Issues fucntion as the executable task. Issues remove the ambiguity for develope
 <br>
 Using these four components allows for an efficient, tangible and manageable Agile environment. Combining and Agile workflow with GitLab can be achieved by using GitLab's Planning functionality, allowing us to create Epics, Features and Issues and visualising them on a trello-like sprint board. Tags can be assigned to each issue, allowing the user to group tasks and assign priorities, visualising the priority of tasks.
 
----
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## **Working with the 8-Point Grid**
 Since no screen is the same, displaying the same website, application, dashboard or UI is difficult. The constant increase of pixel densities make the life of designers even more difficult.
@@ -60,4 +64,8 @@ When working on websites you must make responsive web pages. The pages not only 
 
 source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
 
----
+<br>
+<br>
+<br>
+<br>
+<br>
