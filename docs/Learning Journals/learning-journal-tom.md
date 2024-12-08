@@ -53,14 +53,16 @@ Besides the improved design feel, it is also easier for designers to use in comm
     <figcaption>Figure 1: 8pt-grid in variables</figcaption>
 </figure>
 
-Using Figma as a design tool, variables and grid-layouts can be used to achieve better results. For example, as seen in Figure 1, variables can be made, each holding a larger value following the 8pt grid. This way, margins, paddings and other layout related variables don't have to be set manually, making the designing process more efficient and less prone to errors.
+Using Figma as a design tool, variables and grid-layouts can be used to achieve better results. For example, as seen in Figure 1, variables can be made, each holding a larger value following the 8pt grid. This way, margins, paddings and other layout related variables don't have to be set manually, 
+making the designing process more efficient and less prone to errors.
 
 <figure markdown="span">
     ![8pt Grid](Assets/[8pt-Grid]Columns.webp){ align=left }
     <figcaption>Figure 2: Using auto layout columns</figcaption>
 </figure>
 
-When working on websites you must make responsive web pages. The pages not only has to be displayed on a laptop, but also on smaller devices like phones and tablets. When we're talking about design rhythm, horizontal rhythm can be achieved by using a column grid. Again, using Figma as an example, a responsive column grid can be created, helping designers achieve horizontal rhtythm, improving their designs.
+When working on websites you must make responsive web pages. The pages not only has to be displayed on a laptop, but also on smaller devices like phones and tablets. When we're talking about design rhythm, horizontal rhythm can be achieved by using a column grid. Again, using Figma as an example, 
+a responsive column grid can be created, helping designers achieve horizontal rhtythm, improving their designs.
 
 source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
 
@@ -72,4 +74,8 @@ source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-syste
 
 ## **Creating a solid and modular Movement code architecture**
 
-Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach
+Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach.
+
+Before we start, let's consider the necessities of the movement structure. For now, we'll work with four servos, each functioning as a single leg. The most straightforward approach is to integrate the servos directly into our architecture, treating each servo as a single leg. However, this is subject to 
+change since we're in our prototyping phase. Since our product will have four legs, we can create a wrapper for each leg, abstracting the physical sensors away. We can also bind some actions to this leg to further abstract the inner workings of the leg. If we're talking about actions, we could think about 
+functions like `MoveLeg(angle, angle)`, independently controlling the lower and upper part of the leg independently. We could also take it a step further and create a `MoveLeg(X, Y)` function, utilizing an Inverse Kinematics approach to abstract the leg ultimately, but this may be outside our scope.
