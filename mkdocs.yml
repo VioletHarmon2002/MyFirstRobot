@@ -31,7 +31,9 @@ nav:
       - ZeroTier: Device/Setup/zerotier.md
     - ⌨ Code: 
       - Movement: Device/Code/movement.md
-    - 💾 Database: Device/database.md
+    - 💾 Database: 
+      - Database: Device/Database/database.md
+      - API Reference: Device/Database/reference.md
   
   - Process:
     - 📃 Conventions:
