@@ -27,32 +27,32 @@ nav:
   - 🏠 Home: index.md
   - Device: 
     - 🔨 Setup:
-      - Server: Setup/server.md
-      - ZeroTier: Setup/zerotier.md
+      - Server: Device/Setup/server.md
+      - ZeroTier: Device/Setup/zerotier.md
     - ⌨ Code: 
-      - Movement: Embedded/Code/movement.md
-    - 💾 Database: database.md
+      - Movement: Device/Code/movement.md
+    - 💾 Database: Device/database.md
   
   - Process:
     - 📃 Conventions:
-        - C++: Learning Journals/learning-journal-joshua.md
-        - HTML: Learning Journals/learning-journal-tim.md
-        - CSS: Learning Journals/learning-journal-tom.md
-        - JavaScript: Learning Journals/learning-journal-tom.md
+        - C++: Process/Learning Journals/joshua.md
+        - HTML: Process/Learning Journals/tim.md
+        - CSS: Process/Learning Journals/tom.md
+        - JavaScript: Process/Learning Journals/tom.md
     - 🔍 Learning Journals:
-        - Joshua Ganga: Learning Journals/learning-journal-joshua.md
-        - Tim van Dantzig: Learning Journals/learning-journal-tim.md
-        - Tom Jonker: Learning Journals/learning-journal-tom.md
-        - Despoina Sfantou: Learning Journals/learning-journal-despoina.md
-        - Elizaveta Sabanova: Learning Journals/learning-journal-elizaveta.md
-        - Xander Tamis: Learning Journals/learning-journal-xander.md
+        - Joshua Ganga: Process/Learning Journals/joshua.md
+        - Tim van Dantzig: Process/Learning Journals/tim.md
+        - Tom Jonker: Process/Learning Journals/tom.md
+        - Despoina Sfantou: Process/Learning Journals/despoina.md
+        - Elizaveta Sabanova: Process/Learning Journals/elizaveta.md
+        - Xander Tamis: Process/Learning Journals/xander.md
     - 📞 Meetings:
         - Gerald:
-            - Nov 13, 2024: Meetings/Gerald/13-11-2024.md
-            - Nov 20, 2024: Meetings/Gerald/20-11-2024.md
-            - Dec 11, 2024: Meetings/Gerald/11-12-2024.md
+            - Nov 13, 2024: Process/Meetings/Gerald/13-11-2024.md
+            - Nov 20, 2024: Process/Meetings/Gerald/20-11-2024.md
+            - Dec 11, 2024: Process/Meetings/Gerald/11-12-2024.md
         - Bernardo:
-            - Nov 22, 2024: Meetings/Bernardo/22-11-2024.md
+            - Nov 22, 2024: Process/Meetings/Bernardo/22-11-2024.md
   
 
 
