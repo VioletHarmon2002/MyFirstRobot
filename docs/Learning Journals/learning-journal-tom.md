@@ -76,6 +76,8 @@ source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-syste
 
 Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach.
 
+### Leg abstraction
+
 Before we start, let's consider the necessities of the movement structure. For now, we'll work with four servos, each functioning as a single leg. The most straightforward approach is to integrate the servos directly into our architecture, treating each servo as a single leg. However, this is subject to 
 change since we're in our prototyping phase. Since our product will have four legs, we can create a wrapper for each leg, abstracting the physical sensors away. We can also bind some actions to this leg to further abstract the inner workings of the leg. If we're talking about actions, we could think about 
 functions like `MoveLeg(angle, angle)`, independently controlling the lower and upper part of the leg independently. We could also take it a step further and create a `MoveLeg(X, Y)` function, utilizing an Inverse Kinematics approach to abstract the leg ultimately, but this may be outside our scope.
@@ -94,3 +96,4 @@ private:
 };
 ```
 
+### 
