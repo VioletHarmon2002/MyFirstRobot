@@ -26,26 +26,29 @@ theme:
 
 nav:
   - 🏠 Home: index.md
-  - 🔍 Learning Journals:
-      - Joshua Ganga: Learning Journals/learning-journal-joshua.md
-      - Tim van Dantzig: Learning Journals/learning-journal-tim.md
-      - Tom Jonker: Learning Journals/learning-journal-tom.md
-      - Despoina Sfantou: Learning Journals/learning-journal-despoina.md
-      - Elizaveta Sabanova: Learning Journals/learning-journal-elizaveta.md
-      - Xander Tamis: Learning Journals/learning-journal-xander.md
-  - 📞 Meetings:
-      - Gerald:
-          - 13 November: Meetings/Gerald/13-11-2024.md
-          - 20 November: Meetings/Gerald/20-11-2024.md
-      - Bernardo:
-          - 22 November: Meetings/Bernardo/22-11-2024.md
-  - 🛠 Setup:
+  - Device: 
+    - 🔨 Setup:
       - Server: Setup/server.md
       - ZeroTier: Setup/zerotier.md
-  - 🧰 Embedded:
-      - Code: 
-          - Movement: Embedded/Code/movement.md
-  -  Database: database.md
+    - ⌨ Code: 
+      - Movement: Embedded/Code/movement.md
+    - 💾 Database: database.md
+  
+  - Process:
+    - 🔍 Learning Journals:
+        - Joshua Ganga: Learning Journals/learning-journal-joshua.md
+        - Tim van Dantzig: Learning Journals/learning-journal-tim.md
+        - Tom Jonker: Learning Journals/learning-journal-tom.md
+        - Despoina Sfantou: Learning Journals/learning-journal-despoina.md
+        - Elizaveta Sabanova: Learning Journals/learning-journal-elizaveta.md
+        - Xander Tamis: Learning Journals/learning-journal-xander.md
+    - 📞 Meetings:
+        - Gerald:
+            - Nov 13, 2024: Meetings/Gerald/13-11-2024.md
+            - Nov 20, 2024: Meetings/Gerald/20-11-2024.md
+        - Bernardo:
+            - Nov 22, 2024: Meetings/Bernardo/22-11-2024.mdflop
+  
 
 
 markdown_extensions:
