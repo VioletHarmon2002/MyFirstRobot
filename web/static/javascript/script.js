@@ -1,6 +1,8 @@
 let connected = true;
 let connected_to = "Kees";
 let connection_speed = 10;
+const IP_ADRESS = '127.0.0.1';
+
 const connected_to_name_element = document.getElementById('connected-to?-name');
 const connected_element = document.getElementById('connected-to?');
 
@@ -35,7 +37,7 @@ function updatePage(){
 
 function sendCommand(jsonData){
     // Verstuur het JSON-bericht naar de API
-    fetch('http://172.16.34.136/api.php?action=task', {
+    fetch('http://${IP_ADRESS}/api.php?action=task', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
