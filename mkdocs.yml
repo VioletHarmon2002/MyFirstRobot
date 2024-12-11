@@ -28,7 +28,6 @@ nav:
   - Device: 
     - 🔨 Setup:
       - Server: Device/Setup/server.md
-      - ZeroTier: Device/Setup/zerotier.md
     - ⌨ Code: 
       - Movement: Device/Code/movement.md
     - 💾 Database: 
