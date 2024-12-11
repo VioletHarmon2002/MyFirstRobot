@@ -35,10 +35,10 @@ nav:
   
   - Process:
     - 📃 Conventions:
-        - C++: Process/Learning Journals/joshua.md
-        - HTML: Process/Learning Journals/tim.md
-        - CSS: Process/Learning Journals/tom.md
-        - JavaScript: Process/Learning Journals/tom.md
+        - C++: Process/Conventions/cpp.md
+        - HTML: Process/Conventions/html.md
+        - CSS: Process/Conventions/css.md
+        - JavaScript: Process/Conventions/javascript.md
     - 🔍 Learning Journals:
         - Joshua Ganga: Process/Learning Journals/joshua.md
         - Tim van Dantzig: Process/Learning Journals/tim.md
