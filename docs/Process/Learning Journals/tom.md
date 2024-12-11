@@ -61,3 +61,18 @@ When working on websites you must make responsive web pages. The pages not only 
 source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
 
 ---
+
+## Creating a Manageable and easily navigatable knowledge base
+To work efficiently and pass over knowledge easily, using a knowledge base is inevitable. Creating the knowledge base's content is a form of art, but creating an easily manageable and navigatable layout is a challenging task, too. Nothing is more frustrating than not finding what you're looking for. Besides, storing similar documents beside each other might increase the odds of opening another similar file out of curiosity and learning something new every day.
+
+The goal of this research is to see if I can improve the layout of the portfolio website, changing it into an easy-to-navigate knowledge base.
+
+### Sections
+Storing the content in different sections can help us differentiate between files. Our project can be split up into three sections: Process, Device, and the Project. Inside the process, we store content related to our process, like meetings, conventions, and personal learning journals. The Device section will contain content about the device's inner workings and other related technologies. Finally, we create the Project page, which the user can visit to check out the manual, the setup, and the homepage of the project. Each section can be further split into smaller sections, each becoming more specific, allowing for easy navigation.
+
+### Icons
+To further improve clarity, we use icons. Icons help relate some text to certain functionality, but too many icons can be overwhelming and work against us; we have to use icons carefully. 
+We could choose to use icons only in the first layer of our navigation bar, limiting the number of icons while still improving the overall navigation usability.
+
+### Table of Contents
+The final improvement is relatively simple but can help immensely with the overall look and clarity of the website: the Table of Contents. Currently, the Table of Contents is integrated into the navigation bar, amalgamating the ToC and the content of the navigation bar, making a massive mess of the navigation content. Instead, we could separate the ToC and show this functionality on the webpage. Moving the ToC helps us maintain clarity and improve the overall usefulness of the page and navigation.
