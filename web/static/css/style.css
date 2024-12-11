@@ -275,3 +275,10 @@ center {
         flex-direction: row;
     }
 }
+
+
+.redirect-container a.active .button-with-icon {
+    background-color: var(--color-sweet);
+    color: #ffffff;
+}
+
