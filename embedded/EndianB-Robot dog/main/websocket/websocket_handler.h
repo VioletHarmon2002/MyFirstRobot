@@ -17,7 +17,7 @@ class WebSocketClient {
   const char* server_ip;
   uint16_t server_port;
   WiFiClient client;
-  bool isConnected = false;
+  bool is_connected = false;
 };
 
 #endif  // WEBSOCKET_HANDLER_H

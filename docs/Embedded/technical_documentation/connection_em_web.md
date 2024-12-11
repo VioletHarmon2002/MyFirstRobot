@@ -1,89 +1,113 @@
-### **1. `wifi_manager.h` and `wifi_manager.cpp`**
+# Documentation for Robot Network Code
 
-#### **Purpose:**
-Manages the robot's Wi-Fi connection using the ESP32's.
-
-#### **Key Components:**
-- **Class:** `WiFiManagerHelper`  
-  A helper class encapsulating Wi-Fi connection logic, making the main code cleaner and easier to manage.
-
-- **Method: `connectToWiFi`**  
-  Uses the `WiFiManager` library to connect to a Wi-Fi network.  
-  - If no credentials are set, it creates an access point with the default SSID `"Robot Dog"`.  
-  - If the connection fails, the ESP32 restarts (`ESP.restart()`), ensuring continuous operation.
-
-- **Method: `getClient()`**  
-  Provides access to the `WiFiClient` object, enabling other components (like WebSocket handling) to use the Wi-Fi connection.
+## Overview
+This project establishes a robot’s network connectivity and command-handling capabilities, with key components for Wi-Fi management and WebSocket communication. It uses modular classes for better separation of concerns and code readability.
 
 ---
 
-### **2. `websocket_handler.h` and `websocket_handler.cpp`**
+## WebSocket Handler
+The `WebSocketClient` class in **`websocket_handler.cpp`** handles WebSocket communication with a remote server.
 
-#### **Purpose:**
-Handles WebSocket communication with a server, enabling real-time data exchange.
+### Key Features
+- **Connect to a server**:
+  - `Connect()` establishes a WebSocket connection with the server.
+  - `Reconnect()` retries connecting if the connection is lost.
+- **Send and receive data**:
+  - `SendData(const String& data)` sends JSON data to the server.
+  - `ReadData()` reads JSON data from the server, deserializing it to extract the command.
+- **Connection management**:
+  - `IsConnected()` checks the connection status.
+  - `CloseConnection()` safely disconnects the client.
 
-#### **Key Components:**
-- **Class:** `WebSocketClient`  
-  Represents a WebSocket client for handling communication with a server.
+### Code Highlights
+#### Constructor
+```cpp
+WebSocketClient::WebSocketClient(const char* ip, uint16_t port) 
+    : server_ip(ip), server_port(port) {}
+```
+Initializes the WebSocket client with server IP and port.
 
-- **Attributes:**
-  - `server_ip` and `server_port`: Define the server's IP and port.
-  - `client`: `WiFiClient` instance used for communication.
-
-- **Methods:**
-  - **`Connect()`**  
-    Establishes a connection to the server. Returns `true` if successful.
-  - **`Reconnect()`**  
-    Attempts to reconnect if the connection is lost. Logs success or failure to the serial monitor.
-  - **`IsConnected()`**  
-    Returns the connection status.
-  - **`ReadData()`**  
-    Reads data from the server until a newline character (`\n`) is encountered.
-  - **`SendData()`**  
-    Sends a string message to the server if connected.
-  - **`CloseConnection()`**  
-    Closes the current connection, ensuring a clean disconnect.
-
----
-
-### **3. `main.cpp`**
-
-#### **Purpose:**
-Controls the robot's behavior, manages Wi-Fi/WebSocket connections, and orchestrates movement based on commands.
-
-#### **Key Components:**
-
-- **Initialization:**
-  - **`wifiManagerHelper.connectToWiFi()`**  
-    Establishes a Wi-Fi connection.
-  - **`wsClient.Connect()`**  
-    Connects to the WebSocket server. Restarts the ESP32 if the connection fails.
-
-- **Command Handling:**
-  - Defines various commands (`FORWARD`, `BACKWARD`, etc.) to control the robot.
-  - **`handleCommand(String command)`**  
-    Executes appropriate functions based on the received command.
+#### JSON Handling in `ReadData`
+```cpp
+DynamicJsonDocument doc(1024);
+DeserializationError error = deserializeJson(doc, json);
+if (error) {
+  Serial.print("JSON deserialization failed: ");
+  Serial.println(error.c_str());
+  return;
+}
+```
+Parses incoming JSON strings to extract commands, while handling deserialization errors.
 
 ---
 
-### **How It All Works Together:**
+## Wi-Fi Manager
+The `WiFiManagerHelper` class in **`wifi_manager.cpp`** manages Wi-Fi connectivity using the WiFiManager library.
 
-1. **Wi-Fi Connection:**
-   - On startup, the `WiFiManagerHelper` attempts to connect to a Wi-Fi network. If no saved networks are found, it creates an access point.
-   
-2. **WebSocket Communication:**
-   - Once Wi-Fi is connected, the `WebSocketClient` connects to the specified server (`<IP_OF_LAPTOP>` on port `8080`).
-   - The WebSocket connection enables real-time communication, where commands from the server control the robot's actions.
+### Key Features
+- **Automatic Wi-Fi connection**:
+  - `connectToWiFi(const char* ssid)` attempts to connect to a specified Wi-Fi network, retrying up to 5 times.
+- **Custom callbacks**:
+  - `setOnConnectionFailedCallback(std::function<void()> callback)` allows specifying a custom action for connection failures.
+- **Access to Wi-Fi client**:
+  - `getClient()` provides a reference to the `WiFiClient` instance for use in other modules.
 
-3. **Main Loop (Implied in the Code Fragment):**
-   - Continuously reads commands from the WebSocket.
-   - Calls `handleCommand()` to execute actions such as moving forward or changing facial expressions based on the received command.
-   
+### Code Highlights
+#### Connection Retry Logic
+```cpp
+for (int attempt = 1; attempt <= maxRetries; ++attempt) {
+    if (wifiManager.autoConnect(ssid)) {
+        Serial.println("Connected to WiFi");
+        return true;
+    } else {
+        Serial.printf("Connection attempt %d failed, retrying...\n", attempt);
+        delay(retryDelay);
+    }
+}
+```
+This loop attempts reconnection, providing feedback on each attempt.
+
 ---
 
-### **Key Takeaways:**
-- **Modularity:** The code is well-structured into separate files for Wi-Fi, WebSocket handling, and main logic, improving maintainability.
-- **Error Handling:** Automatic reconnection ensures reliability in both Wi-Fi and WebSocket connections.
-- **Expandability:** New commands or actions can easily be added by extending the `handleCommand()` function or adding methods to the `Movement` class. 
+## Main Program
+The main program (**`main.cpp`**) integrates Wi-Fi and WebSocket components while coordinating robot functionalities such as movement and face display.
 
-This design ensures the robot dog remains responsive and functional even if network issues occur, while keeping the main logic clear and organized.
+### Wi-Fi Manager Integration
+#### Connecting to Wi-Fi
+```cpp
+if (!wifiManagerHelper.connectToWiFi()) {
+    Serial.println("Wi-Fi connection failed");
+    ESP.restart();  // Restart ESP32 if Wi-Fi connection fails
+}
+```
+Ensures the robot is connected to Wi-Fi and restarts if the connection cannot be established.
+
+### WebSocket Handler Integration
+#### Establishing Connection
+```cpp
+if (!wsClient.Connect()) {
+    Serial.println("Failed to connect to the server");
+    ESP.restart();  // Restart the ESP32 if connection fails
+}
+```
+Connects to the server on startup and restarts if the connection fails.
+
+#### Receiving Commands
+```cpp
+if (wsClient.IsConnected()) {
+    String command = wsClient.ReadData();
+    setFace(command);
+    handleCommand(command);
+}
+```
+Handles incoming JSON commands, updating the robot’s face and movements based on the received instructions.
+
+---
+
+## Dependencies
+- **WiFiManager**: Simplifies Wi-Fi connection setup.
+- **ArduinoJson**: Enables parsing and serialization of JSON data.
+- **Wire**: Handles I2C communication for sensors and displays.
+- **ESP32Servo**: Manages servo motors for movement.
+
+---
