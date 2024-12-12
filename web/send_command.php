@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 function sendCommand($command) {
     // Define the server host and port to connect to
-    $host = '192.168.137.103'; // Server IP address
+    $host = '127.0.0.1'; // Server IP address
     $port = 8080; // Server port number
 
     // Create a TCP socket
