@@ -72,7 +72,7 @@ source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-syste
 <br>
 <br>
 
-## **Creating a solid and modular Movement code architecture**
+## **Creating a Solid and Modular Movement Code Architecture**
 
 Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach.
 
@@ -96,7 +96,29 @@ private:
 };
 ```
 
-### 
+### Face abstraction
+
+We could apply the same logic as we used to abstract the legs and apply it to the face. The face controls one or more OLED displays, but in the end, we only want to pass an image/bitmap to the face and make it display that particular face. We could also hardcode the bitmaps or store them somewhere, so we only 
+have to pass an enum or something similar into the face, displaying the image on the OLED(s).
+
+We take the first approach for now since it's more barebones, allowing us to expand upon it much more quickly. We extract the face from the main codebase and hide it between more straightforward functions.
+
+```cpp title="Face.h"
+class Face {
+public:
+    Face();
+    ~Face();
+
+    bool Initialize(int width, int height, int address, int rstPin = -1);
+    void DisplayFace(int width, int height, const unsigned char* bitmap);
+
+private:
+    Adafruit_SSD1306* _display;
+    int _width, _height;
+};
+```
+
+### Creating the Movement
 
 <br>
 <br>
@@ -104,7 +126,7 @@ private:
 <br>
 <br>
 
-## Creating a Manageable and easily navigatable knowledge base
+## Creating a Manageable and Easily Navigatable Knowledge Base
 To work efficiently and pass over knowledge easily, using a knowledge base is inevitable. Creating the knowledge base's content is a form of art, but creating an easily manageable and navigatable layout is a challenging task, too. Nothing is more frustrating than not finding what you're looking for. Besides, storing similar documents beside each other might increase the odds of opening another similar file out of curiosity and learning something new every day.
 
 The goal of this research is to see if I can improve the layout of the portfolio website, changing it into an easy-to-navigate knowledge base.
