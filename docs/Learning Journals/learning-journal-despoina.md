@@ -131,3 +131,8 @@ This setup ensures that the MariaDB container will use the SQL files located in 
 
 4. Testing  
 After implementing the changes, I verified that everything was working correctly. I stopped and restarted the containers multiple times to confirm that the data was still there after the restarts. I also tested the database intitaization by ensuring that the robots zable was created properly with the correct structure and that the intitial data was inserted successfully.
+
+### Learning Story [#138]: C++ Coding Conventions Research  
+To address challenges in organizing and maintaining clean code for the robot dog’s functionalities, I researched and implemented C++ coding conventions. My primary goal was to create a codebase that adhered to industry standards, ensuring it was modular, readable, and easy to maintain. By referring to the Google C++ Style Guide, I identified and adopted key practices to improve the quality of our code.
+
+This process also helped me with teamwork and allowed me to follow coherent coding connventions when collaborating.
