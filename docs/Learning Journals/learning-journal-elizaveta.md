@@ -71,4 +71,25 @@ For the converting my file into the i was using some tools.
 
 
 
+## **Learning Question**
+How can the PlatformIO extension in Visual Studio Code be utilized to test and debug the robot dog’s components effectively?
+
+## **Goal** 
+The goal of this learning story is to understand how to use the PlatformIO extension in Visual Studio Code for assembling and testing a robot dog. The process involves setting up a PlatformIO project, putting code to control hardware components and testing.
+
+## **Key steps of using the platform**
+1. Install PlatformIO Extension: I have downloaded it from Extension section in VsCode.
+2. Create a New Project: A new separate PlatformIO project was being created for the robot dog, we have copied and pasted src folder into the new folder. By creating a new project, it is possible  to specify and manage the required libraries.
+I have learnt, that it is helpful to isolate my work from other projects. This isolation helps prevent conflicts between different sets of code and configurations, making it easier to manage and maintain the codebase.
+3. Put the Code: i have put the code from the existing files i had for embedded part of the project.
+4. Integrate Libraries: a few libraries were needed to be downloaded, so i just downloaded them straightly from "Libraries" section in PlatformIO.
+
+
+## **Benefits of using the platform**
+I have detected some benefits of using this extension.
+
+
+
+
+
 
