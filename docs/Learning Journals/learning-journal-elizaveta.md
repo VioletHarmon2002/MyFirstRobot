@@ -85,22 +85,52 @@ This process has helped me understand how to structure the bitmap data and where
 
 The next step will involve integrating the header file into the codebase and testing it on the actual hardware.
 
+# User Documentation
+
+### Purpose
+This section is for end users who need to interact with the bitmap feature in the project without modifying the code.
+
+### What the Bitmap Feature Does
+- Displays face expressions or graphics on the robot dog's screen.
+- Enhances user experience with custom visuals.
+
+### How to Use It
+1. Turn on the robot dog.
+2. The screen will display various face expressions based on pre-programmed conditions (e.g., happy when greeted, sleepy when inactive).
+
+
+### Troubleshooting
+- **Blank Display**: Check the power supply.
+- **Outdated Firmware**: Ensure the robot dog is running the latest firmware version.
+- **Distorted Graphics**: Restart the robot dog.
+
+
 # Using Bitmaps for Face Expressions on the Robot Dog
 
-### Integrate the Bitmap into the Code
-1. **Create a Header File:** Copy the generated bitmap code into a new header file (e.g., `happy_face.h`).
-2. **Include the Header File:** In the robot dog's codebase, include the header file where the display logic is implemented.
+## Integrate the Bitmap into the Code
 
-### Display the Bitmap on the Robot Dog
-1. **Initialize the Display:** Ensure the display is properly initialized in the code.
-2. **Display the Bitmap:** Use the display library's functions to render the bitmap on the screen. For example:
-   ```c/c++
-   #include "happy_face.h"
-   // ... existing code to initialize the display
-   display.drawBitmap(0, 0, happy_face_bitmap, width, height, WHITE); 
-   
-This function call is responsible for rendering the bitmap image on the display.
-`0, 0`: These are the x and y coordinates on the display where the top-left corner of the bitmap will be drawn. In this case, the bitmap is drawn starting from the top-left corner of the display
+1. **Create a Header File**  
+   - Copy the generated bitmap code into a new header file (e.g., `happy_face.h`).
+
+2. **Include the Header File**  
+   - In the robot dog's codebase, include the header file where the display logic is implemented:
+     ```c
+     #include "happy_face.h"
+     // ... existing code to initialize the display
+     ```
+
+3. **Display the Bitmap**  
+   - Use the following function call to render the bitmap image on the display:
+     ```c
+     display.drawBitmap(0, 0, happy_face_bitmap, HAPPY_FACE_WIDTH, HAPPY_FACE_HEIGHT, WHITE);
+     ```
+     - `0, 0`: These are the x and y coordinates on the display where the top-left corner of the bitmap will be drawn. In this case, the bitmap is drawn starting from the top-left corner of the display.
+
+---
+### Testing
+1. Compile and upload the code to the robot dog's microcontroller.
+2. Verify the bitmap appears correctly on the screen.
+3. Check for performance issues, such as slow rendering.
 
 
 ## Conclusion
