@@ -136,3 +136,15 @@ After implementing the changes, I verified that everything was working correctly
 To address challenges in organizing and maintaining clean code for the robot dog’s functionalities, I researched and implemented C++ coding conventions. My primary goal was to create a codebase that adhered to industry standards, ensuring it was modular, readable, and easy to maintain. By referring to the Google C++ Style Guide, I identified and adopted key practices to improve the quality of our code.
 
 This process also helped me with teamwork and allowed me to follow coherent coding connventions when collaborating.
+
+1. Readability and Maintainability  
+One of the first issues I noticed was the lack of a consistent style throughout the project. Variable names, function structures, and file organization varied widely because different team members followed their own conventions. This made it difficult for anyone other than the original author to read or debug the code.
+
+After studying the Google C++ Style Guide, I adopted the following conventions:
+
+- File naming: Use CamelCase for filenames (e.g., Face.cpp, Face.h)  
+- Variable naming: Use lowerCamelCase for variable names (e.g., isConnected)
+- Function Naming: Use lowerCamelCase for function names (e.g., moveForward())  
+- Class Naming: Use CamelCase for class names (e.g. RobotDog)
+
+By implementing these naming conventions, I achieved better consistency and improved code readability, which was particularly helpful in a group setting.Ad
