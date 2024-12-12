@@ -120,6 +120,35 @@ private:
 
 ### Creating the Movement
 
+Finally, we can combine these two and create some movement and combine it with facial expressions. We could hardcode all the movements in the main file, but this would mean we can't use any custom code sent from the website, which is one of the project's primary goals. Instead, we'll create a movement structure, responsible for containing and running all the movement-related code.
+
+```cpp title="Movement.h"
+class Movement {
+public:
+    void addStep(std::function<void()> step) {
+        steps.push_back(step);
+    }
+
+    void execute() {
+        for (auto& step : steps) {
+            step();
+        }
+    }
+private:
+    std::vector<std::function<void()>> steps;
+};
+```
+
+Combining this, we can create code that's easy to maintain and expand. This particular implementation can also be used in combination with custom code since we can program the movements ourselves with the input from the website. This allows us to remove all the hard-coded code from the device and rely entirely on the website to provide movement and behavioral instructions.
+
+```cpp title="main.cpp"
+Movement walk;
+walk.addStep([&]() { dog.MoveLeg(0, 45, 90); });  // Lift front-left leg
+walk.addStep([&]() { dog.MoveLeg(1, 45, 90); });  // Lift front-right leg
+walk.addStep([&]() { dog.MoveLeg(2, 45, 90); });  // Repeat for other legs
+walk.execute();
+```
+
 <br>
 <br>
 <br>
