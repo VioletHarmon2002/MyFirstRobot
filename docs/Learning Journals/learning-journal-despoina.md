@@ -147,4 +147,14 @@ After studying the Google C++ Style Guide, I adopted the following conventions:
 - Function Naming: Use lowerCamelCase for function names (e.g., moveForward())  
 - Class Naming: Use CamelCase for class names (e.g. RobotDog)
 
-By implementing these naming conventions, I achieved better consistency and improved code readability, which was particularly helpful in a group setting.Ad
+By implementing these naming conventions, I achieved better consistency and improved code readability, which was particularly helpful in a group setting.
+
+2. Using Classes  
+A recurring issue was inconsistent use of object-oriented programming. Some group members used classes effectively, encapsulating data and methods, while others preferred standalone functions in header files. This inconsistency caused confusion about how to organize the code.
+
+To address this, we standardized the use of classes:
+
+- Encapsulate functionality into classes: For example, a Leg class would handle all methods related to leg movements (e.g., moveForward(), sit()), while a Head class would handle head-specific actions.
+- Separate files for class implementation: Each class has a .cpp file for implementation and a corresponding .h file for declarations.
+
+This structure ensures that the code remains modular and scalable as we add new features to the robot dog.
