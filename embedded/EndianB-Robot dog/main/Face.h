@@ -1,9 +1,7 @@
 #pragma once
 #include <Adafruit_SSD1306.h>
 
-/// <summary>
-/// Class controlling the OLED that's used for the face.
-/// </summary>
+
 class Face {
 public:
     Face();
