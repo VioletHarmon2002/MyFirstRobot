@@ -158,3 +158,11 @@ To address this, we standardized the use of classes:
 - Separate files for class implementation: Each class has a .cpp file for implementation and a corresponding .h file for declarations.
 
 This structure ensures that the code remains modular and scalable as we add new features to the robot dog.
+
+3. Code redundancy  
+Another issue we had to ensure we do not do was code redundancy. Without proper organization, different team members could write the same functionality multiple times in different parts of the codebase. This redundancy not only wastes time but also makes the code harder to maintain.
+
+To combat this, we agreed to:
+
+- Create reusable methods in separate files: For example, instead of rewriting the same walking logic in multiple places, we created a single Walking class with reusable methods.  
+- Leverage header files for shared functionality: These header files act as a central source, ensuring consistency and reducing duplicate code.
