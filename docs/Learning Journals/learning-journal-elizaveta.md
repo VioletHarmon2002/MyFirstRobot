@@ -50,6 +50,9 @@ Implementing the `fall_right.h` file not only enhanced the functionality of our 
 
 # Learning Story: Creating a bitmap 
 
+## Learning question
+How can I create a bitmap in the project, ensuring it is efficient, reusable, and properly documented for both end users and developers
+
 
 ## What needs to be learned
 - How to create a bitmap from an image.
@@ -58,6 +61,13 @@ Implementing the `fall_right.h` file not only enhanced the functionality of our 
 
 ## What I've learned
 I have learned how to create and manipulate bitmap images. So now I am capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
+
+
+## What are bitmaps and why are they used?
+A bitmap is a type of digital image composed of a grid of pixels. Each pixel in the grid represents a specific color or shade. so it can be said, that bitmaps are widely used in graphics programming because they provide fine control over every pixel, making them ideal for creating custom displays, icons, and graphical interfaces.
+
+In embedded systems, like the robot dog's face display, bitmaps are essential for creating visually rich and interactive interfaces. For instance:
+Custom Graphics: Bitmaps allow for unique face expressions and animations. Many libraries and tools, such as the OLED or LCD libraries, support bitmap rendering directly.
 
 ### Step 1: Changing the Size of the Image
 
@@ -74,6 +84,24 @@ After converting the image into a  header file containing the bitmap data, I pre
 This process has helped me understand how to structure the bitmap data and where it fits within the project's existing code. Additionally, I have learned about the display's capabilities and how to use bitmap data to create various face expressions for the robot dog.
 
 The next step will involve integrating the header file into the codebase and testing it on the actual hardware.
+
+# Using Bitmaps for Face Expressions on the Robot Dog
+
+### Integrate the Bitmap into the Code
+1. **Create a Header File:** Copy the generated bitmap code into a new header file (e.g., `happy_face.h`).
+2. **Include the Header File:** In the robot dog's codebase, include the header file where the display logic is implemented.
+
+### Display the Bitmap on the Robot Dog
+1. **Initialize the Display:** Ensure the display is properly initialized in the code.
+2. **Display the Bitmap:** Use the display library's functions to render the bitmap on the screen. For example:
+   ```c/c++
+   #include "happy_face.h"
+   // ... existing code to initialize the display
+   display.drawBitmap(0, 0, happy_face_bitmap, width, height, WHITE); 
+   
+This function call is responsible for rendering the bitmap image on the display.
+`0, 0`: These are the x and y coordinates on the display where the top-left corner of the bitmap will be drawn. In this case, the bitmap is drawn starting from the top-left corner of the display
+
 
 ## Conclusion
 Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps. I also learned the importance of understanding the project's existing codebase and  partly how to integrate new features seamlessly.
