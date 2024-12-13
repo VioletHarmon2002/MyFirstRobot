@@ -92,7 +92,7 @@ These correspond to specific angles for each leg:
 
 When the function is called, each servo is commanded to move to the assigned angle using the write method.
 
-### For End Users
+#### For End Users
 The lieDown function allows the robot to smoothly transition into a lying-down position. This motion should be visually natural, with each leg moving to a predefined angle.
 
 **How It Works:**
@@ -105,3 +105,25 @@ The lieDown function allows the robot to smoothly transition into a lying-down p
 - The function ensures smooth movement of the robot.
 - Predefined positions make the movement accurate and repeatable.
 - The design is efficient, enabling reliable execution of the lying-down motion.
+
+### Sit Function
+The sit() function is designed to move the servos of the robot to predefined positions that simulate a sitting posture. It is part of the Movement class and works with initialized servo motors to adjust the robot's legs accordingly.
+
+#### For Developers  
+**How it Works:** The function writes specific angles to each servo based on predefined "sit" positions stored in an array:
+
+````
+int sitPosition[] = {110, 70, 35, 145}; // Angles for FL, FR, RL, RR servos
+````
+
+These values correspond to the optimal configuration for a sitting position.
+
+**Function Details:**
+
+````
+void sit();
+````
+
+- Location: Defined in movement.cpp.  
+- Access: Public method in the Movement class.  
+- Purpose: Moves the robot into a seated position by writing specific angles to each leg servo.
