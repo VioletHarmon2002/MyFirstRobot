@@ -17,6 +17,10 @@ instead of hardcoded ip's
 
 # Friday December 13 2024
 
+Today I'm going to work on documentation for both my userstory and learning story, and then after that I will pick up another userstory, and I will create a learning story for linting so that we can be consistent with conventions in our project
+
+
+
 I researched google code conventions and created files for the main conventions we're going to use, as a formal question I have "What code conventions can we use as a team?" So as a team we decided to use the google code conventions. More specifically mentioned in the files `Web Conventions.md` In there I also have the link to the code conventions of google. 
 
 The sources that I used for this learning story are as follows:
