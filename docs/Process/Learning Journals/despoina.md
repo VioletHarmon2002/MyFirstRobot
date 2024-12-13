@@ -167,6 +167,8 @@ To combat this, we agreed to:
 - Create reusable methods in separate files: For example, instead of rewriting the same walking logic in multiple places, we created a single Walking class with reusable methods.  
 - Leverage header files for shared functionality: These header files act as a central source, ensuring consistency and reducing duplicate code.
 
+Coding conventions for developing with C++ are also shared with the team and can be found in the cpp.md file.
+
 **Sources**
 
 - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
