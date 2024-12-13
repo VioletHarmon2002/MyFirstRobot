@@ -99,3 +99,14 @@ void Movement::walkBackward()
     Serial.println(startTime);
     stopServos();
 }
+
+// Sit movement
+void Movement::sit()
+{
+    int sitPosition[] = {110, 70, 35, 145};
+
+    for (int i = 0; i < 4; i++)
+    {
+        servos[i].write(sitPosition[i]);
+    }
+}
