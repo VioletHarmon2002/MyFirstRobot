@@ -141,7 +141,5 @@ If the servos do not behave as expected, the pin connections can be checked and 
 
 
 
-´
-
 
 
