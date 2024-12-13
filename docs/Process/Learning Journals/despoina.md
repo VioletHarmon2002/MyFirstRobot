@@ -131,3 +131,44 @@ This setup ensures that the MariaDB container will use the SQL files located in 
 
 4. Testing  
 After implementing the changes, I verified that everything was working correctly. I stopped and restarted the containers multiple times to confirm that the data was still there after the restarts. I also tested the database intitaization by ensuring that the robots zable was created properly with the correct structure and that the intitial data was inserted successfully.
+
+### Learning Story [#138]: C++ Coding Conventions Research  
+To address challenges in organizing and maintaining clean code for the robot dog’s functionalities, I researched and implemented C++ coding conventions. My primary goal was to create a codebase that adhered to industry standards, ensuring it was modular, readable, and easy to maintain. By referring to the Google C++ Style Guide, I identified and adopted key practices to improve the quality of our code.
+
+This process also helped me with teamwork and allowed me to follow coherent coding connventions when collaborating.
+
+1. Readability and Maintainability  
+One of the first issues I noticed was the lack of a consistent style throughout the project. Variable names, function structures, and file organization varied widely because different team members followed their own conventions. This made it difficult for anyone other than the original author to read or debug the code.
+
+After studying the Google C++ Style Guide, I adopted the following conventions:
+
+- File naming: Use CamelCase for filenames (e.g., Face.cpp, Face.h)  
+- Variable naming: Use lowerCamelCase for variable names (e.g., isConnected)
+- Function Naming: Use lowerCamelCase for function names (e.g., moveForward())  
+- Class Naming: Use CamelCase for class names (e.g. RobotDog)
+
+By implementing these naming conventions, I achieved better consistency and improved code readability, which was particularly helpful in a group setting.
+
+2. Using Classes  
+A recurring issue was inconsistent use of object-oriented programming. Some group members used classes effectively, encapsulating data and methods, while others preferred standalone functions in header files. This inconsistency caused confusion about how to organize the code.
+
+To address this, we standardized the use of classes:
+
+- Encapsulate functionality into classes: For example, a Leg class would handle all methods related to leg movements (e.g., moveForward(), sit()), while a Head class would handle head-specific actions.
+- Separate files for class implementation: Each class has a .cpp file for implementation and a corresponding .h file for declarations.
+
+This structure ensures that the code remains modular and scalable as we add new features to the robot dog.
+
+3. Code redundancy  
+Another issue we had to ensure we do not do was code redundancy. Without proper organization, different team members could write the same functionality multiple times in different parts of the codebase. This redundancy not only wastes time but also makes the code harder to maintain.
+
+To combat this, we agreed to:
+
+- Create reusable methods in separate files: For example, instead of rewriting the same walking logic in multiple places, we created a single Walking class with reusable methods.  
+- Leverage header files for shared functionality: These header files act as a central source, ensuring consistency and reducing duplicate code.
+
+Coding conventions for developing with C++ are also shared with the team and can be found in the cpp.md file.
+
+**Sources**
+
+- [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
