@@ -127,3 +127,7 @@ void sit();
 - Location: Defined in movement.cpp.  
 - Access: Public method in the Movement class.  
 - Purpose: Moves the robot into a seated position by writing specific angles to each leg servo.
+
+#### For End Users  
+**What it Does:** Transitions the robot into a sitting position by moving its legs to predefined angles.  
+**When to Use:** Use this function when you want the robot to adopt a seated posture for resting or stabilization. The movement can be controlled via the web application when the "sit" command is pressed. The robot dog will then follow the instruction.
