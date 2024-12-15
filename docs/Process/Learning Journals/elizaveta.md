@@ -71,4 +71,75 @@ For the converting my file into the i was using some tools.
 
 
 
+## **Learning Question**
+How can the PlatformIO extension in Visual Studio Code be utilized to test the robot dog’s components effectively?
+
+## **Goal** 
+The goal of this learning story is to understand how to use the PlatformIO extension in Visual Studio Code for assembling and testing a robot dog. The process involves setting up a PlatformIO project, putting code to control hardware components and testing.
+
+## **Key steps of using the platform**
+1. Install PlatformIO Extension: I have downloaded it from Extension section in VsCode.
+2. Create a New Project: A new separate PlatformIO project was being created for the robot dog, we have copied and pasted src folder into the new folder. By creating a new project, it is possible  to specify and manage the required libraries.
+I have learnt, that it is helpful to isolate my work from other projects. This isolation helps prevent conflicts between different sets of code and configurations, making it easier to manage and maintain the codebase.
+3. Put the Code: i have put the code from the existing files i had for embedded part of the project.
+4. Integrate Libraries: a few libraries were needed to be downloaded, so i just downloaded them straightly from "Libraries" section in PlatformIO.
+
+
+## **Benefits of using the platform**
+I have detected some benefits of using this extension:
+
+Efficiency: PlatformIO automates many aspects of the development process, reducing the need for manual configuration and saving time.
+Improved Debugging: With integrated debugging and a serial monitor, I can quickly detect and resolve issues with the robot dog's functionality.
+Simplified Workflow: The PlatformIO extension streamlines the process of writing, testing, compiling, and uploading code, making the development cycle faster and more efficient.
+Version Control: PlatformIO helps in maintaining and managing different versions of the firmware, enabling easy rollbacks and testing of changes.
+
+## **Testing the Robot Dog with PlatformIO**
+
+### **Step 1: Install Required Libraries**
+To streamline development, all necessary libraries for the robot dog’s functionalities (e.g., ESP32Servo, Adafruit GFX, WiFiManager, ArduinoJson) were installed using the Libraries window in PlatformIO. This ensures that the code dependencies are managed effectively and automatically linked during compilation.
+
+### **Step 2: Creating, compiling and uplading the code **
+
+1. PlatformIO is being  used in Visual Studio Code to compile and upload the test script to  Arduino board. It can be done by clicking the "Upload" button in the PlatformIO toolbar or using the command palette. Printed messages can be observed in serial monitor.
+
+### **Step 3: Example of testing the function **
+
+#include <Arduino.h>
+#include "movement/movement.h"
+
+// Define the pins for the servos
+const int flPin = 9;  // Front Left
+const int frPin = 10; // Front Right
+const int rlPin = 11; // Rear Left
+const int rrPin = 12; // Rear Right
+
+Movement robotMovement(flPin, frPin, rlPin, rrPin);
+
+void setup() {
+    Serial.begin(9600);
+    robotMovement.initServos();
+}
+
+void loop() {
+    Serial.println("Testing Walk Forward");
+    robotMovement.walkForward();
+    delay(2000);
+
+    Serial.println("Testing Walk Backward");
+    robotMovement.walkBackward();
+    delay(2000);
+
+    Serial.println("Stopping Servos");
+    robotMovement.stopServos();
+    delay(2000);
+}
+
+
+## ** Troubleshhoting **
+
+If the servos do not behave as expected, the pin connections can be checked and ensure the servo library is correctly included and configured. 
+
+
+
+
 
