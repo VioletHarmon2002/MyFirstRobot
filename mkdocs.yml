@@ -1,9 +1,8 @@
-site_name: My first robot
+﻿site_name: My First Robot
 theme:
   name: material
   features:
     - navigation.sections
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -22,30 +21,41 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode    
       primary: teal
-      accent: lime
+      accent: teal
 
 nav:
-  - Home: index.md
-  - Learning Journals:
-      - Learning Journal - Joshua: Learning Journals/learning-journal-joshua.md
-      - Learning Journal - Tim: Learning Journals/learning-journal-tim.md
-      - Learning Journal - Tom: Learning Journals/learning-journal-tom.md
-      - Learning Journal - Despoina: Learning Journals/learning-journal-despoina.md
-      - Learning Journal - Elizaveta: Learning Journals/learning-journal-elizaveta.md
-      - Learning Journal - Xander: Learning Journals/learning-journal-xander.md
-  - Meetings:
-      - Gerald:
-          - 13 November: Meetings/Gerald/13-11-2024.md
-          - 20 November: Meetings/Gerald/20-11-2024.md
-      - Bernardo:
-          - 22 November: Meetings/Bernardo/22-11-2024.md
-  - Setup:
-      - Server: Setup/server.md
-      - ZeroTier: Setup/zerotier.md
-  - Embedded:
-      - Code: 
-          - Movement: Embedded/Code/movement.md
-  - Database: database.md
+  - 🏠 Home: index.md
+  - Device: 
+    - 🔨 Setup:
+      - Server: Device/Setup/server.md
+    - ⌨ Code: 
+      - Movement: Device/Code/movement.md
+    - 💾 Database: 
+      - Database: Device/Database/database.md
+      - API Reference: Device/Database/reference.md
+  
+  - Process:
+    - 📃 Conventions:
+        - C++: Process/Conventions/cpp.md
+        - HTML: Process/Conventions/html.md
+        - CSS: Process/Conventions/css.md
+        - JavaScript: Process/Conventions/javascript.md
+    - 🔍 Learning Journals:
+        - Joshua Ganga: Process/Learning Journals/joshua.md
+        - Tim van Dantzig: Process/Learning Journals/tim.md
+        - Tom Jonker: Process/Learning Journals/tom.md
+        - Despoina Sfantou: Process/Learning Journals/despoina.md
+        - Elizaveta Sabanova: Process/Learning Journals/elizaveta.md
+        - Xander Tamis: Process/Learning Journals/xander.md
+    - 📞 Meetings:
+        - Gerald:
+            - Nov 13, 2024: Process/Meetings/Gerald/13-11-2024.md
+            - Nov 20, 2024: Process/Meetings/Gerald/20-11-2024.md
+            - Dec 11, 2024: Process/Meetings/Gerald/11-12-2024.md
+        - Bernardo:
+            - Nov 22, 2024: Process/Meetings/Bernardo/22-11-2024.md
+            - Dec 13, 2024: Process/Meetings/Bernardo/13-12-2024.md
+  
 
 
 markdown_extensions:
