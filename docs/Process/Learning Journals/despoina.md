@@ -172,3 +172,50 @@ Coding conventions for developing with C++ are also shared with the team and can
 **Sources**
 
 - [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+
+### Learning Story [#140]: Assembling Robot Dog
+How can I assemble the robot dog together, in order to make it functioning?  
+To answer this answer, I followed the assembly guide of the previous team and moved on on assembling the robot dog. These are the steps that are to be followed:
+
+1. **Attach Risers**  
+   Use 3 risers (2.4x16mm) and bolts to secure them to the top plate. These will hold the protoboard.
+
+2. **Attach Sides**  
+   Fix the sides to the bottom baseplate. The square hole is for the front servo, and the round hole is for the back servo.
+
+3. **Install Servos**  
+   Insert 4 SG90 mini servos into the holes on the side plates. They should fit snugly.
+
+4. **Place Baseplate Connectors**  
+   Insert the connectors into the slots on the bottom plate to hold the servos and connect the plates.
+
+5. **Fit the Top Plate**  
+   Attach the top plate over the baseplate connectors and sides. Ensure everything aligns tightly.
+
+6. **Secure with Bolts**  
+   Use 3.9mm bolts to fasten the top and bottom plates. Tighten gently to avoid cracking the plexiglass.
+
+7. **Attach Legs**  
+   Turn the robot dog upside down and use a screwdriver to secure the legs to the servos. Ensure the servos move with the legs.
+
+8. **Add Face Mount**  
+   Slot the face mount into the slit at the front of the robot dog.
+
+9. **Mount Protoboard**  
+   Attach the protoboard to the risers on the top plate. This will hold the ESP32 and connections.
+
+10. **Place Power Supply**  
+    Insert a 9V battery into the slot on the bottom plate. Connect it last to avoid turning the robot on prematurely.
+
+11. **Stick Breadboard**  
+    Place the breadboard on the top plate between the battery and face mount. Stick it after trying out its placement.
+
+12. **Install OLED Display**  
+    Secure the OLED display to the face mount using bolts and nuts. This will display the robot's emotions.
+
+13. **Connect ESP32 & Wiring**  
+    Attach the ESP32 to the protoboard and connect the servos, power supply, and OLED display. Match servo wires (brown to black) and ensure proper placement on the protoboard.  
+
+The robot dog I took up on had already its body assembled, so I continued with the remaining necessary steps.
+
+![Robot Dog Assembly](./Assets/robot_assembly.jpg)
