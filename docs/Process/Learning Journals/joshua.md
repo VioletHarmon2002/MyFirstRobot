@@ -50,3 +50,53 @@ To ensure that these conventions are followed, we as a team will work on impleme
 
 
 By implementing these measures we will try to maintain high code quality and consistency as a team across our project.
+
+
+
+# Sunday December 15 2024
+
+#### Learning Question
+
+Why is implementing a linter good for our project and is it worth the time?
+
+
+
+
+To answer this question I will first look at why a linter would be benefinicial for our current project.
+
+**Benefits**
+
+1. **Consistency**: It ensures code conventions are followed and are consistent across the entire codebase.
+2. **Error Detection**: Less inconsistency means Less errors, it also helps catch syntax errors and potential bugs early in the development process.
+3. **Code Quality**: It enforces the best practices and coding standards for everyone in the group, which means that it leads to higher quality code.
+4. **Productivity**: It saves time by automatically checking for common issues that are known
+5. **Maintainability**: And finally atlast, it makes the code easier to read and maintain by keeping a consistent style
+
+Overall, the time that is invested in setting up and using a linter is typically worth it because of the benefits of the better and more consistent code quality and reduced debugging time.
+
+
+**Which linters will we use for our project?**
+
+Because we're using the google coding conventions, and because we have HTML, CSS and Javascript files, we are going to use the following linters:
+
+1. **HTML**: [HTMLHint](https://htmlhint.com/)
+2. **CSS**: [Stylelint](https://stylelint.io/)
+3. **JavaScript**: [ESLint](https://eslint.org/)
+
+These linters are widely used and have extensive documentation and community support. They can be easily configured to use the google coding standards that we will apply to our project which is why we will be using these.
+
+
+
+**How Will we configure these for the google coding standards?**
+
+Originally these linteres do not use google coding standards by default. However, we can easily configure them to use these standards.
+
+For `ESLint(Javascript)` we will the command `npm install eslint-config-google` and then in the `.eslintrc` config file we could use a simple `"extends": "google"` to configure ESLint to use the google coding standards.
+
+For `Stylelint(CSS)` we will use the command `npm install stylelint-config-google` then the same as our ESLint file, in the `.stylelintrc` config file we use `"extends": "google"` to use the google standards for CSS.
+
+
+For `HTMLHint(HTML)` there is no official google style config, but we can manually configure the most important rules in the `.htmlhintrc` file to match Google's HTML conventions.
+
+
+So in short, **is it worth it to implement a linter?** Yes, the benefits heavily outweigh the time it takes to put this up, it will help everyone be more consistent, reduce debugging time and improve code quality.
