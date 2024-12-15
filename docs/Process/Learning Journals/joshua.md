@@ -17,15 +17,7 @@ instead of hardcoded ip's
 
 # Friday December 13 2024
 
-Today I'm going to work on documentation for both my userstory and learning story, and then after that I will pick up another userstory, and I will create a learning story for linting so that we can be consistent with conventions in our project
-
-
-#### Tasks for today
-
-- Create documentation for userstory #127
-- Create documentation for learning story #136
-- Try and test the robot to get another robot working
-
+Today I'm going to work on documentation for both my userstory and learning story, and then after that I will pick up another userstory, and I will create a learning story for linting so that we can be consistent with conventions in our project.
 
 
 #### Documentation for learning story #136
@@ -52,9 +44,9 @@ The main findings from my research include best practices for writing clean, rea
 
 To ensure that these conventions are followed, we as a team will work on implementing the following measures.
 
-- **Code reviews**: Regular code reviews will be conducted with merge requests
-- **Linting Tools**: We will try to implement Linting tools such as `ESLint` for JAvascript and `stylelint` for CSS
+- **Code reviews**: Regular code reviews will be conducted with merge requests.
+- **Linting Tools**: We will try to implement Linting tools such as `ESLint` for JAvascript and `stylelint` for CSS.
 - **Documentation**: The `Web Conventions.md` file will serve as a reference for all team members, providing detailed guidelines and examples.
 
 
-By implementing these measures we will try to maintain high code quality and consistency as a team across our project
+By implementing these measures we will try to maintain high code quality and consistency as a team across our project.
