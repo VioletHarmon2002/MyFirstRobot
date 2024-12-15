@@ -71,4 +71,119 @@ For the converting my file into the i was using some tools.
 
 
 
+# Learning Story: Creating a bitmap 
+
+## Learning question
+How can I create a bitmap in the project, ensuring it is efficient, reusable, and properly documented for both end users and developers
+
+
+## What needs to be learned
+- How to create a bitmap from an image.
+- How to use the bitmap in code.
+- How to implement the bitmap into a header file.
+
+## What I've learned
+I have learned how to create and manipulate bitmap images. So now I am capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
+
+
+## What are bitmaps and why are they used?
+A bitmap is a type of digital image composed of a grid of pixels. Each pixel in the grid represents a specific color or shade. so it can be said, that bitmaps are widely used in graphics programming because they provide fine control over every pixel, making them ideal for creating custom displays, icons, and graphical interfaces.
+
+In embedded systems, like the robot dog's face display, bitmaps are essential for creating visually rich and interactive interfaces. For instance:
+Custom Graphics: Bitmaps allow for unique face expressions and animations. Many libraries and tools, such as the OLED or LCD libraries, support bitmap rendering directly.
+
+### Step 1: Changing the Size of the Image
+
+I found a suitable image for the bitmap on Google. However, I needed to resize the image to fit the desired dimensions for the dog's face display. To do this, I used a simple bitmap tool that allowed me to input the new width and height.
+
+### Step 2: Converting the bmf file into actual  
+
+To convert the image into a usable bitmap, I used an online tool called ["image2cpp"](https://www.image2cpp.com/). This tool converted the image file into code, containing the bitmap data. I chose this tool because it provided the output in a format that was easy to integrate into the project's existing codebase.
+
+## Step 3: Preparing the Bitmap for Implementation
+
+After converting the image into a  header file containing the bitmap data, I prepared it for integration into the project's codebase. While I have not yet implemented the bitmap into the robot dog's face display, I now have the necessary data and understand how to include it.
+
+This process has helped me understand how to structure the bitmap data and where it fits within the project's existing code. Additionally, I have learned about the display's capabilities and how to use bitmap data to create various face expressions for the robot dog.
+
+The next step will involve integrating the header file into the codebase and testing it on the actual hardware.
+
+# User Documentation
+
+### Purpose
+This section is for end users who need to interact with the bitmap feature in the project without modifying the code.
+
+### What the Bitmap Feature Does
+- Displays face expressions or graphics on the robot dog's screen.
+- Enhances user experience with custom visuals.
+
+### How to Use It
+1. Turn on the robot dog.
+2. The screen will display various face expressions based on pre-programmed conditions (e.g., happy when greeted, sleepy when inactive).
+
+
+### Troubleshooting
+- **Blank Display**: Check the power supply.
+- **Outdated Firmware**: Ensure the robot dog is running the latest firmware version.
+- **Distorted Graphics**: Restart the robot dog.
+
+
+# Using Bitmaps for Face Expressions on the Robot Dog
+
+## Integrate the Bitmap into the Code
+
+1. **Create a Header File**  
+   - Copy the generated bitmap code into a new header file (e.g., `happy_face.h`).
+
+2. **Include the Header File**  
+   - In the robot dog's codebase, include the header file where the display logic is implemented:
+     ```c
+     #include "happy_face.h"
+     // ... existing code to initialize the display
+     ```
+
+3. **Display the Bitmap**  
+   - Use the following function call to render the bitmap image on the display:
+     ```c
+     display.drawBitmap(0, 0, happy_face_bitmap, HAPPY_FACE_WIDTH, HAPPY_FACE_HEIGHT, WHITE);
+     ```
+     - `0, 0`: These are the x and y coordinates on the display where the top-left corner of the bitmap will be drawn. In this case, the bitmap is drawn starting from the top-left corner of the display.
+
+---
+### Testing
+1. Compile and upload the code to the robot dog's microcontroller.
+2. Verify the bitmap appears correctly on the screen.
+3. Check for performance issues, such as slow rendering.
+
+
+## Conclusion
+Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps. I also learned the importance of understanding the project's existing codebase and  partly how to integrate new features seamlessly.
+
+# Sources 
+https://javl.github.io/image2cpp/
+https://www.hackster.io/379798/making-oled-bitmap-graphics-in-arduino-3e50db
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
