@@ -113,7 +113,7 @@ The sit() function is designed to move the servos of the robot to predefined pos
 **How it Works:** The function writes specific angles to each servo based on predefined "sit" positions stored in an array:
 
 ````
-int sitPosition[] = {110, 70, 35, 145}; // Angles for FL, FR, RL, RR servos
+ int sitPosition[] = {110, 40, 70, 145}; // Angles for FL, FR, RL, RR servos
 ````
 
 These values correspond to the optimal configuration for a sitting position.
