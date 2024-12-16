@@ -1,11 +1,11 @@
 #include "movement/movement.h"
 
 // Constructor
-Movement::Movement(int flPin, int rlPin, int frPin, int rrPin)
+Movement::Movement(int flPin, int frPin, int rlPin, int rrPin)
 {
     _servoPins[0] = flPin;
-    _servoPins[1] = rlPin;
-    _servoPins[2] = frPin;
+    _servoPins[1] = frPin;
+    _servoPins[2] = rlPin;
     _servoPins[3] = rrPin;
 }
 
@@ -32,23 +32,25 @@ void Movement::stopServos()
 // Left step movement
 void Movement::leftStep()
 {
-    int leftStep[] = {90, 110, 60, 120};
-    for (int i = 0; i < 4; i++)
-    {
-        servos[i].write(leftStep[i]);
-        delay(250);
-    }
+    FR.write(90);
+    delay(100);
+    FL.write(60);
+    delay(300);
+    RL.write(110);
+    delay(100);
+    RR.write(120);
 }
 
 // Right step movement
 void Movement::rightStep()
 {
-    int leftStep[] = {90, 60, 120, 70};
-    for (int i = 0; i < 4; i++)
-    {
-        servos[i].write(leftStep[i]);
-        delay(250);
-    }
+    FL.write(90);
+    delay(100);
+    FR.write(120);
+    delay(300);
+    RR.write(70);
+    delay(100);
+    RL.write(60);
 }
 
 // Walk forward
@@ -101,7 +103,7 @@ void Movement::walkBackward()
 // Sit movement
 void Movement::sit()
 {
-    int sitPosition[] = {110, 40, 70, 145};
+    int sitPosition[] = {110, 70, 35, 145};
 
     for (int i = 0; i < 4; i++)
     {
