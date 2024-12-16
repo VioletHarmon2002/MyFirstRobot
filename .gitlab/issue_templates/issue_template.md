@@ -15,5 +15,9 @@
 - work follows coding standards 
 - work is commit on the git via a merge request
 - work is peer reviewed
+- Feature or fix has been tested by reviewer
+- No critical bugs or errors remain
+- Work integrates with existing code without causing disruptions
+- Work aligns with the acceptance criteria outlined in the user story
 
 <!-- Add more DoD's if needed -->
