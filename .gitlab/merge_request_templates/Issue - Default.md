@@ -17,6 +17,3 @@
 ## Quality
 - [ ] Work is committed to git via a merge request.
 - [ ] Work is peer reviewed.
-
-## Specific
-- [ ] Work follows the AUAS/HvA HouseStyle, stated in the knowledge base
