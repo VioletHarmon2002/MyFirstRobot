@@ -1,1 +1,0 @@
-Learning journal for xander

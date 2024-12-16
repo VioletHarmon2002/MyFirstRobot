@@ -5,6 +5,9 @@
 
 .env
 
+## Mariadb data folder
+/mariadb_data/
+
 # User-specific files
 *.rsuser
 *.suo
