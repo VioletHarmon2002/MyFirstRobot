@@ -71,117 +71,73 @@ For the converting my file into the i was using some tools.
 
 
 
-# Learning Story: Creating a bitmap 
+## **Learning Question**
+How can the PlatformIO extension in Visual Studio Code be utilized to test the robot dog’s components effectively?
 
-## Learning question
-How can I create a bitmap in the project, ensuring it is efficient, reusable, and properly documented for both end users and developers
+## **Goal** 
+The goal of this learning story is to understand how to use the PlatformIO extension in Visual Studio Code for assembling and testing a robot dog. The process involves setting up a PlatformIO project, putting code to control hardware components and testing.
 
-
-## What needs to be learned
-- How to create a bitmap from an image.
-- How to use the bitmap in code.
-- How to implement the bitmap into a header file.
-
-## What I've learned
-I have learned how to create and manipulate bitmap images. So now I am capable of having a better understand working with graphical data, using appropriate tools, and organizing code efficiently.
-
-
-## What are bitmaps and why are they used?
-A bitmap is a type of digital image composed of a grid of pixels. Each pixel in the grid represents a specific color or shade. so it can be said, that bitmaps are widely used in graphics programming because they provide fine control over every pixel, making them ideal for creating custom displays, icons, and graphical interfaces.
-
-In embedded systems, like the robot dog's face display, bitmaps are essential for creating visually rich and interactive interfaces. For instance:
-Custom Graphics: Bitmaps allow for unique face expressions and animations. Many libraries and tools, such as the OLED or LCD libraries, support bitmap rendering directly.
-
-### Step 1: Changing the Size of the Image
-
-I found a suitable image for the bitmap on Google. However, I needed to resize the image to fit the desired dimensions for the dog's face display. To do this, I used a simple bitmap tool that allowed me to input the new width and height.
-
-### Step 2: Converting the bmf file into actual  
-
-To convert the image into a usable bitmap, I used an online tool called ["image2cpp"](https://www.image2cpp.com/). This tool converted the image file into code, containing the bitmap data. I chose this tool because it provided the output in a format that was easy to integrate into the project's existing codebase.
-
-## Step 3: Preparing the Bitmap for Implementation
-
-After converting the image into a  header file containing the bitmap data, I prepared it for integration into the project's codebase. While I have not yet implemented the bitmap into the robot dog's face display, I now have the necessary data and understand how to include it.
-
-This process has helped me understand how to structure the bitmap data and where it fits within the project's existing code. Additionally, I have learned about the display's capabilities and how to use bitmap data to create various face expressions for the robot dog.
-
-The next step will involve integrating the header file into the codebase and testing it on the actual hardware.
-
-# User Documentation
-
-### Purpose
-This section is for end users who need to interact with the bitmap feature in the project without modifying the code.
-
-### What the Bitmap Feature Does
-- Displays face expressions or graphics on the robot dog's screen.
-- Enhances user experience with custom visuals.
-
-### How to Use It
-1. Turn on the robot dog.
-2. The screen will display various face expressions based on pre-programmed conditions (e.g., happy when greeted, sleepy when inactive).
+## **Key steps of using the platform**
+1. Install PlatformIO Extension: I have downloaded it from Extension section in VsCode.
+2. Create a New Project: A new separate PlatformIO project was being created for the robot dog, we have copied and pasted src folder into the new folder. By creating a new project, it is possible  to specify and manage the required libraries.
+I have learnt, that it is helpful to isolate my work from other projects. This isolation helps prevent conflicts between different sets of code and configurations, making it easier to manage and maintain the codebase.
+3. Put the Code: i have put the code from the existing files i had for embedded part of the project.
+4. Integrate Libraries: a few libraries were needed to be downloaded, so i just downloaded them straightly from "Libraries" section in PlatformIO.
 
 
-### Troubleshooting
-- **Blank Display**: Check the power supply.
-- **Outdated Firmware**: Ensure the robot dog is running the latest firmware version.
-- **Distorted Graphics**: Restart the robot dog.
+## **Benefits of using the platform**
+I have detected some benefits of using this extension:
+
+Efficiency: PlatformIO automates many aspects of the development process, reducing the need for manual configuration and saving time.
+Improved Debugging: With integrated debugging and a serial monitor, I can quickly detect and resolve issues with the robot dog's functionality.
+Simplified Workflow: The PlatformIO extension streamlines the process of writing, testing, compiling, and uploading code, making the development cycle faster and more efficient.
+Version Control: PlatformIO helps in maintaining and managing different versions of the firmware, enabling easy rollbacks and testing of changes.
+
+## **Testing the Robot Dog with PlatformIO**
+
+### **Step 1: Install Required Libraries**
+To streamline development, all necessary libraries for the robot dog’s functionalities (e.g., ESP32Servo, Adafruit GFX, WiFiManager, ArduinoJson) were installed using the Libraries window in PlatformIO. This ensures that the code dependencies are managed effectively and automatically linked during compilation.
+
+### **Step 2: Creating, compiling and uplading the code **
+
+1. PlatformIO is being  used in Visual Studio Code to compile and upload the test script to  Arduino board. It can be done by clicking the "Upload" button in the PlatformIO toolbar or using the command palette. Printed messages can be observed in serial monitor.
+
+### **Step 3: Example of testing the function **
+
+#include <Arduino.h>
+#include "movement/movement.h"
+
+// Define the pins for the servos
+const int flPin = 9;  // Front Left
+const int frPin = 10; // Front Right
+const int rlPin = 11; // Rear Left
+const int rrPin = 12; // Rear Right
+
+Movement robotMovement(flPin, frPin, rlPin, rrPin);
+
+void setup() {
+    Serial.begin(9600);
+    robotMovement.initServos();
+}
+
+void loop() {
+    Serial.println("Testing Walk Forward");
+    robotMovement.walkForward();
+    delay(2000);
+
+    Serial.println("Testing Walk Backward");
+    robotMovement.walkBackward();
+    delay(2000);
+
+    Serial.println("Stopping Servos");
+    robotMovement.stopServos();
+    delay(2000);
+}
 
 
-# Using Bitmaps for Face Expressions on the Robot Dog
+## ** Troubleshhoting **
 
-## Integrate the Bitmap into the Code
-
-1. **Create a Header File**  
-   - Copy the generated bitmap code into a new header file (e.g., `happy_face.h`).
-
-2. **Include the Header File**  
-   - In the robot dog's codebase, include the header file where the display logic is implemented:
-     ```c
-     #include "happy_face.h"
-     // ... existing code to initialize the display
-     ```
-
-3. **Display the Bitmap**  
-   - Use the following function call to render the bitmap image on the display:
-     ```c
-     display.drawBitmap(0, 0, happy_face_bitmap, HAPPY_FACE_WIDTH, HAPPY_FACE_HEIGHT, WHITE);
-     ```
-     - `0, 0`: These are the x and y coordinates on the display where the top-left corner of the bitmap will be drawn. In this case, the bitmap is drawn starting from the top-left corner of the display.
-
----
-### Testing
-1. Compile and upload the code to the robot dog's microcontroller.
-2. Verify the bitmap appears correctly on the screen.
-3. Check for performance issues, such as slow rendering.
-
-
-## Conclusion
-Creating bitmaps for the robot dog's face expressions was a valuable learning experience for me. I improved my skills in working with images, converting them into usable bitmaps. I also learned the importance of understanding the project's existing codebase and  partly how to integrate new features seamlessly.
-
-# Sources 
-https://javl.github.io/image2cpp/
-https://www.hackster.io/379798/making-oled-bitmap-graphics-in-arduino-3e50db
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+If the servos do not behave as expected, the pin connections can be checked and ensure the servo library is correctly included and configured. 
 
 
 

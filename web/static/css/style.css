@@ -287,6 +287,14 @@ center {
     border-radius: 5px; 
 }
 
+.stop-btn-smaller:hover {
+    background-color: #c1c1c1;
+}
+
+.stop-btn-smaller:active {
+    background-color: #898989;
+}
+
 @media only screen and (max-width: 768px) {
     .top-bar .logo {
         margin-right: 0vh;
@@ -303,3 +311,10 @@ center {
         flex-direction: row;
     }
 }
+
+
+.redirect-container a.active .button-with-icon {
+    background-color: var(--color-sweet);
+    color: #ffffff;
+}
+
