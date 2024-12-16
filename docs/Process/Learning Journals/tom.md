@@ -182,5 +182,10 @@ One of the most essential topics of working in an agile environment is the defin
 
 Throughout the project, the definition of done might change due to certain circumstances, such as the addition of Code Conventions, a slight altercation to the scope, or a request from the stakeholders. Our project experienced some of these changes, causing us to look back at our DoDs.
 
-## Consistency
+### Consistency
 We're currently using four templates: one for user story issues, one for learning story issues, one for merge requests regarding user stories, and one for merge requests regarding learning stories. One notable issue is the lack of consistency throughout these templates. There is a lack of capitalization, interpunction, and inconsistency in list types; some use bullet points, and others use a checklist. 
+
+### Specific DoDs
+Since we adopted new methods of ensuring quality besides the DoD, we need to ensure these methods are used before merging the created code into the main codebase. To ensure this, we create more specific versions of these definitions and place them under an "If applicable" tab. We can check these boxes if they're applicable to the work that is submitted and show that the methods are used.
+
+Applying these two changes helps us ensure the quality of our project and may prevent future errors and bottlenecks due to low-quality code. 
