@@ -181,3 +181,6 @@ The final improvement is relatively simple but can help immensely with the overa
 One of the most essential topics of working in an agile environment is the definition of done. This definition ensures quality in every contribution to the team, manages the project, and ensures nothing is forgotten.
 
 Throughout the project, the definition of done might change due to certain circumstances, such as the addition of Code Conventions, a slight altercation to the scope, or a request from the stakeholders. Our project experienced some of these changes, causing us to look back at our DoDs.
+
+## Consistency
+We're currently using four templates: one for user story issues, one for learning story issues, one for merge requests regarding user stories, and one for merge requests regarding learning stories. One notable issue is the lack of consistency throughout these templates. There is a lack of capitalization, interpunction, and inconsistency in list types; some use bullet points, and others use a checklist. 
