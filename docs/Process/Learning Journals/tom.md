@@ -178,3 +178,6 @@ The final improvement is relatively simple but can help immensely with the overa
 
 ## Improving DoD's to ensure the quality of our product
 
+One of the most essential topics of working in an agile environment is the definition of done. This definition ensures quality in every contribution to the team, manages the project, and ensures nothing is forgotten.
+
+Throughout the project, the definition of done might change due to certain circumstances, such as the addition of Code Conventions, a slight altercation to the scope, or a request from the stakeholders. Our project experienced some of these changes, causing us to look back at our DoDs.
