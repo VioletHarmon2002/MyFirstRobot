@@ -15,8 +15,10 @@
 - [ ] Used sources are referenced where used.
 
 ## Quality
-- [ ] Work follows coding conventions stated in the knowledge base.
-- [ ] Work is tested and works.
-- [ ] Work is commit on the git via a merge request.
+- [ ] Work is committed to git via a merge request.
 - [ ] Work is peer reviewed.
+
+## Specific
 - [ ] Work is linted and throws no errors.
+- [ ] Work is tested and works.
+- [ ] Work follows coding conventions stated in the knowledge base.
