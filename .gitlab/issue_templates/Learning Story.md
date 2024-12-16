@@ -2,10 +2,6 @@
 
 <!-- Add description -->
 
-# Acceptance Criteria
-
-<!-- Add Acceptance Criteria -->
-
 # Definition of Done
 
 ## Documentation

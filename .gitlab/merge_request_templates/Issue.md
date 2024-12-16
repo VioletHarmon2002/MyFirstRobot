@@ -18,5 +18,9 @@
 - [ ] Work is committed to git via a merge request.
 - [ ] Work is peer reviewed.
 
-## Specific
+## Specific (if applicable)
+- [ ] Work follows coding conventions stated in the knowledge base.
 - [ ] Work follows the AUAS/HvA HouseStyle, stated in the knowledge base
+- [ ] Work is linted and throws no errors.
+- [ ] Work is tested and works.
+- [ ] Responsiveness is checked in Chrome Devtools or a similiar tool. (Chrome Devtools: Mobile S, Mobile M, and Mobile L)

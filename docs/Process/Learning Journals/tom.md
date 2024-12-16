@@ -169,3 +169,12 @@ We could choose to use icons only in the first layer of our navigation bar, limi
 
 ### Table of Contents
 The final improvement is relatively simple but can help immensely with the overall look and clarity of the website: the Table of Contents. Currently, the Table of Contents is integrated into the navigation bar, amalgamating the ToC and the content of the navigation bar, making a massive mess of the navigation content. Instead, we could separate the ToC and show this functionality on the webpage. Moving the ToC helps us maintain clarity and improve the overall usefulness of the page and navigation.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Improving DoD's to ensure the quality of our product
+
