@@ -25,6 +25,12 @@ They are animations that last 200 milliseconds to unhide the `::after` content a
 }
 ```
 
+It uses `position: absolute;` to be positioned independently from the link it belongs to and calculates it width by grabbing the width of the link and reducing it by 4 pixels.
+
+The social media links have SVG icons to improve scalability and to allow them to change colour when hovering over them. It would also be possible to achieve this using images, but that would be less easy to change because you would need the original image and then also have extra images for each different colour that you would want to change to.
+
+Another option would be to get the social media icons using an icon font like Bootstrap Icons or Font Awesome. This would also allow easy animation and should be considered when using more icons. For this project we only use a handful of icons, so it was unnecessary to add an entire font for just this feature.
+
 
 ### For End Users
 
