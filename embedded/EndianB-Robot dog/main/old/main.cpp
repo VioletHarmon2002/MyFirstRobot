@@ -116,21 +116,21 @@ void setup()
 {
   Serial.begin(115200); // Initialize serial communication at 115200 baud
 
-  bool face_result = Face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
+  bool face_result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
 
   // Connect to Wi-Fi
-  // if (!wifiManagerHelper.connectToWiFi())
-  // {
-  //   Serial.println("Wi-Fi connection failed");
-  //   ESP.restart(); // Restart ESP32 if Wi-Fi connection fails
-  // }
+  if (!wifiManagerHelper.connectToWiFi())
+  {
+    Serial.println("Wi-Fi connection failed");
+    ESP.restart(); // Restart ESP32 if Wi-Fi connection fails
+  }
 
   // Connect to the server
-  // if (!wsClient.Connect())
-  // {
-  //   Serial.println("Failed to connect to the server");
-  //   ESP.restart(); // Restart the ESP32 if connection fails
-  // }
+  if (!wsClient.Connect())
+  {
+    Serial.println("Failed to connect to the server");
+    ESP.restart(); // Restart the ESP32 if connection fails
+  }
 
   // Initialize the servos
   movement.initServos();
@@ -240,5 +240,5 @@ void loop()
     handleCommand(command);
   }
 
-  delay(10);
+  delay(10); // Small delay to avoid overwhelming the loop
 }
