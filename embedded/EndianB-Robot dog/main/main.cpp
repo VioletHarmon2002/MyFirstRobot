@@ -12,18 +12,22 @@
 #include "websocket/websocket_handler.h"
 
 // WiFi and server details
-const char* server_ip = "145.92.189.164";  // IP address of the server to connect to
-const uint16_t server_port = 8080;      // Port number of the server to connect to
+const char *server_ip = "192.168.178.66"; // IP address of the server to connect to
+const uint16_t server_port = 8080;        // Port number of the server to connect to
 
-Movement movement(18, 16, 17, 5);  // Initialize the movement object
+Movement movement(18, 16, 17, 5); // Initialize the movement object
 
-Face Face;  // Initialize the face object
+Face Face; // Initialize the face object
 
-WiFiManagerHelper wifiManagerHelper; // Initialize the Wi-Fi manager helper object
-bool isConnected = false;            // Boolean flag to track connection status
+WiFiManagerHelper wifiManagerHelper;              // Initialize the Wi-Fi manager helper object
+bool isConnected = false;                         // Boolean flag to track connection status
 WebSocketClient wsClient(server_ip, server_port); // Initialize the WebSocket client object
 
-enum Command {
+
+
+
+enum Command
+{
   FORWARD,
   BACKWARD,
   LEFT,
@@ -36,7 +40,6 @@ enum Command {
   UNKNOWN
 };
 
-
 // Preset angles for lying down position
 #define PRESET_FL_LIE 0
 #define PRESET_FR_LIE 180
@@ -48,7 +51,7 @@ enum Command {
 #define WAVE_UP 0
 
 // Turning presets
-#define TURN_DELAY 600  // Delay between turn steps
+#define TURN_DELAY 600 // Delay between turn steps
 
 #define TURN_RIGHT_FL 60
 #define TURN_RIGHT_FR 120
@@ -84,8 +87,7 @@ enum Command {
 #define GYRO_ZOUT_H (0x47)
 #define GYRO_ZOUT_L (0x48)
 
-
-String currentCommand = "";  // String to store the current command
+String currentCommand = ""; // String to store the current command
 
 // OLED display definitions
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -99,41 +101,49 @@ String currentCommand = "";  // String to store the current command
 #include "bitmapForFace/frown_bitmap.h"
 #include "bitmapForFace/idle_bitmap.h"
 
-
 /**
  * @brief Write a value to a specific register on the MPU-9250 sensor
- * 
- * @param registerAddress 
- * @param value 
+ *
+ * @param registerAddress
+ * @param value
  */
-void writeToRegister(uint8_t registerAddress, uint8_t value) {
+void writeToRegister(uint8_t registerAddress, uint8_t value)
+{
   Wire.beginTransmission(SENSOR_ID);
   Wire.write(registerAddress);
   Wire.write(value);
   Wire.endTransmission();
 }
 
-void setup() {
-  Serial.begin(115200);  // Initialize serial communication at 115200 baud
+void setup()
+{
+  Serial.begin(115200); // Initialize serial communication at 115200 baud
 
-  bool face_result = face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
+  bool face_result = Face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
+  wifiManagerHelper.connectToWiFi();
+  wsClient.Connect();
+
+  Serial.println(WiFi.localIP());
+
 
   // Connect to Wi-Fi
-  if (!wifiManagerHelper.connectToWiFi()) {
-      Serial.println("Wi-Fi connection failed");
-      ESP.restart();  // Restart ESP32 if Wi-Fi connection fails
+  if (!wifiManagerHelper.connectToWiFi())
+  {
+    Serial.println("Wi-Fi connection failed");
+    ESP.restart(); // Restart ESP32 if Wi-Fi connection fails
   }
 
   // Connect to the server
-  if (!wsClient.Connect()) {
+  if (!wsClient.IsConnected())
+  {
     Serial.println("Failed to connect to the server");
-    ESP.restart();  // Restart the ESP32 if connection fails
+    wsClient.Reconnect();
   }
 
   // Initialize the servos
   movement.initServos();
 
-  delay(3000);  // Wait for 3 seconds
+  delay(3000); // Wait for 3 seconds
 
   // TODO: Figure out where this 'Wire' comes from...
   Wire.begin(4, 15); // SDA on pin 4, SCL on pin 15
@@ -144,82 +154,100 @@ void setup() {
   Face.DisplayFace(128, 64, BM_IDLE);
 }
 
-
-void setFace(String command) {
-    if (command == "sit" || command == "lie") {
-        Face.DisplayFace(128, 64, BM_FROWN);
-    }
-    else if (command == "forward" || command == "backward" || command == "dance" || command == "dance") {
-        Face.DisplayFace(128, 64, BM_SMILE);
-    }
-    else if (command == "wave") {
-        Face.DisplayFace(128, 64, BM_IDLE);
-    }
+void setFace(String command)
+{
+  if (command == "sit" || command == "lie")
+  {
+    Face.DisplayFace(128, 64, BM_FROWN);
+  }
+  else if (command == "forward" || command == "backward" || command == "dance" || command == "dance")
+  {
+    Face.DisplayFace(128, 64, BM_SMILE);
+  }
+  else if (command == "wave")
+  {
+    Face.DisplayFace(128, 64, BM_IDLE);
+  }
 }
-
-
 
 /**
  * @brief Read data from a specific I2C register on the MPU-9250 sensor
- * 
+ *
  * @param registerAddress address of the target register
  * @return one byte of available data, otherwise 0
  */
-int readFromRegister(uint8_t registerAddress) {
+int readFromRegister(uint8_t registerAddress)
+{
   Wire.beginTransmission(SENSOR_ID);
-  Wire.write(registerAddress); // Write address of target register
-  Wire.endTransmission(false); // End transmission without closing connection
+  Wire.write(registerAddress);    // Write address of target register
+  Wire.endTransmission(false);    // End transmission without closing connection
   Wire.requestFrom(SENSOR_ID, 1); // Request 1 byte
 
-  if (Wire.available()) {
+  if (Wire.available())
+  {
     return Wire.read(); // Read and return the byte
-  } else {
+  }
+  else
+  {
     return 0; // Return 0 if no data is available
   }
 }
 
-
-
-Command getCommand(const String& command) {
-  if (command == "forward") return FORWARD;
-  if (command == "backward") return BACKWARD;
-  if (command == "left") return LEFT;
-  if (command == "right") return RIGHT;
-  if (command == "sit") return SIT;
-  if (command == "lie") return LIE;
-  if (command == "wave") return WAVE;
-  if (command == "dance") return DANCE;
-  if (command == "start") return START;
+Command getCommand(const String &command)
+{
+  if (command == "forward")
+    return FORWARD;
+  if (command == "backward")
+    return BACKWARD;
+  if (command == "left")
+    return LEFT;
+  if (command == "right")
+    return RIGHT;
+  if (command == "sit")
+    return SIT;
+  if (command == "lie")
+    return LIE;
+  if (command == "wave")
+    return WAVE;
+  if (command == "dance")
+    return DANCE;
+  if (command == "start")
+    return START;
   return UNKNOWN;
 }
 
-
-void handleCommand(String command) {
-  switch (getCommand(command)) {
-    case FORWARD:
-      movement.walkForward();
-      break;
-    case BACKWARD:
-      movement.walkBackward();
-      break;
-    case UNKNOWN:
-      Serial.println("Unknown command");
-      break;
+void handleCommand(String command)
+{
+  switch (getCommand(command))
+  {
+  case FORWARD:
+    movement.walkForward();
+    break;
+  case BACKWARD:
+    movement.walkBackward();
+    break;
+  case UNKNOWN:
+    Serial.println("Unknown command");
+    break;
   }
 }
 
-void loop() {
-    
-    // Read data from the server
-    if (!wsClient.IsConnected()) {
-      wsClient.Reconnect();
-    }
+void loop()
+{
 
-    if (wsClient.IsConnected()) {
-      String command = wsClient.ReadData();
-      setFace(command);
-      handleCommand(command);
-    }
+  // Read data from the server
+  if (!wsClient.IsConnected())
+  {
+    wsClient.Reconnect();
+  }
 
-    delay(10);  // Small delay to avoid overwhelming the loop
+  if (wsClient.IsConnected())
+  {
+    String command = wsClient.ReadData();
+    Serial.println("Received command: " + command);
+    setFace(command);
+    handleCommand(command);
+  }
+
+  delay(10);
 }

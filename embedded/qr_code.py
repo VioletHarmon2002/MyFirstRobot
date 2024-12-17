@@ -3,7 +3,7 @@ import qrcode
 def create_qr_code():
     print("Welcome to the QR Code Generator!")
     user_input = input("Please enter the mac address without ':' to generate a QR code: ")
-    link = "http://172.25.186.183/index.html?id=" + user_input
+    link = "http://192.168.178.66/index.html?id=" + user_input
     # Generate QR code
     qr = qrcode.QRCode(
         version=1,  # Controls the size of the QR Code (1 is 21x21, higher is larger)
