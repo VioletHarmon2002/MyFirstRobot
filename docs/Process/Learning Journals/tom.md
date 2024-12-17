@@ -169,3 +169,23 @@ We could choose to use icons only in the first layer of our navigation bar, limi
 
 ### Table of Contents
 The final improvement is relatively simple but can help immensely with the overall look and clarity of the website: the Table of Contents. Currently, the Table of Contents is integrated into the navigation bar, amalgamating the ToC and the content of the navigation bar, making a massive mess of the navigation content. Instead, we could separate the ToC and show this functionality on the webpage. Moving the ToC helps us maintain clarity and improve the overall usefulness of the page and navigation.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Improving DoD's to ensure the quality of our product
+
+One of the most essential topics of working in an agile environment is the definition of done. This definition ensures quality in every contribution to the team, manages the project, and ensures nothing is forgotten.
+
+Throughout the project, the definition of done might change due to certain circumstances, such as the addition of Code Conventions, a slight altercation to the scope, or a request from the stakeholders. Our project experienced some of these changes, causing us to look back at our DoDs.
+
+### Consistency
+We're currently using four templates: one for user story issues, one for learning story issues, one for merge requests regarding user stories, and one for merge requests regarding learning stories. One notable issue is the lack of consistency throughout these templates. There is a lack of capitalization, interpunction, and inconsistency in list types; some use bullet points, and others use a checklist. 
+
+### Specific DoDs
+Since we adopted new methods of ensuring quality besides the DoD, we need to ensure these methods are used before merging the created code into the main codebase. To ensure this, we create more specific versions of these definitions and place them under an "If applicable" tab. We can check these boxes if they're applicable to the work that is submitted and show that the methods are used.
+
+Applying these two changes helps us ensure the quality of our project and may prevent future errors and bottlenecks due to low-quality code. 
