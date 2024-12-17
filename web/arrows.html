@@ -42,7 +42,7 @@
         <div class="animate-emote-container">
             <!-- Container for animation buttons -->
             <div class="section">
-                <h2 class="animations">Animations</h2>
+                <h2>Animations</h2>
                 <div class="animate-container">
                     <button class="animate-btn" onclick="sendCommand('start')">Stand</button>
                     <button class="animate-btn" onclick="sendCommand('sit')">Sit</button>
@@ -52,7 +52,7 @@
             </div>
             <!-- Container for emote buttons -->
             <div class="section">
-                <h2 class="emotes">Emotes</h2>
+                <h2>Emotes</h2>
                 <div class="emote-container">
                     <button class="emote-btn" onclick="sendCommand('emote', 'smile')">Smile</button>
                     <button class="emote-btn" onclick="sendCommand('emote', 'frown')">Frown</button>
@@ -61,9 +61,13 @@
                 </div>
             </div>
         </div>
+        <!-- Stop button container -->
+        <div class="stop-btn-container">
+            <button class="stop-btn-smaller">Stop</button>
+        </div>
         <!-- Container for directional arrow buttons -->
         <div class="section">
-            <h2 class="movements">Movement</h2>
+            <h2>Movement</h2>
             <div class="arrow-container">
                 <button class="arrow-btn arrow-up" onclick="sendCommand('forward')"><i
                         class="fas fa-arrow-up"></i></button>
