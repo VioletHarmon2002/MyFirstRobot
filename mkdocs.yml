@@ -30,6 +30,7 @@ nav:
       - Server: Device/Setup/server.md
     - ⌨ Code: 
       - Movement: Device/Code/movement.md
+      - QR Code: Device/Code/qr_code.md
     - 💾 Database: 
       - Database: Device/Database/database.md
       - API Reference: Device/Database/reference.md
