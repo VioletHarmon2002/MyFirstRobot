@@ -13,7 +13,7 @@ const sendCommand = (command) => {
     // data object with the command key and the provided command value
     const data = { command, robotId };
     // Perform a fetch request to the specified URL with the action 'command'
-    fetch('http://127.0.0.1/api.php?action=command', {
+    fetch('http://192.168.178.66/api.php?action=command', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 let connected = true;
 let connected_to = "Kees";
 let connection_speed = 10;
-const IP_ADRESS = '127.0.0.1';
+const IP_ADRESS = '192.168.178.66';
 
 
 const connected_to_name_element = document.getElementById('connected-to?-name');

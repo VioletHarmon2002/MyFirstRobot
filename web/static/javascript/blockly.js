@@ -2,7 +2,7 @@ const HVA_DARK_COLOR = '#28147C'
 const HVA_LIGHT_COLOR = '#381CB4'
 const forward_color = "#1b97b3";
 const turn_color = "#16c548";
-const IP_ADRESS = '127.0.0.1';
+const IP_ADRESS = '192.168.178.66';
 
 let running;
 
