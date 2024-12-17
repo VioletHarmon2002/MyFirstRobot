@@ -87,3 +87,8 @@ Styled the navbar for a horizontal layout with hover effects, active link indica
 .nav-link:hover { color: var(--color-sweet); }
 .active { border-bottom: 2px solid var(--color-sweet); }
 ````
+
+**For Users**  
+- Improved Navigation: The navigation bar is fixed at the top for easy access across all pages.  
+- Interactive Design: Hover effects and active link highlighting enhance usability.  
+- Responsive Layout: Adapts seamlessly to various screen sizes for a consistent experience.
