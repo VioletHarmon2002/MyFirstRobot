@@ -9,18 +9,18 @@
 # Definition of Done
 
 ## Documentation
-- [ ] Work is documented in standard English.
-- [ ] Work is documented so that it can be used by the user (End user documentation).
-- [ ] Work is documented so that it can be used by the developer (Technical documentation).
-- [ ] Used sources are referenced where used.
+- Work is documented in standard English.
+- Work is documented so that it can be used by the user (End user documentation).
+- Work is documented so that it can be used by the developer (Technical documentation).
+- Used sources are referenced where used.
 
 ## Quality
-- [ ] Work is committed to git via a merge request.
-- [ ] Work is peer reviewed.
+- Work is committed to git via a merge request.
+- Work is peer reviewed.
 
 ## Specific (if applicable)
-- [ ] Work follows coding conventions stated in the knowledge base.
-- [ ] Work follows the AUAS/HvA HouseStyle, stated in the knowledge base
-- [ ] Work is linted and throws no errors.
-- [ ] Work is tested and works.
-- [ ] Responsiveness is checked in Chrome Devtools or a similiar tool. (Chrome Devtools: Mobile S, Mobile M, and Mobile L)
+- Work follows coding conventions stated in the knowledge base.
+- Work follows the AUAS/HvA HouseStyle, stated in the knowledge base
+- Work is linted and throws no errors.
+- Work is tested and works.
+- Responsiveness is checked in Chrome Devtools or a similiar tool. (Chrome Devtools: Mobile S, Mobile M, and Mobile L)
