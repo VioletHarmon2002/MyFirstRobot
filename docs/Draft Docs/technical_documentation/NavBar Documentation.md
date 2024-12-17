@@ -59,3 +59,36 @@ if (activeLinkId) {
 With this line we handle the errors incase the link doesn't exist
 
 `.catch(error => console.error('Error loading navbar:', error));`
+
+# Navigation Buttons to Nav Bar [#144]
+The navigation buttons have been replaced with a responsive top navigation bar for seamless navigation across pages. The existing NavBarLoader functionality has been retained to dynamically highlight the current page.
+
+**For Developers**
+Changes Made:
+
+1. HTML:  
+Added a <nav> element with structured navigation links inside an unordered list (<ul>).
+
+````
+<nav id="navbar">
+    <ul class="nav-list">
+        <li><a href="arrows.html" id="robot-controls-link" class="nav-link">Robot Controls</a></li>
+        <li><a href="blocky.html" id="block-editor-link" class="nav-link">Block Editor</a></li>
+        <li><a href="connect.html" id="connect-robot-link" class="nav-link">Connect</a></li>
+    </ul>
+</nav>
+````
+
+2. CSS:  
+Styled the navbar for a horizontal layout with hover effects, active link indicators, and responsive design for smaller screens.
+
+````
+.nav-list { list-style: none; display: flex; gap: 24px; }
+.nav-link:hover { color: var(--color-sweet); }
+.active { border-bottom: 2px solid var(--color-sweet); }
+````
+
+**For Users**  
+- Improved Navigation: The navigation bar is fixed at the top for easy access across all pages.  
+- Interactive Design: Hover effects and active link highlighting enhance usability.  
+- Responsive Layout: Adapts seamlessly to various screen sizes for a consistent experience.
