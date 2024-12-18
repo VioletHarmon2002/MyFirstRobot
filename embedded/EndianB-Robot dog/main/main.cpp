@@ -12,7 +12,7 @@
 #include "websocket/websocket_handler.h"
 
 // WiFi and server details
-const char *server_ip = "145.92.189.164"; // IP address of the server to connect to
+const char *server_ip = "192.168.178.66"; // IP address of the server to connect to
 const uint16_t server_port = 8080;        // Port number of the server to connect to
 
 Movement movement(18, 16, 17, 5); // Initialize the movement object
@@ -22,6 +22,9 @@ Face Face; // Initialize the face object
 WiFiManagerHelper wifiManagerHelper;              // Initialize the Wi-Fi manager helper object
 bool isConnected = false;                         // Boolean flag to track connection status
 WebSocketClient wsClient(server_ip, server_port); // Initialize the WebSocket client object
+
+
+
 
 enum Command
 {
@@ -117,20 +120,25 @@ void setup()
   Serial.begin(115200); // Initialize serial communication at 115200 baud
 
   bool face_result = Face.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_I2C_ADDRESS);
+  wifiManagerHelper.connectToWiFi();
+  wsClient.Connect();
+
+  Serial.println(WiFi.localIP());
+
 
   // Connect to Wi-Fi
-  // if (!wifiManagerHelper.connectToWiFi())
-  // {
-  //   Serial.println("Wi-Fi connection failed");
-  //   ESP.restart(); // Restart ESP32 if Wi-Fi connection fails
-  // }
+  if (!wifiManagerHelper.connectToWiFi())
+  {
+    Serial.println("Wi-Fi connection failed");
+    ESP.restart(); // Restart ESP32 if Wi-Fi connection fails
+  }
 
   // Connect to the server
-  // if (!wsClient.Connect())
-  // {
-  //   Serial.println("Failed to connect to the server");
-  //   ESP.restart(); // Restart the ESP32 if connection fails
-  // }
+  if (!wsClient.IsConnected())
+  {
+    Serial.println("Failed to connect to the server");
+    wsClient.Reconnect();
+  }
 
   // Initialize the servos
   movement.initServos();
@@ -236,6 +244,7 @@ void loop()
   if (wsClient.IsConnected())
   {
     String command = wsClient.ReadData();
+    Serial.println("Received command: " + command);
     setFace(command);
     handleCommand(command);
   }
