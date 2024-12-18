@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,18 @@
     <script src="static/javascript/dragging.js" defer></script>
     <script src="static/javascript/script.js" defer></script>
     <script src="static/javascript/send_command.js" defer></script>
+    <script src="static/javascript/NavLoader.js" defer></script>
 </head>
+
 <body>
-    <div class="top-bar">
-        <a href="./index.html">
-            <img src="static/images/logo.png" alt="HvA" class="logo">
-        </a>
-    </div>
+    <header>
+        <div class="top-bar">
+            <a href="./index.html">
+                <img src="static/images/logo.png" alt="HvA" class="logo">
+            </a>
+            <nav id="navbar"></nav>
+        </div>
+    </header>
 
     <div class="total-container">
         <div id="list"></div>
@@ -24,13 +30,18 @@
                 <div class="draggable-button wait" id="hey">forward (s)</div>
                 <input class="input forward-input" type="number" name="1"/>
             </div> -->
-        </div> 
+        </div>
         <div id="create-container">
-            <div class=" create-draggable-button forward" onclick="createDraggableDiv('forward', 0, 'forward')">Click to create a move node</div>
-            <div class=" create-draggable-button wait" onclick="createDraggableDiv('wait', 0, 'wait')">Click to create a wait node</div>
-            <div class=" create-draggable-button turn" onclick="createDraggableDiv('turn', 0, 'turn')">Click to create a turn node</div>
-            <div class=" create-draggable-button move" onclick="createDraggableDiv('move', 0, 'move')">Click to create a move node</div>
-            <div class=" create-draggable-button animation" onclick="createDraggableDiv('animation',0,'animation')">Click to create a animation node</div>
+            <div class=" create-draggable-button forward" onclick="createDraggableDiv('forward', 0, 'forward')">Click to
+                create a move node</div>
+            <div class=" create-draggable-button wait" onclick="createDraggableDiv('wait', 0, 'wait')">Click to create a
+                wait node</div>
+            <div class=" create-draggable-button turn" onclick="createDraggableDiv('turn', 0, 'turn')">Click to create a
+                turn node</div>
+            <div class=" create-draggable-button move" onclick="createDraggableDiv('move', 0, 'move')">Click to create a
+                move node</div>
+            <div class=" create-draggable-button animation" onclick="createDraggableDiv('animation',0,'animation')">
+                Click to create a animation node</div>
             <div class=" create-draggable-button" id="upload-button" onclick="uploadProgram()">upload code</div>
         </div>
     </div>
@@ -43,7 +54,7 @@
         <div id="is-connected">
             <div id="connected-to?" class="information-container">
                 <span class="information-span">Connected to</span>
-                <span id="connected-to?-name" >Kees</span>
+                <span id="connected-to?-name">Kees</span>
             </div>
             <div id="connected-speed?" class="information-container">
                 <span class="information-span">Connection speed:</span>
@@ -52,4 +63,5 @@
         </div>
     </div>
 </body>
+
 </html>

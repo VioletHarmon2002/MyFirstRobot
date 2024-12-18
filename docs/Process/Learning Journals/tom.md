@@ -28,7 +28,11 @@ Issues fucntion as the executable task. Issues remove the ambiguity for develope
 <br>
 Using these four components allows for an efficient, tangible and manageable Agile environment. Combining and Agile workflow with GitLab can be achieved by using GitLab's Planning functionality, allowing us to create Epics, Features and Issues and visualising them on a trello-like sprint board. Tags can be assigned to each issue, allowing the user to group tasks and assign priorities, visualising the priority of tasks.
 
----
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## **Working with the 8-Point Grid**
 Since no screen is the same, displaying the same website, application, dashboard or UI is difficult. The constant increase of pixel densities make the life of designers even more difficult.
@@ -49,20 +53,109 @@ Besides the improved design feel, it is also easier for designers to use in comm
     <figcaption>Figure 1: 8pt-grid in variables</figcaption>
 </figure>
 
-Using Figma as a design tool, variables and grid-layouts can be used to achieve better results. For example, as seen in Figure 1, variables can be made, each holding a larger value following the 8pt grid. This way, margins, paddings and other layout related variables don't have to be set manually, making the designing process more efficient and less prone to errors.
+Using Figma as a design tool, variables and grid-layouts can be used to achieve better results. For example, as seen in Figure 1, variables can be made, each holding a larger value following the 8pt grid. This way, margins, paddings and other layout related variables don't have to be set manually, 
+making the designing process more efficient and less prone to errors.
 
 <figure markdown="span">
     ![8pt Grid](Assets/[8pt-Grid]Columns.webp){ align=left }
     <figcaption>Figure 2: Using auto layout columns</figcaption>
 </figure>
 
-When working on websites you must make responsive web pages. The pages not only has to be displayed on a laptop, but also on smaller devices like phones and tablets. When we're talking about design rhythm, horizontal rhythm can be achieved by using a column grid. Again, using Figma as an example, a responsive column grid can be created, helping designers achieve horizontal rhtythm, improving their designs.
+When working on websites you must make responsive web pages. The pages not only has to be displayed on a laptop, but also on smaller devices like phones and tablets. When we're talking about design rhythm, horizontal rhythm can be achieved by using a column grid. Again, using Figma as an example, 
+a responsive column grid can be created, helping designers achieve horizontal rhtythm, improving their designs.
 
 source: https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
 
----
+<br>
+<br>
+<br>
+<br>
+<br>
 
-## Creating a Manageable and easily navigatable knowledge base
+## **Creating a Solid and Modular Movement Code Architecture**
+
+Since our project's main functionality is its movement, this part of the project must be solid and well thought through. This Submodule must be able to move the legs independently or simultaneously, working with preset and custom instructions. To achieve this result, we need to think about our approach.
+
+### Leg abstraction
+
+Before we start, let's consider the necessities of the movement structure. For now, we'll work with four servos, each functioning as a single leg. The most straightforward approach is to integrate the servos directly into our architecture, treating each servo as a single leg. However, this is subject to 
+change since we're in our prototyping phase. Since our product will have four legs, we can create a wrapper for each leg, abstracting the physical sensors away. We can also bind some actions to this leg to further abstract the inner workings of the leg. If we're talking about actions, we could think about 
+functions like `MoveLeg(angle, angle)`, independently controlling the lower and upper part of the leg independently. We could also take it a step further and create a `MoveLeg(X, Y)` function, utilizing an Inverse Kinematics approach to abstract the leg ultimately, but this may be outside our scope.
+
+```cpp title="Leg.h"
+class Leg {
+public:
+    Leg(int hipPin, int kneePin);
+    void Attach();
+    void MoveHip(int angle);
+    void MoveKnee(int angle);
+    void MoveLeg(int hipAngle, int kneeAngle);
+
+private:
+    Servo _servoHip, _servoKnee;
+};
+```
+
+### Face abstraction
+
+We could apply the same logic as we used to abstract the legs and apply it to the face. The face controls one or more OLED displays, but in the end, we only want to pass an image/bitmap to the face and make it display that particular face. We could also hardcode the bitmaps or store them somewhere, so we only 
+have to pass an enum or something similar into the face, displaying the image on the OLED(s).
+
+We take the first approach for now since it's more barebones, allowing us to expand upon it much more quickly. We extract the face from the main codebase and hide it between more straightforward functions.
+
+```cpp title="Face.h"
+class Face {
+public:
+    Face();
+    ~Face();
+
+    bool Initialize(int width, int height, int address, int rstPin = -1);
+    void DisplayFace(int width, int height, const unsigned char* bitmap);
+
+private:
+    Adafruit_SSD1306* _display;
+    int _width, _height;
+};
+```
+
+### Creating the Movement
+
+Finally, we can combine these two and create some movement and combine it with facial expressions. We could hardcode all the movements in the main file, but this would mean we can't use any custom code sent from the website, which is one of the project's primary goals. Instead, we'll create a movement structure, responsible for containing and running all the movement-related code.
+
+```cpp title="Movement.h"
+class Movement {
+public:
+    void addStep(std::function<void()> step) {
+        steps.push_back(step);
+    }
+
+    void execute() {
+        for (auto& step : steps) {
+            step();
+        }
+    }
+private:
+    std::vector<std::function<void()>> steps;
+};
+```
+
+Combining this, we can create code that's easy to maintain and expand. This particular implementation can also be used in combination with custom code since we can program the movements ourselves with the input from the website. This allows us to remove all the hard-coded code from the device and rely entirely on the website to provide movement and behavioral instructions.
+
+```cpp title="main.cpp"
+Movement walk;
+walk.addStep([&]() { dog.MoveLeg(0, 45, 90); });  // Lift front-left leg
+walk.addStep([&]() { dog.MoveLeg(1, 45, 90); });  // Lift front-right leg
+walk.addStep([&]() { dog.MoveLeg(2, 45, 90); });  // Repeat for other legs
+walk.execute();
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Creating a Manageable and Easily Navigatable Knowledge Base
 To work efficiently and pass over knowledge easily, using a knowledge base is inevitable. Creating the knowledge base's content is a form of art, but creating an easily manageable and navigatable layout is a challenging task, too. Nothing is more frustrating than not finding what you're looking for. Besides, storing similar documents beside each other might increase the odds of opening another similar file out of curiosity and learning something new every day.
 
 The goal of this research is to see if I can improve the layout of the portfolio website, changing it into an easy-to-navigate knowledge base.
@@ -76,3 +169,23 @@ We could choose to use icons only in the first layer of our navigation bar, limi
 
 ### Table of Contents
 The final improvement is relatively simple but can help immensely with the overall look and clarity of the website: the Table of Contents. Currently, the Table of Contents is integrated into the navigation bar, amalgamating the ToC and the content of the navigation bar, making a massive mess of the navigation content. Instead, we could separate the ToC and show this functionality on the webpage. Moving the ToC helps us maintain clarity and improve the overall usefulness of the page and navigation.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Improving DoD's to ensure the quality of our product
+
+One of the most essential topics of working in an agile environment is the definition of done. This definition ensures quality in every contribution to the team, manages the project, and ensures nothing is forgotten.
+
+Throughout the project, the definition of done might change due to certain circumstances, such as the addition of Code Conventions, a slight altercation to the scope, or a request from the stakeholders. Our project experienced some of these changes, causing us to look back at our DoDs.
+
+### Consistency
+We're currently using four templates: one for user story issues, one for learning story issues, one for merge requests regarding user stories, and one for merge requests regarding learning stories. One notable issue is the lack of consistency throughout these templates. There is a lack of capitalization, interpunction, and inconsistency in list types; some use bullet points, and others use a checklist. 
+
+### Specific DoDs
+Since we adopted new methods of ensuring quality besides the DoD, we need to ensure these methods are used before merging the created code into the main codebase. To ensure this, we create more specific versions of these definitions and place them under an "If applicable" tab. We can check these boxes if they're applicable to the work that is submitted and show that the methods are used.
+
+Applying these two changes helps us ensure the quality of our project and may prevent future errors and bottlenecks due to low-quality code. 

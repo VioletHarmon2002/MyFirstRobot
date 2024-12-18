@@ -6,8 +6,8 @@
 }
 
 .arrow-btn {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-bottom: 4px solid #bbb;
@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin: 40px;
 }
 
 .animate-emote-container {
@@ -31,14 +32,12 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    margin: 25px 0 0 25px;
-    gap: 5%;
+    gap: 50px;
 }
 
 .emote-container, .animate-container {
     display: flex;
     flex-direction: column;
-    width: 45%;
     align-items: center;
 }
 
@@ -95,17 +94,9 @@
 .section h2 {
     margin-bottom: 20px;
     color: white;
+    text-align: center;
 }
 
 .movements{
     margin-left: 20px;
 }
-
-.animations {
-    margin-right: 140px;
-}
-
-.emotes {
-    margin-left: -15px;
-}
-

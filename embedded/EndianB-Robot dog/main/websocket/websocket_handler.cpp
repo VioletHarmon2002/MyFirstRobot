@@ -8,8 +8,10 @@ MACAddressHelper macAddressHelper;
 WebSocketClient::WebSocketClient(const char* ip, uint16_t port)
   : server_ip(ip), server_port(port) {}
 
-bool WebSocketClient::Connect() {
-  if (client.connect(server_ip, server_port)) {
+bool WebSocketClient::Connect()
+{
+  if (client.connect(server_ip, server_port))
+  {
     is_connected = true;
     client.println("Client connected");
     return true;
@@ -74,13 +76,16 @@ String WebSocketClient::ReadData() {
   return "";  // Return an empty string if no data is available
 }
 
-void WebSocketClient::SendData(const String& data) {
-  if (is_connected) {
+void WebSocketClient::SendData(const String &data)
+{
+  if (is_connected)
+  {
     client.println(data);
   }
 }
 
-void WebSocketClient::CloseConnection() {
+void WebSocketClient::CloseConnection()
+{
   client.stop();
   is_connected = false;
 }

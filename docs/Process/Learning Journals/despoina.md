@@ -131,3 +131,91 @@ This setup ensures that the MariaDB container will use the SQL files located in 
 
 4. Testing  
 After implementing the changes, I verified that everything was working correctly. I stopped and restarted the containers multiple times to confirm that the data was still there after the restarts. I also tested the database intitaization by ensuring that the robots zable was created properly with the correct structure and that the intitial data was inserted successfully.
+
+### Learning Story [#138]: C++ Coding Conventions Research  
+To address challenges in organizing and maintaining clean code for the robot dog’s functionalities, I researched and implemented C++ coding conventions. My primary goal was to create a codebase that adhered to industry standards, ensuring it was modular, readable, and easy to maintain. By referring to the Google C++ Style Guide, I identified and adopted key practices to improve the quality of our code.
+
+This process also helped me with teamwork and allowed me to follow coherent coding connventions when collaborating.
+
+1. Readability and Maintainability  
+One of the first issues I noticed was the lack of a consistent style throughout the project. Variable names, function structures, and file organization varied widely because different team members followed their own conventions. This made it difficult for anyone other than the original author to read or debug the code.
+
+After studying the Google C++ Style Guide, I adopted the following conventions:
+
+- File naming: Use CamelCase for filenames (e.g., Face.cpp, Face.h)  
+- Variable naming: Use lowerCamelCase for variable names (e.g., isConnected)
+- Function Naming: Use lowerCamelCase for function names (e.g., moveForward())  
+- Class Naming: Use CamelCase for class names (e.g. RobotDog)
+
+By implementing these naming conventions, I achieved better consistency and improved code readability, which was particularly helpful in a group setting.
+
+2. Using Classes  
+A recurring issue was inconsistent use of object-oriented programming. Some group members used classes effectively, encapsulating data and methods, while others preferred standalone functions in header files. This inconsistency caused confusion about how to organize the code.
+
+To address this, we standardized the use of classes:
+
+- Encapsulate functionality into classes: For example, a Leg class would handle all methods related to leg movements (e.g., moveForward(), sit()), while a Head class would handle head-specific actions.
+- Separate files for class implementation: Each class has a .cpp file for implementation and a corresponding .h file for declarations.
+
+This structure ensures that the code remains modular and scalable as we add new features to the robot dog.
+
+3. Code redundancy  
+Another issue we had to ensure we do not do was code redundancy. Without proper organization, different team members could write the same functionality multiple times in different parts of the codebase. This redundancy not only wastes time but also makes the code harder to maintain.
+
+To combat this, we agreed to:
+
+- Create reusable methods in separate files: For example, instead of rewriting the same walking logic in multiple places, we created a single Walking class with reusable methods.  
+- Leverage header files for shared functionality: These header files act as a central source, ensuring consistency and reducing duplicate code.
+
+Coding conventions for developing with C++ are also shared with the team and can be found in the cpp.md file.
+
+**Sources**
+
+- [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+
+### Learning Story [#140]: Assembling Robot Dog
+How can I assemble the robot dog together, in order to make it functioning?  
+To answer this answer, I followed the assembly guide of the previous team and moved on on assembling the robot dog. These are the steps that are to be followed:
+
+1. **Attach Risers**  
+   Use 3 risers (2.4x16mm) and bolts to secure them to the top plate. These will hold the protoboard.
+
+2. **Attach Sides**  
+   Fix the sides to the bottom baseplate. The square hole is for the front servo, and the round hole is for the back servo.
+
+3. **Install Servos**  
+   Insert 4 SG90 mini servos into the holes on the side plates. They should fit snugly.
+
+4. **Place Baseplate Connectors**  
+   Insert the connectors into the slots on the bottom plate to hold the servos and connect the plates.
+
+5. **Fit the Top Plate**  
+   Attach the top plate over the baseplate connectors and sides. Ensure everything aligns tightly.
+
+6. **Secure with Bolts**  
+   Use 3.9mm bolts to fasten the top and bottom plates. Tighten gently to avoid cracking the plexiglass.
+
+7. **Attach Legs**  
+   Turn the robot dog upside down and use a screwdriver to secure the legs to the servos. Ensure the servos move with the legs.
+
+8. **Add Face Mount**  
+   Slot the face mount into the slit at the front of the robot dog.
+
+9. **Mount Protoboard**  
+   Attach the protoboard to the risers on the top plate. This will hold the ESP32 and connections.
+
+10. **Place Power Supply**  
+    Insert a 9V battery into the slot on the bottom plate. Connect it last to avoid turning the robot on prematurely.
+
+11. **Stick Breadboard**  
+    Place the breadboard on the top plate between the battery and face mount. Stick it after trying out its placement.
+
+12. **Install OLED Display**  
+    Secure the OLED display to the face mount using bolts and nuts. This will display the robot's emotions.
+
+13. **Connect ESP32 & Wiring**  
+    Attach the ESP32 to the protoboard and connect the servos, power supply, and OLED display. Match servo wires (brown to black) and ensure proper placement on the protoboard.  
+
+The robot dog I took up on had already its body assembled, so I continued with the remaining necessary steps.
+
+![Robot Dog Assembly](./Assets/robot_assembly.jpg)
