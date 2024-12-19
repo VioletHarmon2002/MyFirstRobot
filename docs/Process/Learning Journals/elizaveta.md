@@ -145,11 +145,15 @@ If the servos do not behave as expected, the pin connections can be checked and 
 ## Learning Question
 I want to learn how to create a 3D face, which steps should be implemented and study the laser techniques.
 
+So the first step, of course, is to come up with the plan of creating small tasks for every section.
+
 ## Tasks
 1. **Research and Planning**
    - Study existing 3D pyramid designs and their applications.
    - Identify suitable materials for the face.
    - Review laser cutting techniques.
+
+
 
 **Techniques**
 1. Vector Cutting
@@ -180,6 +184,22 @@ I want to learn how to create a 3D face, which steps should be implemented and s
 
 
 
+
+2. **Design**
+   - Use CAD software (e.g., AutoCAD, Fusion 360) to create a 2D layout for the pyramid faces.
+   - Include slots, tabs, or hinges for easy assembly.
+   - Design space for securely mounting the OLED display inside the pyramid.
+
+3. **Prototyping**
+   - Create a cardboard prototype using the design.
+   - Assemble the prototype to test fit and dimensions.
+   - Adjust the design based on findings from the prototype.
+
+4. **Assembly and Integration**
+   - Assemble the laser-cut pyramid faces using glue or fasteners.
+   - Mount the OLED display inside the pyramid.
+   - Ensure visibility of facial expressions through the pyramid's opening.
+   - Attach the pyramid face securely to the robot dog's head.
 
 
 
