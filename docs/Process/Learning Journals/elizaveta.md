@@ -209,7 +209,15 @@ So the first step, of course, is to come up with the plan of creating small task
 
 ## Challenges and Solutions
 
+Here are some probelms, a person may face, while working with lasercutting 
 
+- Challenge: Ensuring the OLED display is visible through the pyramid structure.
+  Solution: Experimented with different viewport designs and tested with various lighting conditions.
+
+- Challenge: Achieving a secure assembly method for the pyramid faces.
+  Solution: Tested different joining techniques (tabs and slots, hinges) to find the most stable configuration.
+
+  
 
 
 
