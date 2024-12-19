@@ -140,6 +140,17 @@ void loop() {
 If the servos do not behave as expected, the pin connections can be checked and ensure the servo library is correctly included and configured. 
 
 
+# Learning Story: Creating a 3D Pyramid Face Using Laser Cutting
+
+## Learning Question
+I want to learn how to create a 3D face, which steps should be implemented and study the laser techniques.
+
+
+
+
+
+
+
 
 
 
