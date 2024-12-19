@@ -145,6 +145,47 @@ If the servos do not behave as expected, the pin connections can be checked and 
 ## Learning Question
 I want to learn how to create a 3D face, which steps should be implemented and study the laser techniques.
 
+## Tasks
+1. **Research and Planning**
+   - Study existing 3D pyramid designs and their applications.
+   - Identify suitable materials for the face.
+   - Review laser cutting techniques.
+
+**Techniques**
+1. Vector Cutting
+- **What it is**: A process where the laser follows a path (vector line) to cut through the material completely.
+- **Use Cases**: Creating shapes, parts, or intricate designs that need to be separated from the material.
+- **Materials**: Wood, acrylic, cardboard, leather, and thin metals.
+- **Tips**: 
+  - Ensure lines in your design are hairline-thin for accurate cuts.
+  - Optimize cutting paths to reduce time and material waste.
+  - Use appropriate power and speed settings for clean edges.
+
+2. Raster Engraving
+- **What it is**: The laser scans back and forth (like a printer) to remove the surface of the material in a pattern or design.
+- **Use Cases**: Adding details, logos, or decorative textures to the material’s surface.
+- **Materials**: Wood, acrylic, leather, and coated metals.
+- **Tips**:
+  - Use high-resolution images for fine details.
+  - Adjust power and speed to control the depth of engraving.
+  - Test on scrap material to avoid overburning
+
+3. Scoring
+- **What it is**: A shallow cut into the surface without cutting all the way through.
+- **Use Cases**: Adding fold lines, light decorative marks, or assembly guides.
+- **Materials**: Paper, cardboard, and thin sheets of plastic or wood.
+- **Tips**: 
+  - Use lower power settings to avoid cutting through.
+  - Score lines can help with precise bending or folding.
+
+
+
+
+
+
+
+
+
 
 
 
